@@ -20,58 +20,63 @@ export default function DialogueBlock({ dialogues, onComplete }: DialogueBlockPr
   const [revealedLines, setRevealedLines] = useState<number>(0);
   const [revealedTranslations, setRevealedTranslations] = useState<Set<number>>(new Set());
 
-  const speak = (text: string, e: React.MouseEvent) => {
+  const speak = (text: string, speakerType: string, e: React.MouseEvent) => {
     e.stopPropagation(); // Don't trigger translation toggle
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       // Cancel any ongoing speech
       window.speechSynthesis.cancel();
       
       const utterance = new SpeechSynthesisUtterance(text);
-      
-      // Get available voices
       let voices = window.speechSynthesis.getVoices();
       
-      // 1. Prioritize High-Quality / Natural Online voices (Edge/Chrome)
-      // These usually sound much better and more human.
-      const highQualityPatterns = [
-        'Natural',     // Edge Online voices
-        'Online',      // Other online voices
-        'Google US',   // Chrome high-quality
-        'Premium'      // macOS high-quality
-      ];
+      // Categorize speakers into two roles to ensure voice contrast
+      const isPrimary = ['native', 'tourist', 'local'].includes(speakerType);
+      
+      // Define voice pools for each role
+      // Pool 1: Primary speakers (usually the "teacher" or "local")
+      const primaryNames = ['Aria', 'Jenny', 'Google US English', 'Samantha'];
+      // Pool 2: Secondary speakers (usually the "student" or "visitor")
+      const secondaryNames = ['Guy', 'David', 'Zira', 'Victoria', 'Microsoft Mark'];
 
-      // 2. Prioritize specifically American English (en-US)
-      let selectedVoice = voices.find(v => 
-        v.lang === 'en-US' && highQualityPatterns.some(p => v.name.includes(p))
-      );
+      let selectedVoice: SpeechSynthesisVoice | undefined;
 
-      // 3. Fallback to specific female voices known for quality
-      if (!selectedVoice) {
-        const preferredNames = ['Samantha', 'Aria', 'Jenny', 'Zira', 'Victoria'];
+      if (isPrimary) {
+        // Try to find a primary voice (preferring Natural/Online)
         selectedVoice = voices.find(v => 
-          v.lang.startsWith('en') && preferredNames.some(n => v.name.includes(n))
-        );
+          v.lang.startsWith('en-US') && 
+          (v.name.includes('Natural') || v.name.includes('Online')) &&
+          primaryNames.some(name => v.name.includes(name))
+        ) || voices.find(v => primaryNames.some(name => v.name.includes(name)));
+      } else {
+        // Try to find a secondary voice
+        selectedVoice = voices.find(v => 
+          v.lang.startsWith('en-US') && 
+          (v.name.includes('Natural') || v.name.includes('Online')) &&
+          secondaryNames.some(name => v.name.includes(name))
+        ) || voices.find(v => secondaryNames.some(name => v.name.includes(name)));
       }
 
-      // 4. Final fallback to any en-US voice
+      // Fallback if no specific voice found for that pool
       if (!selectedVoice) {
-        selectedVoice = voices.find(v => v.lang === 'en-US');
+        selectedVoice = voices.find(v => v.lang.startsWith('en-US') && (isPrimary ? !v.name.includes('Male') : true));
       }
 
       if (selectedVoice) {
         utterance.voice = selectedVoice;
-        // console.log('Selected voice:', selectedVoice.name); // Useful for debugging
       }
 
       utterance.lang = 'en-US';
       
-      // Fine-tuning for American English clarity
-      // 'Natural' voices usually sound best at rate 1.0, 
-      // but for students, 0.85-0.9 is often better.
+      // Distinct settings for each role to further differentiate
       const isNatural = selectedVoice?.name.includes('Natural');
-      utterance.rate = isNatural ? 0.92 : 0.82; 
-      utterance.pitch = isNatural ? 1.0 : 1.05; 
-      utterance.volume = 1.0;
+      if (isPrimary) {
+        utterance.rate = isNatural ? 0.95 : 0.85;
+        utterance.pitch = 1.0;
+      } else {
+        utterance.rate = isNatural ? 0.90 : 0.80;
+        // Slightly different pitch to distinguish even if voices are similar
+        utterance.pitch = isPrimary ? 1.0 : 1.08; 
+      }
       
       window.speechSynthesis.speak(utterance);
     }
@@ -125,7 +130,7 @@ export default function DialogueBlock({ dialogues, onComplete }: DialogueBlockPr
             {isVisible && (
               <button 
                 className={styles.audioButton} 
-                onClick={(e) => speak(line.english, e)}
+                onClick={(e) => speak(line.english, line.speaker, e)}
                 title="Ouça a pronúncia / Listen to pronunciation"
               >
                 🔊
