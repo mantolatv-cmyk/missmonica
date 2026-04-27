@@ -82,7 +82,7 @@ export default function ScenarioPage({ params }: ScenarioPageProps) {
 
 // Generic layout for all standard scenarios
 function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
-  const hasCulturalTip = !!scenario.culturalTip;
+  const hasCulturalTips = !!scenario.culturalTips && scenario.culturalTips.length > 0;
   const hasDialogueSets = !!scenario.dialogueSets && scenario.dialogueSets.length > 0;
   const [activeTab, setActiveTab] = useState<'dialogues' | 'vocabulary' | 'cultural' | 'practice'>('dialogues');
   const [activeDialogueSet, setActiveDialogueSet] = useState(0);
@@ -109,12 +109,12 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
         >
           🎮 Praticar / Practice
         </button>
-        {hasCulturalTip && (
+        {hasCulturalTips && (
           <button
             className={`${styles.tab} ${activeTab === 'cultural' ? styles.tabActive : ''}`}
             onClick={() => setActiveTab('cultural')}
           >
-            💡 Dica Cultural
+            💡 Dicas Culturais
           </button>
         )}
       </div>
@@ -182,8 +182,12 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
             )}
           </div>
         )}
-        {activeTab === 'cultural' && scenario.culturalTip && (
-          <CulturalTip tip={scenario.culturalTip} />
+        {activeTab === 'cultural' && scenario.culturalTips && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
+            {scenario.culturalTips.map((tip, idx) => (
+              <CulturalTip key={idx} tip={tip} />
+            ))}
+          </div>
         )}
       </div>
     </>
@@ -197,7 +201,7 @@ function DirectionsLayout({ scenario }: { scenario: typeof scenarios[0] }) {
   const sections = [
     { key: 'simulator' as const, label: '💬 Simulador', labelEn: 'Dialogue Simulator' },
     { key: 'flashcards' as const, label: '🃏 Flashcards', labelEn: 'Directional Flashcards' },
-    { key: 'cultural' as const, label: '💡 Dica Cultural', labelEn: 'Cultural Tip' },
+    { key: 'cultural' as const, label: '💡 Dicas Culturais', labelEn: 'Cultural Tips' },
     { key: 'vocabulary' as const, label: '📚 Vocabulário', labelEn: 'Vocabulary Game' },
   ];
 
@@ -250,12 +254,16 @@ function DirectionsLayout({ scenario }: { scenario: typeof scenarios[0] }) {
           </div>
         )}
 
-        {activeSection === 'cultural' && scenario.culturalTip && (
+        {activeSection === 'cultural' && scenario.culturalTips && (
           <div className={styles.section} id="section-cultural">
             <h2 className={styles.sectionTitle}>
-              💡 Dica Cultural / Cultural Tip
+              💡 Dicas Culturais / Cultural Tips
             </h2>
-            <CulturalTip tip={scenario.culturalTip} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
+              {scenario.culturalTips.map((tip, idx) => (
+                <CulturalTip key={idx} tip={tip} />
+              ))}
+            </div>
           </div>
         )}
 

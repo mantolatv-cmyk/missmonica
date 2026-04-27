@@ -45,7 +45,7 @@ export interface Scenario {
   dialogues: DialogueLine[];
   vocabulary: VocabularyItem[];
   flashcards?: FlashcardItem[];
-  culturalTip?: CulturalTipData;
+  culturalTips?: CulturalTipData[];
   dialogueSets?: DialogueSet[];
 }
 
@@ -83,12 +83,26 @@ export const scenarios: Scenario[] = [
       { english: "First time", portuguese: "Primeira vez" },
       { english: "I'm excited", portuguese: "Estou animado(a)" },
     ],
-    culturalTip: {
-      title: "Cultural Tip",
-      titlePt: "Dica Cultural",
-      content: "Americans love small talk! When meeting someone, they often ask 'How are you?' as a greeting — they expect a short answer like 'I'm good, thanks!' rather than a detailed response. A firm handshake, eye contact, and a smile go a long way!",
-      contentPt: "Americanos adoram conversa fiada! Ao conhecer alguém, eles costumam perguntar 'How are you?' como saudação — esperam uma resposta curta como 'I'm good, thanks!' em vez de uma resposta detalhada. Um aperto de mão firme, contato visual e um sorriso fazem toda a diferença!",
-    },
+    culturalTips: [
+      {
+        title: "Small Talk",
+        titlePt: "Conversa Fiada",
+        content: "Americans love small talk! They often ask 'How are you?' as a greeting. They expect a short answer like 'I'm good, thanks!' rather than a detailed response.",
+        contentPt: "Americanos adoram conversa fiada! Eles costumam perguntar 'How are you?' como saudação. Esperam uma resposta curta como 'I'm good, thanks!' em vez de detalhes.",
+      },
+      {
+        title: "Personal Space",
+        titlePt: "Espaço Pessoal",
+        content: "Personal space is vital. Maintain an arm's length distance. Avoid touching someone's arm or shoulder unless you are close friends.",
+        contentPt: "O espaço pessoal é vital. Mantenha a distância de um braço. Evite tocar no braço ou ombro de alguém, a menos que sejam amigos próximos.",
+      },
+      {
+        title: "Eye Contact",
+        titlePt: "Contato Visual",
+        content: "Direct eye contact is seen as a sign of honesty and confidence in the US. When talking to someone, look them in the eyes!",
+        contentPt: "O contato visual direto é visto como um sinal de honestidade e confiança nos EUA. Ao falar com alguém, olhe-os nos olhos!",
+      }
+    ],
   },
   {
     id: 'numbers',
@@ -123,12 +137,26 @@ export const scenarios: Scenario[] = [
       { english: "Per pound", portuguese: "Por libra" },
       { english: "Total", portuguese: "Total" },
     ],
-    culturalTip: {
-      title: "Cultural Tip",
-      titlePt: "Dica Cultural",
-      content: "In the US, prices displayed in stores do NOT include sales tax! The tax is added at the register, so your total will always be a little higher than the price on the tag. Tax varies by state — in New York it's about 8%, while some states like Oregon have no sales tax at all.",
-      contentPt: "Nos EUA, os preços nas lojas NÃO incluem o imposto sobre vendas (sales tax)! O imposto é adicionado no caixa, então seu total será sempre um pouco mais alto que o preço na etiqueta. O imposto varia por estado — em Nova York é cerca de 8%, enquanto alguns estados como Oregon não têm imposto sobre vendas.",
-    },
+    culturalTips: [
+      {
+        title: "Sales Tax",
+        titlePt: "Imposto sobre Vendas",
+        content: "Prices displayed in stores do NOT include sales tax! It's added at the register. Your total will always be higher than the price on the tag.",
+        contentPt: "Os preços nas lojas NÃO incluem o imposto sobre vendas! Ele é adicionado no caixa. Seu total será sempre maior que o preço na etiqueta.",
+      },
+      {
+        title: "Coins & Change",
+        titlePt: "Moedas e Troco",
+        content: "Get to know coins: Penny (1¢), Nickel (5¢), Dime (10¢), and Quarter (25¢). Quarters are essential for laundry and parking!",
+        contentPt: "Conheça as moedas: Penny (1¢), Nickel (5¢), Dime (10¢) e Quarter (25¢). Quarters são essenciais para lavanderia e estacionamento!",
+      },
+      {
+        title: "Paper Money",
+        titlePt: "Notas de Papel",
+        content: "All US bills are the same size and color (green)! Check the numbers carefully so you don't confuse a $1 bill with a $100 bill.",
+        contentPt: "Todas as notas americanas têm o mesmo tamanho e cor (verde)! Verifique os números com cuidado para não confundir uma nota de $1 com uma de $100.",
+      }
+    ],
   },
   {
     id: 'airport',
@@ -160,6 +188,26 @@ export const scenarios: Scenario[] = [
       { english: "Flight", portuguese: "Voo" },
       { english: "Arrival", portuguese: "Chegada" },
       { english: "Departure", portuguese: "Partida" },
+    ],
+    culturalTips: [
+      {
+        title: "Immigration Interview",
+        titlePt: "Entrevista de Imigração",
+        content: "Be direct and honest with officers. Have your return ticket and hotel address ready. They may ask about your job in Brazil.",
+        contentPt: "Seja direto e honesto com os oficiais. Tenha seu bilhete de volta e endereço do hotel prontos. Podem perguntar sobre seu trabalho no Brasil.",
+      },
+      {
+        title: "TSA Rules",
+        titlePt: "Regras do TSA",
+        content: "You must remove shoes, belts, and jackets at security. Liquids must be 3.4oz (100ml) or less in a clear bag.",
+        contentPt: "Você deve remover sapatos, cintos e casacos na segurança. Líquidos devem ter 100ml ou menos em um saco transparente.",
+      },
+      {
+        title: "Ground Transport",
+        titlePt: "Transporte Terrestre",
+        content: "Follow 'Ground Transportation' signs for Uber/Lyft or Taxis. Do not accept rides from people inside the terminal; use official areas.",
+        contentPt: "Siga as placas de 'Ground Transportation' para Uber/Lyft ou Táxis. Não aceite caronas de pessoas dentro do terminal; use as áreas oficiais.",
+      }
     ],
   },
   {
@@ -193,6 +241,26 @@ export const scenarios: Scenario[] = [
       { english: "Single room", portuguese: "Quarto individual" },
       { english: "Towels", portuguese: "Toalhas" },
     ],
+    culturalTips: [
+      {
+        title: "Resort Fees",
+        titlePt: "Taxas de Resort",
+        content: "Many hotels charge a mandatory 'Resort Fee' (Wi-Fi, pool) not included in the booking price. You pay it at check-out.",
+        contentPt: "Muitos hotéis cobram uma 'Taxa de Resort' obrigatória (Wi-Fi, piscina) não incluída na reserva. Você paga no check-out.",
+      },
+      {
+        title: "Hotel Tipping",
+        titlePt: "Gorjetas no Hotel",
+        content: "Tip the bellhop $1-2 per bag and leave $2-5 per night for housekeeping on the bedside table.",
+        contentPt: "Dê gorjeta ao carregador de $1-2 por mala e deixe $2-5 por noite para a limpeza no criado-mudo.",
+      },
+      {
+        title: "Valet Parking",
+        titlePt: "Valet (Estacionamento)",
+        content: "Valet parking is common in US hotels but expensive. Tip the valet driver $2-5 every time they bring your car.",
+        contentPt: "Estacionamento com manobrista é comum, mas caro. Dê $2-5 de gorjeta toda vez que trouxerem seu carro.",
+      }
+    ],
   },
   {
     id: 'restaurant',
@@ -224,6 +292,26 @@ export const scenarios: Scenario[] = [
       { english: "Tip", portuguese: "Gorjeta" },
       { english: "Waiter", portuguese: "Garçom" },
       { english: "To go", portuguese: "Para viagem" },
+    ],
+    culturalTips: [
+      {
+        title: "Tipping at Restaurants",
+        titlePt: "Gorjetas em Restaurantes",
+        content: "Tipping is mandatory! For table service, the standard is 18-20% before tax. Check if 'Gratuity' is already included.",
+        contentPt: "Dar gorjeta é obrigatório! Para serviço de mesa, o padrão é 18-20%. Verifique se a 'Gratuity' já está incluída.",
+      },
+      {
+        title: "Free Refills",
+        titlePt: "Refil Grátis",
+        content: "Most restaurants offer free refills on soda, iced tea, and coffee. You only pay for the first glass!",
+        contentPt: "A maioria dos restaurantes oferece refil grátis para refrigerante, chá gelado e café. Você só paga pelo primeiro copo!",
+      },
+      {
+        title: "Seating Policy",
+        titlePt: "Política de Assentos",
+        content: "Wait for the host/hostess to seat you. Look for signs that say 'Please wait to be seated' at the entrance.",
+        contentPt: "Espere o anfitrião te acomodar. Procure por placas que dizem 'Please wait to be seated' na entrada.",
+      }
     ],
   },
   {
@@ -266,12 +354,26 @@ export const scenarios: Scenario[] = [
       { english: "Traffic Light", portuguese: "Semáforo", icon: "🚦" },
       { english: "Sidewalk", portuguese: "Calçada", icon: "🛤️" },
     ],
-    culturalTip: {
-      title: "Cultural Tip",
-      titlePt: "Dica Cultural",
-      content: "Americans are generally very helpful to tourists, but they value personal space and directness. Always start with 'Excuse me' to get their attention, and it's perfectly fine to get straight to the point!",
-      contentPt: "Americanos geralmente são muito prestativos com turistas, mas valorizam espaço pessoal e objetividade. Sempre comece com 'Excuse me' para chamar a atenção, e é perfeitamente aceitável ir direto ao ponto!",
-    },
+    culturalTips: [
+      {
+        title: "Directness",
+        titlePt: "Objetividade",
+        content: "Americans value directness. Start with 'Excuse me' to get attention, then get straight to your question.",
+        contentPt: "Americanos valorizam objetividade. Comece com 'Excuse me' para chamar atenção e vá direto ao ponto.",
+      },
+      {
+        title: "Block Size",
+        titlePt: "Tamanho do Quarteirão",
+        content: "City blocks vary. In NYC, 'long blocks' (avenues) are much longer than 'short blocks' (streets). Walk accordingly!",
+        contentPt: "Quarteirões variam. Em NYC, 'long blocks' (avenidas) são bem mais longos que 'short blocks' (ruas). Planeje sua caminhada!",
+      },
+      {
+        title: "Public Safety",
+        titlePt: "Segurança Pública",
+        content: "If you are lost, go inside a store or cafe to check your map. Avoid looking at your phone in isolated areas at night.",
+        contentPt: "Se estiver perdido, entre em uma loja ou café para checar o mapa. Evite ficar no celular em áreas isoladas à noite.",
+      }
+    ],
   },
   {
     id: 'transport',
@@ -329,12 +431,26 @@ export const scenarios: Scenario[] = [
       { english: "Stop", portuguese: "Parada" },
       { english: "Metro card", portuguese: "Cartão de metrô" },
     ],
-    culturalTip: {
-      title: "Cultural Tip",
-      titlePt: "Dica Cultural",
-      content: "In the US, it's common to tip Uber and taxi drivers 15-20% of the fare. Many ride-share apps let you add the tip directly in the app after your ride. On the subway, keep to the right on escalators so people in a hurry can pass on the left!",
-      contentPt: "Nos EUA, é comum dar gorjeta de 15-20% da tarifa para motoristas de Uber e táxi. Muitos apps permitem adicionar a gorjeta diretamente no aplicativo após a corrida. No metrô, fique à direita nas escadas rolantes para que pessoas com pressa possam passar pela esquerda!",
-    },
+    culturalTips: [
+      {
+        title: "Transport Tipping",
+        titlePt: "Gorjeta no Transporte",
+        content: "Tip Uber and taxi drivers 15-20%. You can add the tip in the app after your ride.",
+        contentPt: "Dê gorjeta de 15-20% para motoristas de Uber e táxi. Você pode adicionar no app após a corrida.",
+      },
+      {
+        title: "Escalator Etiquette",
+        titlePt: "Etiqueta na Escada Rolante",
+        content: "On the subway, keep to the right on escalators. The left side is for people in a hurry to pass.",
+        contentPt: "No metrô, fique à direita nas escadas rolantes. O lado esquerdo é para quem tem pressa passar.",
+      },
+      {
+        title: "Safety First",
+        titlePt: "Segurança Primeiro",
+        content: "In the subway station, always stay behind the yellow line on the platform until the train stops.",
+        contentPt: "Na estação de metrô, sempre fique atrás da linha amarela na plataforma até o trem parar.",
+      }
+    ],
   },
   {
     id: 'medical',
@@ -384,12 +500,26 @@ export const scenarios: Scenario[] = [
       { english: "Prescription", portuguese: "Receita médica" },
       { english: "Insurance", portuguese: "Seguro saúde" },
     ],
-    culturalTip: {
-      title: "Cultural Tip",
-      titlePt: "Dica Cultural",
-      content: "Medical care in the US is very expensive. Always travel with health insurance! For minor issues, look for an 'Urgent Care' clinic instead of the 'Emergency Room' (ER) to save time and money. Dial 911 only for life-threatening emergencies.",
-      contentPt: "O atendimento médico nos EUA é muito caro. Sempre viaje com seguro saúde! Para problemas menores, procure uma clínica de 'Urgent Care' em vez do 'Emergency Room' (ER) para economizar tempo e dinheiro. Ligue para 911 apenas para emergências graves.",
-    },
+    culturalTips: [
+      {
+        title: "Medical Costs",
+        titlePt: "Custos Médicos",
+        content: "US healthcare is expensive. Dial 911 only for life-threatening emergencies. Use 'Urgent Care' for minor issues.",
+        contentPt: "A saúde nos EUA é cara. Ligue 911 apenas para emergências graves. Use 'Urgent Care' para problemas menores.",
+      },
+      {
+        title: "Pharmacy vs Drugstore",
+        titlePt: "Farmácia vs Drogaria",
+        content: "Stores like CVS or Walgreens are 'drugstores' where you can buy snacks and makeup. The 'pharmacy' is just the counter for medicine.",
+        contentPt: "Lojas como CVS ou Walgreens são 'drugstores' onde você compra lanches e maquiagem. A 'pharmacy' é apenas o balcão de remédios.",
+      },
+      {
+        title: "Medicine Labels",
+        titlePt: "Rótulos de Remédios",
+        content: "Always read the 'Drug Facts' label on over-the-counter medicine. It tells you the dosage and active ingredients.",
+        contentPt: "Sempre leia o rótulo 'Drug Facts' em remédios de venda livre. Ele informa a dosagem e os ingredientes ativos.",
+      }
+    ],
   },
   {
     id: 'entertainment',
@@ -439,11 +569,25 @@ export const scenarios: Scenario[] = [
       { english: "Performance", portuguese: "Apresentação" },
       { english: "Souvenir", portuguese: "Lembrancinha" },
     ],
-    culturalTip: {
-      title: "Cultural Tip",
-      titlePt: "Dica Cultural",
-      content: "For Broadway shows, you can find discounted tickets at the 'TKTS' booths in Times Square. At many museums, like the MET, you might see 'suggested admission', but most tourists pay the full price. Always check if a reservation is needed!",
-      contentPt: "Para shows da Broadway, você pode encontrar ingressos com desconto nos guichês 'TKTS' na Times Square. Em muitos museus, como o MET, você pode ver 'entrada sugerida', mas a maioria dos turistas paga o preço total. Sempre verifique se é necessário fazer reserva!",
-    },
+    culturalTips: [
+      {
+        title: "TKTS Booths",
+        titlePt: "Guichês TKTS",
+        content: "Find discounted Broadway tickets at 'TKTS' booths in Times Square for same-day performances.",
+        contentPt: "Encontre ingressos da Broadway com desconto nos guichês 'TKTS' na Times Square para shows no mesmo dia.",
+      },
+      {
+        title: "Suggested Admission",
+        titlePt: "Entrada Sugerida",
+        content: "Some museums have 'suggested admission'. You can choose how much to pay, but most tourists pay the full amount.",
+        contentPt: "Alguns museus têm 'entrada sugerida'. Você escolhe quanto pagar, mas a maioria dos turistas paga o valor total.",
+      },
+      {
+        title: "Intermission",
+        titlePt: "Intervalo",
+        content: "Broadway shows usually have a 15-minute intermission. It's the perfect time for a quick bathroom break or to buy water.",
+        contentPt: "Shows da Broadway costumam ter um intervalo de 15 minutos. É o momento ideal para ir ao banheiro ou comprar água.",
+      }
+    ],
   },
 ];
