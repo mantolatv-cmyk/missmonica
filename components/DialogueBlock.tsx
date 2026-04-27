@@ -28,51 +28,49 @@ export default function DialogueBlock({ dialogues, onComplete }: DialogueBlockPr
       
       const utterance = new SpeechSynthesisUtterance(text);
       
-      // Try to find a high-quality female voice
+      // Get available voices
       let voices = window.speechSynthesis.getVoices();
       
-      // If voices are not loaded yet, we can't do much on the first click, 
-      // but usually they are by the time the user clicks a bubble.
-      
-      // Preferred voices (prioritized list of female-sounding voices across OSs)
-      const preferredVoices = [
-        'Google US English', 
-        'Microsoft Zira', 
-        'Microsoft Aria',
-        'Samantha', 
-        'Victoria', 
-        'Susan', 
-        'English (United States)',
-        'en-US'
+      // 1. Prioritize High-Quality / Natural Online voices (Edge/Chrome)
+      // These usually sound much better and more human.
+      const highQualityPatterns = [
+        'Natural',     // Edge Online voices
+        'Online',      // Other online voices
+        'Google US',   // Chrome high-quality
+        'Premium'      // macOS high-quality
       ];
 
+      // 2. Prioritize specifically American English (en-US)
       let selectedVoice = voices.find(v => 
-        preferredVoices.some(name => v.name.includes(name)) && 
-        v.lang.startsWith('en') && 
-        (v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('woman') || 
-         v.name.includes('Zira') || v.name.includes('Samantha') || v.name.includes('Aria') || v.name.includes('Google'))
+        v.lang === 'en-US' && highQualityPatterns.some(p => v.name.includes(p))
       );
 
-      // Fallback: any voice that includes "female" or "woman"
+      // 3. Fallback to specific female voices known for quality
       if (!selectedVoice) {
+        const preferredNames = ['Samantha', 'Aria', 'Jenny', 'Zira', 'Victoria'];
         selectedVoice = voices.find(v => 
-          (v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('woman')) && 
-          v.lang.startsWith('en')
+          v.lang.startsWith('en') && preferredNames.some(n => v.name.includes(n))
         );
       }
 
-      // Final fallback to any US English voice
+      // 4. Final fallback to any en-US voice
       if (!selectedVoice) {
         selectedVoice = voices.find(v => v.lang === 'en-US');
       }
 
       if (selectedVoice) {
         utterance.voice = selectedVoice;
+        // console.log('Selected voice:', selectedVoice.name); // Useful for debugging
       }
 
       utterance.lang = 'en-US';
-      utterance.rate = 0.82; // Slightly slower for a more natural, teaching pace
-      utterance.pitch = 1.1;  // Slightly higher pitch for a friendly female tone
+      
+      // Fine-tuning for American English clarity
+      // 'Natural' voices usually sound best at rate 1.0, 
+      // but for students, 0.85-0.9 is often better.
+      const isNatural = selectedVoice?.name.includes('Natural');
+      utterance.rate = isNatural ? 0.92 : 0.82; 
+      utterance.pitch = isNatural ? 1.0 : 1.05; 
       utterance.volume = 1.0;
       
       window.speechSynthesis.speak(utterance);
