@@ -1,0 +1,130 @@
+.card {
+  position: relative;
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition-spring), box-shadow var(--transition-base);
+  animation: fadeIn 600ms ease both;
+  border: 1px solid var(--color-border);
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+.card:nth-child(1) { animation-delay: 100ms; }
+.card:nth-child(2) { animation-delay: 200ms; }
+.card:nth-child(3) { animation-delay: 300ms; }
+.card:nth-child(4) { animation-delay: 400ms; }
+.card:nth-child(5) { animation-delay: 500ms; }
+.card:nth-child(6) { animation-delay: 600ms; }
+.card:nth-child(7) { animation-delay: 700ms; }
+
+/* Color variants for glow */
+.card.lavender:hover { box-shadow: var(--shadow-glow-lavender); }
+.card.mint:hover { box-shadow: var(--shadow-glow-mint); }
+.card.peach:hover { box-shadow: var(--shadow-glow-peach); }
+.card.sky:hover { box-shadow: var(--shadow-glow-sky); }
+.card.gold:hover { box-shadow: 0 8px 30px rgba(249, 217, 119, 0.4); }
+.card.rose:hover { box-shadow: 0 8px 30px rgba(244, 143, 177, 0.4); }
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .image {
+  transform: scale(1.08);
+}
+
+.iconOverlay {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 251, 250, 0.9);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-spring);
+}
+
+.card:hover .iconOverlay {
+  transform: rotate(-8deg) scale(1.1);
+}
+
+.content {
+  padding: var(--space-lg);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.titlePt {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+  font-weight: var(--fw-medium);
+  margin-bottom: var(--space-sm);
+}
+
+.description {
+  font-size: var(--fs-sm);
+  color: var(--color-text-light);
+  line-height: 1.5;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--space-md);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-lg);
+  transition: transform var(--transition-spring), background var(--transition-fast);
+}
+
+.card.lavender .arrow { background: var(--color-lavender); }
+.card.mint .arrow { background: var(--color-mint); }
+.card.peach .arrow { background: var(--color-peach); }
+.card.sky .arrow { background: var(--color-sky); }
+.card.gold .arrow { background: var(--color-gold); }
+.card.rose .arrow { background: #F8BBD0; }
+
+.card:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Color accents at bottom */
+.accentBar {
+  height: 4px;
+  width: 100%;
+}
+
+.card.lavender .accentBar { background: linear-gradient(90deg, var(--color-lavender), var(--color-lavender-deep)); }
+.card.mint .accentBar { background: linear-gradient(90deg, var(--color-mint), var(--color-mint-deep)); }
+.card.peach .accentBar { background: linear-gradient(90deg, var(--color-peach), var(--color-peach-deep)); }
+.card.sky .accentBar { background: linear-gradient(90deg, var(--color-sky), var(--color-sky-deep)); }
+.card.gold .accentBar { background: linear-gradient(90deg, var(--color-gold), var(--color-gold-deep)); }
+.card.rose .accentBar { background: linear-gradient(90deg, #F8BBD0, #E91E63); }

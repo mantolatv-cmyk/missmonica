@@ -1,0 +1,154 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  padding: var(--space-lg);
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  animation: scaleIn 400ms ease;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.titleArea {
+  text-align: center;
+}
+
+.title {
+  font-size: var(--fs-xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.subtitle {
+  font-size: var(--fs-sm);
+  color: var(--color-text-light);
+}
+
+.gameArea {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  min-height: 250px;
+}
+
+.targetArea {
+  min-height: 80px;
+  padding: var(--space-md);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  transition: border-color var(--transition-base);
+}
+
+.targetAreaActive {
+  border-color: var(--color-sky-deep);
+}
+
+.wordsArea {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+  padding: var(--space-md);
+}
+
+.wordCard {
+  padding: var(--space-sm) var(--space-md);
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: var(--fw-medium);
+  transition: all var(--transition-base);
+  user-select: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.wordCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-sky-deep);
+  box-shadow: var(--shadow-md);
+}
+
+.wordCardDisabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.wordCardSelected {
+  background: var(--color-sky);
+  border-color: var(--color-sky-deep);
+}
+
+.translationBox {
+  text-align: center;
+  padding: var(--space-md);
+  background: var(--color-mint);
+  border-radius: var(--radius-md);
+  font-style: italic;
+  font-size: var(--fs-base);
+  color: var(--color-text);
+  animation: fadeIn 500ms ease;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.button {
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: var(--radius-full);
+  font-weight: var(--fw-bold);
+  transition: all var(--transition-spring);
+}
+
+.checkButton {
+  background: linear-gradient(135deg, var(--color-mint-deep), var(--color-success));
+  color: white;
+}
+
+.resetButton {
+  background: var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.nextButton {
+  background: linear-gradient(135deg, var(--color-sky-deep), var(--color-lavender-deep));
+  color: white;
+}
+
+.feedback {
+  text-align: center;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-lg);
+  margin-top: var(--space-md);
+  min-height: 1.5em;
+}
+
+.feedbackSuccess { color: var(--color-success); }
+.feedbackError { color: var(--color-error); }
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--color-sky-deep);
+  transition: width 0.5s ease-out;
+}

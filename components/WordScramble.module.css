@@ -1,0 +1,82 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding: var(--space-xl);
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.scrambledWord {
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-extrabold);
+  letter-spacing: 4px;
+  color: var(--color-sky-deep);
+  text-align: center;
+  margin: var(--space-lg) 0;
+  text-transform: uppercase;
+}
+
+.inputArea {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.input {
+  width: 100%;
+  padding: var(--space-md);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-lg);
+  text-align: center;
+  outline: none;
+  transition: border-color var(--transition-base);
+}
+
+.input:focus {
+  border-color: var(--color-sky-deep);
+}
+
+.translation {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  font-size: var(--fs-base);
+}
+
+.feedback {
+  text-align: center;
+  font-weight: var(--fw-bold);
+  min-height: 1.5em;
+}
+
+.success { color: var(--color-success); }
+.error { color: var(--color-error); }
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.button {
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: var(--radius-full);
+  font-weight: var(--fw-bold);
+  cursor: pointer;
+  transition: all var(--transition-spring);
+}
+
+.checkButton {
+  background: var(--color-sky-deep);
+  color: white;
+}
+
+.nextButton {
+  background: var(--color-mint-deep);
+  color: white;
+}

@@ -1,0 +1,195 @@
+.container {
+  padding: var(--space-lg) 0;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.headerTitle {
+  font-family: var(--font-heading);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.headerSub {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+@media (max-width: 600px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.columnTitle {
+  font-family: var(--font-heading);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.wordList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.wordItem {
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  user-select: none;
+}
+
+.wordItem:hover {
+  border-color: var(--color-lavender-deep);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.wordItemSelected {
+  border-color: var(--color-sky-deep);
+  background: var(--color-sky);
+  box-shadow: var(--shadow-glow-sky);
+  transform: scale(1.03);
+}
+
+.wordItemCorrect {
+  border-color: var(--color-success);
+  background: rgba(107, 203, 142, 0.15);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.wordItemIncorrect {
+  animation: shake 500ms ease;
+  border-color: var(--color-error);
+  background: rgba(242, 139, 130, 0.15);
+}
+
+.wordItemMatched {
+  border-color: var(--color-success);
+  background: rgba(107, 203, 142, 0.15);
+  pointer-events: none;
+  opacity: 0.7;
+  position: relative;
+}
+
+.wordItemMatched::after {
+  content: '✓';
+  position: absolute;
+  right: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-success);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-lg);
+}
+
+.celebration {
+  text-align: center;
+  padding: var(--space-2xl);
+  animation: scaleIn 500ms ease;
+}
+
+.celebrationTitle {
+  font-family: var(--font-heading);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  margin-bottom: var(--space-md);
+}
+
+.celebrationSub {
+  font-size: var(--fs-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.resetButton {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-xl);
+  background: linear-gradient(135deg, var(--color-mint-deep), var(--color-sky-deep));
+  color: white;
+  border-radius: var(--radius-full);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-base);
+  cursor: pointer;
+  border: none;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-spring), box-shadow var(--transition-base);
+}
+
+.resetButton:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Confetti particles */
+.confettiContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.confettiPiece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  animation: confettiFall 3s ease-out forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.scoreBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+}
+
+.scoreBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  background: var(--color-cream);
+  border-radius: var(--radius-full);
+  font-weight: var(--fw-semibold);
+}

@@ -1,0 +1,91 @@
+.card {
+  position: relative;
+  background: linear-gradient(135deg, #FFF0ED 0%, #FFF5F3 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl) var(--space-2xl);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  animation: fadeIn 600ms ease both;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--radius-xl);
+  padding: 2px;
+  background: linear-gradient(135deg, var(--color-peach-deep), var(--color-gold-deep), var(--color-peach));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.iconBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--color-peach), var(--color-gold));
+  border-radius: var(--radius-md);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.titlePt {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+  font-weight: var(--fw-medium);
+}
+
+.content {
+  font-size: var(--fs-base);
+  line-height: 1.8;
+  color: var(--color-text);
+  font-style: italic;
+  position: relative;
+  padding-left: var(--space-lg);
+  border-left: 3px solid var(--color-gold);
+}
+
+.contentPt {
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin-top: var(--space-md);
+  font-style: normal;
+  padding-left: var(--space-lg);
+  border-left: 3px solid var(--color-peach);
+}
+
+/* Decorative corner */
+.card::after {
+  content: '💡';
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  font-size: 2rem;
+  opacity: 0.15;
+}

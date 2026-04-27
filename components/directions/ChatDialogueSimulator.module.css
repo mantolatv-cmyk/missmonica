@@ -1,0 +1,202 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.chatArea {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  min-height: 200px;
+  padding: var(--space-lg);
+  background: var(--color-cream);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  margin-bottom: var(--space-lg);
+}
+
+.bubble {
+  max-width: 80%;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  position: relative;
+}
+
+.bubbleTourist {
+  align-self: flex-end;
+  background: var(--color-sky);
+  border-bottom-right-radius: 4px;
+  animation: fadeInRight 400ms ease both;
+}
+
+.bubbleLocal {
+  align-self: flex-start;
+  background: var(--color-mint);
+  border-bottom-left-radius: 4px;
+  animation: fadeInLeft 400ms ease both;
+}
+
+.speakerTag {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--space-xs);
+  opacity: 0.7;
+}
+
+.english {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text);
+}
+
+.portuguese {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+  font-style: italic;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 400ms ease, opacity 300ms ease, padding 300ms ease;
+  padding-top: 0;
+}
+
+.portugueseVisible {
+  max-height: 80px;
+  opacity: 1;
+  padding-top: var(--space-xs);
+}
+
+/* Typing indicator */
+.typingIndicator {
+  align-self: flex-start;
+  background: var(--color-mint);
+  border-radius: var(--radius-lg);
+  border-bottom-left-radius: 4px;
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  gap: 4px;
+  max-width: 80px;
+}
+
+.typingIndicator.typingRight {
+  align-self: flex-end;
+  background: var(--color-sky);
+  border-bottom-left-radius: var(--radius-lg);
+  border-bottom-right-radius: 4px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-text-light);
+  border-radius: 50%;
+  animation: typing 1.4s ease-in-out infinite;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Controls */
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.nextButton {
+  padding: var(--space-md) var(--space-2xl);
+  background: linear-gradient(135deg, var(--color-mint-deep), var(--color-sky-deep));
+  color: white;
+  border-radius: var(--radius-full);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-base);
+  cursor: pointer;
+  border: none;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-spring), box-shadow var(--transition-base);
+}
+
+.nextButton:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+.nextButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Progress dots */
+.progressDots {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.progressDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-border);
+  transition: all var(--transition-base);
+}
+
+.progressDotActive {
+  background: var(--color-mint-deep);
+  transform: scale(1.3);
+}
+
+.progressDotDone {
+  background: var(--color-success);
+}
+
+/* Completion */
+.completion {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+  animation: scaleIn 500ms ease;
+}
+
+.completionTitle {
+  font-family: var(--font-heading);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  margin-bottom: var(--space-sm);
+}
+
+.completionSub {
+  font-size: var(--fs-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.resetButton {
+  padding: var(--space-sm) var(--space-xl);
+  background: linear-gradient(135deg, var(--color-peach-deep), var(--color-gold-deep));
+  color: white;
+  border-radius: var(--radius-full);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-base);
+  cursor: pointer;
+  border: none;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-spring);
+}
+
+.resetButton:hover {
+  transform: scale(1.05);
+}
+
+.tapHint {
+  font-size: var(--fs-xs);
+  color: var(--color-text-light);
+  animation: pulse 2s ease-in-out infinite;
+}

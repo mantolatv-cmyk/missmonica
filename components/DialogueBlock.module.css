@@ -1,0 +1,122 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.bubble {
+  max-width: 85%;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: box-shadow var(--transition-base);
+  animation: fadeIn 400ms ease both;
+}
+
+.bubble:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Speaker alignment */
+.bubbleNative,
+.bubbleLocal {
+  align-self: flex-start;
+  background: var(--color-mint);
+  border-bottom-left-radius: 4px;
+}
+
+.bubbleStudent,
+.bubbleTourist {
+  align-self: flex-end;
+  background: var(--color-sky);
+  border-bottom-right-radius: 4px;
+}
+
+.speakerLabel {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.bubbleNative .speakerLabel,
+.bubbleLocal .speakerLabel {
+  color: var(--color-mint-deep);
+}
+
+.bubbleStudent .speakerLabel,
+.bubbleTourist .speakerLabel {
+  color: var(--color-sky-deep);
+}
+
+.english {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.portuguese {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+  font-style: italic;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 400ms ease, opacity 300ms ease, margin 300ms ease;
+  margin-top: 0;
+}
+
+.portugueseVisible {
+  max-height: 100px;
+  opacity: 1;
+  margin-top: var(--space-xs);
+}
+
+.tapHint {
+  font-size: var(--fs-xs);
+  color: var(--color-text-light);
+  text-align: center;
+  margin-top: var(--space-sm);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  max-height: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.audioButton {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  background: white;
+  border-radius: var(--radius-full);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-spring), background var(--transition-base);
+  z-index: 2;
+}
+
+.audioButton:hover {
+  transform: scale(1.1);
+  background: var(--color-lavender);
+}
+
+.bubble {
+  position: relative; /* Ensure position relative for the absolute audio button */
+}
+

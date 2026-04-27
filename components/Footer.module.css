@@ -1,0 +1,38 @@
+.footer {
+  margin-top: var(--space-4xl);
+  padding: var(--space-2xl) 0;
+  background: linear-gradient(180deg, transparent 0%, var(--color-cream-dark) 100%);
+  border-top: 1px solid var(--color-border);
+}
+
+.footerInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  text-align: center;
+}
+
+.encouragement {
+  font-family: var(--font-heading);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.encouragementPt {
+  font-size: var(--fs-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.credits {
+  font-size: var(--fs-sm);
+  color: var(--color-text-light);
+}
+
+.heart {
+  color: var(--color-peach-deep);
+  display: inline-block;
+  animation: pulse 2s ease-in-out infinite;
+}
