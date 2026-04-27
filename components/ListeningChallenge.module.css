@@ -1,0 +1,129 @@
+.gameContainer {
+  background: white;
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--primary-light);
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.startScreen h3 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: var(--space-md);
+}
+
+.primaryButton {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: var(--space-lg);
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 4px 12px rgba(255, 138, 128, 0.3);
+}
+
+.quizScreen {
+  width: 100%;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: var(--space-xl);
+  padding: 0 var(--space-md);
+}
+
+.stats span {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.replayButton {
+  background: #f0f0f0;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.replayButton:hover {
+  background: #e0e0e0;
+}
+
+.optionsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.optionButton {
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  padding: 1.2rem;
+  border-radius: var(--radius-md);
+  text-align: left;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.optionButton:hover:not(:disabled) {
+  border-color: var(--primary-light);
+  background: var(--surface);
+}
+
+.optionButton.correct {
+  background: #e8f5e9;
+  border-color: #4caf50;
+  color: #2e7d32;
+}
+
+.optionButton.wrong {
+  background: #ffebee;
+  border-color: #ef5350;
+  color: #c62828;
+}
+
+.feedback {
+  margin-top: var(--space-xl);
+  animation: fadeIn 0.3s ease;
+}
+
+.correctText {
+  color: #2e7d32;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.wrongText {
+  color: #c62828;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

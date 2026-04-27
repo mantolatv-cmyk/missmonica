@@ -1,0 +1,119 @@
+.gameContainer {
+  background: white;
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--primary-light);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.screen {
+  width: 100%;
+  animation: slideIn 0.3s ease;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: var(--space-xl);
+}
+
+.timer {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--primary);
+  background: var(--surface);
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+}
+
+.score {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #2e7d32;
+}
+
+.questionCard {
+  margin-bottom: var(--space-xl);
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  color: #666;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.portugueseWord {
+  font-size: 2.5rem;
+  color: #333;
+  margin: 0;
+}
+
+.optionsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.optionButton {
+  background: var(--surface);
+  border: 2px solid var(--primary-light);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.optionButton:active {
+  transform: scale(0.95);
+  background: var(--primary-light);
+}
+
+.finalScore {
+  margin: var(--space-xl) 0;
+}
+
+.scoreNumber {
+  font-size: 5rem;
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+  margin: var(--space-sm) 0;
+}
+
+.primaryButton {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 138, 128, 0.4);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}

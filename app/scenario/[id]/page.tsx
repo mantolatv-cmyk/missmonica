@@ -12,6 +12,8 @@ import DirectionalFlashcard from '@/components/directions/DirectionalFlashcard';
 import CulturalTip from '@/components/directions/CulturalTip';
 import SentenceBuilder from '@/components/SentenceBuilder';
 import WordScramble from '@/components/WordScramble';
+import ListeningChallenge from '@/components/ListeningChallenge';
+import SpeedRound from '@/components/SpeedRound';
 import { scenarios } from '@/data/scenarios';
 import styles from './page.module.css';
 
@@ -86,7 +88,7 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
   const hasDialogueSets = !!scenario.dialogueSets && scenario.dialogueSets.length > 0;
   const [activeTab, setActiveTab] = useState<'dialogues' | 'vocabulary' | 'cultural' | 'practice'>('dialogues');
   const [activeDialogueSet, setActiveDialogueSet] = useState(0);
-  const [activePracticeMode, setActivePracticeMode] = useState<'sentences' | 'scramble'>('sentences');
+  const [activePracticeMode, setActivePracticeMode] = useState<'sentences' | 'scramble' | 'listening' | 'speed'>('sentences');
 
   return (
     <>
@@ -169,16 +171,37 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
                 className={`${styles.sectionPill} ${activePracticeMode === 'scramble' ? styles.sectionPillActive : ''}`}
                 onClick={() => setActivePracticeMode('scramble')}
               >
-                🔠 Palavra Embaralhada
+                🔠 Embaralhar
+              </button>
+              <button
+                className={`${styles.sectionPill} ${activePracticeMode === 'listening' ? styles.sectionPillActive : ''}`}
+                onClick={() => setActivePracticeMode('listening')}
+              >
+                🎧 Listening
+              </button>
+              <button
+                className={`${styles.sectionPill} ${activePracticeMode === 'speed' ? styles.sectionPillActive : ''}`}
+                onClick={() => setActivePracticeMode('speed')}
+              >
+                ⚡ Speed
               </button>
             </div>
 
-            {activePracticeMode === 'sentences' ? (
+            {activePracticeMode === 'sentences' && (
               <SentenceBuilder 
                 dialogues={hasDialogueSets ? scenario.dialogueSets![activeDialogueSet].dialogues : scenario.dialogues} 
               />
-            ) : (
+            )}
+            {activePracticeMode === 'scramble' && (
               <WordScramble vocabulary={scenario.vocabulary} />
+            )}
+            {activePracticeMode === 'listening' && (
+              <ListeningChallenge 
+                dialogues={hasDialogueSets ? scenario.dialogueSets![activeDialogueSet].dialogues : scenario.dialogues} 
+              />
+            )}
+            {activePracticeMode === 'speed' && (
+              <SpeedRound vocabulary={scenario.vocabulary} />
             )}
           </div>
         )}
@@ -196,13 +219,15 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
 
 // Enhanced directions layout with 3 sections
 function DirectionsLayout({ scenario }: { scenario: typeof scenarios[0] }) {
-  const [activeSection, setActiveSection] = useState<'simulator' | 'flashcards' | 'cultural' | 'vocabulary'>('simulator');
+  const [activeSection, setActiveSection] = useState<'simulator' | 'flashcards' | 'cultural' | 'vocabulary' | 'listening' | 'speed'>('simulator');
 
   const sections = [
     { key: 'simulator' as const, label: '💬 Simulador', labelEn: 'Dialogue Simulator' },
     { key: 'flashcards' as const, label: '🃏 Flashcards', labelEn: 'Directional Flashcards' },
+    { key: 'listening' as const, label: '🎧 Listening', labelEn: 'Audio Quiz' },
+    { key: 'speed' as const, label: '⚡ Speed Round', labelEn: 'Fast Vocabulary' },
     { key: 'cultural' as const, label: '💡 Dicas Culturais', labelEn: 'Cultural Tips' },
-    { key: 'vocabulary' as const, label: '📚 Vocabulário', labelEn: 'Vocabulary Game' },
+    { key: 'vocabulary' as const, label: '📚 Vocabulário', labelEn: 'Vocabulary Match' },
   ];
 
   return (
@@ -251,6 +276,20 @@ function DirectionsLayout({ scenario }: { scenario: typeof scenarios[0] }) {
               Tap each card to flip and see the Portuguese translation. Learn essential directional vocabulary!
             </p>
             <DirectionalFlashcard flashcards={scenario.flashcards} />
+          </div>
+        )}
+
+        {activeSection === 'listening' && (
+          <div className={styles.section} id="section-listening">
+            <h2 className={styles.sectionTitle}>🎧 Desafio de Audição</h2>
+            <ListeningChallenge dialogues={scenario.dialogues} />
+          </div>
+        )}
+
+        {activeSection === 'speed' && (
+          <div className={styles.section} id="section-speed">
+            <h2 className={styles.sectionTitle}>⚡ Speed Round</h2>
+            <SpeedRound vocabulary={scenario.vocabulary} />
           </div>
         )}
 
