@@ -40,7 +40,7 @@ export interface Scenario {
   description: string;
   descriptionPt: string;
   icon: string;
-  color: 'lavender' | 'mint' | 'peach' | 'sky' | 'gold' | 'rose';
+  color: 'lavender' | 'mint' | 'peach' | 'sky' | 'gold' | 'rose' | 'orange' | 'blue' | 'indigo';
   imagePath: string;
   dialogues: DialogueLine[];
   vocabulary: VocabularyItem[];
@@ -587,6 +587,147 @@ export const scenarios: Scenario[] = [
         titlePt: "Intervalo",
         content: "Broadway shows usually have a 15-minute intermission. It's the perfect time for a quick bathroom break or to buy water.",
         contentPt: "Shows da Broadway costumam ter um intervalo de 15 minutos. É o momento ideal para ir ao banheiro ou comprar água.",
+      }
+    ],
+  },
+  {
+    id: 'cafe',
+    title: 'Café & Fast Food',
+    titlePt: 'Café e Fast Food',
+    description: 'Order at Starbucks, customize your coffee, and navigate fast food drive-thrus.',
+    descriptionPt: 'Peça no Starbucks, personalize seu café e navegue pelo drive-thru.',
+    icon: '☕',
+    color: 'orange',
+    imagePath: '/images/cafe_scene.png',
+    dialogues: [],
+    dialogueSets: [
+      {
+        title: 'At Starbucks',
+        titlePt: 'No Starbucks',
+        icon: '🥤',
+        dialogues: [
+          { speaker: 'student', english: "Hi! Can I get a Grande Latte, please?", portuguese: "Oi! Pode me dar um Latte Grande, por favor?" },
+          { speaker: 'native', english: "Sure! Would you like that hot or iced?", portuguese: "Claro! Você quer quente ou gelado?" },
+          { speaker: 'student', english: "Iced, please. And can I have oat milk instead of whole milk?", portuguese: "Gelado, por favor. E posso querer leite de aveia em vez de leite integral?" },
+          { speaker: 'native', english: "No problem. Any flavor? Vanilla or caramel?", portuguese: "Sem problema. Algum sabor? Baunilha ou caramelo?" },
+          { speaker: 'student', english: "Just vanilla, please. And can I have it with less ice?", portuguese: "Só baunilha, por favor. E pode ser com menos gelo?" },
+          { speaker: 'native', english: "Got it. What's your name for the cup?", portuguese: "Entendi. Qual o seu nome para o copo?" },
+          { speaker: 'student', english: "It's Maria.", portuguese: "É Maria." },
+        ],
+      },
+      {
+        title: 'Fast Food Order',
+        titlePt: 'Pedido Fast Food',
+        icon: '🍔',
+        dialogues: [
+          { speaker: 'native', english: "Welcome to Burger King! Will this be for here or to go?", portuguese: "Bem-vindo ao Burger King! Vai ser para comer aqui ou para levar?" },
+          { speaker: 'student', english: "To go, please. I'd like a number one combo.", portuguese: "Para levar, por favor. Eu queria o combo número um." },
+          { speaker: 'native', english: "Would you like to medium or large your meal?", portuguese: "Você quer o combo médio ou grande?" },
+          { speaker: 'student', english: "Medium is fine. Can I have a Coke with that?", portuguese: "Médio está bom. Pode ser uma Coca com isso?" },
+          { speaker: 'native', english: "Sure. Anything else? Apple pie or cookies?", portuguese: "Claro. Algo mais? Torta de maçã ou cookies?" },
+          { speaker: 'student', english: "No, thank you. That's all.", portuguese: "Não, obrigado. Só isso." },
+        ],
+      },
+    ],
+    vocabulary: [
+      { english: "Tall / Grande / Venti", portuguese: "Pequeno / Médio / Grande (Starbucks)" },
+      { english: "Whole milk", portuguese: "Leite integral" },
+      { english: "Oat milk", portuguese: "Leite de aveia" },
+      { english: "Decaf", portuguese: "Descafeinado" },
+      { english: "Whipped cream", portuguese: "Chantilly" },
+      { english: "Drive-thru", portuguese: "Drive-thru" },
+      { english: "For here / To go", portuguese: "Para comer aqui / Para levar" },
+      { english: "Combo / Meal", portuguese: "Combo / Refeição" },
+    ],
+    culturalTips: [
+      {
+        title: "Starbucks Sizes",
+        titlePt: "Tamanhos Starbucks",
+        content: "Starbucks uses unique names: Tall (12oz), Grande (16oz), and Venti (24oz). If you just say 'small' or 'medium', they will understand, but knowing the names is helpful!",
+        contentPt: "O Starbucks usa nomes únicos: Tall (pequeno), Grande (médio) e Venti (grande). Se você disser 'small' ou 'medium', eles vão entender, mas saber os nomes ajuda!",
+      },
+      {
+        title: "Customization is King",
+        titlePt: "Personalização é Tudo",
+        content: "In the US, you can customize EVERYTHING. Milk types, temperature, amount of ice, and extra shots of espresso. Don't be afraid to ask exactly how you want it!",
+        contentPt: "Nos EUA, você pode personalizar TUDO. Tipos de leite, temperatura, quantidade de gelo e doses extras de café. Não tenha medo de pedir exatamente como você quer!",
+      },
+      {
+        title: "Names on Cups",
+        titlePt: "Nomes nos Copos",
+        content: "Baristas will ask for your name. If your name is hard to spell, it's common to use a 'coffee name' (a simpler nickname) to avoid confusion and misspelling.",
+        contentPt: "Os baristas vão pedir seu nome. Se seu nome for difícil de soletrar, é comum usar um 'coffee name' (um apelido simples) para evitar confusão e erros de grafia.",
+      }
+    ],
+  },
+  {
+    id: 'tech',
+    title: 'Phone & Wi-Fi',
+    titlePt: 'Telefone e Wi-Fi',
+    description: 'Ask for Wi-Fi passwords, buy a local SIM card, and stay connected.',
+    descriptionPt: 'Peça senhas de Wi-Fi, compre um chip local e mantenha-se conectado.',
+    icon: '📱',
+    color: 'blue',
+    imagePath: '/images/tech_scene.png',
+    dialogues: [],
+    dialogueSets: [
+      {
+        title: 'Asking for Wi-Fi',
+        titlePt: 'Pedindo Wi-Fi',
+        icon: '📶',
+        dialogues: [
+          { speaker: 'student', english: "Excuse me, do you have Wi-Fi here?", portuguese: "Com licença, você tem Wi-Fi aqui?" },
+          { speaker: 'native', english: "Yes, we do! It's free for customers.", portuguese: "Sim, temos! É grátis para clientes." },
+          { speaker: 'student', english: "What's the network name?", portuguese: "Qual é o nome da rede?" },
+          { speaker: 'native', english: "It's 'CoffeeHouse_Guest'.", portuguese: "É 'CoffeeHouse_Guest'." },
+          { speaker: 'student', english: "And what's the password?", portuguese: "E qual é a senha?" },
+          { speaker: 'native', english: "The password is 'latte2024'. All lowercase.", portuguese: "A senha é 'latte2024'. Tudo em minúsculo." },
+          { speaker: 'student', english: "Thank you! The connection is very fast.", portuguese: "Obrigado! A conexão é muito rápida." },
+        ],
+      },
+      {
+        title: 'Buying a SIM Card',
+        titlePt: 'Comprando um Chip',
+        icon: '💳',
+        dialogues: [
+          { speaker: 'student', english: "Hi! I'd like to buy a prepaid SIM card, please.", portuguese: "Oi! Eu gostaria de comprar um chip pré-pago, por favor." },
+          { speaker: 'native', english: "Sure! We have a travel plan with 10GB of data.", portuguese: "Claro! Temos um plano de viagem com 10GB de dados." },
+          { speaker: 'student', english: "How much does it cost?", portuguese: "Quanto custa?" },
+          { speaker: 'native', english: "It's thirty dollars and it lasts for thirty days.", portuguese: "Custa trinta dólares e dura trinta dias." },
+          { speaker: 'student', english: "Does it include international calls?", portuguese: "Inclui ligações internacionais?" },
+          { speaker: 'native', english: "No, but you get unlimited local texts and calls.", portuguese: "Não, mas você tem mensagens e ligações locais ilimitadas." },
+          { speaker: 'student', english: "That works. Can you help me activate it?", portuguese: "Serve. Você pode me ajudar a ativar?" },
+        ],
+      },
+    ],
+    vocabulary: [
+      { english: "Network", portuguese: "Rede" },
+      { english: "Password", portuguese: "Senha" },
+      { english: "SIM card / Chip", portuguese: "Chip de celular" },
+      { english: "Prepaid", portuguese: "Pré-pago" },
+      { english: "Data plan", portuguese: "Plano de dados" },
+      { english: "Coverage", portuguese: "Cobertura" },
+      { english: "Unlimited", portuguese: "Ilimitado" },
+      { english: "Charger", portuguese: "Carregador" },
+    ],
+    culturalTips: [
+      {
+        title: "Public Wi-Fi",
+        titlePt: "Wi-Fi Público",
+        content: "Most cafes and airports offer free Wi-Fi. However, be careful with banking or sensitive apps on public networks. Using a VPN is recommended!",
+        contentPt: "A maioria dos cafés e aeroportos oferece Wi-Fi grátis. No entanto, tenha cuidado com apps de banco em redes públicas. Usar uma VPN é recomendado!",
+      },
+      {
+        title: "eSIM Convenience",
+        titlePt: "Praticidade do eSIM",
+        content: "Modern phones support eSIMs. You can buy a data plan online before you travel and activate it instantly when you land, without needing a physical chip.",
+        contentPt: "Celulares modernos suportam eSIMs. Você pode comprar um plano de dados online antes de viajar e ativá-lo instantaneamente ao pousar, sem precisar de um chip físico.",
+      },
+      {
+        title: "Power Outlets",
+        titlePt: "Tomadas de Energia",
+        content: "US outlets use Type A and Type B plugs (two flat pins). The voltage is 110V. Don't forget to bring a travel adapter for your Brazilian devices!",
+        contentPt: "As tomadas nos EUA usam plugues Tipo A e B (dois pinos chatos). A voltagem é 110V. Não esqueça de levar um adaptador de viagem para seus aparelhos brasileiros!",
       }
     ],
   },
