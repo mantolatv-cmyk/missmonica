@@ -22,6 +22,8 @@ export async function GET() {
       restaurant: progressStore.filter(p => p.scenarioId === 'restaurant'),
       directions: progressStore.filter(p => p.scenarioId === 'directions'),
       transport: progressStore.filter(p => p.scenarioId === 'transport'),
+      medical: progressStore.filter(p => p.scenarioId === 'medical'),
+      entertainment: progressStore.filter(p => p.scenarioId === 'entertainment'),
     },
   };
 
