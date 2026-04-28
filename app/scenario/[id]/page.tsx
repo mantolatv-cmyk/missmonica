@@ -159,49 +159,53 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
           <VocabMatch vocabulary={scenario.vocabulary} />
         )}
         {activeTab === 'practice' && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-lg)' }}>
-            <div className={styles.sectionPills}>
-              <button
-                className={`${styles.sectionPill} ${activePracticeMode === 'sentences' ? styles.sectionPillActive : ''}`}
-                onClick={() => setActivePracticeMode('sentences')}
-              >
-                🧩 Montar Frases
-              </button>
-              <button
-                className={`${styles.sectionPill} ${activePracticeMode === 'scramble' ? styles.sectionPillActive : ''}`}
-                onClick={() => setActivePracticeMode('scramble')}
-              >
-                🔠 Embaralhar
-              </button>
-              <button
-                className={`${styles.sectionPill} ${activePracticeMode === 'listening' ? styles.sectionPillActive : ''}`}
-                onClick={() => setActivePracticeMode('listening')}
-              >
-                🎧 Listening
-              </button>
-              <button
-                className={`${styles.sectionPill} ${activePracticeMode === 'speed' ? styles.sectionPillActive : ''}`}
-                onClick={() => setActivePracticeMode('speed')}
-              >
-                ⚡ Speed
-              </button>
-            </div>
-
-            {activePracticeMode === 'sentences' && (
-              <SentenceBuilder 
-                dialogues={hasDialogueSets ? scenario.dialogueSets![activeDialogueSet].dialogues : scenario.dialogues} 
-              />
-            )}
-            {activePracticeMode === 'scramble' && (
-              <WordScramble vocabulary={scenario.vocabulary} />
-            )}
-            {activePracticeMode === 'listening' && (
-              <ListeningChallenge 
-                dialogues={hasDialogueSets ? scenario.dialogueSets![activeDialogueSet].dialogues : scenario.dialogues} 
-              />
-            )}
-            {activePracticeMode === 'speed' && (
-              <SpeedRound vocabulary={scenario.vocabulary} />
+          <div className={styles.gameMenu}>
+            {!activePracticeMode ? (
+              <div className={styles.gameGrid}>
+                <div className={styles.gameCard} onClick={() => setActivePracticeMode('sentences')}>
+                  <div className={styles.gameIcon}>🧩</div>
+                  <h3>Montar Frases</h3>
+                  <p>Organize as palavras para formar diálogos reais.</p>
+                </div>
+                <div className={styles.gameCard} onClick={() => setActivePracticeMode('scramble')}>
+                  <div className={styles.gameIcon}>🔠 Embaralhar</div>
+                  <h3>Palavras</h3>
+                  <p>Traduza e desembaralhe o vocabulário chave.</p>
+                </div>
+                <div className={styles.gameCard} onClick={() => setActivePracticeMode('listening')}>
+                  <div className={styles.gameIcon}>🎧</div>
+                  <h3>Listening</h3>
+                  <p>Ouca a frase e escolha a opção correta.</p>
+                </div>
+                <div className={styles.gameCard} onClick={() => setActivePracticeMode('speed')}>
+                  <div className={styles.gameIcon}>⚡</div>
+                  <h3>Speed Round</h3>
+                  <p>Quantas palavras você acerta em 30 segundos?</p>
+                </div>
+              </div>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-lg)' }}>
+                <button className={styles.backToMenu} onClick={() => setActivePracticeMode(null as any)}>
+                  ⬅️ Voltar ao Menu de Jogos
+                </button>
+                
+                {activePracticeMode === 'sentences' && (
+                  <SentenceBuilder 
+                    dialogues={hasDialogueSets ? scenario.dialogueSets![activeDialogueSet].dialogues : scenario.dialogues} 
+                  />
+                )}
+                {activePracticeMode === 'scramble' && (
+                  <WordScramble vocabulary={scenario.vocabulary} />
+                )}
+                {activePracticeMode === 'listening' && (
+                  <ListeningChallenge 
+                    dialogues={hasDialogueSets ? scenario.dialogueSets![activeDialogueSet].dialogues : scenario.dialogues} 
+                  />
+                )}
+                {activePracticeMode === 'speed' && (
+                  <SpeedRound vocabulary={scenario.vocabulary} />
+                )}
+              </div>
             )}
           </div>
         )}
