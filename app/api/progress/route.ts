@@ -26,6 +26,8 @@ export async function GET() {
       entertainment: progressStore.filter(p => p.scenarioId === 'entertainment'),
       cafe: progressStore.filter(p => p.scenarioId === 'cafe'),
       tech: progressStore.filter(p => p.scenarioId === 'tech'),
+      smalltalk: progressStore.filter(p => p.scenarioId === 'smalltalk'),
+      slangs: progressStore.filter(p => p.scenarioId === 'slangs'),
     },
   };
 
