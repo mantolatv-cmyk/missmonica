@@ -33,29 +33,6 @@ export default function HomePage() {
           </p>
         </section>
 
-        <section className={styles.roteirosFeatured}>
-          <div className={styles.roteirosCard}>
-            <div className={styles.roteirosContent}>
-              <h2 className={styles.roteirosTitle}>🗺️ Roteiros USA</h2>
-              <p className={styles.roteirosText}>
-                Planejando sua viagem? Explore guias detalhados de cidades americanas com dicas de turismo, gastronomia e entretenimento.
-              </p>
-              <Link href="/roteiros" className={styles.roteirosCta}>
-                Explorar Roteiros →
-              </Link>
-            </div>
-            <div className={styles.roteirosImageWrapper}>
-              <Image 
-                src="/images/roteiros_hero.png" 
-                alt="Explore US Cities" 
-                width={300} 
-                height={200} 
-                className={styles.roteirosImage}
-              />
-            </div>
-          </div>
-        </section>
-
         <section>
           <div className={styles.sectionTitle}>
             <h2 className={styles.sectionTitleText}>
