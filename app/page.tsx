@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ScenarioCard from '@/components/ScenarioCard';
@@ -30,6 +31,29 @@ export default function HomePage() {
           <p className={styles.heroSubtitle}>
             Pratique situações reais de viagem com diálogos interativos, vocabulário essencial e dicas culturais.
           </p>
+        </section>
+
+        <section className={styles.roteirosFeatured}>
+          <div className={styles.roteirosCard}>
+            <div className={styles.roteirosContent}>
+              <h2 className={styles.roteirosTitle}>🗺️ Roteiros USA</h2>
+              <p className={styles.roteirosText}>
+                Planejando sua viagem? Explore guias detalhados de cidades americanas com dicas de turismo, gastronomia e entretenimento.
+              </p>
+              <Link href="/roteiros" className={styles.roteirosCta}>
+                Explorar Roteiros →
+              </Link>
+            </div>
+            <div className={styles.roteirosImageWrapper}>
+              <Image 
+                src="/images/roteiros_hero.png" 
+                alt="Explore US Cities" 
+                width={300} 
+                height={200} 
+                className={styles.roteirosImage}
+              />
+            </div>
+          </div>
         </section>
 
         <section>

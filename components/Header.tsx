@@ -17,6 +17,11 @@ export default function Header({ breadcrumb }: HeaderProps) {
             MinhaAula
             <span className={styles.tagline}>Inglês para Viajantes</span>
           </Link>
+          <div className={styles.mainNav}>
+            <Link href="/roteiros" className={styles.navLink}>
+              🗺️ Roteiros
+            </Link>
+          </div>
           {breadcrumb && breadcrumb.length > 0 && (
             <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
               {breadcrumb.map((crumb, i) => (
