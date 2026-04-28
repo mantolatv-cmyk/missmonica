@@ -17,6 +17,10 @@
   --color-cream-dark: #F5E3DF;
   --color-gold: #F9D977;
   --color-gold-deep: #F0C040;
+  
+  /* Primary Brand Color - Coral/Salmon */
+  --primary: #FF8A80;
+  --primary-light: rgba(255, 138, 128, 0.2);
 
   /* Neutrals */
   --color-bg: #FFF5F3;
