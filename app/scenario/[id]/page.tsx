@@ -88,7 +88,7 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
   const hasDialogueSets = !!scenario.dialogueSets && scenario.dialogueSets.length > 0;
   const [activeTab, setActiveTab] = useState<'dialogues' | 'vocabulary' | 'cultural' | 'practice'>('dialogues');
   const [activeDialogueSet, setActiveDialogueSet] = useState(0);
-  const [activePracticeMode, setActivePracticeMode] = useState<'sentences' | 'scramble' | 'listening' | 'speed'>('sentences');
+  const [activePracticeMode, setActivePracticeMode] = useState<'sentences' | 'scramble' | 'listening' | 'speed' | null>(null);
 
   return (
     <>
