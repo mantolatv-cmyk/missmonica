@@ -381,6 +381,20 @@
   display: flex;
   align-items: flex-start;
   gap: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.tipCard:hover {
+  border-color: var(--color-sky-deep);
+  background: var(--color-bg);
+  transform: scale(1.01);
+}
+
+.tipCardTranslated {
+  border-color: var(--color-sky-deep);
+  background: rgba(133, 193, 233, 0.05);
 }
 
 .tipNumber {
@@ -397,11 +411,39 @@
   flex-shrink: 0;
 }
 
-.tipCard p {
-  font-size: 1rem;
-  color: var(--color-text);
-  line-height: 1.6;
+.tipContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
 }
+
+.tipEn {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.tipPt {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--color-border);
+  animation: fadeIn 0.3s ease;
+}
+
+.tipHint {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.25rem;
+  opacity: 0.6;
+}
+
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }

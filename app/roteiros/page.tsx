@@ -6,6 +6,25 @@ import Link from 'next/link';
 import { cities, CityGuide } from '@/data/cities';
 import styles from './page.module.css';
 
+function TipItem({ english, portuguese, index }: { english: string; portuguese: string; index: number }) {
+  const [showPt, setShowPt] = useState(false);
+
+  return (
+    <div 
+      className={`${styles.tipCard} ${showPt ? styles.tipCardTranslated : ''}`} 
+      onClick={() => setShowPt(!showPt)}
+      title="Clique para traduzir"
+    >
+      <span className={styles.tipNumber}>{index + 1}</span>
+      <div className={styles.tipContent}>
+        <p className={styles.tipEn}>🇺🇸 {english}</p>
+        {showPt && <p className={styles.tipPt}>🇧🇷 {portuguese}</p>}
+        <span className={styles.tipHint}>{showPt ? 'Ver original' : 'Clique para ver tradução'}</span>
+      </div>
+    </div>
+  );
+}
+
 export default function RoteirosPage() {
   const [selectedCity, setSelectedCity] = useState<CityGuide | null>(null);
   const [activeTab, setActiveTab] = useState<'attractions' | 'food' | 'entertainment' | 'phrases' | 'tips'>('attractions');
@@ -114,11 +133,8 @@ export default function RoteirosPage() {
           {/* Tips */}
           {activeTab === 'tips' && (
             <div className={styles.tipsList}>
-              {selectedCity.tipsPt.map((t, i) => (
-                <div key={i} className={styles.tipCard}>
-                  <span className={styles.tipNumber}>{i + 1}</span>
-                  <p>{t}</p>
-                </div>
+              {selectedCity.tips.map((t, i) => (
+                <TipItem key={i} english={t} portuguese={selectedCity.tipsPt[i]} index={i} />
               ))}
             </div>
           )}
