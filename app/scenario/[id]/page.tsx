@@ -14,6 +14,7 @@ import SentenceBuilder from '@/components/SentenceBuilder';
 import WordScramble from '@/components/WordScramble';
 import ListeningChallenge from '@/components/ListeningChallenge';
 import SpeedRound from '@/components/SpeedRound';
+import WordLesson from '@/components/WordLesson';
 import { scenarios } from '@/data/scenarios';
 import styles from './page.module.css';
 
@@ -88,7 +89,7 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
   const hasDialogueSets = !!scenario.dialogueSets && scenario.dialogueSets.length > 0;
   const [activeTab, setActiveTab] = useState<'dialogues' | 'vocabulary' | 'cultural' | 'practice'>('dialogues');
   const [activeDialogueSet, setActiveDialogueSet] = useState(0);
-  const [activePracticeMode, setActivePracticeMode] = useState<'sentences' | 'scramble' | 'listening' | 'speed' | null>(null);
+  const [activePracticeMode, setActivePracticeMode] = useState<'sentences' | 'scramble' | 'listening' | 'speed' | 'match' | null>(null);
 
   return (
     <>
@@ -103,7 +104,7 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
           className={`${styles.tab} ${activeTab === 'vocabulary' ? styles.tabActive : ''}`}
           onClick={() => setActiveTab('vocabulary')}
         >
-          📚 Vocabulário / Vocabulary
+          📖 Aula das Palavras
         </button>
         <button
           className={`${styles.tab} ${activeTab === 'practice' ? styles.tabActive : ''}`}
@@ -156,12 +157,17 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
           </>
         )}
         {activeTab === 'vocabulary' && (
-          <VocabMatch vocabulary={scenario.vocabulary} />
+          <WordLesson vocabulary={scenario.vocabulary} onComplete={() => setActiveTab('practice')} />
         )}
         {activeTab === 'practice' && (
           <div className={styles.gameMenu}>
             {!activePracticeMode ? (
               <div className={styles.gameGrid}>
+                <div className={styles.gameCard} onClick={() => setActivePracticeMode('match')}>
+                  <div className={styles.gameIcon}>🔗</div>
+                  <h3>Ligar Palavras</h3>
+                  <p>Combine o inglês com o português.</p>
+                </div>
                 <div className={styles.gameCard} onClick={() => setActivePracticeMode('sentences')}>
                   <div className={styles.gameIcon}>🧩</div>
                   <h3>Montar Frases</h3>
@@ -189,6 +195,9 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
                   ⬅️ Voltar ao Menu de Jogos
                 </button>
                 
+                {activePracticeMode === 'match' && (
+                  <VocabMatch vocabulary={scenario.vocabulary} />
+                )}
                 {activePracticeMode === 'sentences' && (
                   <SentenceBuilder 
                     dialogues={hasDialogueSets ? scenario.dialogueSets![activeDialogueSet].dialogues : scenario.dialogues} 
@@ -223,15 +232,16 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
 
 // Enhanced directions layout with 3 sections
 function DirectionsLayout({ scenario }: { scenario: typeof scenarios[0] }) {
-  const [activeSection, setActiveSection] = useState<'simulator' | 'flashcards' | 'cultural' | 'vocabulary' | 'listening' | 'speed'>('simulator');
+  const [activeSection, setActiveSection] = useState<'wordlesson' | 'simulator' | 'flashcards' | 'cultural' | 'vocabulary' | 'listening' | 'speed'>('wordlesson');
 
   const sections = [
+    { key: 'wordlesson' as const, label: '📖 Aula das Palavras', labelEn: 'Word Lesson' },
     { key: 'simulator' as const, label: '💬 Simulador', labelEn: 'Dialogue Simulator' },
     { key: 'flashcards' as const, label: '🃏 Flashcards', labelEn: 'Directional Flashcards' },
     { key: 'listening' as const, label: '🎧 Listening', labelEn: 'Audio Quiz' },
     { key: 'speed' as const, label: '⚡ Speed Round', labelEn: 'Fast Vocabulary' },
     { key: 'cultural' as const, label: '💡 Dicas Culturais', labelEn: 'Cultural Tips' },
-    { key: 'vocabulary' as const, label: '📚 Vocabulário', labelEn: 'Vocabulary Match' },
+    { key: 'vocabulary' as const, label: '🔗 Ligar Palavras', labelEn: 'Vocabulary Match' },
   ];
 
   return (
@@ -250,6 +260,12 @@ function DirectionsLayout({ scenario }: { scenario: typeof scenarios[0] }) {
       </div>
 
       <div className={styles.tabContent}>
+        {activeSection === 'wordlesson' && (
+          <div className={styles.section} id="section-wordlesson">
+            <WordLesson vocabulary={scenario.vocabulary} onComplete={() => setActiveSection('simulator')} />
+          </div>
+        )}
+
         {activeSection === 'simulator' && (
           <div className={styles.section} id="section-simulator">
             <h2 className={styles.sectionTitle}>
