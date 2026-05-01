@@ -82,6 +82,12 @@ export const scenarios: Scenario[] = [
       { english: "What do you do?", portuguese: "O que você faz?" },
       { english: "First time", portuguese: "Primeira vez" },
       { english: "I'm excited", portuguese: "Estou animado(a)" },
+      { english: "Last name / Surname", portuguese: "Sobrenome" },
+      { english: "Nickname", portuguese: "Apelido" },
+      { english: "Married", portuguese: "Casado(a)" },
+      { english: "Single", portuguese: "Solteiro(a)" },
+      { english: "Hometown", portuguese: "Cidade natal" },
+      { english: "Nice to meet you too", portuguese: "Prazer em conhecê-lo(a) também" },
     ],
     culturalTips: [
       {
@@ -136,6 +142,13 @@ export const scenarios: Scenario[] = [
       { english: "Credit card", portuguese: "Cartão de crédito" },
       { english: "Per pound", portuguese: "Por libra" },
       { english: "Total", portuguese: "Total" },
+      { english: "Cash", portuguese: "Dinheiro em espécie" },
+      { english: "Discount", portuguese: "Desconto" },
+      { english: "On sale", portuguese: "Em promoção" },
+      { english: "Expensive", portuguese: "Caro" },
+      { english: "Cheap", portuguese: "Barato" },
+      { english: "Cashier", portuguese: "Caixa / Atendente" },
+      { english: "Shopping cart", portuguese: "Carrinho de compras" },
     ],
     culturalTips: [
       {
@@ -188,6 +201,13 @@ export const scenarios: Scenario[] = [
       { english: "Flight", portuguese: "Voo" },
       { english: "Arrival", portuguese: "Chegada" },
       { english: "Departure", portuguese: "Partida" },
+      { english: "Luggage / Suitcase", portuguese: "Bagagem / Mala" },
+      { english: "Carry-on", portuguese: "Bagagem de mão" },
+      { english: "Security check", portuguese: "Raio-X / Segurança" },
+      { english: "Delayed", portuguese: "Atrasado" },
+      { english: "On time", portuguese: "No horário" },
+      { english: "Aisle seat", portuguese: "Assento no corredor" },
+      { english: "Window seat", portuguese: "Assento na janela" },
     ],
     culturalTips: [
       {
@@ -240,6 +260,11 @@ export const scenarios: Scenario[] = [
       { english: "Elevator", portuguese: "Elevador" },
       { english: "Single room", portuguese: "Quarto individual" },
       { english: "Towels", portuguese: "Toalhas" },
+      { english: "Front desk", portuguese: "Recepção" },
+      { english: "Bellhop", portuguese: "Carregador de malas" },
+      { english: "Housekeeping", portuguese: "Serviço de limpeza" },
+      { english: "Room service", portuguese: "Serviço de quarto" },
+      { english: "Deposit", portuguese: "Caução / Depósito" },
     ],
     culturalTips: [
       {
@@ -292,6 +317,13 @@ export const scenarios: Scenario[] = [
       { english: "Tip", portuguese: "Gorjeta" },
       { english: "Waiter", portuguese: "Garçom" },
       { english: "To go", portuguese: "Para viagem" },
+      { english: "Napkin", portuguese: "Guardanapo" },
+      { english: "Fork", portuguese: "Garfo" },
+      { english: "Knife", portuguese: "Faca" },
+      { english: "Spoon", portuguese: "Colher" },
+      { english: "Tap water", portuguese: "Água da torneira" },
+      { english: "Spicy", portuguese: "Apimentado" },
+      { english: "Vegetarian", portuguese: "Vegetariano" },
     ],
     culturalTips: [
       {
@@ -343,6 +375,11 @@ export const scenarios: Scenario[] = [
       { english: "Cross the street", portuguese: "Atravesse a rua" },
       { english: "Traffic light", portuguese: "Semáforo" },
       { english: "Sidewalk", portuguese: "Calçada" },
+      { english: "Crosswalk", portuguese: "Faixa de pedestres" },
+      { english: "Intersection", portuguese: "Cruzamento" },
+      { english: "Across from", portuguese: "Em frente a" },
+      { english: "Next to", portuguese: "Ao lado de" },
+      { english: "Downtown", portuguese: "Centro da cidade" },
     ],
     flashcards: [
       { english: "Turn Left", portuguese: "Vire à esquerda", icon: "⬅️" },
@@ -430,6 +467,12 @@ export const scenarios: Scenario[] = [
       { english: "Transfer", portuguese: "Baldeação" },
       { english: "Stop", portuguese: "Parada" },
       { english: "Metro card", portuguese: "Cartão de metrô" },
+      { english: "Rush hour", portuguese: "Hora do rush" },
+      { english: "Passenger", portuguese: "Passageiro" },
+      { english: "Ticket", portuguese: "Bilhete / Passagem" },
+      { english: "To get on", portuguese: "Entrar no transporte" },
+      { english: "To get off", portuguese: "Sair do transporte" },
+      { english: "Traffic jam", portuguese: "Engarrafamento" },
     ],
     culturalTips: [
       {
@@ -499,6 +542,12 @@ export const scenarios: Scenario[] = [
       { english: "Appointment", portuguese: "Consulta / Compromisso" },
       { english: "Prescription", portuguese: "Receita médica" },
       { english: "Insurance", portuguese: "Seguro saúde" },
+      { english: "Insurance card", portuguese: "Carteirinha do plano de saúde" },
+      { english: "Symptoms", portuguese: "Sintomas" },
+      { english: "Pain", portuguese: "Dor" },
+      { english: "Bandage", portuguese: "Curativo" },
+      { english: "Cough", portuguese: "Tosse" },
+      { english: "Cold", portuguese: "Resfriado" },
     ],
     culturalTips: [
       {
@@ -568,6 +617,11 @@ export const scenarios: Scenario[] = [
       { english: "Entrance", portuguese: "Entrada" },
       { english: "Performance", portuguese: "Apresentação" },
       { english: "Souvenir", portuguese: "Lembrancinha" },
+      { english: "Row", portuguese: "Fileira de assentos" },
+      { english: "Stage", portuguese: "Palco" },
+      { english: "Main entrance", portuguese: "Entrada principal" },
+      { english: "Restroom", portuguese: "Banheiro público" },
+      { english: "Coat check", portuguese: "Chapelaria" },
     ],
     culturalTips: [
       {
@@ -638,6 +692,11 @@ export const scenarios: Scenario[] = [
       { english: "Drive-thru", portuguese: "Drive-thru" },
       { english: "For here / To go", portuguese: "Para comer aqui / Para levar" },
       { english: "Combo / Meal", portuguese: "Combo / Refeição" },
+      { english: "Napkin", portuguese: "Guardanapo" },
+      { english: "Straw", portuguese: "Canudo" },
+      { english: "Sugar packet", portuguese: "Pacote de açúcar" },
+      { english: "To go bag", portuguese: "Sacola para viagem" },
+      { english: "Extra hot", portuguese: "Extra quente" },
     ],
     culturalTips: [
       {
@@ -709,6 +768,11 @@ export const scenarios: Scenario[] = [
       { english: "Coverage", portuguese: "Cobertura" },
       { english: "Unlimited", portuguese: "Ilimitado" },
       { english: "Charger", portuguese: "Carregador" },
+      { english: "Plug / Outlet", portuguese: "Tomada" },
+      { english: "Power bank", portuguese: "Bateria portátil" },
+      { english: "To charge", portuguese: "Carregar a bateria" },
+      { english: "Free Wi-Fi", portuguese: "Wi-Fi grátis" },
+      { english: "No signal", portuguese: "Sem sinal" },
     ],
     culturalTips: [
       {
@@ -791,6 +855,11 @@ export const scenarios: Scenario[] = [
       { english: "Keep things exciting", portuguese: "Manter as coisas animadas" },
       { english: "Attitude", portuguese: "Atitude / postura" },
       { english: "Conference", portuguese: "Conferência / evento profissional" },
+      { english: "How's it going?", portuguese: "Como vão as coisas?" },
+      { english: "What's up?", portuguese: "E aí? / O que está pegando?" },
+      { english: "Have a good one!", portuguese: "Tenha um bom dia!" },
+      { english: "Awesome", portuguese: "Incrível" },
+      { english: "Make sense", portuguese: "Faz sentido" },
     ],
     culturalTips: [
       {
@@ -860,6 +929,11 @@ export const scenarios: Scenario[] = [
       { english: "Heads up", portuguese: "Aviso / Atenção (informal)" },
       { english: "Spaced out", portuguese: "Esqueceu / Deu um branco" },
       { english: "Swamped", portuguese: "Sobrecarregado / Atarefado demais" },
+      { english: "Chill", portuguese: "Tranquilo / Relaxar" },
+      { english: "Ghost", portuguese: "Ignorar alguém de propósito" },
+      { english: "Flex", portuguese: "Se exibir" },
+      { english: "Salty", portuguese: "Irritado por besteira" },
+      { english: "Tea", portuguese: "Fofoca (ex: spill the tea)" },
     ],
     culturalTips: [
       {
@@ -948,6 +1022,12 @@ export const scenarios: Scenario[] = [
       { english: "Cruelty-free", portuguese: "Não testado em animais" },
       { english: "Receipt", portuguese: "Recibo / Nota fiscal" },
       { english: "Tags", portuguese: "Etiquetas" },
+      { english: "Trying on", portuguese: "Experimentando" },
+      { english: "Hanger", portuguese: "Cabide" },
+      { english: "Sold out", portuguese: "Esgotado" },
+      { english: "Mannequin", portuguese: "Manequim" },
+      { english: "Out of stock", portuguese: "Sem estoque" },
+      { english: "Skincare routine", portuguese: "Rotina de cuidados com a pele" },
     ],
     culturalTips: [
       {
