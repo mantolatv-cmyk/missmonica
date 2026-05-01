@@ -1028,6 +1028,16 @@ export const scenarios: Scenario[] = [
       { english: "Mannequin", portuguese: "Manequim" },
       { english: "Out of stock", portuguese: "Sem estoque" },
       { english: "Skincare routine", portuguese: "Rotina de cuidados com a pele" },
+      { english: "T-shirt / Shirt", portuguese: "Camiseta / Camisa" },
+      { english: "Pants / Jeans", portuguese: "Calças / Jeans" },
+      { english: "Dress", portuguese: "Vestido" },
+      { english: "Skirt", portuguese: "Saia" },
+      { english: "Jacket", portuguese: "Jaqueta" },
+      { english: "Coat", portuguese: "Casaco" },
+      { english: "Sneakers", portuguese: "Tênis" },
+      { english: "High heels", portuguese: "Salto alto" },
+      { english: "Underwear", portuguese: "Roupa íntima" },
+      { english: "Socks", portuguese: "Meias" },
     ],
     culturalTips: [
       {
