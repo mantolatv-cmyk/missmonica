@@ -12,6 +12,7 @@ interface WordLessonProps {
 export default function WordLesson({ vocabulary, onComplete }: WordLessonProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
+  const [showTranslation, setShowTranslation] = useState(false);
 
   if (!vocabulary || vocabulary.length === 0) return null;
 
@@ -21,6 +22,7 @@ export default function WordLesson({ vocabulary, onComplete }: WordLessonProps) 
   const handleNext = () => {
     if (currentIndex < vocabulary.length - 1) {
       setCurrentIndex(prev => prev + 1);
+      setShowTranslation(false);
     } else {
       setIsFinished(true);
       if (onComplete) {
@@ -32,12 +34,14 @@ export default function WordLesson({ vocabulary, onComplete }: WordLessonProps) 
   const handlePrev = () => {
     if (currentIndex > 0) {
       setCurrentIndex(prev => prev - 1);
+      setShowTranslation(false);
     }
   };
 
   const handleRestart = () => {
     setCurrentIndex(0);
     setIsFinished(false);
+    setShowTranslation(false);
   };
 
   if (isFinished) {
@@ -76,11 +80,15 @@ export default function WordLesson({ vocabulary, onComplete }: WordLessonProps) 
         <div className={styles.progressFill} style={{ width: `${progress}%` }}></div>
       </div>
 
-      <div className={styles.cardArea}>
+      <div className={styles.cardArea} onClick={() => setShowTranslation(true)}>
         <h3 className={styles.englishWord}>{currentWord.english}</h3>
-        <div className={styles.translationBox}>
-          🇧🇷 {currentWord.portuguese}
-        </div>
+        {showTranslation ? (
+          <div className={styles.translationBox}>
+            🇧🇷 {currentWord.portuguese}
+          </div>
+        ) : (
+          <p className={styles.hintText}>👆 Clique para revelar a tradução</p>
+        )}
       </div>
 
       <div className={styles.controls}>
