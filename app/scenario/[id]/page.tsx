@@ -91,31 +91,53 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
   const [activeDialogueSet, setActiveDialogueSet] = useState(0);
   const [activePracticeMode, setActivePracticeMode] = useState<'sentences' | 'scramble' | 'listening' | 'speed' | 'match' | null>(null);
   const [level, setLevel] = useState<'standard' | 'beginner'>('standard');
+  const [variation, setVariation] = useState<1 | 2>(1);
 
-  const currentDialogues = hasDialogueSets 
-    ? (level === 'beginner' && scenario.dialogueSets![activeDialogueSet].dialoguesBeginner 
-        ? scenario.dialogueSets![activeDialogueSet].dialoguesBeginner 
-        : scenario.dialogueSets![activeDialogueSet].dialogues)
-    : (level === 'beginner' && scenario.dialoguesBeginner 
-        ? scenario.dialoguesBeginner 
-        : scenario.dialogues);
+  const getDialogues = () => {
+    const set = hasDialogueSets ? scenario.dialogueSets![activeDialogueSet] : scenario;
+    if (level === 'beginner') {
+      return (variation === 2 && set.dialoguesBeginner2) ? set.dialoguesBeginner2 : (set.dialoguesBeginner || set.dialogues);
+    }
+    return (variation === 2 && set.dialogues2) ? set.dialogues2 : set.dialogues;
+  };
+
+  const currentDialogues = getDialogues();
 
   const LevelToggle = () => (
-    <div className={styles.levelSelector}>
-      <span className={styles.levelLabel}>Nível:</span>
-      <div className={styles.levelToggle}>
-        <button 
-          className={`${styles.levelBtn} ${level === 'beginner' ? styles.levelBtnActive : ''}`}
-          onClick={() => setLevel('beginner')}
-        >
-          🐣 Iniciante
-        </button>
-        <button 
-          className={`${styles.levelBtn} ${level === 'standard' ? styles.levelBtnActive : ''}`}
-          onClick={() => setLevel('standard')}
-        >
-          🚀 Padrão
-        </button>
+    <div className={styles.selectorsContainer}>
+      <div className={styles.levelSelector} style={{ marginBottom: 0 }}>
+        <span className={styles.levelLabel}>Nível:</span>
+        <div className={styles.levelToggle}>
+          <button 
+            className={`${styles.levelBtn} ${level === 'beginner' ? styles.levelBtnActive : ''}`}
+            onClick={() => setLevel('beginner')}
+          >
+            🐣 Iniciante
+          </button>
+          <button 
+            className={`${styles.levelBtn} ${level === 'standard' ? styles.levelBtnActive : ''}`}
+            onClick={() => setLevel('standard')}
+          >
+            🚀 Padrão
+          </button>
+        </div>
+      </div>
+      
+      <div className={styles.variationSelector}>
+        <div className={styles.variationToggle}>
+          <button 
+            className={`${styles.variationBtn} ${variation === 1 ? styles.variationBtnActive : ''}`}
+            onClick={() => setVariation(1)}
+          >
+            Conversa A
+          </button>
+          <button 
+            className={`${styles.variationBtn} ${variation === 2 ? styles.variationBtnActive : ''}`}
+            onClick={() => setVariation(2)}
+          >
+            Conversa B
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -180,12 +202,12 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
                   {scenario.dialogueSets![activeDialogueSet].titlePt}
                 </p>
                 <DialogueBlock
-                  key={`${activeDialogueSet}-${level}`}
+                  key={`${activeDialogueSet}-${level}-${variation}`}
                   dialogues={currentDialogues}
                 />
               </>
             ) : (
-              <DialogueBlock key={`main-${level}`} dialogues={currentDialogues} />
+              <DialogueBlock key={`main-${level}-${variation}`} dialogues={currentDialogues} />
             )}
           </>
         )}
@@ -269,27 +291,52 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
 function DirectionsLayout({ scenario }: { scenario: typeof scenarios[0] }) {
   const [activeSection, setActiveSection] = useState<'wordlesson' | 'simulator' | 'flashcards' | 'cultural' | 'vocabulary' | 'listening' | 'speed'>('wordlesson');
   const [level, setLevel] = useState<'standard' | 'beginner'>('standard');
+  const [variation, setVariation] = useState<1 | 2>(1);
 
-  const currentDialogues = level === 'beginner' && scenario.dialoguesBeginner 
-    ? scenario.dialoguesBeginner 
-    : scenario.dialogues;
+  const getDialogues = () => {
+    if (level === 'beginner') {
+      return (variation === 2 && scenario.dialoguesBeginner2) ? scenario.dialoguesBeginner2 : (scenario.dialoguesBeginner || scenario.dialogues);
+    }
+    return (variation === 2 && scenario.dialogues2) ? scenario.dialogues2 : scenario.dialogues;
+  };
+
+  const currentDialogues = getDialogues();
 
   const LevelToggle = () => (
-    <div className={styles.levelSelector}>
-      <span className={styles.levelLabel}>Nível:</span>
-      <div className={styles.levelToggle}>
-        <button 
-          className={`${styles.levelBtn} ${level === 'beginner' ? styles.levelBtnActive : ''}`}
-          onClick={() => setLevel('beginner')}
-        >
-          🐣 Iniciante
-        </button>
-        <button 
-          className={`${styles.levelBtn} ${level === 'standard' ? styles.levelBtnActive : ''}`}
-          onClick={() => setLevel('standard')}
-        >
-          🚀 Padrão
-        </button>
+    <div className={styles.selectorsContainer}>
+      <div className={styles.levelSelector} style={{ marginBottom: 0 }}>
+        <span className={styles.levelLabel}>Nível:</span>
+        <div className={styles.levelToggle}>
+          <button 
+            className={`${styles.levelBtn} ${level === 'beginner' ? styles.levelBtnActive : ''}`}
+            onClick={() => setLevel('beginner')}
+          >
+            🐣 Iniciante
+          </button>
+          <button 
+            className={`${styles.levelBtn} ${level === 'standard' ? styles.levelBtnActive : ''}`}
+            onClick={() => setLevel('standard')}
+          >
+            🚀 Padrão
+          </button>
+        </div>
+      </div>
+      
+      <div className={styles.variationSelector}>
+        <div className={styles.variationToggle}>
+          <button 
+            className={`${styles.variationBtn} ${variation === 1 ? styles.variationBtnActive : ''}`}
+            onClick={() => setVariation(1)}
+          >
+            Conversa A
+          </button>
+          <button 
+            className={`${styles.variationBtn} ${variation === 2 ? styles.variationBtnActive : ''}`}
+            onClick={() => setVariation(2)}
+          >
+            Conversa B
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -343,7 +390,7 @@ function DirectionsLayout({ scenario }: { scenario: typeof scenarios[0] }) {
               Click through the conversation between a tourist and a friendly local. Tap each message to see the Portuguese translation.
             </p>
             <ChatDialogueSimulator
-              key={`simulator-${level}`}
+              key={`simulator-${level}-${variation}`}
               dialogues={currentDialogues}
               onComplete={() => {
                 fetch('/api/progress', {
@@ -371,7 +418,7 @@ function DirectionsLayout({ scenario }: { scenario: typeof scenarios[0] }) {
         {activeSection === 'listening' && (
           <div className={styles.section} id="section-listening">
             <h2 className={styles.sectionTitle}>🎧 Desafio de Audição</h2>
-            <ListeningChallenge key={`listening-${level}`} dialogues={currentDialogues} />
+            <ListeningChallenge key={`listening-${level}-${variation}`} dialogues={currentDialogues} />
           </div>
         )}
 

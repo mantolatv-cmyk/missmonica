@@ -303,3 +303,42 @@
   font-style: italic;
 }
 
+/* Variation Selector */
+.selectorsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.variationSelector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.variationToggle {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.variationBtn {
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  background: white;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-base);
+}
+
+.variationBtnActive {
+  background: var(--color-mint);
+  border-color: var(--color-mint-deep);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+}
+
