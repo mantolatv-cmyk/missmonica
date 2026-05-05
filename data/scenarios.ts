@@ -31,6 +31,7 @@ export interface DialogueSet {
   titlePt: string;
   icon: string;
   dialogues: DialogueLine[];
+  dialoguesBeginner?: DialogueLine[];
 }
 
 export interface Scenario {
@@ -43,6 +44,7 @@ export interface Scenario {
   color: 'lavender' | 'mint' | 'peach' | 'sky' | 'gold' | 'rose' | 'orange' | 'blue' | 'indigo';
   imagePath: string;
   dialogues: DialogueLine[];
+  dialoguesBeginner?: DialogueLine[];
   vocabulary: VocabularyItem[];
   flashcards?: FlashcardItem[];
   culturalTips?: CulturalTipData[];
@@ -77,6 +79,20 @@ export const scenarios: Scenario[] = [
       { speaker: 'native', english: "I'm an engineer. Well, I hope you enjoy your trip here!", portuguese: "Eu sou engenheiro. Bem, espero que você aproveite sua viagem aqui!" },
       { speaker: 'student', english: "Thank you so much! It was great talking to you.", portuguese: "Muito obrigada! Foi ótimo falar com você." },
       { speaker: 'native', english: "You too! Welcome to the US and have fun!", portuguese: "Com você também! Bem-vinda aos EUA e divirta-se!" },
+    ],
+    dialoguesBeginner: [
+      { speaker: 'native', english: "Hi! What's your name?", portuguese: "Oi! Qual é o seu nome?" },
+      { speaker: 'student', english: "Hi! My name is Ana.", portuguese: "Oi! Meu nome é Ana." },
+      { speaker: 'native', english: "Nice to meet you. I am Mark.", portuguese: "Prazer em conhecê-lo. Eu sou Mark." },
+      { speaker: 'student', english: "I am from Brazil. Where are you from?", portuguese: "Eu sou do Brasil. De onde você é?" },
+      { speaker: 'native', english: "I am from New York. Is this your first trip?", portuguese: "Eu sou de Nova York. Esta é sua primeira viagem?" },
+      { speaker: 'student', english: "Yes. I am on vacation.", portuguese: "Sim. Estou de férias." },
+      { speaker: 'native', english: "How old are you?", portuguese: "Quantos anos você tem?" },
+      { speaker: 'student', english: "I am 28 years old.", portuguese: "Eu tenho 28 anos." },
+      { speaker: 'native', english: "What is your job?", portuguese: "Qual é o seu trabalho?" },
+      { speaker: 'student', english: "I am a teacher.", portuguese: "Eu sou professora." },
+      { speaker: 'native', english: "Nice! Have a good trip!", portuguese: "Legal! Tenha uma boa viagem!" },
+      { speaker: 'student', english: "Thank you! Goodbye!", portuguese: "Obrigada! Tchau!" },
     ],
     vocabulary: [
       { english: "My name is...", portuguese: "Meu nome é..." },
@@ -144,6 +160,20 @@ export const scenarios: Scenario[] = [
       { speaker: 'native', english: "No signature needed. Would you like your receipt printed or emailed?", portuguese: "Não precisa de assinatura. Você gostaria do seu recibo impresso ou por e-mail?" },
       { speaker: 'student', english: "Printed, please. Thank you!", portuguese: "Impresso, por favor. Obrigado!" },
       { speaker: 'native', english: "Here is your bag and your receipt. Have a great day!", portuguese: "Aqui está sua sacola e seu recibo. Tenha um ótimo dia!" },
+    ],
+    dialoguesBeginner: [
+      { speaker: 'student', english: "How much is this?", portuguese: "Quanto custa isto?" },
+      { speaker: 'native', english: "It is twenty dollars.", portuguese: "Custa vinte dólares." },
+      { speaker: 'student', english: "Is it on sale?", portuguese: "Está em promoção?" },
+      { speaker: 'native', english: "Yes, it is. Ten percent off.", portuguese: "Sim, está. Dez por cento de desconto." },
+      { speaker: 'student', english: "I will take it.", portuguese: "Eu vou levar." },
+      { speaker: 'native', english: "Anything else?", portuguese: "Algo mais?" },
+      { speaker: 'student', english: "Yes. I need a bottle of water.", portuguese: "Sim. Preciso de uma garrafa de água." },
+      { speaker: 'native', english: "Water is two dollars.", portuguese: "A água custa dois dólares." },
+      { speaker: 'student', english: "Can I pay with card?", portuguese: "Posso pagar com cartão?" },
+      { speaker: 'native', english: "Yes. Insert your card here.", portuguese: "Sim. Insira seu cartão aqui." },
+      { speaker: 'student', english: "Thank you!", portuguese: "Obrigado!" },
+      { speaker: 'native', english: "Have a nice day!", portuguese: "Tenha um bom dia!" },
     ],
     vocabulary: [
       { english: "How much?", portuguese: "Quanto custa?" },
@@ -214,6 +244,20 @@ export const scenarios: Scenario[] = [
       { speaker: 'native', english: "Yes. Alright, you're all set. Welcome to the United States. Enjoy your trip!", portuguese: "Sim. Certo, tudo pronto. Bem-vindo aos Estados Unidos. Aproveite sua viagem!" },
       { speaker: 'student', english: "Thank you very much! Have a good day.", portuguese: "Muito obrigado! Tenha um bom dia." },
     ],
+    dialoguesBeginner: [
+      { speaker: 'native', english: "Passport, please.", portuguese: "Passaporte, por favor." },
+      { speaker: 'student', english: "Here it is.", portuguese: "Aqui está." },
+      { speaker: 'native', english: "Why are you here?", portuguese: "Por que você está aqui?" },
+      { speaker: 'student', english: "I am on vacation.", portuguese: "Estou de férias." },
+      { speaker: 'native', english: "How long will you stay?", portuguese: "Quanto tempo você vai ficar?" },
+      { speaker: 'student', english: "I will stay for 10 days.", portuguese: "Vou ficar por 10 dias." },
+      { speaker: 'native', english: "Where is your hotel?", portuguese: "Onde é seu hotel?" },
+      { speaker: 'student', english: "It is in Manhattan.", portuguese: "É em Manhattan." },
+      { speaker: 'native', english: "Are you alone?", portuguese: "Você está sozinho(a)?" },
+      { speaker: 'student', english: "Yes, I am alone.", portuguese: "Sim, estou sozinho(a)." },
+      { speaker: 'native', english: "Welcome to the US!", portuguese: "Bem-vindo aos EUA!" },
+      { speaker: 'student', english: "Thank you!", portuguese: "Obrigado!" },
+    ],
     vocabulary: [
       { english: "Passport", portuguese: "Passaporte" },
       { english: "Boarding pass", portuguese: "Cartão de embarque" },
@@ -281,6 +325,17 @@ export const scenarios: Scenario[] = [
       { speaker: 'student', english: "No, I can manage. Thank you for your help!", portuguese: "Não, eu consigo levar. Obrigada pela sua ajuda!" },
       { speaker: 'native', english: "You're very welcome. Enjoy your stay, Maria!", portuguese: "De nada. Aproveite sua estadia, Maria!" },
     ],
+    dialoguesBeginner: [
+      { speaker: 'student', english: "Hello. I have a reservation.", portuguese: "Olá. Eu tenho uma reserva." },
+      { speaker: 'native', english: "What is your name?", portuguese: "Qual é o seu nome?" },
+      { speaker: 'student', english: "Maria Silva.", portuguese: "Maria Silva." },
+      { speaker: 'native', english: "Welcome! Here is your key card.", portuguese: "Bem-vinda! Aqui está seu cartão-chave." },
+      { speaker: 'student', english: "Is breakfast free?", portuguese: "O café da manhã é grátis?" },
+      { speaker: 'native', english: "Yes, from 7 to 10 AM.", portuguese: "Sim, das 7 às 10 da manhã." },
+      { speaker: 'student', english: "What time is check-out?", portuguese: "Que horas é o check-out?" },
+      { speaker: 'native', english: "Check-out is at 11 AM.", portuguese: "O check-out é às 11 da manhã." },
+      { speaker: 'student', english: "Thank you!", portuguese: "Obrigada!" },
+    ],
     vocabulary: [
       { english: "Reservation", portuguese: "Reserva" },
       { english: "Room key", portuguese: "Chave do quarto" },
@@ -347,6 +402,16 @@ export const scenarios: Scenario[] = [
       { speaker: 'student', english: "No, we are full. Just the check, please.", portuguese: "Não, estamos cheios. Apenas a conta, por favor." },
       { speaker: 'native', english: "I'll be right back with the check. No rush!", portuguese: "Já volto com a conta. Sem pressa!" },
     ],
+    dialoguesBeginner: [
+      { speaker: 'native', english: "Table for how many?", portuguese: "Mesa para quantos?" },
+      { speaker: 'student', english: "Table for two, please.", portuguese: "Mesa para dois, por favor." },
+      { speaker: 'native', english: "What do you want to drink?", portuguese: "O que você quer beber?" },
+      { speaker: 'student', english: "Water, please.", portuguese: "Água, por favor." },
+      { speaker: 'native', english: "Are you ready to order?", portuguese: "Você está pronto para pedir?" },
+      { speaker: 'student', english: "I want a cheeseburger and fries.", portuguese: "Eu quero um cheeseburger e batatas fritas." },
+      { speaker: 'native', english: "How was the food?", portuguese: "Como estava a comida?" },
+      { speaker: 'student', english: "It was good! The check, please.", portuguese: "Estava boa! A conta, por favor." },
+    ],
     vocabulary: [
       { english: "Menu", portuguese: "Cardápio" },
       { english: "Appetizer", portuguese: "Entrada" },
@@ -411,6 +476,17 @@ export const scenarios: Scenario[] = [
       { speaker: 'tourist', english: "I'm visiting from Brazil.", portuguese: "Estou visitando do Brasil." },
       { speaker: 'local', english: "Oh, cool! Well, I hope you enjoy the museum and have a great time in the city!", portuguese: "Ah, legal! Bem, espero que você aproveite o museu e se divirta muito na cidade!" },
       { speaker: 'tourist', english: "Thanks again. Have a good day!", portuguese: "Obrigado de novo. Tenha um bom dia!" },
+    ],
+    dialoguesBeginner: [
+      { speaker: 'tourist', english: "Excuse me. Can you help me?", portuguese: "Com licença. Você pode me ajudar?" },
+      { speaker: 'local', english: "Yes. How can I help?", portuguese: "Sim. Como posso ajudar?" },
+      { speaker: 'tourist', english: "Where is the museum?", portuguese: "Onde é o museu?" },
+      { speaker: 'local', english: "Go straight for two blocks.", portuguese: "Siga direto por dois quarteirões." },
+      { speaker: 'local', english: "Then, turn left.", portuguese: "Então, vire à esquerda." },
+      { speaker: 'tourist', english: "Is it near here?", portuguese: "É perto daqui?" },
+      { speaker: 'local', english: "Yes. It is next to the park.", portuguese: "Sim. É ao lado do parque." },
+      { speaker: 'tourist', english: "Thank you very much!", portuguese: "Muito obrigado!" },
+      { speaker: 'local', english: "You are welcome!", portuguese: "De nada!" },
     ],
     vocabulary: [
       { english: "Turn left", portuguese: "Vire à esquerda" },
@@ -491,6 +567,17 @@ export const scenarios: Scenario[] = [
           { speaker: 'student', english: "Thank you so much! Have a great day.", portuguese: "Muito obrigada! Tenha um ótimo dia." },
           { speaker: 'native', english: "You too! Don't forget all your belongings.", portuguese: "Você também! Não esqueça todos os seus pertences." },
         ],
+        dialoguesBeginner: [
+          { speaker: 'student', english: "Hi! I am Ana. Are you my Uber?", portuguese: "Oi! Eu sou a Ana. Você é meu Uber?" },
+          { speaker: 'native', english: "Yes. Get in, please.", portuguese: "Sim. Entre, por favor." },
+          { speaker: 'student', english: "I am going to Times Square.", portuguese: "Vou para a Times Square." },
+          { speaker: 'native', english: "Okay. It takes 15 minutes.", portuguese: "Ok. Leva 15 minutos." },
+          { speaker: 'student', english: "Can you turn off the air conditioning?", portuguese: "Você pode desligar o ar condicionado?" },
+          { speaker: 'native', english: "Yes, of course.", portuguese: "Sim, claro." },
+          { speaker: 'student', english: "Stop here, please.", portuguese: "Pare aqui, por favor." },
+          { speaker: 'native', english: "We are here. Have a good day!", portuguese: "Chegamos. Tenha um bom dia!" },
+          { speaker: 'student', english: "Thank you! Goodbye!", portuguese: "Obrigado! Tchau!" },
+        ],
       },
       {
         title: 'Taking the Metro',
@@ -511,6 +598,16 @@ export const scenarios: Scenario[] = [
           { speaker: 'native', english: "Yes, it's rush hour so there are plenty of people. Just keep an eye on your belongings.", portuguese: "Sim, é hora do rush então tem muita gente. Apenas fique de olho nos seus pertences." },
           { speaker: 'student', english: "Thank you so much for your help! Have a good one.", portuguese: "Muito obrigada pela sua ajuda! Tenha um bom dia." },
           { speaker: 'native', english: "You're welcome! Stand clear of the closing doors!", portuguese: "De nada! Afaste-se das portas fechando!" },
+        ],
+        dialoguesBeginner: [
+          { speaker: 'student', english: "Where can I buy a ticket?", portuguese: "Onde posso comprar um bilhete?" },
+          { speaker: 'native', english: "At the kiosk, over there.", portuguese: "No quiosque, ali." },
+          { speaker: 'student', english: "Which train goes to Central Park?", portuguese: "Qual trem vai para o Central Park?" },
+          { speaker: 'native', english: "Take the Number 1 train.", portuguese: "Pegue o trem número 1." },
+          { speaker: 'student', english: "How many stops?", portuguese: "Quantas paradas?" },
+          { speaker: 'native', english: "Five stops.", portuguese: "Cinco paradas." },
+          { speaker: 'student', english: "Thank you for your help!", portuguese: "Obrigado pela sua ajuda!" },
+          { speaker: 'native', english: "You are welcome!", portuguese: "De nada!" },
         ],
       },
     ],
@@ -584,6 +681,17 @@ export const scenarios: Scenario[] = [
           { speaker: 'student', english: "Thank you for your help. I'll go grab them now.", portuguese: "Obrigada pela sua ajuda. Vou pegá-los agora." },
           { speaker: 'local', english: "Feel better soon! The cash registers are at the front of the store.", portuguese: "Melhore logo! Os caixas ficam na frente da loja." },
         ],
+        dialoguesBeginner: [
+          { speaker: 'student', english: "I am not feeling well.", portuguese: "Não estou me sentindo bem." },
+          { speaker: 'local', english: "What is the problem?", portuguese: "Qual é o problema?" },
+          { speaker: 'student', english: "I have a headache and a sore throat.", portuguese: "Tenho dor de cabeça e dor de garganta." },
+          { speaker: 'local', english: "I recommend this medicine.", portuguese: "Eu recomendo este remédio." },
+          { speaker: 'student', english: "Do I need a prescription?", portuguese: "Eu preciso de receita?" },
+          { speaker: 'local', english: "No, you don't.", portuguese: "Não, você não precisa." },
+          { speaker: 'student', english: "How many pills should I take?", portuguese: "Quantos comprimidos devo tomar?" },
+          { speaker: 'local', english: "Take one pill every 8 hours.", portuguese: "Tome um comprimido a cada 8 horas." },
+          { speaker: 'student', english: "Thank you very much.", portuguese: "Muito obrigado." },
+        ],
       },
       {
         title: 'Medical Emergency',
@@ -605,6 +713,15 @@ export const scenarios: Scenario[] = [
           { speaker: 'student', english: "Just a small scrape on her knee, but her arm is swelling.", portuguese: "Apenas um pequeno arranhão no joelho, mas o braço dela está inchando." },
           { speaker: 'local', english: "I hear the sirens. They are coming down the street now.", portuguese: "Estou ouvindo as sirenes. Eles estão descendo a rua agora." },
           { speaker: 'student', english: "Thank you so much for your help. I didn't know what to do.", portuguese: "Muito obrigada pela sua ajuda. Eu não sabia o que fazer." },
+        ],
+        dialoguesBeginner: [
+          { speaker: 'student', english: "Help! It is an emergency!", portuguese: "Socorro! É uma emergência!" },
+          { speaker: 'local', english: "What happened?", portuguese: "O que aconteceu?" },
+          { speaker: 'student', english: "My friend fell down. I think her arm is broken.", portuguese: "Minha amiga caiu. Acho que o braço dela está quebrado." },
+          { speaker: 'local', english: "I am calling 911 now.", portuguese: "Estou ligando para o 911 agora." },
+          { speaker: 'student', english: "Is there a hospital near here?", portuguese: "Tem um hospital perto daqui?" },
+          { speaker: 'local', english: "Yes. The ambulance is coming.", portuguese: "Sim. A ambulância está vindo." },
+          { speaker: 'student', english: "Thank you for your help.", portuguese: "Obrigado pela sua ajuda." },
         ],
       },
     ],
@@ -678,6 +795,17 @@ export const scenarios: Scenario[] = [
           { speaker: 'student', english: "Awesome. Thank you for the tips!", portuguese: "Incrível. Obrigado pelas dicas!" },
           { speaker: 'local', english: "Here are your tickets. Enjoy the performance!", portuguese: "Aqui estão seus ingressos. Aproveitem a apresentação!" },
         ],
+        dialoguesBeginner: [
+          { speaker: 'student', english: "I want two tickets for The Lion King.", portuguese: "Eu quero dois ingressos para O Rei Leão." },
+          { speaker: 'local', english: "For 7 PM? It is almost full.", portuguese: "Para as 19h? Está quase cheio." },
+          { speaker: 'student', english: "Yes. How much are the tickets?", portuguese: "Sim. Quanto custam os ingressos?" },
+          { speaker: 'local', english: "One hundred and ten dollars each.", portuguese: "Cento e dez dólares cada." },
+          { speaker: 'student', english: "Okay. Can I pay with card?", portuguese: "Ok. Posso pagar com cartão?" },
+          { speaker: 'local', english: "Yes. Here are your tickets.", portuguese: "Sim. Aqui estão seus ingressos." },
+          { speaker: 'student', english: "What time does it start?", portuguese: "Que horas começa?" },
+          { speaker: 'local', english: "It starts at 7 PM.", portuguese: "Começa às 19h." },
+          { speaker: 'student', english: "Thank you!", portuguese: "Obrigado!" },
+        ],
       },
       {
         title: 'Asking for Tips',
@@ -698,6 +826,17 @@ export const scenarios: Scenario[] = [
           { speaker: 'local', english: "There's a great slice shop just two blocks from the museum entrance. It's called Joe's Pizza.", portuguese: "Tem uma ótima pizzaria a apenas dois quarteirões da entrada do museu. Chama-se Joe's Pizza." },
           { speaker: 'student', english: "That sounds delicious. I'll check it out. Thanks for your help!", portuguese: "Parece delicioso. Vou dar uma olhada. Obrigado pela sua ajuda!" },
           { speaker: 'local', english: "You're very welcome! Enjoy your afternoon in the city.", portuguese: "De nada! Aproveite sua tarde na cidade." },
+        ],
+        dialoguesBeginner: [
+          { speaker: 'student', english: "What is a good museum near here?", portuguese: "Qual é um bom museu perto daqui?" },
+          { speaker: 'local', english: "The MET is very good.", portuguese: "O MET é muito bom." },
+          { speaker: 'student', english: "Is it open today?", portuguese: "Está aberto hoje?" },
+          { speaker: 'local', english: "Yes. It opens at 10 AM.", portuguese: "Sim. Abre às 10 da manhã." },
+          { speaker: 'student', english: "Is there a student discount?", portuguese: "Tem desconto para estudante?" },
+          { speaker: 'local', english: "Yes. Use your ID card.", portuguese: "Sim. Use seu cartão de identidade." },
+          { speaker: 'student', english: "Where is a good pizza place?", portuguese: "Onde tem uma boa pizzaria?" },
+          { speaker: 'local', english: "Joe's Pizza is near here.", portuguese: "Joe's Pizza é perto daqui." },
+          { speaker: 'student', english: "Thank you!", portuguese: "Obrigado!" },
         ],
       },
     ],
@@ -769,6 +908,16 @@ export const scenarios: Scenario[] = [
           { speaker: 'student', english: "It's Maria. M-A-R-I-A.", portuguese: "É Maria. M-A-R-I-A." },
           { speaker: 'native', english: "Thanks, Maria! They'll call your name down at the end of the bar.", portuguese: "Obrigada, Maria! Eles vão chamar seu nome no final do balcão." },
         ],
+        dialoguesBeginner: [
+          { speaker: 'native', english: "Welcome! What do you want to drink?", portuguese: "Bem-vindo! O que você quer beber?" },
+          { speaker: 'student', english: "A latte, please.", portuguese: "Um latte, por favor." },
+          { speaker: 'native', english: "Hot or iced?", portuguese: "Quente ou gelado?" },
+          { speaker: 'student', english: "Iced, please.", portuguese: "Gelado, por favor." },
+          { speaker: 'native', english: "What is your name?", portuguese: "Qual é o seu nome?" },
+          { speaker: 'student', english: "Maria.", portuguese: "Maria." },
+          { speaker: 'native', english: "That is five dollars.", portuguese: "São cinco dólares." },
+          { speaker: 'student', english: "Here you go. Thank you!", portuguese: "Aqui está. Obrigado!" },
+        ],
       },
       {
         title: 'Fast Food Order',
@@ -789,6 +938,17 @@ export const scenarios: Scenario[] = [
           { speaker: 'student', english: "No, thank you. Just the combo.", portuguese: "Não, obrigado. Apenas o combo." },
           { speaker: 'native', english: "Your total comes to twelve dollars and forty cents. Please pull up to the second window to pay.", portuguese: "Seu total dá doze dólares e quarenta centavos. Por favor, avance para a segunda janela para pagar." },
           { speaker: 'student', english: "Thank you.", portuguese: "Obrigado." },
+        ],
+        dialoguesBeginner: [
+          { speaker: 'native', english: "For here or to go?", portuguese: "Para comer aqui ou para levar?" },
+          { speaker: 'student', english: "To go, please.", portuguese: "Para levar, por favor." },
+          { speaker: 'student', english: "I want a number one combo.", portuguese: "Eu quero o combo número um." },
+          { speaker: 'native', english: "What drink do you want?", portuguese: "Qual bebida você quer?" },
+          { speaker: 'student', english: "A Coke, please.", portuguese: "Uma Coca, por favor." },
+          { speaker: 'native', english: "Anything else?", portuguese: "Algo mais?" },
+          { speaker: 'student', english: "No, thank you.", portuguese: "Não, obrigado." },
+          { speaker: 'native', english: "Twelve dollars, please.", portuguese: "Doze dólares, por favor." },
+          { speaker: 'student', english: "Thank you!", portuguese: "Obrigado!" },
         ],
       },
     ],

@@ -90,6 +90,35 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
   const [activeTab, setActiveTab] = useState<'dialogues' | 'vocabulary' | 'cultural' | 'practice'>('dialogues');
   const [activeDialogueSet, setActiveDialogueSet] = useState(0);
   const [activePracticeMode, setActivePracticeMode] = useState<'sentences' | 'scramble' | 'listening' | 'speed' | 'match' | null>(null);
+  const [level, setLevel] = useState<'standard' | 'beginner'>('standard');
+
+  const currentDialogues = hasDialogueSets 
+    ? (level === 'beginner' && scenario.dialogueSets![activeDialogueSet].dialoguesBeginner 
+        ? scenario.dialogueSets![activeDialogueSet].dialoguesBeginner 
+        : scenario.dialogueSets![activeDialogueSet].dialogues)
+    : (level === 'beginner' && scenario.dialoguesBeginner 
+        ? scenario.dialoguesBeginner 
+        : scenario.dialogues);
+
+  const LevelToggle = () => (
+    <div className={styles.levelSelector}>
+      <span className={styles.levelLabel}>Nível:</span>
+      <div className={styles.levelToggle}>
+        <button 
+          className={`${styles.levelBtn} ${level === 'beginner' ? styles.levelBtnActive : ''}`}
+          onClick={() => setLevel('beginner')}
+        >
+          🐣 Iniciante
+        </button>
+        <button 
+          className={`${styles.levelBtn} ${level === 'standard' ? styles.levelBtnActive : ''}`}
+          onClick={() => setLevel('standard')}
+        >
+          🚀 Padrão
+        </button>
+      </div>
+    </div>
+  );
 
   return (
     <>
@@ -125,6 +154,10 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
       <div className={styles.tabContent}>
         {activeTab === 'dialogues' && (
           <>
+            <LevelToggle />
+            <p className={styles.levelHint}>
+              {level === 'beginner' ? 'Frases simplificadas para quem está começando.' : 'Diálogos completos e naturais para praticar.'}
+            </p>
             {hasDialogueSets ? (
               <>
                 {/* Sub-navigation for multiple dialogue sets */}
@@ -147,12 +180,12 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
                   {scenario.dialogueSets![activeDialogueSet].titlePt}
                 </p>
                 <DialogueBlock
-                  key={activeDialogueSet}
-                  dialogues={scenario.dialogueSets![activeDialogueSet].dialogues}
+                  key={`${activeDialogueSet}-${level}`}
+                  dialogues={currentDialogues}
                 />
               </>
             ) : (
-              <DialogueBlock dialogues={scenario.dialogues} />
+              <DialogueBlock key={`main-${level}`} dialogues={currentDialogues} />
             )}
           </>
         )}
@@ -200,7 +233,8 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
                 )}
                 {activePracticeMode === 'sentences' && (
                   <SentenceBuilder 
-                    dialogues={hasDialogueSets ? scenario.dialogueSets![activeDialogueSet].dialogues : scenario.dialogues} 
+                    key={`sentences-${level}`}
+                    dialogues={currentDialogues} 
                   />
                 )}
                 {activePracticeMode === 'scramble' && (
@@ -208,7 +242,8 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
                 )}
                 {activePracticeMode === 'listening' && (
                   <ListeningChallenge 
-                    dialogues={hasDialogueSets ? scenario.dialogueSets![activeDialogueSet].dialogues : scenario.dialogues} 
+                    key={`listening-${level}`}
+                    dialogues={currentDialogues} 
                   />
                 )}
                 {activePracticeMode === 'speed' && (
@@ -233,6 +268,31 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
 // Enhanced directions layout with 3 sections
 function DirectionsLayout({ scenario }: { scenario: typeof scenarios[0] }) {
   const [activeSection, setActiveSection] = useState<'wordlesson' | 'simulator' | 'flashcards' | 'cultural' | 'vocabulary' | 'listening' | 'speed'>('wordlesson');
+  const [level, setLevel] = useState<'standard' | 'beginner'>('standard');
+
+  const currentDialogues = level === 'beginner' && scenario.dialoguesBeginner 
+    ? scenario.dialoguesBeginner 
+    : scenario.dialogues;
+
+  const LevelToggle = () => (
+    <div className={styles.levelSelector}>
+      <span className={styles.levelLabel}>Nível:</span>
+      <div className={styles.levelToggle}>
+        <button 
+          className={`${styles.levelBtn} ${level === 'beginner' ? styles.levelBtnActive : ''}`}
+          onClick={() => setLevel('beginner')}
+        >
+          🐣 Iniciante
+        </button>
+        <button 
+          className={`${styles.levelBtn} ${level === 'standard' ? styles.levelBtnActive : ''}`}
+          onClick={() => setLevel('standard')}
+        >
+          🚀 Padrão
+        </button>
+      </div>
+    </div>
+  );
 
   const sections = [
     { key: 'wordlesson' as const, label: '📖 Aula das Palavras', labelEn: 'Word Lesson' },
@@ -260,6 +320,14 @@ function DirectionsLayout({ scenario }: { scenario: typeof scenarios[0] }) {
       </div>
 
       <div className={styles.tabContent}>
+        {(activeSection === 'simulator' || activeSection === 'listening' || activeSection === 'speed') && (
+          <>
+            <LevelToggle />
+            <p className={styles.levelHint}>
+              {level === 'beginner' ? 'Frases simplificadas para quem está começando.' : 'Diálogos completos e naturais para praticar.'}
+            </p>
+          </>
+        )}
         {activeSection === 'wordlesson' && (
           <div className={styles.section} id="section-wordlesson">
             <WordLesson vocabulary={scenario.vocabulary} onComplete={() => setActiveSection('simulator')} />
@@ -275,7 +343,8 @@ function DirectionsLayout({ scenario }: { scenario: typeof scenarios[0] }) {
               Click through the conversation between a tourist and a friendly local. Tap each message to see the Portuguese translation.
             </p>
             <ChatDialogueSimulator
-              dialogues={scenario.dialogues}
+              key={`simulator-${level}`}
+              dialogues={currentDialogues}
               onComplete={() => {
                 fetch('/api/progress', {
                   method: 'POST',
@@ -302,7 +371,7 @@ function DirectionsLayout({ scenario }: { scenario: typeof scenarios[0] }) {
         {activeSection === 'listening' && (
           <div className={styles.section} id="section-listening">
             <h2 className={styles.sectionTitle}>🎧 Desafio de Audição</h2>
-            <ListeningChallenge dialogues={scenario.dialogues} />
+            <ListeningChallenge key={`listening-${level}`} dialogues={currentDialogues} />
           </div>
         )}
 
