@@ -14,144 +14,33 @@
 .visualizer {
   position: relative;
   width: 100%;
-  max-width: 400px;
-  background: var(--color-bg-light);
-  border-radius: var(--radius-md);
+  max-width: 450px;
+  background: linear-gradient(135deg, #fffaf6 0%, #f9f1eb 100%);
+  border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(210, 180, 160, 0.2);
+  border: 8px solid white;
 }
 
-.imageWrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4/5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.baseFace {
+.faceSvg {
   width: 100%;
   height: auto;
   display: block;
+  transform-origin: center;
+  transition: transform 0.5s ease;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+.skinBase {
+  transition: fill 0.8s ease, filter 0.8s ease;
 }
 
-.active {
-  opacity: 1;
+.bubbles circle {
+  animation: floatBubble 2s infinite ease-in-out;
 }
 
-/* Skincare effects */
-.glow {
-  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 0%, transparent 70%);
-  mix-blend-mode: overlay;
-}
-
-.moisturizer {
-  backdrop-filter: blur(2px) saturate(1.1);
-  mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 90%);
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 90%);
-}
-
-/* Makeup effects */
-.foundation {
-  background: #eecba8;
-  mix-blend-mode: multiply;
-  opacity: 0;
-  /* Mask to only affect skin, not eyes/lips/hair */
-  clip-path: ellipse(35% 45% at 50% 50%);
-}
-.foundation.active { opacity: 0.3; }
-
-.concealer {
-  background: radial-gradient(ellipse at 35% 45%, #fff1e0 0%, transparent 20%),
-              radial-gradient(ellipse at 65% 45%, #fff1e0 0%, transparent 20%);
-  mix-blend-mode: screen;
-  opacity: 0;
-}
-.concealer.active { opacity: 0.4; }
-
-.powder {
-  backdrop-filter: contrast(0.9) brightness(1.05);
-  mix-blend-mode: soft-light;
-}
-
-.contour {
-  background: radial-gradient(ellipse at 25% 60%, #8d6e63 0%, transparent 30%),
-              radial-gradient(ellipse at 75% 60%, #8d6e63 0%, transparent 30%),
-              radial-gradient(ellipse at 50% 20%, #8d6e63 0%, transparent 20%);
-  mix-blend-mode: multiply;
-  opacity: 0;
-}
-.contour.active { opacity: 0.3; }
-
-.blush {
-  background: radial-gradient(circle at 30% 55%, #ff8a80 0%, transparent 25%),
-              radial-gradient(circle at 70% 55%, #ff8a80 0%, transparent 25%);
-  mix-blend-mode: multiply;
-  opacity: 0;
-}
-.blush.active { opacity: 0.4; }
-
-.highlighter {
-  background: radial-gradient(circle at 30% 50%, #ffffff 0%, transparent 15%),
-              radial-gradient(circle at 70% 50%, #ffffff 0%, transparent 15%),
-              radial-gradient(circle at 50% 45%, #ffffff 0%, transparent 10%);
-  mix-blend-mode: screen;
-  opacity: 0;
-}
-.highlighter.active { opacity: 0.5; }
-
-.eyeshadow {
-  background: radial-gradient(ellipse at 38% 41%, #9575cd 0%, transparent 12%),
-              radial-gradient(ellipse at 62% 41%, #9575cd 0%, transparent 12%);
-  mix-blend-mode: multiply;
-  opacity: 0;
-}
-.eyeshadow.active { opacity: 0.5; }
-
-.eyeliner {
-  background: radial-gradient(ellipse at 38% 42%, #000 0%, transparent 8%),
-              radial-gradient(ellipse at 62% 42%, #000 0%, transparent 8%);
-  clip-path: polygon(0 40%, 100% 40%, 100% 45%, 0 45%);
-  opacity: 0;
-}
-.eyeliner.active { opacity: 0.7; }
-
-.mascara {
-  filter: drop-shadow(0 2px 2px black);
-}
-
-.lipstick {
-  background: #d32f2f;
-  mix-blend-mode: multiply;
-  opacity: 0;
-  clip-path: ellipse(15% 6% at 50% 75%);
-}
-.lipstick.active { opacity: 0.6; }
-
-.bubbles {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3rem;
-  animation: float 2s infinite ease-in-out;
-}
-
-@keyframes float {
-  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-  50% { transform: translate(-50%, -50%) translateY(-20px); }
+@keyframes floatBubble {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(-5px); opacity: 0.8; }
 }
 
 /* Controls styles */
@@ -167,51 +56,56 @@
 
 .stepNumber {
   font-size: var(--fs-xs);
-  color: var(--color-mint-deep);
+  color: #d2a68c;
   font-weight: var(--fw-bold);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   margin-bottom: var(--space-xs);
 }
 
 .stepTitle {
-  font-size: var(--fs-xl);
+  font-family: var(--font-heading);
+  font-size: 2rem;
   color: var(--color-text);
   margin-bottom: 2px;
 }
 
 .stepTitlePt {
-  font-size: var(--fs-md);
+  font-size: var(--fs-lg);
   color: var(--color-text-secondary);
   font-style: italic;
   margin-bottom: var(--space-sm);
 }
 
 .stepDescription {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-md);
   color: var(--color-text-light);
-  max-width: 400px;
+  max-width: 450px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
 .buttons {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: var(--space-md);
 }
 
 .btn, .btnPrimary, .btnReset {
-  padding: var(--space-sm) var(--space-lg);
+  padding: var(--space-sm) var(--space-xl);
   border-radius: var(--radius-full);
   font-weight: var(--fw-bold);
   transition: all var(--transition-base);
   cursor: pointer;
   border: none;
+  font-size: var(--fs-sm);
 }
 
 .btn {
   background: var(--color-bg-light);
   color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
 }
 
 .btn:disabled {
@@ -220,21 +114,22 @@
 }
 
 .btnPrimary {
-  background: var(--color-mint);
-  color: var(--color-text);
-  box-shadow: var(--shadow-sm);
+  background: #d2a68c;
+  color: white;
+  box-shadow: 0 4px 12px rgba(210, 166, 140, 0.3);
 }
 
 .btnPrimary:hover:not(:disabled) {
-  background: var(--color-mint-deep);
+  background: #bc9075;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 6px 16px rgba(210, 166, 140, 0.4);
 }
 
 .btnReset {
   background: transparent;
   color: var(--color-text-light);
   font-size: var(--fs-xs);
+  text-decoration: underline;
 }
 
 .btnReset:hover {
