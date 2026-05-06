@@ -22,21 +22,25 @@ const steps = [
 
 export default function MakeupInteractive() {
   const [currentStep, setCurrentStep] = useState(0);
+  const [showTranslation, setShowTranslation] = useState(false);
 
   const nextStep = () => {
     if (currentStep < steps.length) {
       setCurrentStep(currentStep + 1);
+      setShowTranslation(false);
     }
   };
 
   const prevStep = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
+      setShowTranslation(false);
     }
   };
 
   const reset = () => {
     setCurrentStep(0);
+    setShowTranslation(false);
   };
 
   // SVG Paths for a clean, professional face with hair
@@ -184,8 +188,18 @@ export default function MakeupInteractive() {
           ) : (
             <>
               <div className={styles.stepNumber}>Step {currentStep} of 16</div>
-              <h2 className={styles.stepTitle}>{steps[currentStep - 1].name}</h2>
-              <p className={styles.stepTitlePt}>{steps[currentStep - 1].namePt}</p>
+              <div 
+                className={styles.titleWrapper} 
+                onClick={() => setShowTranslation(!showTranslation)}
+                title="Clique para ver a tradução"
+              >
+                <h2 className={styles.stepTitle}>{steps[currentStep - 1].name} 🖱️</h2>
+                {showTranslation ? (
+                  <p className={styles.stepTitlePt}>{steps[currentStep - 1].namePt}</p>
+                ) : (
+                  <p className={styles.tapHint}>Clique para traduzir / Tap to translate</p>
+                )}
+              </div>
               <p className={styles.stepDescription}>{steps[currentStep - 1].description}</p>
             </>
           )}

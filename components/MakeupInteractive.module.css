@@ -68,6 +68,33 @@
   margin-bottom: 2px;
 }
 
+.titleWrapper {
+  cursor: pointer;
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  transition: background 0.3s ease;
+  display: inline-block;
+  margin-bottom: var(--space-sm);
+}
+
+.titleWrapper:hover {
+  background: #fff5f0;
+}
+
+.tapHint {
+  font-size: var(--fs-xs);
+  color: #d2a68c;
+  font-style: italic;
+  margin: 0;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
 .stepTitlePt {
   font-size: var(--fs-lg);
   color: var(--color-text-secondary);
