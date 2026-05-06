@@ -5,9 +5,9 @@
   gap: var(--space-xl);
   padding: var(--space-xl);
   background: white;
-  border-radius: var(--radius-2xl);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-  max-width: 900px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -15,286 +15,121 @@
   position: relative;
   width: 100%;
   max-width: 450px;
+  background: #fffaf6;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-  border: 4px solid white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid var(--color-border);
 }
 
-.imageContainer {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4/5;
-}
-
-.mainImage {
+.faceSvg {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.overlayLayer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+.skinBase {
+  transition: fill 0.8s ease, filter 0.8s ease;
 }
 
-.effect {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out, filter 0.8s ease-in-out;
+.bubbles circle {
+  animation: floatBubble 2s infinite ease-in-out;
 }
 
-.active {
-  opacity: 1;
+@keyframes floatBubble {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(-5px); opacity: 0.8; }
 }
 
-/* Skincare Effects */
-.glow {
-  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3) 0%, transparent 70%);
-  mix-blend-mode: overlay;
-}
-
-/* Makeup Effects - Precise Positioning */
-
-.foundation {
-  background: #eecba8;
-  mix-blend-mode: multiply;
-  opacity: 0;
-  /* Mask to avoid hair/eyes/lips */
-  clip-path: ellipse(30% 40% at 50% 50%);
-}
-.foundation.active { opacity: 0.25; }
-
-.concealer {
-  background: 
-    radial-gradient(ellipse at 38% 46%, #fff5e6 0%, transparent 15%),
-    radial-gradient(ellipse at 62% 46%, #fff5e6 0%, transparent 15%);
-  mix-blend-mode: screen;
-  filter: blur(8px);
-  opacity: 0;
-}
-.concealer.active { opacity: 0.4; }
-
-.contour {
-  background: 
-    radial-gradient(ellipse at 28% 62%, #8d6e63 0%, transparent 20%),
-    radial-gradient(ellipse at 72% 62%, #8d6e63 0%, transparent 20%),
-    radial-gradient(ellipse at 50% 25%, #8d6e63 0%, transparent 15%);
-  mix-blend-mode: multiply;
-  filter: blur(12px);
-  opacity: 0;
-}
-.contour.active { opacity: 0.35; }
-
-.blush {
-  background: 
-    radial-gradient(circle at 32% 58%, #ffb7b2 0%, transparent 15%),
-    radial-gradient(circle at 68% 58%, #ffb7b2 0%, transparent 15%);
-  mix-blend-mode: multiply;
-  filter: blur(10px);
-  opacity: 0;
-}
-.blush.active { opacity: 0.5; }
-
-.highlighter {
-  background: 
-    radial-gradient(circle at 32% 54%, rgba(255,255,255,0.8) 0%, transparent 10%),
-    radial-gradient(circle at 68% 54%, rgba(255,255,255,0.8) 0%, transparent 10%),
-    radial-gradient(circle at 50% 52%, rgba(255,255,255,0.8) 0%, transparent 5%);
-  mix-blend-mode: screen;
-  filter: blur(5px);
-  opacity: 0;
-}
-.highlighter.active { opacity: 0.6; }
-
-.eyeshadow {
-  background: 
-    radial-gradient(ellipse at 38% 42%, #9575cd 0%, transparent 10%),
-    radial-gradient(ellipse at 62% 42%, #9575cd 0%, transparent 10%);
-  mix-blend-mode: multiply;
-  filter: blur(4px);
-  opacity: 0;
-}
-.eyeshadow.active { opacity: 0.45; }
-
-.eyeliner {
-  background: 
-    radial-gradient(ellipse at 38% 43.5%, #000 0%, transparent 6%),
-    radial-gradient(ellipse at 62% 43.5%, #000 0%, transparent 6%);
-  opacity: 0;
-  clip-path: polygon(25% 42%, 75% 42%, 75% 45%, 25% 45%);
-}
-.eyeliner.active { opacity: 0.6; }
-
-.mascara {
-  background: 
-    radial-gradient(ellipse at 38% 42.5%, #000 0%, transparent 8%),
-    radial-gradient(ellipse at 62% 42.5%, #000 0%, transparent 8%);
-  mix-blend-mode: multiply;
-  opacity: 0;
-}
-.mascara.active { opacity: 0.3; }
-
-.lipstick {
-  background: #d32f2f;
-  mix-blend-mode: multiply;
-  filter: blur(1px);
-  opacity: 0;
-  clip-path: ellipse(12% 5% at 50% 72.5%);
-}
-.lipstick.active { opacity: 0.6; }
-
-/* Cleanser Effects */
-.cleanserOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  pointer-events: none;
-}
-
-.bubble {
-  font-size: 2.5rem;
-  animation: bubbleFloat 1.5s infinite ease-in-out;
-}
-
-.bubble:nth-child(2) { animation-delay: 0.2s; }
-.bubble:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes bubbleFloat {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
-  50% { transform: translateY(-30px) scale(1.2); opacity: 0.4; }
-}
-
-/* Controls Styles */
+/* Controls styles */
 .controls {
-  width: 100%;
-  max-width: 600px;
   text-align: center;
+  width: 100%;
 }
 
-.stepHeader {
-  min-height: 160px;
-  margin-bottom: var(--space-xl);
+.stepInfo {
+  min-height: 120px;
+  margin-bottom: var(--space-lg);
 }
 
-.badge {
-  display: inline-block;
-  padding: 4px 12px;
-  background: #fff0f5;
-  color: #ff69b4;
-  border-radius: var(--radius-full);
-  font-size: 10px;
-  font-weight: 800;
+.stepNumber {
+  font-size: var(--fs-xs);
+  color: #8d6e63;
+  font-weight: var(--fw-bold);
   text-transform: uppercase;
-  margin-bottom: 10px;
+  letter-spacing: 1.5px;
+  margin-bottom: var(--space-xs);
 }
 
-.intro h2 {
+.stepTitle {
   font-family: var(--font-heading);
   font-size: 2.2rem;
   color: var(--color-text);
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 }
 
-.activeStep {
-  animation: fadeIn 0.4s ease;
-}
-
-.progressCounter {
-  font-size: 11px;
-  font-weight: 900;
-  color: #d2a68c;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
-}
-
-.stepName {
-  font-family: var(--font-heading);
-  font-size: 2.4rem;
-  color: var(--color-text);
-  margin-bottom: 0;
-}
-
-.stepNamePt {
-  font-size: 1.4rem;
+.stepTitlePt {
+  font-size: var(--fs-lg);
   color: var(--color-text-secondary);
   font-style: italic;
-  font-weight: 400;
-  margin-top: 2px;
-  margin-bottom: 15px;
+  margin-bottom: var(--space-sm);
 }
 
-.description {
+.stepDescription {
   font-size: var(--fs-md);
   color: var(--color-text-light);
+  max-width: 450px;
+  margin: 0 auto;
   line-height: 1.6;
 }
 
-.actions {
+.buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--space-lg);
+  gap: var(--space-md);
 }
 
-.navBtn, .resetBtn {
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-}
-
-.navBtn {
-  padding: 14px 30px;
+.btn, .btnPrimary, .btnReset {
+  padding: var(--space-sm) var(--space-xl);
   border-radius: var(--radius-full);
-  font-weight: 700;
-  background: #f8f8f8;
-  color: #666;
+  font-weight: var(--fw-bold);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  border: none;
+  font-size: var(--fs-sm);
 }
 
-.navBtn:disabled {
-  opacity: 0.3;
+.btn {
+  background: var(--color-bg-light);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+}
+
+.btn:disabled {
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
-.navBtn.primary {
-  background: #d2a68c;
+.btnPrimary {
+  background: #3d2b1f;
   color: white;
-  box-shadow: 0 10px 20px rgba(210, 166, 140, 0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.navBtn.primary:hover:not(:disabled) {
-  background: #bc9075;
+.btnPrimary:hover:not(:disabled) {
+  background: #1a110a;
   transform: translateY(-2px);
-  box-shadow: 0 15px 30px rgba(210, 166, 140, 0.3);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 
-.resetBtn {
+.btnReset {
   background: transparent;
-  color: #999;
-  font-size: 12px;
+  color: var(--color-text-light);
+  font-size: var(--fs-xs);
   text-decoration: underline;
 }
 
-.resetBtn:hover {
-  color: #ff6b6b;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.btnReset:hover {
+  color: var(--color-rose);
 }
