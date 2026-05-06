@@ -15,6 +15,7 @@ import WordScramble from '@/components/WordScramble';
 import ListeningChallenge from '@/components/ListeningChallenge';
 import SpeedRound from '@/components/SpeedRound';
 import WordLesson from '@/components/WordLesson';
+import MakeupInteractive from '@/components/MakeupInteractive';
 import { scenarios } from '@/data/scenarios';
 import styles from './page.module.css';
 
@@ -89,7 +90,7 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
   const hasDialogueSets = !!scenario.dialogueSets && scenario.dialogueSets.length > 0;
   const [activeTab, setActiveTab] = useState<'dialogues' | 'vocabulary' | 'cultural' | 'practice'>('dialogues');
   const [activeDialogueSet, setActiveDialogueSet] = useState(0);
-  const [activePracticeMode, setActivePracticeMode] = useState<'sentences' | 'scramble' | 'listening' | 'speed' | 'match' | null>(null);
+  const [activePracticeMode, setActivePracticeMode] = useState<'sentences' | 'scramble' | 'listening' | 'speed' | 'match' | 'makeup' | null>(null);
   const [level, setLevel] = useState<'standard' | 'beginner'>('standard');
   const [variation, setVariation] = useState<1 | 2>(1);
 
@@ -243,6 +244,13 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
                   <h3>Speed Round</h3>
                   <p>Quantas palavras você acerta em 30 segundos?</p>
                 </div>
+                {scenario.id === 'shopping' && (
+                  <div className={`${styles.gameCard} ${styles.gameCardSpecial}`} onClick={() => setActivePracticeMode('makeup')}>
+                    <div className={styles.gameIcon}>💄</div>
+                    <h3>Makeup Interativo</h3>
+                    <p>Aprenda as etapas da maquiagem em inglês.</p>
+                  </div>
+                )}
               </div>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-lg)' }}>
@@ -270,6 +278,9 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
                 )}
                 {activePracticeMode === 'speed' && (
                   <SpeedRound vocabulary={scenario.vocabulary} />
+                )}
+                {activePracticeMode === 'makeup' && (
+                  <MakeupInteractive />
                 )}
               </div>
             )}
