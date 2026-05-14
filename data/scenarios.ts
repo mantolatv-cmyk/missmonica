@@ -328,7 +328,7 @@ export const scenarios: Scenario[] = [
     descriptionPt: 'Domine perguntas do controle de passaportes, explique seu motivo de viagem e passe pela alfândega.',
     icon: '🛂',
     color: 'blue',
-    imagePath: '/images/airport_scene.png',
+    imagePath: '/images/immigration_scene.png',
     dialogues: [
       { speaker: 'native', english: "Good morning. Please step forward. Passport and customs declaration, please.", portuguese: "Bom dia. Dê um passo à frente. Passaporte e declaração da alfândega, por favor." },
       { speaker: 'student', english: "Good morning. Here you go.", portuguese: "Bom dia. Aqui estão." },
