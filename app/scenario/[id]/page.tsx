@@ -244,7 +244,7 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
                   <h3>Speed Round</h3>
                   <p>Quantas palavras você acerta em 30 segundos?</p>
                 </div>
-                {scenario.id === 'shopping' && (
+                {(scenario.id === 'shopping' || scenario.id === 'beauty') && (
                   <div className={`${styles.gameCard} ${styles.gameCardSpecial}`} onClick={() => setActivePracticeMode('makeup')}>
                     <div className={styles.gameIcon}>💄</div>
                     <h3>Makeup Interativo</h3>
