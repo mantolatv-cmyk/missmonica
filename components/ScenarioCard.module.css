@@ -30,6 +30,9 @@
 .card.sky:hover { box-shadow: var(--shadow-glow-sky); }
 .card.gold:hover { box-shadow: 0 8px 30px rgba(249, 217, 119, 0.4); }
 .card.rose:hover { box-shadow: 0 8px 30px rgba(244, 143, 177, 0.4); }
+.card.orange:hover { box-shadow: 0 8px 30px rgba(255, 167, 38, 0.4); }
+.card.blue:hover { box-shadow: 0 8px 30px rgba(66, 165, 245, 0.4); }
+.card.indigo:hover { box-shadow: 0 8px 30px rgba(126, 87, 194, 0.4); }
 
 .imageWrapper {
   position: relative;
@@ -113,6 +116,9 @@
 .card.sky .arrow { background: var(--color-sky); }
 .card.gold .arrow { background: var(--color-gold); }
 .card.rose .arrow { background: #F8BBD0; }
+.card.orange .arrow { background: #FFE0B2; }
+.card.blue .arrow { background: #BBDEFB; }
+.card.indigo .arrow { background: #D1C4E9; }
 
 .card:hover .arrow {
   transform: translateX(4px);
@@ -130,3 +136,6 @@
 .card.sky .accentBar { background: linear-gradient(90deg, var(--color-sky), var(--color-sky-deep)); }
 .card.gold .accentBar { background: linear-gradient(90deg, var(--color-gold), var(--color-gold-deep)); }
 .card.rose .accentBar { background: linear-gradient(90deg, #F8BBD0, #E91E63); }
+.card.orange .accentBar { background: linear-gradient(90deg, #FFE0B2, #FFB74D); }
+.card.blue .accentBar { background: linear-gradient(90deg, #BBDEFB, #64B5F6); }
+.card.indigo .accentBar { background: linear-gradient(90deg, #D1C4E9, #9575CD); }
