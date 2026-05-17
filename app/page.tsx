@@ -26,7 +26,7 @@ export default function HomePage() {
 
           <h1 className={styles.heroTitle}>
             Aprenda Inglês para sua{' '}
-            <span className={styles.heroTitleAccent}>Viagem aos EUA</span>
+            <span className={styles.heroTitleAccent}>Viagem</span>
           </h1>
           <p className={styles.heroSubtitle}>
             Pratique situações reais de viagem com diálogos interativos, vocabulário essencial e dicas culturais.
