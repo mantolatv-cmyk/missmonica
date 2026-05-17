@@ -393,6 +393,10 @@ export const scenarios: Scenario[] = [
       { english: "Duration of stay", portuguese: "Duração da estadia" },
       { english: "Currency", portuguese: "Moeda / Dinheiro" },
       { english: "Customs declaration", portuguese: "Declaração alfandegária" },
+      { english: "Immigration officer", portuguese: "Oficial de imigração" },
+      { english: "Tourist visa", portuguese: "Visto de turista" },
+      { english: "Return ticket", portuguese: "Passagem de volta" },
+      { english: "Fingerprint scanner", portuguese: "Scanner de impressão digital" },
     ],
     culturalTips: [
       {
