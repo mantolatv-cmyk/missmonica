@@ -1,0 +1,423 @@
+Created At: 2026-08-12T10:46:06Z
+Completed At: 2026-08-12T10:46:06Z
+File Path: `file:///c:/Users/martm/Documents/Arquivos%20do%20Antigravity/MinhaAula/data/scenarios.ts`
+Total Lines: 2904
+Total Bytes: 379509
+Showing lines 1 to 800
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: // ============================================
+2: // MinhaAula – Scenario Data & TypeScript Interfaces
+3: // ============================================
+4: 
+5: export interface DialogueLine {
+6:   speaker: 'native' | 'student' | 'tourist' | 'local';
+7:   english: string;
+8:   portuguese: string;
+9: }
+10: 
+11: export interface VocabularyItem {
+12:   english: string;
+13:   portuguese: string;
+14:   sentenceA1?: string;
+15:   sentenceA1Pt?: string;
+16:   sentenceA2?: string;
+17:   sentenceA2Pt?: string;
+18: }
+19: 
+20: export interface FlashcardItem {
+21:   english: string;
+22:   portuguese: string;
+23:   icon: string;
+24: }
+25: 
+26: export interface SpeakingQuestion {
+27:   questionA1: string;
+28:   questionA1Pt: string;
+29:   questionA2: string;
+30:   questionA2Pt: string;
+31:   hintA1?: string;
+32:   hintA2?: string;
+33: }
+34: 
+35: export interface ReadingQuestion {
+36:   question: string;
+37:   questionPt: string;
+38:   options: string[];
+39:   correctIndex: number;
+40: }
+41: 
+42: export interface ReadingComprehension {
+43:   textA1: string;
+44:   textA1Pt: string;
+45:   textA2: string;
+46:   textA2Pt: string;
+47:   questionsA1: ReadingQuestion[];
+48:   questionsA2: ReadingQuestion[];
+49: }
+50: 
+51: 
+52: 
+53: export interface CulturalTipData {
+54:   title: string;
+55:   titlePt: string;
+56:   content: string;
+57:   contentA1?: string;
+58:   contentA2?: string;
+59:   contentPt: string;
+60: }
+61: 
+62: export interface DialogueSet {
+63:   title: string;
+64:   titlePt: string;
+65:   icon: string;
+66:   dialogues: DialogueLine[];
+67:   dialogues2?: DialogueLine[];
+68:   dialoguesBeginner?: DialogueLine[];
+69:   dialoguesBeginner2?: DialogueLine[];
+70: }
+71: 
+72: export interface Scenario {
+73:   id: string;
+74:   title: string;
+75:   titlePt: string;
+76:   description: string;
+77:   descriptionPt: string;
+78:   icon: string;
+79:   color: 'lavender' | 'mint' | 'peach' | 'sky' | 'gold' | 'rose' | 'orange' | 'blue' | 'indigo';
+80:   imagePath: string;
+81:   dialogues: DialogueLine[];
+82:   dialogues2?: DialogueLine[];
+83:   dialoguesBeginner?: DialogueLine[];
+84:   dialoguesBeginner2?: DialogueLine[];
+85:   vocabulary: VocabularyItem[];
+86:   flashcards?: FlashcardItem[];
+87:   culturalTips?: CulturalTipData[];
+88:   culturalTipsEurope?: CulturalTipData[];
+89:   speakingQuestions?: SpeakingQuestion[];
+90:   reading?: ReadingComprehension;
+91:   dialogueSets?: DialogueSet[];
+92: }
+93: 
+94: export const scenarios: Scenario[] = [
+95:   {
+96:     id: 'introduction',
+97:     title: 'Introducing Yourself',
+98:     titlePt: 'Se Apresentando',
+99:     description: 'Learn to say your name, where you are from, and make a great first impression.',
+100:     descriptionPt: 'Aprenda a dizer seu nome, de onde você é e causar uma ótima primeira impressão.',
+101:     icon: '👋',
+102:     color: 'gold',
+103:     imagePath: '/images/introduction_scene.png',
+104:     dialogues: [
+105:       { speaker: 'native', english: "Hi! What's your name?", portuguese: "Oi! Qual é o seu nome?" },
+106:       { speaker: 'student', english: "Hi! My name is Ana. And you?", portuguese: "Oi! Meu nome é Ana. E você?" },
+107:       { speaker: 'native', english: "I'm Mark. Nice to meet you, Ana! Where are you from?", portuguese: "Eu sou Mark. Prazer em conhecê-la, Ana! De onde você é?" },
+108:       { speaker: 'student', english: "I'm from Brazil. I live in Rio de Janeiro.", portuguese: "Eu sou do Brasil. Eu moro no Rio de Janeiro." },
+109:       { speaker: 'native', english: "Rio! That's awesome. I've always wanted to visit. Is this your first time in the US?", portuguese: "Rio! Que legal. Sempre quis visitar. É a sua primeira vez nos EUA?" },
+110:       { speaker: 'student', english: "Yes, it's my first time here. I arrived yesterday.", portuguese: "Sim, é minha primeira vez aqui. Cheguei ontem." },
+111:       { speaker: 'native', english: "Are you here for work or vacation?", portuguese: "Você está aqui a trabalho ou de férias?" },
+112:       { speaker: 'student', english: "I'm on vacation. I plan to stay for two weeks.", portuguese: "Estou de férias. Pretendo ficar por duas semanas." },
+113:       { speaker: 'native', english: "That's great. How old are you, by the way?", portuguese: "Isso é ótimo. Quantos anos você tem, a propósito?" },
+114:       { speaker: 'student', english: "I'm 28 years old. What about you?", portuguese: "Eu tenho 28 anos. E você?" },
+115:       { speaker: 'native', english: "I'm 32. What do you do for a living in Brazil?", portuguese: "Tenho 32. O que você faz da vida no Brasil?" },
+116:       { speaker: 'student', english: "I'm a teacher. I teach Portuguese to high school students.", portuguese: "Eu sou professora. Eu ensino português para alunos do ensino médio." },
+117:       { speaker: 'native', english: "That's really cool! Teaching is a tough job.", portuguese: "Que legal! Ensinar é um trabalho difícil." },
+118:       { speaker: 'student', english: "It is, but I love it. What do you do, Mark?", portuguese: "É sim, mas eu adoro. O que você faz, Mark?" },
+119:       { speaker: 'native', english: "I'm an engineer. Well, I hope you enjoy your trip here!", portuguese: "Eu sou engenheiro. Bem, espero que você aproveite sua viagem aqui!" },
+120:       { speaker: 'student', english: "Thank you so much! It was great talking to you.", portuguese: "Muito obrigada! Foi ótimo falar com você." },
+121:       { speaker: 'native', english: "You too! Welcome to the US and have fun!", portuguese: "Com você também! Bem-vinda aos EUA e divirta-se!" },
+122:     ],
+123:     dialoguesBeginner: [
+124:       { speaker: 'native', english: "Hi! What's your name?", portuguese: "Oi! Qual é o seu nome?" },
+125:       { speaker: 'student', english: "Hi! My name is Ana.", portuguese: "Oi! Meu nome é Ana." },
+126:       { speaker: 'native', english: "Nice to meet you. I am Mark.", portuguese: "Prazer em conhecê-lo. Eu sou Mark." },
+127:       { speaker: 'student', english: "I am from Brazil. Where are you from?", portuguese: "Eu sou do Brasil. De onde você é?" },
+128:       { speaker: 'native', english: "I am from New York. Is this your first trip?", portuguese: "Eu sou de Nova York. Esta é sua primeira viagem?" },
+129:       { speaker: 'student', english: "Yes. I am on vacation.", portuguese: "Sim. Estou de férias." },
+130:       { speaker: 'native', english: "How old are you?", portuguese: "Quantos anos você tem?" },
+131:       { speaker: 'student', english: "I am 28 years old.", portuguese: "Eu tenho 28 anos." },
+132:       { speaker: 'native', english: "What is your job?", portuguese: "Qual é o seu trabalho?" },
+133:       { speaker: 'student', english: "I am a teacher.", portuguese: "Eu sou professora." },
+134:       { speaker: 'native', english: "Nice! Have a good trip!", portuguese: "Legal! Tenha uma boa viagem!" },
+135:       { speaker: 'student', english: "Thank you! Goodbye!", portuguese: "Obrigada! Tchau!" },
+136:     ],
+137:     
+138:     
+139:     
+140:       dialogues2: [
+141:         { speaker: 'native', english: "Hi! I don't think we've met. Are you enjoying the party?", portuguese: "Oi! Acho que não nos conhecemos. Está gostando da festa?" },
+142:         { speaker: 'student', english: "Yes, it's really fun. The music is great. I'm Mark, by the way.", portuguese: "Sim, é muito divertida. A música é ótima. Eu sou o Mark, a propósito." },
+143:         { speaker: 'native', english: "Nice to meet you, Mark. I'm Sarah. How do you know the host?", portuguese: "Prazer em conhecê-lo, Mark. Eu sou a Sarah. Como você conhece o anfitrião?" },
+144:         { speaker: 'student', english: "We work together at the tech company downtown. What about you?", portuguese: "Nós trabalhamos juntos na empresa de tecnologia no centro. E você?" },
+145:         { speaker: 'native', english: "Oh, really? I'm his neighbor. We grew up in the same city.", portuguese: "Ah, sério? Eu sou vizinha dele. Nós crescemos na mesma cidade." },
+146:         { speaker: 'student', english: "That's awesome! It's always nice to meet friends of friends.", portuguese: "Que incrível! É sempre legal conhecer amigos de amigos." },
+147:         { speaker: 'native', english: "Definitely! Are you going to stay until the cake?", portuguese: "Com certeza! Você vai ficar até o bolo?" },
+148:         { speaker: 'student', english: "Yes, I wouldn't miss it!", portuguese: "Sim, eu não perderia!" }
+149:       ],
+150:       dialoguesBeginner2: [
+151:         { speaker: 'native', english: "Hi! I am Sarah.", portuguese: "Oi! Eu sou a Sarah." },
+152:         { speaker: 'student', english: "Hello Sarah. I am Mark.", portuguese: "Olá Sarah. Eu sou o Mark." },
+153:         { speaker: 'native', english: "Nice to meet you. Do you like the party?", portuguese: "Prazer em conhecer você. Você gosta da festa?" },
+154:         { speaker: 'student', english: "Yes, I like it. The music is good.", portuguese: "Sim, eu gosto. A música é boa." },
+155:         { speaker: 'native', english: "Are you John's friend?", portuguese: "Você é amigo do John?" },
+156:         { speaker: 'student', english: "Yes, we work together.", portuguese: "Sim, nós trabalhamos juntos." },
+157:         { speaker: 'native', english: "That is nice. Have fun!", portuguese: "Isso é legal. Divirta-se!" },
+158:         { speaker: 'student', english: "Thank you. You too!", portuguese: "Obrigado. Você também!" }
+159:       ],
+160:       vocabulary: [
+161:       { english: "My name is...", portuguese: "Meu nome é...", sentenceA1: "My name is Anna.", sentenceA1Pt: "Meu nome é Anna.", sentenceA2: "Hi everyone, my name is Anna.", sentenceA2Pt: "Oi pessoal, meu nome é Anna." },
+162:       { english: "Nice to meet you", portuguese: "Prazer em conhecê-lo(a)", sentenceA1: "Nice to meet you, Mark.", sentenceA1Pt: "Prazer em conhecer você, Mark.", sentenceA2: "It is really nice to meet you today.", sentenceA2Pt: "É muito bom conhecer você hoje." },
+163:       { english: "I'm from Brazil", portuguese: "Eu sou do Brasil", sentenceA1: "I am from Brazil.", sentenceA1Pt: "Eu sou do Brasil.", sentenceA2: "I was born in Rio, so I'm from Brazil.", sentenceA2Pt: "Eu nasci no Rio, então eu sou do Brasil." },
+164:       { english: "How old are you?", portuguese: "Quantos anos você tem?", sentenceA1: "How old are you?", sentenceA1Pt: "Quantos anos você tem?", sentenceA2: "If you don't mind me asking, how old are you?", sentenceA2Pt: "Se você não se importa que eu pergunte, quantos anos você tem?" },
+165:       { english: "I'm ... years old", portuguese: "Eu tenho ... anos", sentenceA1: "I am 20 years old.", sentenceA1Pt: "Eu tenho 20 anos.", sentenceA2: "I am 20 years old and I am a student.", sentenceA2Pt: "Eu tenho 20 anos e sou estudante." },
+166:       { english: "What do you do?", portuguese: "O que você faz?", sentenceA1: "What do you do?", sentenceA1Pt: "O que você faz?", sentenceA2: "What do you do for a living?", sentenceA2Pt: "O que você faz para ganhar a vida?" },
+167:       { english: "First time", portuguese: "Primeira vez", sentenceA1: "This is my first time.", sentenceA1Pt: "Esta é minha primeira vez.", sentenceA2: "This is my first time visiting this amazing city.", sentenceA2Pt: "Esta é minha primeira vez visitando esta cidade incrível." },
+168:       { english: "I'm excited", portuguese: "Estou animado(a)", sentenceA1: "I am excited.", sentenceA1Pt: "Estou animado.", sentenceA2: "I am very excited to be here with you.", sentenceA2Pt: "Estou muito animado para estar aqui com você." },
+169:       { english: "Last name / Surname", portuguese: "Sobrenome", sentenceA1: "What is your last name?", sentenceA1Pt: "Qual é o seu sobrenome?", sentenceA2: "Could you please spell your surname for me?", sentenceA2Pt: "Você poderia, por favor, soletrar seu sobrenome para mim?" },
+170:       { english: "Nickname", portuguese: "Apelido", sentenceA1: "My nickname is Leo.", sentenceA1Pt: "Meu apelido é Leo.", sentenceA2: "Everyone calls me Leo, it's my nickname.", sentenceA2Pt: "Todo mundo me chama de Leo, é meu apelido." },
+171:       { english: "Married", portuguese: "Casado(a)", sentenceA1: "I am married.", sentenceA1Pt: "Eu sou casado.", sentenceA2: "I have been married for five years.", sentenceA2Pt: "Eu sou casado há cinco anos." },
+172:       { english: "Single", portuguese: "Solteiro(a)", sentenceA1: "I am single.", sentenceA1Pt: "Eu sou solteiro.", sentenceA2: "He is single and looking for a partner.", sentenceA2Pt: "Ele é solteiro e procura um parceiro." },
+173:       { english: "Hometown", portuguese: "Cidade natal", sentenceA1: "My hometown is small.", sentenceA1Pt: "Minha cidade natal é pequena.", sentenceA2: "I like to visit my hometown during the holidays.", sentenceA2Pt: "Gosto de visitar minha cidade natal durante os feriados." },
+174:       { english: "Nice to meet you too", portuguese: "Prazer em conhecê-lo(a) também", sentenceA1: "Nice to meet you too.", sentenceA1Pt: "Prazer em conhecê-lo também.", sentenceA2: "Thank you, it is very nice to meet you too.", sentenceA2Pt: "Obrigado, é muito bom conhecê-lo também." },
+175:       { english: "Icebreaker", portuguese: "Quebra-gelo", sentenceA1: "We need an icebreaker.", sentenceA1Pt: "Precisamos de um quebra-gelo.", sentenceA2: "A good joke is a great icebreaker at parties.", sentenceA2Pt: "Uma boa piada é um ótimo quebra-gelo em festas." },
+176:       { english: "Handshake", portuguese: "Aperto de mão", sentenceA1: "Give a firm handshake.", sentenceA1Pt: "Dê um aperto de mão firme.", sentenceA2: "In business, a firm handshake is very important.", sentenceA2Pt: "Nos negócios, um aperto de mão firme é muito importante." },
+177:       { english: "Acquaintance", portuguese: "Conhecido", sentenceA1: "He is an acquaintance.", sentenceA1Pt: "Ele é um conhecido.", sentenceA2: "He is not a close friend, just an acquaintance.", sentenceA2Pt: "Ele não é um amigo próximo, apenas um conhecido." },
+178:       { english: "Background", portuguese: "Origem / Histórico", sentenceA1: "Tell me your background.", sentenceA1Pt: "Me conte sobre sua origem.", sentenceA2: "Can you tell me a little bit about your professional background?", sentenceA2Pt: "Pode me falar um pouco sobre seu histórico profissional?" },
+179:     ],
+180:     
+181:       culturalTipsEurope: [
+182:         {
+183:           title: "Reserved Greetings",
+184:           titlePt: "Saudações Reservadas",
+185:           content: "In many European countries, people are more reserved than in the US. A polite 'Hello' or 'Good morning' is preferred over 'How are you?' with strangers.",
+186:           contentPt: "Em muitos países europeus, as pessoas são mais reservadas que nos EUA. Um educado 'Olá' ou 'Bom dia' é preferido a 'Como vai?' com estranhos."
+187:         }
+188:       ],
+189:       culturalTips: [
+190:       {
+191:         title: "Small Talk",
+192:         titlePt: "Conversa Fiada",
+193:         content: "Americans love small talk! They often ask 'How are you?' as a greeting. They expect a short answer like 'I'm good, thanks!' rather than a detailed response.",
+194:           contentA1: "Americans like small talk. They ask 'How are you?' to say hello. Give a short answer.",
+195:           contentA2: "Americans love small talk! They often ask 'How are you?' as a greeting. They expect a short answer like 'I'm good, thanks!' rather than a detailed response.",
+196:           contentPt: "Americanos adoram conversa fiada! Eles costumam perguntar 'How are you?' como saudação. Esperam uma resposta curta como 'I'm good, thanks!' em vez de detalhes.",
+197:       },
+198:       {
+199:         title: "Personal Space",
+200:         titlePt: "Espaço Pessoal",
+201:         content: "Personal space is vital. Maintain an arm's length distance. Avoid touching someone's arm or shoulder unless you are close friends.",
+202:           contentA1: "Personal space is vital.",
+203:           contentA2: "Personal space is vital. Maintain an arm's length distance. Avoid touching someone's arm or shoulder unless you are close friends.",
+204:           contentPt: "O espaço pessoal é vital. Mantenha a distância de um braço. Evite tocar no braço ou ombro de alguém, a menos que sejam amigos próximos.",
+205:       },
+206:       {
+207:         title: "Eye Contact",
+208:         titlePt: "Contato Visual",
+209:         content: "Direct eye contact is seen as a sign of honesty and confidence in the US. When talking to someone, look them in the eyes!",
+210:           contentA1: "Direct eye contact is seen as a sign of honesty and confidence in the US.",
+211:           contentA2: "Direct eye contact is seen as a sign of honesty and confidence in the US. When talking to someone, look them in the eyes!",
+212:           contentPt: "O contato visual direto é visto como um sinal de honestidade e confiança nos EUA. Ao falar com alguém, olhe-os nos olhos!",
+213:       }
+214:     ],    reading: {
+215:       textA1: 'My name is Maria. I am from Brazil. I am 25 years old. I live in São Paulo, but now I am in New York. I am a student. I study English every day. I like music and movies. I have one brother and one sister. My brother is older. His name is Pedro. My sister is younger. Her name is Ana. My parents are very nice. My father is a teacher. My mother is a nurse. I miss my family, but I am happy here. I want to learn English and make new friends. Today is my first day at school. I am nervous but excited. I hope my classmates are friendly.',
+216:       textA1Pt: 'Meu nome é Maria. Eu sou do Brasil. Eu tenho 25 anos. Eu moro em São Paulo, mas agora estou em Nova York. Eu sou estudante. Eu estudo inglês todo dia. Eu gosto de música e filmes. Eu tenho um irmão e uma irmã. Meu irmão é mais velho. O nome dele é Pedro. Minha irmã é mais nova. O nome dela é Ana. Meus pais são muito legais. Meu pai é professor. Minha mãe é enfermeira. Eu sinto falta da minha família, mas estou feliz aqui. Eu quero aprender inglês e fazer novos amigos. Hoje é meu primeiro dia na escola. Estou nervosa mas animada. Espero que meus colegas sejam simpáticos.',
+217:       textA2: 'Maria arrived in New York three weeks ago with nothing but a suitcase and a dream of becoming fluent in English. Originally from São Paulo, she had always been fascinated by American culture through movies and music. Back home, she worked as a marketing assistant, but she decided to take a gap year to fully immerse herself in an English-speaking environment. She enrolled in an intensive language program at a school in Manhattan. On her first morning, she felt a mix of excitement and anxiety as she walked through the busy streets. The city was overwhelming — the noise, the speed, the diversity of people. At the school, she introduced herself to her classmates, who came from all over the world: Japan, France, Colombia, Turkey, and South Korea. Despite her initial shyness, she quickly realized everyone was in the same situation, trying to find the right words and build confidence. Her teacher, Mr. Thompson, was patient and encouraging, always reminding the class that making mistakes is the fastest way to learn.',
+218:       textA2Pt: 'Maria chegou em Nova York três semanas atrás com nada além de uma mala e o sonho de se tornar fluente em inglês. Originalmente de São Paulo, ela sempre foi fascinada pela cultura americana através de filmes e música. Em casa, ela trabalhava como assistente de marketing, mas decidiu tirar um ano sabático para se imergir totalmente em um ambiente de língua inglesa. Ela se matriculou em um programa intensivo de idiomas em uma escola em Manhattan. Na sua primeira manhã, ela sentiu uma mistura de empolgação e ansiedade enquanto caminhava pelas ruas movimentadas. A cidade era avassaladora — o barulho, a velocidade, a diversidade de pessoas. Na escola, ela se apresentou aos colegas de classe, que vinham de todo o mundo: Japão, França, Colômbia, Turquia e Coreia do Sul. Apesar de sua timidez inicial, ela rapidamente percebeu que todos estavam na mesma situação, tentando encontrar as palavras certas e construir confiança. Seu professor, Sr. Thompson, era paciente e encorajador, sempre lembrando a turma de que cometer erros é a forma mais rápida de aprender.',
+219:       questionsA1: [
+220:         { question: 'Where is Maria from?', questionPt: 'De onde Maria é?', options: ['New York', 'Brazil', 'Mexico', 'Portugal'], correctIndex: 1 },
+221:         { question: 'How old is Maria?', questionPt: 'Quantos anos Maria tem?', options: ['20', '22', '25', '30'], correctIndex: 2 },
+222:         { question: 'What does her father do?', questionPt: 'O que o pai dela faz?', options: ['He is a doctor', 'He is a teacher', 'He is a driver', 'He is a cook'], correctIndex: 1 },
+223:         { question: 'How does Maria feel on her first day?', questionPt: 'Como Maria se sente no primeiro dia?', options: ['Sad and angry', 'Bored', 'Nervous but excited', 'Very tired'], correctIndex: 2 },
+224:       ],
+225:       questionsA2: [
+226:         { question: 'What was Maria\'s job in São Paulo?', questionPt: 'Qual era o trabalho de Maria em São Paulo?', options: ['English teacher', 'Marketing assistant', 'Nurse', 'Student'], correctIndex: 1 },
+227:         { question: 'Why did Maria come to New York?', questionPt: 'Por que Maria veio para Nova York?', options: ['For a vacation', 'To work in marketing', 'To immerse herself in English', 'To visit family'], correctIndex: 2 },
+228:         { question: 'Where did Maria\'s classmates come from?', questionPt: 'De onde os colegas de Maria vieram?', options: ['Only from Brazil', 'From all over the world', 'Only from Europe', 'From the US'], correctIndex: 1 },
+229:         { question: 'What did Mr. Thompson remind the class?', questionPt: 'O que o Sr. Thompson lembrava à turma?', options: ['To never speak Portuguese', 'That mistakes help you learn faster', 'To study 10 hours a day', 'That English is easy'], correctIndex: 1 },
+230:       ],
+231:     },
+232: 
+233:     
+234:   },
+235:   {
+236:     id: 'numbers',
+237:     title: 'Numbers, Prices & Shopping',
+238:     titlePt: 'Números, Preços e Compras',
+239:     description: 'Master numbers for prices, quantities, and everyday shopping situations.',
+240:     descriptionPt: 'Domine os números para preços, quantidades e situações de compras do dia a dia.',
+241:     icon: '💲',
+242:     color: 'peach',
+243:     imagePath: '/images/numbers_scene.png',
+244:     dialogues: [
+245:       { speaker: 'student', english: "Excuse me, how much is this sweatshirt?", portuguese: "Com licença, quanto custa este moletom?" },
+246:       { speaker: 'native', english: "That one is twenty-five dollars and fifty cents.", portuguese: "Esse custa vinte e cinco dólares e cinquenta centavos." },
+247:       { speaker: 'student', english: "Is it on sale? I saw a sign outside.", portuguese: "Está em promoção? Eu vi uma placa lá fora." },
+248:       { speaker: 'native', english: "Yes, all sweatshirts are twenty percent off today.", portuguese: "Sim, todos os moletons estão com vinte por cento de desconto hoje." },
+249:       { speaker: 'student', english: "That's a good deal. I'll take it.", portuguese: "É um bom negócio. Eu vou levar." },
+250:       { speaker: 'native', english: "Great. Did you find everything you were looking for?", portuguese: "Ótimo. Você encontrou tudo o que procurava?" },
+251:       { speaker: 'student', english: "Actually, how much are these socks?", portuguese: "Na verdade, quanto custam estas meias?" },
+252:       { speaker: 'native', english: "They are three dollars a pair, or three pairs for eight dollars.", portuguese: "Elas custam três dólares o par, ou três pares por oito dólares." },
+253:       { speaker: 'student', english: "I'll take three pairs, please. And I also need a bottle of water.", portuguese: "Eu vou levar três pares, por favor. E também preciso de uma garrafa de água." },
+254:       { speaker: 'native', english: "The water is one dollar and seventy-five cents.", portuguese: "A água custa um dólar e setenta e cinco centavos." },
+255:       { speaker: 'student', english: "OK. What is my total with the tax?", portuguese: "OK. Qual é o meu total com as taxas?" },
+256:       { speaker: 'native', english: "Let me scan everything. Your subtotal is thirty dollars and fifteen cents.", portuguese: "Deixe-me escanear tudo. Seu subtotal é trinta dólares e quinze centavos." },
+257:       { speaker: 'native', english: "With the sales tax, your total comes to thirty-two dollars and forty cents.", portuguese: "Com o imposto sobre vendas, seu total dá trinta e dois dólares e quarenta centavos." },
+258:       { speaker: 'student', english: "Can I pay with a credit card, or do you prefer cash?", portuguese: "Posso pagar com cartão de crédito, ou você prefere dinheiro?" },
+259:       { speaker: 'native', english: "Credit card is perfectly fine. You can insert your card in the machine.", portuguese: "Cartão de crédito está ótimo. Você pode inserir seu cartão na máquina." },
+260:       { speaker: 'student', english: "Do I need to sign the receipt?", portuguese: "Eu preciso assinar o recibo?" },
+261:       { speaker: 'native', english: "No signature needed. Would you like your receipt printed or emailed?", portuguese: "Não precisa de assinatura. Você gostaria do seu recibo impresso ou por e-mail?" },
+262:       { speaker: 'student', english: "Printed, please. Thank you!", portuguese: "Impresso, por favor. Obrigado!" },
+263:       { speaker: 'native', english: "Here is your bag and your receipt. Have a great day!", portuguese: "Aqui está sua sacola e seu recibo. Tenha um ótimo dia!" },
+264:     ],
+265:     dialoguesBeginner: [
+266:       { speaker: 'student', english: "How much is this?", portuguese: "Quanto custa isto?" },
+267:       { speaker: 'native', english: "It is twenty dollars.", portuguese: "Custa vinte dólares." },
+268:       { speaker: 'student', english: "Is it on sale?", portuguese: "Está em promoção?" },
+269:       { speaker: 'native', english: "Yes, it is. Ten percent off.", portuguese: "Sim, está. Dez por cento de desconto." },
+270:       { speaker: 'student', english: "I will take it.", portuguese: "Eu vou levar." },
+271:       { speaker: 'native', english: "Anything else?", portuguese: "Algo mais?" },
+272:       { speaker: 'student', english: "Yes. I need a bottle of water.", portuguese: "Sim. Preciso de uma garrafa de água." },
+273:       { speaker: 'native', english: "Water is two dollars.", portuguese: "A água custa dois dólares." },
+274:       { speaker: 'student', english: "Can I pay with card?", portuguese: "Posso pagar com cartão?" },
+275:       { speaker: 'native', english: "Yes. Insert your card here.", portuguese: "Sim. Insira seu cartão aqui." },
+276:       { speaker: 'student', english: "Thank you!", portuguese: "Obrigado!" },
+277:       { speaker: 'native', english: "Have a nice day!", portuguese: "Tenha um bom dia!" },
+278:     ],
+279:     dialogues2: [
+280:       { speaker: 'student', english: "Excuse me, can I get the check, please?", portuguese: "Com licença, pode me trazer a conta, por favor?" },
+281:       { speaker: 'native', english: "Of course. Here it is. Your total is forty-five dollars.", portuguese: "Claro. Aqui está. Seu total é quarenta e cinco dólares." },
+282:       { speaker: 'student', english: "Does this include the tip?", portuguese: "Isso inclui a gorjeta?" },
+283:       { speaker: 'native', english: "No, the tip is not included. A standard tip is around fifteen to twenty percent.", portuguese: "Não, a gorjeta não está incluída. Uma gorjeta padrão é de cerca de quinze a vinte por cento." },
+284:       { speaker: 'student', english: "Okay. Can I pay for the meal and the tip together on my card?", portuguese: "Ok. Posso pagar a refeição e a gorjeta juntas no meu cartão?" },
+285:       { speaker: 'native', english: "Yes, you can. Just write the tip amount on the receipt after I swipe your card.", portuguese: "Sim, pode. Apenas escreva o valor da gorjeta no recibo depois que eu passar o seu cartão." },
+286:       { speaker: 'student', english: "Got it. Here is my card.", portuguese: "Entendi. Aqui está meu cartão." },
+287:       { speaker: 'native', english: "Thank you. Here is the receipt. Have a wonderful evening!", portuguese: "Obrigado. Aqui está o recibo. Tenha uma noite maravilhosa!" },
+288:       { speaker: 'student', english: "Thank you, you too!", portuguese: "Obrigado, você também!" },
+289:     ],
+290:     dialoguesBeginner2: [
+291:       { speaker: 'student', english: "The check, please.", portuguese: "A conta, por favor." },
+292:       { speaker: 'native', english: "Here it is. It is forty dollars.", portuguese: "Aqui está. São quarenta dólares." },
+293:       { speaker: 'student', english: "Is the tip included?", portuguese: "A gorjeta está incluída?" },
+294:       { speaker: 'native', english: "No, it is not.", portuguese: "Não, não está." },
+295:       { speaker: 'student', english: "I will pay fifty dollars. Keep the change.", portuguese: "Vou pagar cinquenta dólares. Fique com o troco." },
+296:       { speaker: 'native', english: "Thank you very much!", portuguese: "Muito obrigado!" },
+297:       { speaker: 'student', english: "You are welcome. Goodbye!", portuguese: "De nada. Tchau!" },
+298:     ],
+299:     vocabulary: [
+300:       { english: "How much?", portuguese: "Quanto custa?", sentenceA1: "How much is this?", sentenceA1Pt: "Quanto custa isso?", sentenceA2: "Excuse me, how much does this shirt cost?", sentenceA2Pt: "Com licença, quanto custa esta camisa?" },
+301:       { english: "Dollar", portuguese: "Dólar", sentenceA1: "It is one dollar.", sentenceA1Pt: "É um dólar.", sentenceA2: "The price of the coffee is exactly one dollar.", sentenceA2Pt: "O preço do café é exatamente um dólar." },
+302:       { english: "Cents", portuguese: "Centavos", sentenceA1: "Fifty cents.", sentenceA1Pt: "Cinquenta centavos.", sentenceA2: "I only have a few cents in my pocket.", sentenceA2Pt: "Eu só tenho alguns centavos no bolso." },
+303:       { english: "Receipt", portuguese: "Recibo", sentenceA1: "Here is my receipt.", sentenceA1Pt: "Aqui está meu recibo.", sentenceA2: "Don't forget to take your receipt after paying.", sentenceA2Pt: "Não se esqueça de pegar seu cupom fiscal depois de pagar." },
+304:       { english: "Change", portuguese: "Troco", sentenceA1: "Here is your change.", sentenceA1Pt: "Aqui está seu troco.", sentenceA2: "Please keep the change as a tip.", sentenceA2Pt: "Por favor, fique com o troco como gorjeta." },
+305:       { english: "Credit card", portuguese: "Cartão de crédito", sentenceA1: "Can I use a credit card?", sentenceA1Pt: "Posso usar cartão de crédito?", sentenceA2: "Do you accept international credit cards here?", sentenceA2Pt: "Vocês aceitam cartões de crédito internacionais aqui?" },
+306:       { english: "Per pound", portuguese: "Por libra", sentenceA1: "It is two dollars per pound.", sentenceA1Pt: "É dois dólares por libra.", sentenceA2: "These fresh apples are two dollars per pound.", sentenceA2Pt: "Estas maçãs frescas custam dois dólares por libra." },
+307:       { english: "Total", portuguese: "Total", sentenceA1: "What is the total?", sentenceA1Pt: "Qual é o total?", sentenceA2: "Your total for today comes to 50 dollars.", sentenceA2Pt: "O seu total de hoje chega a 50 dólares." },
+308:       { english: "Cash", portuguese: "Dinheiro em espécie", sentenceA1: "I will pay in cash.", sentenceA1Pt: "Eu vou pagar em dinheiro.", sentenceA2: "I prefer to pay in cash to avoid credit card fees.", sentenceA2Pt: "Prefiro pagar em dinheiro para evitar taxas do cartão." },
+309:       { english: "Discount", portuguese: "Desconto", sentenceA1: "Is there a discount?", sentenceA1Pt: "Tem desconto?", sentenceA2: "Can you give me a discount if I buy two?", sentenceA2Pt: "Você pode me dar um desconto se eu comprar dois?" },
+310:       { english: "On sale", portuguese: "Em promoção", sentenceA1: "This is on sale.", sentenceA1Pt: "Isto está em promoção.", sentenceA2: "I bought these shoes because they were on sale.", sentenceA2Pt: "Eu comprei estes sapatos porque estavam em promoção." },
+311:       { english: "Expensive", portuguese: "Caro", sentenceA1: "That is expensive.", sentenceA1Pt: "Isso é caro.", sentenceA2: "Eating at that restaurant is very expensive.", sentenceA2Pt: "Comer naquele restaurante é muito caro." },
+312:       { english: "Cheap", portuguese: "Barato", sentenceA1: "This is very cheap.", sentenceA1Pt: "Isto é muito barato.", sentenceA2: "I found some cheap souvenirs at the market.", sentenceA2Pt: "Eu encontrei algumas lembrancinhas baratas no mercado." },
+313:       { english: "Cashier", portuguese: "Caixa / Atendente", sentenceA1: "The cashier is very fast.", sentenceA1Pt: "O caixa é muito rápido.", sentenceA2: "The cashier asked if I wanted the receipt.", sentenceA2Pt: "A operadora de caixa perguntou se eu queria o recibo." },
+314:       { english: "Shopping cart", portuguese: "Carrinho de compras", sentenceA1: "Get a shopping cart.", sentenceA1Pt: "Pegue um carrinho de compras.", sentenceA2: "We need a big shopping cart for all this food.", sentenceA2Pt: "Nós precisamos de um carrinho de compras grande para toda essa comida." },
+315:     ],
+316:     culturalTips: [
+317:       {
+318:         title: "Sales Tax",
+319:         titlePt: "Imposto sobre Vendas",
+320:         content: "Prices displayed in stores do NOT include sales tax! It's added at the register. Your total will always be higher than the price on the tag.",
+321:           contentA1: "Prices in stores do not include tax. Tax is added when you pay.",
+322:           contentA2: "Prices displayed in stores do NOT include sales tax! It's added at the register. Your total will always be higher than the price on the tag.",
+323:           contentPt: "Os preços nas lojas NÃO incluem o imposto sobre vendas! Ele é adicionado no caixa. Seu total será sempre maior que o preço na etiqueta.",
+324:       },
+325:       {
+326:         title: "Coins & Change",
+327:         titlePt: "Moedas e Troco",
+328:         content: "Get to know coins: Penny (1¢), Nickel (5¢), Dime (10¢), and Quarter (25¢). Quarters are essential for laundry and parking!",
+329:           contentA1: "Get to know coins: Penny (1¢), Nickel (5¢), Dime (10¢), and Quarter (25¢).",
+330:           contentA2: "Get to know coins: Penny (1¢), Nickel (5¢), Dime (10¢), and Quarter (25¢). Quarters are essential for laundry and parking!",
+331:           contentPt: "Conheça as moedas: Penny (1¢), Nickel (5¢), Dime (10¢) e Quarter (25¢). Quarters são essenciais para lavanderia e estacionamento!",
+332:       },
+333:       {
+334:         title: "Paper Money",
+335:         titlePt: "Notas de Papel",
+336:         content: "All US bills are the same size and color (green)! Check the numbers carefully so you don't confuse a $1 bill with a $100 bill.",
+337:           contentA1: "All US bills are the same size and color (green)!",
+338:           contentA2: "All US bills are the same size and color (green)! Check the numbers carefully so you don't confuse a $1 bill with a $100 bill.",
+339:           contentPt: "Todas as notas americanas têm o mesmo tamanho e cor (verde)! Verifique os números com cuidado para não confundir uma nota de $1 com uma de $100.",
+340:       }
+341:     ],    reading: {
+342:       textA1: 'Lisa goes to a store. She wants to buy a new phone. The phone costs 299 dollars. She also wants a phone case. The case costs 15 dollars. The total is 314 dollars. She gives the cashier her credit card. The cashier says the PIN has 4 numbers. Lisa types her PIN. The receipt shows the total. Lisa also buys headphones for 49 dollars. Now she spent 363 dollars today. She checks her bank account on her phone. She still has 1,200 dollars. She is happy because she saved money this month. She walks home and calls her mother. Her mother\'s phone number starts with 555.',
+343:       textA1Pt: 'Lisa vai a uma loja. Ela quer comprar um celular novo. O celular custa 299 dólares. Ela também quer uma capinha de celular. A capinha custa 15 dólares. O total é 314 dólares. Ela dá seu cartão de crédito ao caixa. O caixa diz que a senha tem 4 números. Lisa digita sua senha. O recibo mostra o total. Lisa também compra fones de ouvido por 49 dólares. Agora ela gastou 363 dólares hoje. Ela verifica sua conta bancária no celular. Ela ainda tem 1.200 dólares. Ela está feliz porque economizou dinheiro este mês. Ela vai para casa andando e liga para sua mãe. O número de telefone da mãe começa com 555.',
+344:       textA2: 'Understanding numbers in English is one of the most practical skills a traveler can develop. Last Tuesday, Lisa went to the electronics store on Fifth Avenue to replace her old phone. She compared three different models: the first was priced at $299, the second at $499, and the premium model at $899. She decided on the mid-range option. At the counter, the cashier asked for her phone number to register the warranty. She said her number was 917-555-0384, carefully pronouncing each digit to avoid any confusion. The sales tax in New York is 8.875%, so her final total came to $543.28. She also asked about the store\'s return policy and learned she had 30 days to return the item with the original receipt. On her way home, she stopped at a café where a large latte cost $6.75. She left a $2 tip, bringing her total daily expenses to over $550. Managing money in a foreign currency requires constant mental math, but Lisa found that practicing with real transactions was the best way to get comfortable with English numbers.',
+345:       textA2Pt: 'Entender números em inglês é uma das habilidades mais práticas que um viajante pode desenvolver. Na última terça-feira, Lisa foi à loja de eletrônicos na Quinta Avenida para trocar seu celular antigo. Ela comparou três modelos diferentes: o primeiro custava $299, o segundo $499, e o modelo premium $899. Ela decidiu pela opção intermediária. No caixa, o atendente pediu seu número de telefone para registrar a garantia. Ela disse que seu número era 917-555-0384, pronunciando cada dígito cuidadosamente para evitar confusão. O imposto sobre vendas em Nova York é de 8,875%, então seu total final ficou em $543,28. Ela também perguntou sobre a política de devolução da loja e soube que tinha 30 dias para devolver o item com o recibo original. No caminho para casa, ela parou em um café onde um latte grande custava $6,75. Ela deixou $2 de gorjeta, elevando seus gastos diários totais para mais de $550. Lidar com dinheiro em moeda estrangeira exige cálculo mental constante, mas Lisa percebeu que praticar com transações reais era a melhor forma de se sentir confortável com números em inglês.',
+346:       questionsA1: [
+347:         { question: 'How much does the phone cost?', questionPt: 'Quanto custa o celular?', options: ['$199', '$299', '$399', '$499'], correctIndex: 1 },
+348:         { question: 'How many numbers does the PIN have?', questionPt: 'Quantos números a senha tem?', options: ['3', '4', '5', '6'], correctIndex: 1 },
+349:         { question: 'How much did Lisa spend today?', questionPt: 'Quanto Lisa gastou hoje?', options: ['$314', '$299', '$363', '$400'], correctIndex: 2 },
+350:         { question: 'How much money does Lisa still have?', questionPt: 'Quanto dinheiro Lisa ainda tem?', options: ['$500', '$800', '$1,000', '$1,200'], correctIndex: 3 },
+351:       ],
+352:       questionsA2: [
+353:         { question: 'How much was the sales tax rate?', questionPt: 'Qual era a taxa de imposto?', options: ['5%', '7.5%', '8.875%', '10%'], correctIndex: 2 },
+354:         { question: 'What was Lisa\'s final total for the phone?', questionPt: 'Qual foi o total final de Lisa pelo celular?', options: ['$499.00', '$543.28', '$550.00', '$899.00'], correctIndex: 1 },
+355:         { question: 'How many days does the return policy allow?', questionPt: 'Quantos dias a política de devolução permite?', options: ['7 days', '14 days', '30 days', '60 days'], correctIndex: 2 },
+356:         { question: 'How much tip did Lisa leave at the café?', questionPt: 'Quanto de gorjeta Lisa deixou no café?', options: ['$1', '$2', '$3', '$5'], correctIndex: 1 },
+357:       ],
+358:     },
+359: 
+360:     
+361:   },
+362:   {
+363:     id: 'airport',
+364:     title: 'Airport Logistics & Baggage',
+365:     titlePt: 'Logística de Aeroporto e Bagagem',
+366:     description: 'Navigate check-in, security rules, baggage claim, and terminal directions.',
+367:     descriptionPt: 'Navegue pelo check-in, regras de segurança, retirada de bagagem e direções no terminal.',
+368:     icon: '✈️',
+369:     color: 'sky',
+370:     imagePath: '/images/airport_scene.png',
+371:     dialogues: [
+372:       { speaker: 'student', english: "Hello! I'd like to check in for my flight to New York. Is it on time?", portuguese: "Olá! Eu gostaria de fazer o check-in para o meu voo para Nova York. Ele está no horário?" },
+373:       { speaker: 'native', english: "Good morning! Yes, flight AA123 is on time. May I have your passport and boarding pass, please?", portuguese: "Bom dia! Sim, o voo AA123 está no horário. Posso ver seu passaporte e cartão de embarque, por favor?" },
+374:       { speaker: 'student', english: "Here they are. I checked in online, but I would prefer a window seat instead of an aisle seat, if possible.", portuguese: "Aqui estão. Eu fiz o check-in online, mas preferia um assento na janela em vez de um assento no corredor, se possível." },
+375:       { speaker: 'native', english: "Let me see... Yes, we have a window seat available in row 15. Are you checking any luggage?", portuguese: "Deixe-me ver... Sim, temos um assento na janela disponível na fileira 15. Você vai despachar alguma bagagem?" },
+376:       { speaker: 'student', english: "Yes, I have this large suitcase to check, and a small carry-on bag with me.", portuguese: "Sim, tenho esta mala grande para despachar, e uma pequena mala de mão comigo." },
+377:       { speaker: 'native', english: "Please place your suitcase on the scale. Oh, it weighs 55 pounds. I'm afraid it's overweight baggage.", portuguese: "Por favor, coloque sua mala na balança. Oh, ela pesa 55 libras. Receio que seja uma bagagem acima do peso." },
+378:       { speaker: 'student', english: "Oh no! The limit is 50 pounds, right? Can I move some clothes to my carry-on to avoid the fee?", portuguese: "Ah não! O limite é de 50 libras, certo? Posso passar algumas roupas para a minha mala de mão para evitar a taxa?" },
+379:       { speaker: 'native', english: "Sure, go ahead and adjust it. Once it's ready, your gate is B22. You must go through security check next.", portuguese: "Claro, vá em frente e ajuste-a. Assim que estiver pronta, seu portão é o B22. Você deve passar pelo controle de segurança a seguir." },
+380:       { speaker: 'student', english: "Great, thank you. Excuse me, where is the main security check entrance?", portuguese: "Ótimo, obrigado. Com licença, onde fica a entrada principal do controle de segurança?" },
+381:       { speaker: 'native', english: "Just walk straight down and turn left. Make sure to put all your belongings in the bins for the X-ray machine.", portuguese: "Basta caminhar em frente e virar à esquerda. Certifique-se de colocar todos os seus pertences nas caixas para a máquina de raio-X." },
+382:       { speaker: 'student', english: "Hello, do I need to take out my laptop and tablet from my carry-on?", portuguese: "Olá, eu preciso tirar meu notebook e tablet da minha mala de mão?" },
+383:       { speaker: 'native', english: "Yes, please place all electronics and liquids in a separate bin. And you must take off your shoes and belt.", portuguese: "Sim, por favor, coloque todos os eletrônicos e líquidos em uma caixa separada. E você deve tirar os sapatos e o cinto." },
+384:       { speaker: 'student', english: "Okay. Should I keep my boarding pass in my hand while going through the scanner?", portuguese: "Ok. Devo usar meu cartão de embarque na mão enquanto passo pelo scanner?" },
+385:       { speaker: 'native', english: "No, put it in the bin too. Empty your pockets completely. Alright, step through... You're all clear!", portuguese: "Não, coloque-o na caixa também. Esvazie seus bolsos completamente. Certo, pode passar... Tudo limpo!" },
+386:       { speaker: 'student', english: "Thank you. Now I just need to find gate B22. Is it very far from here?", portuguese: "Obrigada. Agora só preciso encontrar o portão B22. É muito longe daqui?" },
+387:       { speaker: 'native', english: "It's about a five-minute walk. Once you land in New York, follow the signs to the baggage claim area to collect your suitcase.", portuguese: "Fica a cerca de cinco minutos de caminhada. Assim que pousar em Nova York, siga as placas para a área de retirada de bagagens para pegar sua mala." },
+388:       { speaker: 'student', english: "Perfect. My boarding pass says boarding starts at 10:15. I should head to the gate now.", portuguese: "Perfeito. Meu cartão de embarque diz que o embarque começa às 10h15. Devo ir para o portão agora." },
+389:       { speaker: 'native', english: "Exactly. Have a safe flight and enjoy your trip to the US!", portuguese: "Exatamente. Tenha um voo seguro e aproveite sua viagem aos EUA!" },
+390:     ],
+391:     dialoguesBeginner: [
+392:       { speaker: 'student', english: "Hello! Is my flight to New York on time or delayed?", portuguese: "Olá! Meu voo para Nova York está no horário ou atrasado?" },
+393:       { speaker: 'native', english: "It is on time! Can I see your passport and boarding pass?", portuguese: "Está no horário! Posso ver seu passaporte e cartão de embarque?" },
+394:       { speaker: 'student', english: "Here they are. Can I have a window seat, please? I do not want an aisle seat.", portuguese: "Aqui estão. Posso pegar um assento na janela, por favor? Não quero um assento no corredor." },
+395:       { speaker: 'native', english: "Yes, window seat 15A. Do you have any luggage to check?", portuguese: "Sim, assento na janela 15A. Você tem alguma bagagem para despachar?" },
+396:       { speaker: 'student', english: "Yes, this large suitcase. And I have one small carry-on.", portuguese: "Sim, esta mala grande. E tenho uma pequena mala de mão." },
+397:       { speaker: 'native', english: "Oh, your suitcase is 55 pounds. It is overweight baggage.", portuguese: "Oh, sua mala pesa 55 libras. É uma bagagem acima do peso." },
+398:       { speaker: 'student', english: "Oh no! Can I put some clothes in my carry-on?", portuguese: "Ah não! Posso colocar algumas roupas na minha mala de mão?" },
+399:       { speaker: 'native', english: "Yes, you can. Your gate is B22. Go to the security check now.", portuguese: "Sim, você pode. Seu portão é o B22. Vá para o controle de segurança agora." },
+400:       { speaker: 'student', english: "Thank you. What do I do at the X-ray machine?", portuguese: "Obrigado. O que eu faço na máquina de raio-X?" },
+401:       { speaker: 'native', english: "Please take out all electronics and liquids. Put them in the bin.", portuguese: "Por favor, tire todos os eletrônicos e líquidos. Coloque-os na caixa." },
+402:       { speaker: 'student', english: "Do I need to take off my shoes and belt?", portuguese: "Preciso tirar meus sapatos e o cinto?" },
+403:       { speaker: 'native', english: "Yes, take off your shoes and belt, please. Step through the scanner.", portuguese: "Sim, tire os sapatos e o cinto, por favor. Passe pelo scanner." },
+404:       { speaker: 'student', english: "All done. Where do I get my suitcase in New York?", portuguese: "Tudo pronto. Onde eu pego minha mala em Nova York?" },
+405:       { speaker: 'native', english: "Follow the signs to the baggage claim. Have a great flight!", portuguese: "Siga as placas para a retirada de bagagem. Tenha um ótimo voo!" },
+406:       { speaker: 'student', english: "Thank you very much for your help! Goodbye!", portuguese: "Muito obrigado pela sua ajuda! Tchau!" },
+407:     ],
+408:     
+409:       
+410:       
+411:       
+412:       dialogues2: [
+413:         { speaker: 'native', english: "Good morning. Can I see your boarding pass and ID, please?", portugue
+<truncated 56887 bytes>
+
+NOTE: The output was truncated because it was too long. Use a more targeted query or a smaller range to get the information you need.

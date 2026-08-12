@@ -23,14 +23,14 @@
   position: relative;
 }
 
-.bubbleTourist {
+.bubbleRight {
   align-self: flex-end;
   background: var(--color-sky);
   border-bottom-right-radius: 4px;
   animation: fadeInRight 400ms ease both;
 }
 
-.bubbleLocal {
+.bubbleLeft {
   align-self: flex-start;
   background: var(--color-mint);
   border-bottom-left-radius: 4px;

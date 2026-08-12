@@ -15,7 +15,11 @@ import WordScramble from '@/components/WordScramble';
 import ListeningChallenge from '@/components/ListeningChallenge';
 import SpeedRound from '@/components/SpeedRound';
 import WordLesson from '@/components/WordLesson';
+import SpeakingPractice from '@/components/SpeakingPractice';
 import MakeupInteractive from '@/components/MakeupInteractive';
+import ReadingPractice from '@/components/ReadingPractice';
+import SimulationPractice from '@/components/SimulationPractice';
+import WouldYouRatherPractice from '@/components/WouldYouRatherPractice';
 import { scenarios } from '@/data/scenarios';
 import styles from './page.module.css';
 
@@ -40,8 +44,6 @@ export default function ScenarioPage({ params }: ScenarioPageProps) {
       </>
     );
   }
-
-  const isDirections = scenario.id === 'directions';
 
   return (
     <>
@@ -72,11 +74,7 @@ export default function ScenarioPage({ params }: ScenarioPageProps) {
             ← Voltar aos Cenários / Back to Scenarios
           </Link>
 
-          {isDirections ? (
-            <DirectionsLayout scenario={scenario} />
-          ) : (
-            <GenericLayout scenario={scenario} />
-          )}
+          <UniversalLayout scenario={scenario} />
         </div>
       </main>
       <Footer />
@@ -84,19 +82,19 @@ export default function ScenarioPage({ params }: ScenarioPageProps) {
   );
 }
 
-// Generic layout for all standard scenarios
-function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
-  const hasCulturalTips = !!scenario.culturalTips && scenario.culturalTips.length > 0;
-  const hasDialogueSets = !!scenario.dialogueSets && scenario.dialogueSets.length > 0;
-  const [activeTab, setActiveTab] = useState<'dialogues' | 'vocabulary' | 'cultural' | 'practice'>('dialogues');
-  const [activeDialogueSet, setActiveDialogueSet] = useState(0);
-  const [activePracticeMode, setActivePracticeMode] = useState<'sentences' | 'scramble' | 'listening' | 'speed' | 'match' | 'makeup' | null>(null);
-  const [level, setLevel] = useState<'standard' | 'beginner'>('standard');
+// Universal layout for all scenarios
+function UniversalLayout({ scenario }: { scenario: typeof scenarios[0] }) {
+  const [activeSection, setActiveSection] = useState<'wordlesson' | 'simulator' | 'simulation' | 'wouldyourather' | 'flashcards' | 'cultural' | 'vocabulary' | 'listening' | 'speed' | 'reading' | 'speaking' | 'sentences' | 'scramble' | 'makeup'>('wordlesson');
+  const [level, setLevel] = useState<'A1' | 'A2'>('A1');
+  const [showLevelSelector, setShowLevelSelector] = useState(true);
   const [variation, setVariation] = useState<1 | 2>(1);
+  const [culturalRegion, setCulturalRegion] = useState<'US' | 'EU'>('US');
+  const hasDialogueSets = !!scenario.dialogueSets && scenario.dialogueSets.length > 0;
+  const [activeDialogueSet, setActiveDialogueSet] = useState(0);
 
   const getDialogues = () => {
     const set = hasDialogueSets ? scenario.dialogueSets![activeDialogueSet] : scenario;
-    if (level === 'beginner') {
+    if (level === 'A1') {
       return (variation === 2 && set.dialoguesBeginner2) ? set.dialoguesBeginner2 : (set.dialoguesBeginner || set.dialogues);
     }
     return (variation === 2 && set.dialogues2) ? set.dialogues2 : set.dialogues;
@@ -104,266 +102,89 @@ function GenericLayout({ scenario }: { scenario: typeof scenarios[0] }) {
 
   const currentDialogues = getDialogues();
 
-  const LevelToggle = () => (
-    <div className={styles.selectorsContainer}>
-      <div className={styles.levelSelector} style={{ marginBottom: 0 }}>
-        <span className={styles.levelLabel}>Nível:</span>
-        <div className={styles.levelToggle}>
-          <button 
-            className={`${styles.levelBtn} ${level === 'beginner' ? styles.levelBtnActive : ''}`}
-            onClick={() => setLevel('beginner')}
-          >
-            🐣 Iniciante
-          </button>
-          <button 
-            className={`${styles.levelBtn} ${level === 'standard' ? styles.levelBtnActive : ''}`}
-            onClick={() => setLevel('standard')}
-          >
-            🚀 Padrão
-          </button>
-        </div>
-      </div>
-      
-      <div className={styles.variationSelector}>
-        <div className={styles.variationToggle}>
-          <button 
-            className={`${styles.variationBtn} ${variation === 1 ? styles.variationBtnActive : ''}`}
-            onClick={() => setVariation(1)}
-          >
-            Conversa A
-          </button>
-          <button 
-            className={`${styles.variationBtn} ${variation === 2 ? styles.variationBtnActive : ''}`}
-            onClick={() => setVariation(2)}
-          >
-            Conversa B
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-
-  return (
-    <>
-      <div className={styles.tabs}>
-        <button
-          className={`${styles.tab} ${activeTab === 'dialogues' ? styles.tabActive : ''}`}
-          onClick={() => setActiveTab('dialogues')}
-        >
-          💬 Diálogos / Dialogues
-        </button>
-        <button
-          className={`${styles.tab} ${activeTab === 'vocabulary' ? styles.tabActive : ''}`}
-          onClick={() => setActiveTab('vocabulary')}
-        >
-          📖 Aula das Palavras
-        </button>
-        <button
-          className={`${styles.tab} ${activeTab === 'practice' ? styles.tabActive : ''}`}
-          onClick={() => setActiveTab('practice')}
-        >
-          🎮 Praticar / Practice
-        </button>
-        {hasCulturalTips && (
-          <button
-            className={`${styles.tab} ${activeTab === 'cultural' ? styles.tabActive : ''}`}
-            onClick={() => setActiveTab('cultural')}
-          >
-            💡 Dicas Culturais
-          </button>
-        )}
-      </div>
-
-      <div className={styles.tabContent}>
-        {activeTab === 'dialogues' && (
-          <>
-            <LevelToggle />
-            <p className={styles.levelHint}>
-              {level === 'beginner' ? 'Frases simplificadas para quem está começando.' : 'Diálogos completos e naturais para praticar.'}
-            </p>
-            {hasDialogueSets ? (
-              <>
-                {/* Sub-navigation for multiple dialogue sets */}
-                <div className={styles.sectionPills}>
-                  {scenario.dialogueSets!.map((set, idx) => (
-                    <button
-                      key={idx}
-                      className={`${styles.sectionPill} ${activeDialogueSet === idx ? styles.sectionPillActive : ''}`}
-                      onClick={() => setActiveDialogueSet(idx)}
-                    >
-                      {set.icon} {set.titlePt}
-                    </button>
-                  ))}
-                </div>
-                <h3 className={styles.sectionTitle}>
-                  {scenario.dialogueSets![activeDialogueSet].icon}{' '}
-                  {scenario.dialogueSets![activeDialogueSet].title}
-                </h3>
-                <p className={styles.sectionSub}>
-                  {scenario.dialogueSets![activeDialogueSet].titlePt}
-                </p>
-                <DialogueBlock
-                  key={`${activeDialogueSet}-${level}-${variation}`}
-                  dialogues={currentDialogues}
-                />
-              </>
-            ) : (
-              <DialogueBlock key={`main-${level}-${variation}`} dialogues={currentDialogues} />
-            )}
-          </>
-        )}
-        {activeTab === 'vocabulary' && (
-          <WordLesson vocabulary={scenario.vocabulary} onComplete={() => setActiveTab('practice')} />
-        )}
-        {activeTab === 'practice' && (
-          <div className={styles.gameMenu}>
-            {!activePracticeMode ? (
-              <div className={styles.gameGrid}>
-                <div className={styles.gameCard} onClick={() => setActivePracticeMode('match')}>
-                  <div className={styles.gameIcon}>🔗</div>
-                  <h3>Ligar Palavras</h3>
-                  <p>Combine o inglês com o português.</p>
-                </div>
-                <div className={styles.gameCard} onClick={() => setActivePracticeMode('sentences')}>
-                  <div className={styles.gameIcon}>🧩</div>
-                  <h3>Montar Frases</h3>
-                  <p>Organize as palavras para formar diálogos reais.</p>
-                </div>
-                <div className={styles.gameCard} onClick={() => setActivePracticeMode('scramble')}>
-                  <div className={styles.gameIcon}>🔠 Embaralhar</div>
-                  <h3>Palavras</h3>
-                  <p>Traduza e desembaralhe o vocabulário chave.</p>
-                </div>
-                <div className={styles.gameCard} onClick={() => setActivePracticeMode('listening')}>
-                  <div className={styles.gameIcon}>🎧</div>
-                  <h3>Listening</h3>
-                  <p>Ouca a frase e escolha a opção correta.</p>
-                </div>
-                <div className={styles.gameCard} onClick={() => setActivePracticeMode('speed')}>
-                  <div className={styles.gameIcon}>⚡</div>
-                  <h3>Speed Round</h3>
-                  <p>Quantas palavras você acerta em 30 segundos?</p>
-                </div>
-                {(scenario.id === 'shopping' || scenario.id === 'beauty') && (
-                  <div className={`${styles.gameCard} ${styles.gameCardSpecial}`} onClick={() => setActivePracticeMode('makeup')}>
-                    <div className={styles.gameIcon}>💄</div>
-                    <h3>Makeup Interativo</h3>
-                    <p>Aprenda as etapas da maquiagem em inglês.</p>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-lg)' }}>
-                <button className={styles.backToMenu} onClick={() => setActivePracticeMode(null as any)}>
-                  ⬅️ Voltar ao Menu de Jogos
-                </button>
-                
-                {activePracticeMode === 'match' && (
-                  <VocabMatch vocabulary={scenario.vocabulary} />
-                )}
-                {activePracticeMode === 'sentences' && (
-                  <SentenceBuilder 
-                    key={`sentences-${level}`}
-                    dialogues={currentDialogues} 
-                  />
-                )}
-                {activePracticeMode === 'scramble' && (
-                  <WordScramble vocabulary={scenario.vocabulary} />
-                )}
-                {activePracticeMode === 'listening' && (
-                  <ListeningChallenge 
-                    key={`listening-${level}`}
-                    dialogues={currentDialogues} 
-                  />
-                )}
-                {activePracticeMode === 'speed' && (
-                  <SpeedRound vocabulary={scenario.vocabulary} />
-                )}
-                {activePracticeMode === 'makeup' && (
-                  <MakeupInteractive />
-                )}
-              </div>
-            )}
-          </div>
-        )}
-        {activeTab === 'cultural' && scenario.culturalTips && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
-            {scenario.culturalTips.map((tip, idx) => (
-              <CulturalTip key={idx} tip={tip} />
-            ))}
-          </div>
-        )}
-      </div>
-    </>
-  );
-}
-
-// Enhanced directions layout with 3 sections
-function DirectionsLayout({ scenario }: { scenario: typeof scenarios[0] }) {
-  const [activeSection, setActiveSection] = useState<'wordlesson' | 'simulator' | 'flashcards' | 'cultural' | 'vocabulary' | 'listening' | 'speed'>('wordlesson');
-  const [level, setLevel] = useState<'standard' | 'beginner'>('standard');
-  const [variation, setVariation] = useState<1 | 2>(1);
-
-  const getDialogues = () => {
-    if (level === 'beginner') {
-      return (variation === 2 && scenario.dialoguesBeginner2) ? scenario.dialoguesBeginner2 : (scenario.dialoguesBeginner || scenario.dialogues);
-    }
-    return (variation === 2 && scenario.dialogues2) ? scenario.dialogues2 : scenario.dialogues;
+  const handleLevelChange = (newLevel: 'A1' | 'A2') => {
+    setLevel(newLevel);
+    setShowLevelSelector(false);
   };
 
-  const currentDialogues = getDialogues();
-
   const LevelToggle = () => (
     <div className={styles.selectorsContainer}>
-      <div className={styles.levelSelector} style={{ marginBottom: 0 }}>
-        <span className={styles.levelLabel}>Nível:</span>
-        <div className={styles.levelToggle}>
-          <button 
-            className={`${styles.levelBtn} ${level === 'beginner' ? styles.levelBtnActive : ''}`}
-            onClick={() => setLevel('beginner')}
-          >
-            🐣 Iniciante
-          </button>
-          <button 
-            className={`${styles.levelBtn} ${level === 'standard' ? styles.levelBtnActive : ''}`}
-            onClick={() => setLevel('standard')}
-          >
-            🚀 Padrão
+      {showLevelSelector ? (
+        <div className={styles.levelSelector} style={{ marginBottom: 0 }}>
+          <span className={styles.levelLabel}>Nível:</span>
+          <div className={styles.levelToggle}>
+            <button 
+              className={`${styles.levelBtn} ${level === 'A1' ? styles.levelBtnActive : ''}`}
+              onClick={() => handleLevelChange('A1')}
+            >
+              Nível A1
+            </button>
+            <button 
+              className={`${styles.levelBtn} ${level === 'A2' ? styles.levelBtnActive : ''}`}
+              onClick={() => handleLevelChange('A2')}
+            >
+              Nível A2
+            </button>
+          </div>
+        </div>
+      ) : (
+        <div className={styles.discreteLevelIndicator}>
+          <span className={styles.discreteText}>
+            Você está praticando o <strong>{level === 'A1' ? 'Nível A1' : 'Nível A2'}</strong>
+          </span>
+          <button className={styles.discreteBtn} onClick={() => setShowLevelSelector(true)}>
+            ✏️ Alterar
           </button>
         </div>
-      </div>
+      )}
       
-      <div className={styles.variationSelector}>
-        <div className={styles.variationToggle}>
-          <button 
-            className={`${styles.variationBtn} ${variation === 1 ? styles.variationBtnActive : ''}`}
-            onClick={() => setVariation(1)}
-          >
-            Conversa A
-          </button>
-          <button 
-            className={`${styles.variationBtn} ${variation === 2 ? styles.variationBtnActive : ''}`}
-            onClick={() => setVariation(2)}
-          >
-            Conversa B
-          </button>
+      {activeSection === 'simulator' && (
+        <div className={styles.variationSelector}>
+          <div className={styles.variationToggle}>
+            <button 
+              className={`${styles.variationBtn} ${variation === 1 ? styles.variationBtnActive : ''}`}
+              onClick={() => setVariation(1)}
+            >
+              Conversa A
+            </button>
+            <button 
+              className={`${styles.variationBtn} ${variation === 2 ? styles.variationBtnActive : ''}`}
+              onClick={() => setVariation(2)}
+            >
+              Conversa B
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 
   const sections = [
-    { key: 'wordlesson' as const, label: '📖 Aula das Palavras', labelEn: 'Word Lesson' },
-    { key: 'simulator' as const, label: '💬 Simulador', labelEn: 'Dialogue Simulator' },
-    { key: 'flashcards' as const, label: '🃏 Flashcards', labelEn: 'Directional Flashcards' },
+    { key: 'wordlesson' as const, label: '📖 Vocabulário', labelEn: 'Word Lesson' },
+    { key: 'simulator' as const, label: '💬 Diálogos', labelEn: 'Dialogues' },
+    { key: 'simulation' as const, label: '🎬 Simulação', labelEn: 'Roleplay Simulation' },
+    { key: 'wouldyourather' as const, label: '⚖️ Would You Rather', labelEn: 'Would You Rather' },
+    ...(scenario.flashcards ? [{ key: 'flashcards' as const, label: '🃏 Flashcards', labelEn: 'Flashcards' }] : []),
+    { key: 'sentences' as const, label: '🧩 Frases', labelEn: 'Sentence Builder' },
+    { key: 'scramble' as const, label: '🔠 Embaralhar', labelEn: 'Word Scramble' },
+    { key: 'reading' as const, label: '📖 Reading', labelEn: 'Reading Comprehension' },
+    { key: 'speaking' as const, label: '🗣️ Speaking', labelEn: 'Speaking Practice' },
     { key: 'listening' as const, label: '🎧 Listening', labelEn: 'Audio Quiz' },
     { key: 'speed' as const, label: '⚡ Speed Round', labelEn: 'Fast Vocabulary' },
-    { key: 'cultural' as const, label: '💡 Dicas Culturais', labelEn: 'Cultural Tips' },
+    { key: 'cultural' as const, label: '💡 Culturais', labelEn: 'Cultural Tips' },
     { key: 'vocabulary' as const, label: '🔗 Ligar Palavras', labelEn: 'Vocabulary Match' },
+    ...((scenario.id === 'shopping' || scenario.id === 'beauty') ? [{ key: 'makeup' as const, label: '💄 Makeup', labelEn: 'Makeup Interactive' }] : []),
   ];
 
   return (
     <>
+      <LevelToggle />
+      {showLevelSelector && (
+        <p className={styles.levelHint}>
+          {level === 'A1' ? 'Conteúdo adaptado para o nível básico.' : 'Conteúdo com vocabulário intermediário.'}
+        </p>
+      )}
+
       {/* Section navigation pills */}
       <div className={styles.sectionPills}>
         {sections.map(s => (
@@ -378,39 +199,58 @@ function DirectionsLayout({ scenario }: { scenario: typeof scenarios[0] }) {
       </div>
 
       <div className={styles.tabContent}>
-        {(activeSection === 'simulator' || activeSection === 'listening' || activeSection === 'speed') && (
-          <>
-            <LevelToggle />
-            <p className={styles.levelHint}>
-              {level === 'beginner' ? 'Frases simplificadas para quem está começando.' : 'Diálogos completos e naturais para praticar.'}
-            </p>
-          </>
-        )}
+
         {activeSection === 'wordlesson' && (
           <div className={styles.section} id="section-wordlesson">
-            <WordLesson vocabulary={scenario.vocabulary} onComplete={() => setActiveSection('simulator')} />
+            <WordLesson vocabulary={scenario.vocabulary} level={level} onComplete={() => setActiveSection('simulator')} />
           </div>
         )}
 
         {activeSection === 'simulator' && (
           <div className={styles.section} id="section-simulator">
-            <h2 className={styles.sectionTitle}>
-              💬 Simulador de Diálogo
-            </h2>
-            <p className={styles.sectionSub}>
-              Click through the conversation between a tourist and a friendly local. Tap each message to see the Portuguese translation.
-            </p>
-            <ChatDialogueSimulator
-              key={`simulator-${level}-${variation}`}
+            {hasDialogueSets && (
+              <>
+                <div className={styles.sectionPills} style={{ marginBottom: '1rem', marginTop: '0', justifyContent: 'flex-start' }}>
+                  {scenario.dialogueSets!.map((set, idx) => (
+                    <button
+                      key={idx}
+                      className={`${styles.sectionPill} ${activeDialogueSet === idx ? styles.sectionPillActive : ''}`}
+                      onClick={() => setActiveDialogueSet(idx)}
+                      style={{ padding: '0.4rem 0.8rem', fontSize: '0.9rem' }}
+                    >
+                      {set.icon} {set.titlePt}
+                    </button>
+                  ))}
+                </div>
+                <h3 className={styles.sectionTitle} style={{ marginTop: '0' }}>
+                  {scenario.dialogueSets![activeDialogueSet].icon} {scenario.dialogueSets![activeDialogueSet].title}
+                </h3>
+                <p className={styles.sectionSub}>
+                  {scenario.dialogueSets![activeDialogueSet].titlePt}
+                </p>
+              </>
+            )}
+            {!hasDialogueSets && (
+              <h2 className={styles.sectionTitle}>
+                💬 Diálogos
+              </h2>
+            )}
+            <DialogueBlock
+              key={`dialogues-${level}-${variation}-${activeDialogueSet}`}
               dialogues={currentDialogues}
-              onComplete={() => {
-                fetch('/api/progress', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ scenarioId: 'directions', type: 'dialogue', completed: true }),
-                }).catch(() => {});
-              }}
             />
+          </div>
+        )}
+
+        {activeSection === 'simulation' && scenario.simulationTasks && (
+          <div className={styles.section} id="section-simulation">
+            <SimulationPractice tasks={scenario.simulationTasks} />
+          </div>
+        )}
+        
+        {activeSection === 'wouldyourather' && scenario.wouldYouRather && (
+          <div className={styles.section} id="section-wouldyourather">
+            <WouldYouRatherPractice questions={scenario.wouldYouRather} />
           </div>
         )}
 
@@ -423,6 +263,52 @@ function DirectionsLayout({ scenario }: { scenario: typeof scenarios[0] }) {
               Tap each card to flip and see the Portuguese translation. Learn essential directional vocabulary!
             </p>
             <DirectionalFlashcard flashcards={scenario.flashcards} />
+          </div>
+        )}
+        {activeSection === 'sentences' && (
+          <div className={styles.section} id="section-sentences">
+            <h2 className={styles.sectionTitle}>🧩 Montar Frases</h2>
+            <SentenceBuilder 
+              key={`sentences-${level}`}
+              dialogues={currentDialogues} 
+            />
+          </div>
+        )}
+
+        {activeSection === 'scramble' && (
+          <div className={styles.section} id="section-scramble">
+            <h2 className={styles.sectionTitle}>🔠 Embaralhar Palavras</h2>
+            <WordScramble vocabulary={scenario.vocabulary} />
+          </div>
+        )}
+
+        {activeSection === 'makeup' && (
+          <div className={styles.section} id="section-makeup">
+            <h2 className={styles.sectionTitle}>💄 Makeup Interactive</h2>
+            <MakeupInteractive />
+          </div>
+        )}
+
+
+        {activeSection === 'reading' && (
+          <div className={styles.section} id="section-reading">
+            <ReadingPractice 
+              key={`reading-${level}`}
+              reading={scenario.reading}
+              level={level}
+              onClose={() => setActiveSection('wordlesson')}
+            />
+          </div>
+        )}
+
+        {activeSection === 'speaking' && (
+          <div className={styles.section} id="section-speaking">
+            <SpeakingPractice 
+              key={`speaking-${level}`}
+              questions={scenario.speakingQuestions || []}
+              level={level}
+              onClose={() => setActiveSection('wordlesson')}
+            />
           </div>
         )}
 
@@ -440,14 +326,30 @@ function DirectionsLayout({ scenario }: { scenario: typeof scenarios[0] }) {
           </div>
         )}
 
-        {activeSection === 'cultural' && scenario.culturalTips && (
+        {activeSection === 'cultural' && (scenario.culturalTips || scenario.culturalTipsEurope) && (
           <div className={styles.section} id="section-cultural">
             <h2 className={styles.sectionTitle}>
               💡 Dicas Culturais / Cultural Tips
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
-              {scenario.culturalTips.map((tip, idx) => (
-                <CulturalTip key={idx} tip={tip} />
+              <div className={styles.variationSelector} style={{ marginBottom: 'var(--space-sm)' }}>
+                <div className={styles.variationToggle}>
+                  <button 
+                    className={`${styles.variationBtn} ${culturalRegion === 'US' ? styles.variationBtnActive : ''}`}
+                    onClick={() => setCulturalRegion('US')}
+                  >
+                    🇺🇸🇨🇦 EUA / Canadá
+                  </button>
+                  <button 
+                    className={`${styles.variationBtn} ${culturalRegion === 'EU' ? styles.variationBtnActive : ''}`}
+                    onClick={() => setCulturalRegion('EU')}
+                  >
+                    🇪🇺 Europa
+                  </button>
+                </div>
+              </div>
+              {(culturalRegion === 'US' ? scenario.culturalTips : (scenario.culturalTipsEurope || scenario.culturalTips))?.map((tip, idx) => (
+                <CulturalTip key={idx} tip={tip} level={level} />
               ))}
             </div>
           </div>

@@ -303,6 +303,40 @@
   font-style: italic;
 }
 
+.discreteLevelIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-xs) var(--space-md);
+  background: white;
+  border-radius: var(--radius-full);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px dashed var(--color-border);
+}
+
+.discreteText {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+}
+
+.discreteBtn {
+  background: transparent;
+  border: none;
+  font-size: var(--fs-xs);
+  color: var(--primary);
+  font-weight: var(--fw-bold);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.discreteBtn:hover {
+  background: var(--color-surface);
+}
+
 /* Variation Selector */
 .selectorsContainer {
   display: flex;

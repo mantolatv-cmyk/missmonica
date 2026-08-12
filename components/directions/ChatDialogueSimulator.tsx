@@ -64,15 +64,21 @@ export default function ChatDialogueSimulator({ dialogues, onComplete }: ChatDia
         {dialogues.slice(0, visibleCount).map((line, index) => (
           <div
             key={index}
-            className={`${styles.bubble} ${
-              line.speaker === 'tourist' ? styles.bubbleTourist : styles.bubbleLocal
-            }`}
+            className={`\${styles.bubble} \${['tourist', 'student'].includes(line.speaker) || index % 2 === 0 ? styles.bubbleRight : styles.bubbleLeft}`}
             onClick={() => toggleTranslation(index)}
             style={{ animationDelay: '0ms' }}
           >
             <div className={styles.speakerTag}>
-              <span>{line.speaker === 'tourist' ? '🧳' : '🙋'}</span>
-              <span>{line.speaker === 'tourist' ? 'Tourist' : 'Local'}</span>
+              <span>{
+                line.speaker === 'tourist' ? '🧳' : 
+                line.speaker === 'student' ? '🎓' : 
+                line.speaker === 'native' ? '🇺🇸' :
+                line.speaker === 'local' ? '🙋' :
+                '👤'
+              }</span>
+              <span>{
+                line.speaker.charAt(0).toUpperCase() + line.speaker.slice(1)
+              }</span>
             </div>
             <div className={styles.english}>{line.english}</div>
             <div className={`${styles.portuguese} ${
@@ -85,7 +91,7 @@ export default function ChatDialogueSimulator({ dialogues, onComplete }: ChatDia
 
         {isTyping && (
           <div className={`${styles.typingIndicator} ${
-            getNextSpeaker() === 'tourist' ? styles.typingRight : ''
+            ['tourist', 'student'].includes(getNextSpeaker() || '') ? styles.typingRight : ''
           }`}>
             <div className={styles.dot} />
             <div className={styles.dot} />

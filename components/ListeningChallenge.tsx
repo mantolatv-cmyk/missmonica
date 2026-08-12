@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './ListeningChallenge.module.css';
 
 interface DialogueLine {
@@ -13,15 +13,37 @@ interface ListeningChallengeProps {
 }
 
 export default function ListeningChallenge({ dialogues }: ListeningChallengeProps) {
-  const [currentQuestion, setCurrentQuestion] = useState<number>(0);
   const [options, setOptions] = useState<string[]>([]);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [score, setScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
+  
+  const shuffledOrder = useRef<number[]>([]);
+  const currentIndex = useRef<number>(0);
 
   const generateQuestion = () => {
-    const correctLine = dialogues[Math.floor(Math.random() * dialogues.length)].english;
+    if (shuffledOrder.current.length === 0 || currentIndex.current >= shuffledOrder.current.length) {
+      let indices = Array.from({length: dialogues.length}, (_, i) => i);
+      const lastAsked = shuffledOrder.current.length > 0 ? shuffledOrder.current[shuffledOrder.current.length - 1] : -1;
+      
+      indices = indices.sort(() => 0.5 - Math.random());
+      
+      // Avoid immediate repeat when reshuffling
+      if (indices.length > 1 && indices[0] === lastAsked) {
+         const temp = indices[0];
+         indices[0] = indices[1];
+         indices[1] = temp;
+      }
+      
+      shuffledOrder.current = indices;
+      currentIndex.current = 0;
+    }
+
+    const idx = shuffledOrder.current[currentIndex.current];
+    currentIndex.current++;
+    
+    const correctLine = dialogues[idx].english;
     const distractors = dialogues
       .filter(d => d.english !== correctLine)
       .sort(() => 0.5 - Math.random())
