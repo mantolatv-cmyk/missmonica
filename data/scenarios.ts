@@ -2945,6 +2945,590 @@ export const scenarios: Scenario[] = [
 ]
 },
   {
+    id: 'cafe',
+    speakingQuestions: [
+    {
+        "question": "How many cups of coffee do you drink a day?",
+        "questionPt": "Quantas xícaras de café você bebe por dia?",
+        "hintA1": "I drink two cups of coffee.",
+        "hintA2": "I usually drink one cup in the morning and sometimes another one after lunch."
+    },
+    {
+        "question": "What is your favorite order at a coffee shop?",
+        "questionPt": "Qual é o seu pedido favorito em uma cafeteria?",
+        "hintA1": "I like cappuccino with chocolate.",
+        "hintA2": "My go-to order is an iced latte with a slice of carrot cake."
+    },
+    {
+        "question": "Do you like to study or work in cafes?",
+        "questionPt": "Você gosta de estudar ou trabalhar em cafés?",
+        "hintA1": "No, it is very noisy.",
+        "hintA2": "Yes, I enjoy the atmosphere and the background noise helps me focus."
+    }
+,
+    {
+        "question": "Did you order a black coffee or a latte?",
+        "questionPt": "Você pediu um café preto ou um latte?",
+        "hintA1": "I ordered a black coffee.",
+        "hintA2": "I asked for an iced latte with oat milk because it is my favorite drink."
+    },
+    {
+        "question": "Do they sell sandwiches at this cafe?",
+        "questionPt": "Eles vendem sanduíches neste café?",
+        "hintA1": "Yes, they have sandwiches.",
+        "hintA2": "Yes, they have a great selection of paninis, croissants, and cakes too."
+    },
+    {
+        "question": "When did you start drinking coffee?",
+        "questionPt": "Quando você começou a beber café?",
+        "hintA1": "I started in college.",
+        "hintA2": "I did not like coffee until I started working. Now I drink it every morning."
+    },
+    {
+        "question": "Do you take sugar in your coffee?",
+        "questionPt": "Você coloca açúcar no seu café?",
+        "hintA1": "No, I drink it plain.",
+        "hintA2": "I used to add sugar, but now I prefer the natural taste of good coffee."
+    },
+    {
+        "question": "Did you pay in cash or by card?",
+        "questionPt": "Você pagou em dinheiro ou no cartão?",
+        "hintA1": "I paid by card.",
+        "hintA2": "I paid with my credit card because I never carry cash with me anymore."
+    }
+    ],
+    title: 'Café & Fast Food',
+    titlePt: 'Café e Fast Food',
+    description: 'Order at Starbucks, customize your coffee, and navigate fast food drive-thrus.',
+    descriptionPt: 'Peça no Starbucks, personalize seu café e navegue pelo drive-thru.',
+    icon: '☕',
+    color: 'orange',
+    imagePath: '/images/cafe_scene.png',
+    dialogues: [],
+    dialogueSets: [
+      {
+        title: 'At Starbucks',
+        titlePt: 'No Starbucks',
+        icon: '🥤',
+        dialogues: [
+          { speaker: 'native', english: "Hi, welcome to Starbucks! What can I get started for you today?", portuguese: "Oi, bem-vindo ao Starbucks! O que posso preparar para você hoje?" },
+          { speaker: 'student', english: "Hi! Can I get a Grande Latte, please?", portuguese: "Oi! Pode me dar um Latte Grande, por favor?" },
+          { speaker: 'native', english: "Sure! Would you like that hot or iced?", portuguese: "Claro! Você quer quente ou gelado?" },
+          { speaker: 'student', english: "Iced, please. And can I have oat milk instead of whole milk?", portuguese: "Gelado, por favor. E posso querer leite de aveia em vez de leite integral?" },
+          { speaker: 'native', english: "No problem, iced Grande oat milk latte. Would you like any flavors in that? We have vanilla, caramel, or hazelnut.", portuguese: "Sem problema, latte grande gelado com leite de aveia. Gostaria de algum sabor? Temos baunilha, caramelo ou avelã." },
+          { speaker: 'student', english: "Two pumps of vanilla, please. And can I have it with light ice?", portuguese: "Dois jatos de baunilha, por favor. E pode ser com pouco gelo?" },
+          { speaker: 'native', english: "Light ice, got it. Do you want any whipped cream on top?", portuguese: "Pouco gelo, entendi. Você quer chantilly por cima?" },
+          { speaker: 'student', english: "No whipped cream, thank you. Can I also get a blueberry muffin?", portuguese: "Sem chantilly, obrigada. Posso pedir também um muffin de mirtilo?" },
+          { speaker: 'native', english: "I'm sorry, we are completely sold out of blueberry muffins. We have chocolate chip or banana nut.", portuguese: "Sinto muito, estamos totalmente sem muffins de mirtilo. Temos de gotas de chocolate ou de banana com nozes." },
+          { speaker: 'student', english: "I'll take the chocolate chip one. Could you warm it up for me?", portuguese: "Vou levar o de gotas de chocolate. Você poderia esquentá-lo para mim?" },
+          { speaker: 'native', english: "Absolutely. That will be nine dollars and fifty cents.", portuguese: "Com certeza. Vai dar nove dólares e cinquenta centavos." },
+          { speaker: 'student', english: "Here is ten dollars. Oh, I have the Starbucks app if you need to scan it.", portuguese: "Aqui estão dez dólares. Ah, eu tenho o aplicativo do Starbucks se você precisar escanear." },
+          { speaker: 'native', english: "Go ahead and scan it right here. Alright, out of ten, here is your change. What's your name for the cup?", portuguese: "Pode escanear bem aqui. Certo, de dez, aqui está o seu troco. Qual o seu nome para o copo?" },
+          { speaker: 'student', english: "It's Maria. M-A-R-I-A.", portuguese: "É Maria. M-A-R-I-A." },
+          { speaker: 'native', english: "Thanks, Maria! They'll call your name down at the end of the bar.", portuguese: "Obrigada, Maria! Eles vão chamar seu nome no final do balcão." }
+],
+        dialoguesBeginner: [
+          { speaker: 'native', english: "Welcome! What do you want to drink?", portuguese: "Bem-vindo! O que você quer beber?" },
+          { speaker: 'student', english: "A latte, please.", portuguese: "Um latte, por favor." },
+          { speaker: 'native', english: "Hot or iced?", portuguese: "Quente ou gelado?" },
+          { speaker: 'student', english: "Iced, please.", portuguese: "Gelado, por favor." },
+          { speaker: 'native', english: "What is your name?", portuguese: "Qual é o seu nome?" },
+          { speaker: 'student', english: "Maria.", portuguese: "Maria." },
+          { speaker: 'native', english: "That is five dollars.", portuguese: "São cinco dólares." },
+          { speaker: 'student', english: "Here you go. Thank you!", portuguese: "Aqui está. Obrigado!" }
+,
+
+      {
+            speaker: "native",
+            english: "Do you want sugar in your coffee?",
+            portuguese: "Você quer açúcar no seu café?"
+      },
+      {
+            speaker: "student",
+            english: "No, just milk, please.",
+            portuguese: "Não, apenas leite, por favor."
+      },
+      {
+            speaker: "native",
+            english: "Do you want anything to eat?",
+            portuguese: "Você quer algo para comer?"
+      },
+      {
+            speaker: "student",
+            english: "I want a piece of cake.",
+            portuguese: "Eu quero um pedaço de bolo."
+      },
+      {
+            speaker: "native",
+            english: "Chocolate or vanilla?",
+            portuguese: "Chocolate ou baunilha?"
+      },
+      {
+            speaker: "student",
+            english: "Chocolate cake, please.",
+            portuguese: "Bolo de chocolate, por favor."
+      },
+      {
+            speaker: "native",
+            english: "Here is your order.",
+            portuguese: "Aqui está o seu pedido."
+      },
+      {
+            speaker: "student",
+            english: "Thank you so much.",
+            portuguese: "Muito obrigado."
+      }
+],
+        dialogues2: [
+          { speaker: 'native', english: "Good morning! Are you ready to order?", portuguese: "Bom dia! Você está pronto para pedir?" },
+          { speaker: 'student', english: "Yes, I'd like a medium Americano and a chocolate croissant.", portuguese: "Sim, eu gostaria de um Americano médio e um croissant de chocolate." },
+          { speaker: 'native', english: "Sure. Do you want any room for cream in your Americano?", portuguese: "Claro. Você quer espaço para o creme no seu Americano?" },
+          { speaker: 'student', english: "No, black is fine. Also, can you tell me what the soup of the day is?", portuguese: "Não, puro está bom. Além disso, você pode me dizer qual é a sopa do dia?" },
+          { speaker: 'native', english: "Today we have tomato basil. It's served with a side of bread.", portuguese: "Hoje temos tomate com manjericão. É servida com um acompanhamento de pão." },
+          { speaker: 'student', english: "That sounds delicious. I'll have a bowl of that too.", portuguese: "Parece delicioso. Vou querer uma tigela disso também." },
+          { speaker: 'native', english: "Perfect. Anything else? A dessert, perhaps?", portuguese: "Perfeito. Algo mais? Uma sobremesa, talvez?" },
+          { speaker: 'student', english: "Maybe later. I'll just start with this. How much do I owe you?", portuguese: "Talvez mais tarde. Vou começar com isso. Quanto eu te devo?" }
+],
+        dialoguesBeginner2: [
+          { speaker: 'native', english: "Hello! What do you want?", portuguese: "Olá! O que você quer?" },
+          { speaker: 'student', english: "I want an Americano and a croissant.", portuguese: "Quero um Americano e um croissant." },
+          { speaker: 'native', english: "Do you want cream?", portuguese: "Você quer creme?" },
+          { speaker: 'student', english: "No, thank you.", portuguese: "Não, obrigado." },
+          { speaker: 'native', english: "We have tomato soup today.", portuguese: "Temos sopa de tomate hoje." },
+          { speaker: 'student', english: "I want a bowl of soup, please.", portuguese: "Quero uma tigela de sopa, por favor." },
+          { speaker: 'native', english: "Okay. That is fifteen dollars.", portuguese: "Ok. São quinze dólares." },
+          { speaker: 'student', english: "Thank you!", portuguese: "Obrigado!" }
+,
+
+      {
+            speaker: "native",
+            english: "Is this seat taken?",
+            portuguese: "Este lugar está ocupado?"
+      },
+      {
+            speaker: "student",
+            english: "No, it is free. You can sit.",
+            portuguese: "Não, está livre. Você pode sentar."
+      },
+      {
+            speaker: "native",
+            english: "Thank you. The cafe is very busy.",
+            portuguese: "Obrigado. O café está muito cheio."
+      },
+      {
+            speaker: "student",
+            english: "Yes, it is always busy in the morning.",
+            portuguese: "Sim, está sempre cheio de manhã."
+      },
+      {
+            speaker: "native",
+            english: "The coffee here is very good.",
+            portuguese: "O café daqui é muito bom."
+      },
+      {
+            speaker: "student",
+            english: "Yes, it is my favorite place.",
+            portuguese: "Sim, é o meu lugar favorito."
+      },
+      {
+            speaker: "native",
+            english: "Are you working today?",
+            portuguese: "Você está trabalhando hoje?"
+      },
+      {
+            speaker: "student",
+            english: "Yes, I am working on my computer.",
+            portuguese: "Sim, estou trabalhando no meu computador."
+      }
+]
+},
+      {
+        title: 'Fast Food Order',
+        titlePt: 'Pedido Fast Food',
+        icon: '🍔',
+        dialogues: [
+          { speaker: 'native', english: "Welcome to Burger King! Will this order be for here or to go?", portuguese: "Bem-vindo ao Burger King! Este pedido vai ser para comer aqui ou para levar?" },
+          { speaker: 'student', english: "To go, please. I'm ready to order.", portuguese: "Para levar, por favor. Estou pronto para pedir." },
+          { speaker: 'native', english: "Whenever you're ready, go ahead.", portuguese: "Quando estiver pronto, vá em frente." },
+          { speaker: 'student', english: "I'd like a number one combo, but with no pickles on the burger, please.", portuguese: "Eu queria o combo número um, mas sem picles no hambúrguer, por favor." },
+          { speaker: 'native', english: "Number one, no pickles. Would you like to medium or large your meal for an extra dollar?", portuguese: "Número um, sem picles. Você quer aumentar o combo para médio ou grande por um dólar extra?" },
+          { speaker: 'student', english: "A medium size is fine. Can I have a Coke with that?", portuguese: "O tamanho médio está bom. Pode ser uma Coca com isso?" },
+          { speaker: 'native', english: "Diet Coke or regular Coke?", portuguese: "Coca Diet ou Coca normal?" },
+          { speaker: 'student', english: "Regular Coke, please. Also, can I get a side of onion rings instead of fries?", portuguese: "Coca normal, por favor. Além disso, posso pedir uma porção de anéis de cebola em vez de batatas fritas?" },
+          { speaker: 'native', english: "Sure, we can substitute the fries for onion rings. Any sauces with that? We have BBQ, ranch, and honey mustard.", portuguese: "Claro, podemos substituir as batatas por anéis de cebola. Algum molho com isso? Temos BBQ, ranch e mostarda com mel." },
+          { speaker: 'student', english: "Two BBQ sauces, please.", portuguese: "Dois molhos BBQ, por favor." },
+          { speaker: 'native', english: "Okay. Anything else? Would you like to try our new apple pie?", portuguese: "Ok. Algo mais? Gostaria de provar nossa nova torta de maçã?" },
+          { speaker: 'student', english: "No, thank you. Just the combo.", portuguese: "Não, obrigado. Apenas o combo." },
+          { speaker: 'native', english: "Your total comes to twelve dollars and forty cents. Please pull up to the second window to pay.", portuguese: "Seu total dá doze dólares e quarenta centavos. Por favor, avance para a segunda janela para pagar." },
+          { speaker: 'student', english: "Thank you.", portuguese: "Obrigado." }
+],
+        dialoguesBeginner: [
+          { speaker: 'native', english: "For here or to go?", portuguese: "Para comer aqui ou para levar?" },
+          { speaker: 'student', english: "To go, please.", portuguese: "Para levar, por favor." },
+          { speaker: 'student', english: "I want a number one combo.", portuguese: "Eu quero o combo número um." },
+          { speaker: 'native', english: "What drink do you want?", portuguese: "Qual bebida você quer?" },
+          { speaker: 'student', english: "A Coke, please.", portuguese: "Uma Coca, por favor." },
+          { speaker: 'native', english: "Anything else?", portuguese: "Algo mais?" },
+          { speaker: 'student', english: "No, thank you.", portuguese: "Não, obrigado." },
+          { speaker: 'native', english: "Twelve dollars, please.", portuguese: "Doze dólares, por favor." },
+          { speaker: 'student', english: "Thank you!", portuguese: "Obrigado!" }
+,
+
+      {
+            speaker: "native",
+            english: "Do you want sugar in your coffee?",
+            portuguese: "Você quer açúcar no seu café?"
+      },
+      {
+            speaker: "student",
+            english: "No, just milk, please.",
+            portuguese: "Não, apenas leite, por favor."
+      },
+      {
+            speaker: "native",
+            english: "Do you want anything to eat?",
+            portuguese: "Você quer algo para comer?"
+      },
+      {
+            speaker: "student",
+            english: "I want a piece of cake.",
+            portuguese: "Eu quero um pedaço de bolo."
+      },
+      {
+            speaker: "native",
+            english: "Chocolate or vanilla?",
+            portuguese: "Chocolate ou baunilha?"
+      },
+      {
+            speaker: "student",
+            english: "Chocolate cake, please.",
+            portuguese: "Bolo de chocolate, por favor."
+      },
+      {
+            speaker: "native",
+            english: "Here is your order.",
+            portuguese: "Aqui está o seu pedido."
+      },
+      {
+            speaker: "student",
+            english: "Thank you so much.",
+            portuguese: "Muito obrigado."
+      }
+],
+        dialogues2: [
+          { speaker: 'native', english: "Welcome! What can I get for you?", portuguese: "Bem-vindo! O que posso te oferecer?" },
+          { speaker: 'student', english: "I'd like a chicken sandwich, but without the mayo, please.", portuguese: "Eu gostaria de um sanduíche de frango, mas sem maionese, por favor." },
+          { speaker: 'native', english: "Chicken sandwich, no mayo. Do you want to make it a meal with fries and a drink?", portuguese: "Sanduíche de frango, sem maionese. Você quer transformar em um combo com batatas fritas e uma bebida?" },
+          { speaker: 'student', english: "Yes, please. I'll have a Sprite for the drink.", portuguese: "Sim, por favor. Vou querer uma Sprite para a bebida." },
+          { speaker: 'native', english: "Sure. Would you like any extra toppings like cheese or bacon on your sandwich?", portuguese: "Claro. Gostaria de algum acompanhamento extra como queijo ou bacon no seu sanduíche?" },
+          { speaker: 'student', english: "Just some cheese, please. How much extra is that?", portuguese: "Apenas queijo, por favor. Quanto custa a mais?" },
+          { speaker: 'native', english: "Cheese is fifty cents extra. Your total will be eleven dollars and twenty cents.", portuguese: "O queijo custa cinquenta centavos a mais. Seu total será onze dólares e vinte centavos." },
+          { speaker: 'student', english: "Okay. Here's a twenty-dollar bill.", portuguese: "Ok. Aqui está uma nota de vinte dólares." },
+          { speaker: 'native', english: "Thank you. Here is your change and your order number. We'll call you when it's ready.", portuguese: "Obrigado. Aqui está o seu troco e o seu número de pedido. Chamaremos quando estiver pronto." }
+],
+        dialoguesBeginner2: [
+          { speaker: 'native', english: "Hello! What do you want?", portuguese: "Olá! O que você quer?" },
+          { speaker: 'student', english: "A chicken sandwich, please.", portuguese: "Um sanduíche de frango, por favor." },
+          { speaker: 'native', english: "No mayo?", portuguese: "Sem maionese?" },
+          { speaker: 'student', english: "Yes, no mayo.", portuguese: "Sim, sem maionese." },
+          { speaker: 'native', english: "Do you want fries and a drink?", portuguese: "Você quer batatas fritas e uma bebida?" },
+          { speaker: 'student', english: "Yes. A Sprite, please.", portuguese: "Sim. Uma Sprite, por favor." },
+          { speaker: 'native', english: "That is eleven dollars.", portuguese: "São onze dólares." },
+          { speaker: 'student', english: "Here is twenty dollars.", portuguese: "Aqui estão vinte dólares." },
+          { speaker: 'native', english: "Thank you. Here is your change.", portuguese: "Obrigado. Aqui está o seu troco." }
+,
+
+      {
+            speaker: "native",
+            english: "Is this seat taken?",
+            portuguese: "Este lugar está ocupado?"
+      },
+      {
+            speaker: "student",
+            english: "No, it is free. You can sit.",
+            portuguese: "Não, está livre. Você pode sentar."
+      },
+      {
+            speaker: "native",
+            english: "Thank you. The cafe is very busy.",
+            portuguese: "Obrigado. O café está muito cheio."
+      },
+      {
+            speaker: "student",
+            english: "Yes, it is always busy in the morning.",
+            portuguese: "Sim, está sempre cheio de manhã."
+      },
+      {
+            speaker: "native",
+            english: "The coffee here is very good.",
+            portuguese: "O café daqui é muito bom."
+      },
+      {
+            speaker: "student",
+            english: "Yes, it is my favorite place.",
+            portuguese: "Sim, é o meu lugar favorito."
+      },
+      {
+            speaker: "native",
+            english: "Are you working today?",
+            portuguese: "Você está trabalhando hoje?"
+      },
+      {
+            speaker: "student",
+            english: "Yes, I am working on my computer.",
+            portuguese: "Sim, estou trabalhando no meu computador."
+      }
+]
+}
+],
+            importantPhrases: [
+      {
+            pt: "Tem wi-fi gratuito aqui?",
+            en: "Is there free wi-fi here?"
+      },
+      {
+            pt: "Um chá verde, por favor.",
+            en: "A green tea, please."
+      },
+      {
+            pt: "Pode aquecer meu sanduíche?",
+            en: "Can you heat up my sandwich?"
+      },
+      {
+            pt: "Tem bolo sem glúten?",
+            en: "Do you have gluten-free cake?"
+      },
+      {
+            pt: "Onde estão os guardanapos?",
+            en: "Where are the napkins?"
+      },
+      {
+            pt: "Eu prefiro café expresso.",
+            en: "I prefer espresso."
+      }
+],
+        problems: [
+      {
+            descriptionPt: "Você pediu sem leite, mas colocaram leite no seu café."
+      },
+      {
+            descriptionPt: "A internet Wi-Fi da cafeteria parou de funcionar e você precisa dela."
+      }
+],
+    vocabulary: [
+      { english: "Tall / Grande / Venti", portuguese: "Tamanhos de copo",
+        sentenceA1: "I want a tall coffee.",
+        sentenceA2: "Can I have a grande iced latte with extra espresso?",
+        sentenceA1Pt: "Quero um café pequeno.",
+        sentenceA2Pt: "Posso pedir um latte gelado médio com espresso extra?"
+      },
+      { english: "Whole milk", portuguese: "Leite integral",
+        sentenceA1: "With whole milk, please.",
+        sentenceA2: "I prefer whole milk because it makes my cappuccino creamier.",
+        sentenceA1Pt: "Com leite integral, por favor.",
+        sentenceA2Pt: "Prefiro leite integral porque fica mais cremoso."
+      },
+      { english: "Oat milk", portuguese: "Leite de aveia",
+        sentenceA1: "I want oat milk.",
+        sentenceA2: "Could you replace the regular milk with oat milk?",
+        sentenceA1Pt: "Quero leite de aveia.",
+        sentenceA2Pt: "Pode trocar o leite normal por leite de aveia?"
+      },
+      { english: "Decaf", portuguese: "Descafeinado",
+        sentenceA1: "I want decaf coffee.",
+        sentenceA2: "I switched to decaf because coffee was keeping me awake.",
+        sentenceA1Pt: "Quero café descafeinado.",
+        sentenceA2Pt: "Mudei para descafeinado porque o café me mantinha acordado."
+      },
+      { english: "Whipped cream", portuguese: "Chantilly",
+        sentenceA1: "With whipped cream, please.",
+        sentenceA2: "Can I add extra whipped cream on my hot chocolate?",
+        sentenceA1Pt: "Com chantilly, por favor.",
+        sentenceA2Pt: "Posso adicionar chantilly extra no meu chocolate quente?"
+      },
+      { english: "Drive-thru", portuguese: "Drive-thru",
+        sentenceA1: "Let us go to the drive-thru.",
+        sentenceA2: "The drive-thru line is always long in the morning.",
+        sentenceA1Pt: "Vamos ao drive-thru.",
+        sentenceA2Pt: "A fila do drive-thru é sempre longa de manhã."
+      },
+      { english: "For here / To go", portuguese: "Para consumir aqui / Para levar",
+        sentenceA1: "For here, please.",
+        sentenceA2: "Is this for here or to go? I will have it to go.",
+        sentenceA1Pt: "Para consumir aqui, por favor.",
+        sentenceA2Pt: "É para aqui ou para levar? Hoje vou levar."
+      },
+      { english: "Combo / Meal", portuguese: "Combo",
+        sentenceA1: "I want the combo.",
+        sentenceA2: "The breakfast combo includes coffee, a sandwich, and a cookie.",
+        sentenceA1Pt: "Quero o combo.",
+        sentenceA2Pt: "O combo inclui café, sanduíche e biscoito."
+      },
+      { english: "Napkin", portuguese: "Guardanapo",
+        sentenceA1: "I need a napkin.",
+        sentenceA2: "Could you give me extra napkins? My coffee spilled.",
+        sentenceA1Pt: "Preciso de um guardanapo.",
+        sentenceA2Pt: "Pode me dar guardanapos extras? Meu café derramou."
+      },
+      { english: "Straw", portuguese: "Canudo",
+        sentenceA1: "I need a straw.",
+        sentenceA2: "They only offer paper straws now for the environment.",
+        sentenceA1Pt: "Preciso de um canudo.",
+        sentenceA2Pt: "Eles só oferecem canudos de papel agora pelo meio ambiente."
+      },
+      { english: "Sugar packet", portuguese: "Pacote de açúcar",
+        sentenceA1: "I need a sugar packet.",
+        sentenceA2: "Could you pass me two sugar packets and a stirrer?",
+        sentenceA1Pt: "Preciso de açúcar.",
+        sentenceA2Pt: "Pode me passar dois açúcares e um mexedor?"
+      },
+      { english: "To go bag", portuguese: "Sacola para levar",
+        sentenceA1: "Can I have a bag?",
+        sentenceA2: "Put the pastries in a bag. I will eat them at the office.",
+        sentenceA1Pt: "Posso ter uma sacola?",
+        sentenceA2Pt: "Coloque os doces em uma sacola. Vou comer no escritório."
+      },
+      { english: "Extra hot", portuguese: "Muito quente",
+        sentenceA1: "Extra hot, please.",
+        sentenceA2: "I like my latte extra hot because it stays warm longer.",
+        sentenceA1Pt: "Bem quente, por favor.",
+        sentenceA2Pt: "Gosto do meu latte bem quente porque dura mais."
+      },
+      { english: "Pastry", portuguese: "Folhado / Doce / Salgado",
+        sentenceA1: "I want a sweet pastry.",
+        sentenceA2: "They serve fresh pastries like croissants and muffins every morning.",
+        sentenceA1Pt: "Quero um doce folhado.",
+        sentenceA2Pt: "Eles servem salgados e doces frescos como croissants e muffins todas as manhãs."
+      },
+      { english: "Espresso shot", portuguese: "Dose de espresso",
+        sentenceA1: "Add a shot of espresso.",
+        sentenceA2: "I need a double shot of espresso to wake up today.",
+        sentenceA1Pt: "Adicione uma dose de espresso.",
+        sentenceA2Pt: "Preciso de uma dose dupla de espresso para acordar hoje."
+      },
+      { english: "Sweetener", portuguese: "Adoçante",
+        sentenceA1: "Do you have sweetener?",
+        sentenceA2: "I prefer to use sweetener instead of sugar in my coffee.",
+        sentenceA1Pt: "Você tem adoçante?",
+        sentenceA2Pt: "Prefiro usar adoçante em vez de açúcar no meu café."
+      },
+      { english: "Iced coffee", portuguese: "Café gelado",
+        sentenceA1: "An iced coffee, please.",
+        sentenceA2: "I always order an iced coffee when the weather gets warm.",
+        sentenceA1Pt: "Um café gelado, por favor.",
+        sentenceA2Pt: "Eu sempre peço um café gelado quando o tempo esquenta."
+      }
+],
+    culturalTips: [
+      {
+        title: "Starbucks Sizes",
+        titlePt: "Tamanhos Starbucks",
+        content: "Starbucks uses unique names: Tall (12oz), Grande (16oz), and Venti (24oz). If you just say 'small' or 'medium', they will understand, but knowing the names is helpful!",
+        contentPt: "O Starbucks usa nomes únicos: Tall (pequeno), Grande (médio) e Venti (grande). Se você disser 'small' ou 'medium', eles vão entender, mas saber os nomes ajuda!"
+},
+      {
+        title: "Customization is King",
+        titlePt: "Personalização é Tudo",
+        content: "In the US, you can customize EVERYTHING. Milk types, temperature, amount of ice, and extra shots of espresso. Don't be afraid to ask exactly how you want it!",
+        contentPt: "Nos EUA, você pode personalizar TUDO. Tipos de leite, temperatura, quantidade de gelo e doses extras de café. Não tenha medo de pedir exatamente como você quer!"
+},
+      {
+        title: "Names on Cups",
+        titlePt: "Nomes nos Copos",
+        content: "Baristas will ask for your name. If your name is hard to spell, it's common to use a 'coffee name' (a simpler nickname) to avoid confusion and misspelling.",
+        contentPt: "Os baristas vão pedir seu nome. Se seu nome for difícil de soletrar, é comum usar um 'coffee name' (um apelido simples) para evitar confusão e erros de grafia."
+}
+    ],
+  reading: {
+      textA1: 'Emily goes to a coffee shop every morning. She loves coffee. She stands in line. It is her turn. She orders a large hot coffee and a chocolate muffin. The cashier asks for her name. She says, \'Emily\'. The cashier writes it on the cup. Emily pays 7 dollars. She waits near the counter. After two minutes, the barista calls her name. She takes her coffee and muffin. She sits at a small table near the window. She drinks her coffee and reads a book. It is a good morning.',
+      textA1Pt: 'Emily vai a uma cafeteria toda manhã. Ela adora café. Ela fica na fila. É a vez dela. Ela pede um café quente grande e um muffin de chocolate. O caixa pergunta o nome dela. Ela diz: \'Emily\'. O caixa escreve no copo. Emily paga 7 dólares. Ela espera perto do balcão. Após dois minutos, o barista chama seu nome. Ela pega seu café e muffin. Ela se senta em uma pequena mesa perto da janela. Ela bebe seu café e lê um livro. É uma boa manhã.',
+      textA2: 'Every weekday morning before heading to the office, Emily stopped by her favorite artisanal café on Elm Street. The place was always buzzing with commuters and the rich aroma of freshly roasted beans. When it was finally her turn to order, she asked for an iced caramel macchiato with oat milk and an extra shot of espresso. She also grabbed a freshly baked almond croissant from the pastry display. The cashier took her order, punched it into the system, and asked for a name for the cup. Emily paid contactless using her smartphone and stepped aside to the waiting area. The baristas were working at lightning speed, pulling shots and steaming milk. Within minutes, a barista called out \'Iced macchiato for Emily!\'. She picked up her customized drink, popped in a reusable straw, and hurried out the door to catch her train, completely energized for the day.',
+      textA2Pt: 'Toda manhã de dia de semana, antes de ir para o escritório, Emily parava em seu café artesanal favorito na Elm Street. O lugar estava sempre zumbindo de passageiros e do rico aroma de grãos recém-torrados. Quando finalmente chegou sua vez de pedir, ela pediu um macchiato de caramelo gelado com leite de aveia e uma dose extra de café expresso. Ela também pegou um croissant de amêndoas recém-assado do balcão de confeitaria. O caixa anotou seu pedido, digitou no sistema e perguntou um nome para o copo. Emily pagou por aproximação usando seu smartphone e foi para a área de espera. Os baristas estavam trabalhando na velocidade da luz, tirando cafés e vaporizando leite. Em poucos minutos, um barista chamou \'Macchiato gelado para Emily!\'. Ela pegou sua bebida personalizada, colocou um canudo reutilizável e correu para a porta para pegar seu trem, completamente energizada para o dia.',
+      questionsA1: [
+        { question: 'What is the main topic of the text?', questionPt: 'Qual é o tópico principal do texto?', options: ['Emily\'s morning routine at the coffee shop', 'Emily cooking breakfast at home', 'Emily working as a barista', 'Emily buying a book'], correctIndex: 0 },
+        { question: 'What does "it is her turn" mean?', questionPt: 'O que significa "it is her turn"?', options: ['She is spinning around', 'She is leaving the shop', 'She is the next person in line to order', 'She is sleeping'], correctIndex: 2 },
+        { question: 'Why does the cashier ask for her name?', questionPt: 'Por que o caixa pergunta o nome dela?', options: ['To be her friend', 'To write it on the cup so they know it\'s her order', 'To call the police', 'Because it is a test'], correctIndex: 1 },
+        { question: 'What can we infer about Emily\'s feelings?', questionPt: 'O que podemos inferir sobre os sentimentos de Emily?', options: ['She is enjoying a peaceful morning', 'She is angry about the price', 'She is in a rush and stressed', 'She hates coffee'], correctIndex: 0 }
+      ],
+      questionsA2: [
+        { question: 'What specific modifications did Emily make to her drink?', questionPt: 'Que modificações específicas Emily fez em sua bebida?', options: ['Decaf with soy milk', 'Oat milk and an extra shot', 'Extra caramel and no ice', 'Sugar-free syrup'], correctIndex: 1 },
+        { question: 'What pastry did she select from the display?', questionPt: 'Qual confeitaria ela selecionou do balcão?', options: ['Chocolate muffin', 'Blueberry scone', 'Almond croissant', 'Cinnamon roll'], correctIndex: 2 },
+        { question: 'How did Emily pay for her order?', questionPt: 'Como Emily pagou pelo seu pedido?', options: ['With cash', 'With a physical credit card', 'Contactless with her smartphone', 'With a gift card'], correctIndex: 2 },
+        { question: 'Why did she hurry out the door after getting her drink?', questionPt: 'Por que ela saiu correndo pela porta depois de pegar sua bebida?', options: ['She was late for a meeting', 'To catch her train', 'It was raining', 'She didn\'t like the café'], correctIndex: 1 }
+]
+},
+        simulationTasks: [
+      {
+            promptPt: "[Atendente] \"Olá, qual vai ser o seu pedido?\"",
+            expectedEn: "Hi, what can I get for you?"
+      },
+      {
+            promptPt: "[Você] Você quer pedir um café grande",
+            expectedEn: "I would like a large coffee, please."
+      },
+      {
+            promptPt: "[Atendente] \"Para tomar aqui ou para levar?\"",
+            expectedEn: "For here or to go?"
+      },
+      {
+            promptPt: "[Você] Você quer pedir para ser para levar",
+            expectedEn: "To go, please."
+      },
+      {
+            promptPt: "[Você] Você quer perguntar se eles têm leite sem lactose",
+            expectedEn: "Do you have lactose-free milk?"
+      },
+      {
+            promptPt: "[Você] Você quer perguntar onde fica o açúcar",
+            expectedEn: "Where is the sugar?"
+      }
+],
+    wouldYouRather: [
+      {
+            optionAEn: "Drink cold coffee",
+            optionAPt: "Beber café frio",
+            optionBEn: "Drink hot juice",
+            optionBPt: "Beber suco quente"
+      },
+      {
+            optionAEn: "Spill coffee on your laptop",
+            optionAPt: "Derrubar café no seu notebook",
+            optionBEn: "Spill coffee on someone else",
+            optionBPt: "Derrubar café em outra pessoa"
+      },
+      {
+            optionAEn: "Have a barista mispronounce your name terribly",
+            optionAPt: "Ter o barista pronunciando seu nome de forma terrível",
+            optionBEn: "Have a barista give you the completely wrong drink",
+            optionBPt: "Ter o barista te dando a bebida completamente errada"
+      },
+      {
+            optionAEn: "Work in a noisy cafe",
+            optionAPt: "Trabalhar em um café barulhento",
+            optionBEn: "Work in a quiet cafe with no Wi-Fi",
+            optionBPt: "Trabalhar em um café silencioso mas sem Wi-Fi"
+      },
+      {
+            optionAEn: "Drink black coffee with no sugar for a year",
+            optionAPt: "Beber café preto sem açúcar por um ano",
+            optionBEn: "Never drink coffee again",
+            optionBPt: "Nunca mais beber café"
+      },
+      {
+            optionAEn: "Order a drink that takes 15 minutes to make",
+            optionAPt: "Pedir uma bebida que demora 15 minutos para ser feita",
+            optionBEn: "Order a basic drip coffee every single day",
+            optionBPt: "Pedir um café coado básico todos os dias"
+      },
+      {
+            optionAEn: "Share a small table with a stranger",
+            optionAPt: "Dividir uma mesa pequena com um estranho",
+            optionBEn: "Sit on a high stool with no back support",
+            optionBPt: "Sentar em um banco alto sem encosto"
+      }
+]
+},
+  {
     id: 'directions',
     speakingQuestions: [
     {
@@ -5171,590 +5755,7 @@ export const scenarios: Scenario[] = [
       }
 ]
 },
-  {
-    id: 'cafe',
-    speakingQuestions: [
-    {
-        "question": "How many cups of coffee do you drink a day?",
-        "questionPt": "Quantas xícaras de café você bebe por dia?",
-        "hintA1": "I drink two cups of coffee.",
-        "hintA2": "I usually drink one cup in the morning and sometimes another one after lunch."
-    },
-    {
-        "question": "What is your favorite order at a coffee shop?",
-        "questionPt": "Qual é o seu pedido favorito em uma cafeteria?",
-        "hintA1": "I like cappuccino with chocolate.",
-        "hintA2": "My go-to order is an iced latte with a slice of carrot cake."
-    },
-    {
-        "question": "Do you like to study or work in cafes?",
-        "questionPt": "Você gosta de estudar ou trabalhar em cafés?",
-        "hintA1": "No, it is very noisy.",
-        "hintA2": "Yes, I enjoy the atmosphere and the background noise helps me focus."
-    }
-,
-    {
-        "question": "Did you order a black coffee or a latte?",
-        "questionPt": "Você pediu um café preto ou um latte?",
-        "hintA1": "I ordered a black coffee.",
-        "hintA2": "I asked for an iced latte with oat milk because it is my favorite drink."
-    },
-    {
-        "question": "Do they sell sandwiches at this cafe?",
-        "questionPt": "Eles vendem sanduíches neste café?",
-        "hintA1": "Yes, they have sandwiches.",
-        "hintA2": "Yes, they have a great selection of paninis, croissants, and cakes too."
-    },
-    {
-        "question": "When did you start drinking coffee?",
-        "questionPt": "Quando você começou a beber café?",
-        "hintA1": "I started in college.",
-        "hintA2": "I did not like coffee until I started working. Now I drink it every morning."
-    },
-    {
-        "question": "Do you take sugar in your coffee?",
-        "questionPt": "Você coloca açúcar no seu café?",
-        "hintA1": "No, I drink it plain.",
-        "hintA2": "I used to add sugar, but now I prefer the natural taste of good coffee."
-    },
-    {
-        "question": "Did you pay in cash or by card?",
-        "questionPt": "Você pagou em dinheiro ou no cartão?",
-        "hintA1": "I paid by card.",
-        "hintA2": "I paid with my credit card because I never carry cash with me anymore."
-    }
-    ],
-    title: 'Café & Fast Food',
-    titlePt: 'Café e Fast Food',
-    description: 'Order at Starbucks, customize your coffee, and navigate fast food drive-thrus.',
-    descriptionPt: 'Peça no Starbucks, personalize seu café e navegue pelo drive-thru.',
-    icon: '☕',
-    color: 'orange',
-    imagePath: '/images/cafe_scene.png',
-    dialogues: [],
-    dialogueSets: [
-      {
-        title: 'At Starbucks',
-        titlePt: 'No Starbucks',
-        icon: '🥤',
-        dialogues: [
-          { speaker: 'native', english: "Hi, welcome to Starbucks! What can I get started for you today?", portuguese: "Oi, bem-vindo ao Starbucks! O que posso preparar para você hoje?" },
-          { speaker: 'student', english: "Hi! Can I get a Grande Latte, please?", portuguese: "Oi! Pode me dar um Latte Grande, por favor?" },
-          { speaker: 'native', english: "Sure! Would you like that hot or iced?", portuguese: "Claro! Você quer quente ou gelado?" },
-          { speaker: 'student', english: "Iced, please. And can I have oat milk instead of whole milk?", portuguese: "Gelado, por favor. E posso querer leite de aveia em vez de leite integral?" },
-          { speaker: 'native', english: "No problem, iced Grande oat milk latte. Would you like any flavors in that? We have vanilla, caramel, or hazelnut.", portuguese: "Sem problema, latte grande gelado com leite de aveia. Gostaria de algum sabor? Temos baunilha, caramelo ou avelã." },
-          { speaker: 'student', english: "Two pumps of vanilla, please. And can I have it with light ice?", portuguese: "Dois jatos de baunilha, por favor. E pode ser com pouco gelo?" },
-          { speaker: 'native', english: "Light ice, got it. Do you want any whipped cream on top?", portuguese: "Pouco gelo, entendi. Você quer chantilly por cima?" },
-          { speaker: 'student', english: "No whipped cream, thank you. Can I also get a blueberry muffin?", portuguese: "Sem chantilly, obrigada. Posso pedir também um muffin de mirtilo?" },
-          { speaker: 'native', english: "I'm sorry, we are completely sold out of blueberry muffins. We have chocolate chip or banana nut.", portuguese: "Sinto muito, estamos totalmente sem muffins de mirtilo. Temos de gotas de chocolate ou de banana com nozes." },
-          { speaker: 'student', english: "I'll take the chocolate chip one. Could you warm it up for me?", portuguese: "Vou levar o de gotas de chocolate. Você poderia esquentá-lo para mim?" },
-          { speaker: 'native', english: "Absolutely. That will be nine dollars and fifty cents.", portuguese: "Com certeza. Vai dar nove dólares e cinquenta centavos." },
-          { speaker: 'student', english: "Here is ten dollars. Oh, I have the Starbucks app if you need to scan it.", portuguese: "Aqui estão dez dólares. Ah, eu tenho o aplicativo do Starbucks se você precisar escanear." },
-          { speaker: 'native', english: "Go ahead and scan it right here. Alright, out of ten, here is your change. What's your name for the cup?", portuguese: "Pode escanear bem aqui. Certo, de dez, aqui está o seu troco. Qual o seu nome para o copo?" },
-          { speaker: 'student', english: "It's Maria. M-A-R-I-A.", portuguese: "É Maria. M-A-R-I-A." },
-          { speaker: 'native', english: "Thanks, Maria! They'll call your name down at the end of the bar.", portuguese: "Obrigada, Maria! Eles vão chamar seu nome no final do balcão." }
-],
-        dialoguesBeginner: [
-          { speaker: 'native', english: "Welcome! What do you want to drink?", portuguese: "Bem-vindo! O que você quer beber?" },
-          { speaker: 'student', english: "A latte, please.", portuguese: "Um latte, por favor." },
-          { speaker: 'native', english: "Hot or iced?", portuguese: "Quente ou gelado?" },
-          { speaker: 'student', english: "Iced, please.", portuguese: "Gelado, por favor." },
-          { speaker: 'native', english: "What is your name?", portuguese: "Qual é o seu nome?" },
-          { speaker: 'student', english: "Maria.", portuguese: "Maria." },
-          { speaker: 'native', english: "That is five dollars.", portuguese: "São cinco dólares." },
-          { speaker: 'student', english: "Here you go. Thank you!", portuguese: "Aqui está. Obrigado!" }
-,
-
-      {
-            speaker: "native",
-            english: "Do you want sugar in your coffee?",
-            portuguese: "Você quer açúcar no seu café?"
-      },
-      {
-            speaker: "student",
-            english: "No, just milk, please.",
-            portuguese: "Não, apenas leite, por favor."
-      },
-      {
-            speaker: "native",
-            english: "Do you want anything to eat?",
-            portuguese: "Você quer algo para comer?"
-      },
-      {
-            speaker: "student",
-            english: "I want a piece of cake.",
-            portuguese: "Eu quero um pedaço de bolo."
-      },
-      {
-            speaker: "native",
-            english: "Chocolate or vanilla?",
-            portuguese: "Chocolate ou baunilha?"
-      },
-      {
-            speaker: "student",
-            english: "Chocolate cake, please.",
-            portuguese: "Bolo de chocolate, por favor."
-      },
-      {
-            speaker: "native",
-            english: "Here is your order.",
-            portuguese: "Aqui está o seu pedido."
-      },
-      {
-            speaker: "student",
-            english: "Thank you so much.",
-            portuguese: "Muito obrigado."
-      }
-],
-        dialogues2: [
-          { speaker: 'native', english: "Good morning! Are you ready to order?", portuguese: "Bom dia! Você está pronto para pedir?" },
-          { speaker: 'student', english: "Yes, I'd like a medium Americano and a chocolate croissant.", portuguese: "Sim, eu gostaria de um Americano médio e um croissant de chocolate." },
-          { speaker: 'native', english: "Sure. Do you want any room for cream in your Americano?", portuguese: "Claro. Você quer espaço para o creme no seu Americano?" },
-          { speaker: 'student', english: "No, black is fine. Also, can you tell me what the soup of the day is?", portuguese: "Não, puro está bom. Além disso, você pode me dizer qual é a sopa do dia?" },
-          { speaker: 'native', english: "Today we have tomato basil. It's served with a side of bread.", portuguese: "Hoje temos tomate com manjericão. É servida com um acompanhamento de pão." },
-          { speaker: 'student', english: "That sounds delicious. I'll have a bowl of that too.", portuguese: "Parece delicioso. Vou querer uma tigela disso também." },
-          { speaker: 'native', english: "Perfect. Anything else? A dessert, perhaps?", portuguese: "Perfeito. Algo mais? Uma sobremesa, talvez?" },
-          { speaker: 'student', english: "Maybe later. I'll just start with this. How much do I owe you?", portuguese: "Talvez mais tarde. Vou começar com isso. Quanto eu te devo?" }
-],
-        dialoguesBeginner2: [
-          { speaker: 'native', english: "Hello! What do you want?", portuguese: "Olá! O que você quer?" },
-          { speaker: 'student', english: "I want an Americano and a croissant.", portuguese: "Quero um Americano e um croissant." },
-          { speaker: 'native', english: "Do you want cream?", portuguese: "Você quer creme?" },
-          { speaker: 'student', english: "No, thank you.", portuguese: "Não, obrigado." },
-          { speaker: 'native', english: "We have tomato soup today.", portuguese: "Temos sopa de tomate hoje." },
-          { speaker: 'student', english: "I want a bowl of soup, please.", portuguese: "Quero uma tigela de sopa, por favor." },
-          { speaker: 'native', english: "Okay. That is fifteen dollars.", portuguese: "Ok. São quinze dólares." },
-          { speaker: 'student', english: "Thank you!", portuguese: "Obrigado!" }
-,
-
-      {
-            speaker: "native",
-            english: "Is this seat taken?",
-            portuguese: "Este lugar está ocupado?"
-      },
-      {
-            speaker: "student",
-            english: "No, it is free. You can sit.",
-            portuguese: "Não, está livre. Você pode sentar."
-      },
-      {
-            speaker: "native",
-            english: "Thank you. The cafe is very busy.",
-            portuguese: "Obrigado. O café está muito cheio."
-      },
-      {
-            speaker: "student",
-            english: "Yes, it is always busy in the morning.",
-            portuguese: "Sim, está sempre cheio de manhã."
-      },
-      {
-            speaker: "native",
-            english: "The coffee here is very good.",
-            portuguese: "O café daqui é muito bom."
-      },
-      {
-            speaker: "student",
-            english: "Yes, it is my favorite place.",
-            portuguese: "Sim, é o meu lugar favorito."
-      },
-      {
-            speaker: "native",
-            english: "Are you working today?",
-            portuguese: "Você está trabalhando hoje?"
-      },
-      {
-            speaker: "student",
-            english: "Yes, I am working on my computer.",
-            portuguese: "Sim, estou trabalhando no meu computador."
-      }
-]
-},
-      {
-        title: 'Fast Food Order',
-        titlePt: 'Pedido Fast Food',
-        icon: '🍔',
-        dialogues: [
-          { speaker: 'native', english: "Welcome to Burger King! Will this order be for here or to go?", portuguese: "Bem-vindo ao Burger King! Este pedido vai ser para comer aqui ou para levar?" },
-          { speaker: 'student', english: "To go, please. I'm ready to order.", portuguese: "Para levar, por favor. Estou pronto para pedir." },
-          { speaker: 'native', english: "Whenever you're ready, go ahead.", portuguese: "Quando estiver pronto, vá em frente." },
-          { speaker: 'student', english: "I'd like a number one combo, but with no pickles on the burger, please.", portuguese: "Eu queria o combo número um, mas sem picles no hambúrguer, por favor." },
-          { speaker: 'native', english: "Number one, no pickles. Would you like to medium or large your meal for an extra dollar?", portuguese: "Número um, sem picles. Você quer aumentar o combo para médio ou grande por um dólar extra?" },
-          { speaker: 'student', english: "A medium size is fine. Can I have a Coke with that?", portuguese: "O tamanho médio está bom. Pode ser uma Coca com isso?" },
-          { speaker: 'native', english: "Diet Coke or regular Coke?", portuguese: "Coca Diet ou Coca normal?" },
-          { speaker: 'student', english: "Regular Coke, please. Also, can I get a side of onion rings instead of fries?", portuguese: "Coca normal, por favor. Além disso, posso pedir uma porção de anéis de cebola em vez de batatas fritas?" },
-          { speaker: 'native', english: "Sure, we can substitute the fries for onion rings. Any sauces with that? We have BBQ, ranch, and honey mustard.", portuguese: "Claro, podemos substituir as batatas por anéis de cebola. Algum molho com isso? Temos BBQ, ranch e mostarda com mel." },
-          { speaker: 'student', english: "Two BBQ sauces, please.", portuguese: "Dois molhos BBQ, por favor." },
-          { speaker: 'native', english: "Okay. Anything else? Would you like to try our new apple pie?", portuguese: "Ok. Algo mais? Gostaria de provar nossa nova torta de maçã?" },
-          { speaker: 'student', english: "No, thank you. Just the combo.", portuguese: "Não, obrigado. Apenas o combo." },
-          { speaker: 'native', english: "Your total comes to twelve dollars and forty cents. Please pull up to the second window to pay.", portuguese: "Seu total dá doze dólares e quarenta centavos. Por favor, avance para a segunda janela para pagar." },
-          { speaker: 'student', english: "Thank you.", portuguese: "Obrigado." }
-],
-        dialoguesBeginner: [
-          { speaker: 'native', english: "For here or to go?", portuguese: "Para comer aqui ou para levar?" },
-          { speaker: 'student', english: "To go, please.", portuguese: "Para levar, por favor." },
-          { speaker: 'student', english: "I want a number one combo.", portuguese: "Eu quero o combo número um." },
-          { speaker: 'native', english: "What drink do you want?", portuguese: "Qual bebida você quer?" },
-          { speaker: 'student', english: "A Coke, please.", portuguese: "Uma Coca, por favor." },
-          { speaker: 'native', english: "Anything else?", portuguese: "Algo mais?" },
-          { speaker: 'student', english: "No, thank you.", portuguese: "Não, obrigado." },
-          { speaker: 'native', english: "Twelve dollars, please.", portuguese: "Doze dólares, por favor." },
-          { speaker: 'student', english: "Thank you!", portuguese: "Obrigado!" }
-,
-
-      {
-            speaker: "native",
-            english: "Do you want sugar in your coffee?",
-            portuguese: "Você quer açúcar no seu café?"
-      },
-      {
-            speaker: "student",
-            english: "No, just milk, please.",
-            portuguese: "Não, apenas leite, por favor."
-      },
-      {
-            speaker: "native",
-            english: "Do you want anything to eat?",
-            portuguese: "Você quer algo para comer?"
-      },
-      {
-            speaker: "student",
-            english: "I want a piece of cake.",
-            portuguese: "Eu quero um pedaço de bolo."
-      },
-      {
-            speaker: "native",
-            english: "Chocolate or vanilla?",
-            portuguese: "Chocolate ou baunilha?"
-      },
-      {
-            speaker: "student",
-            english: "Chocolate cake, please.",
-            portuguese: "Bolo de chocolate, por favor."
-      },
-      {
-            speaker: "native",
-            english: "Here is your order.",
-            portuguese: "Aqui está o seu pedido."
-      },
-      {
-            speaker: "student",
-            english: "Thank you so much.",
-            portuguese: "Muito obrigado."
-      }
-],
-        dialogues2: [
-          { speaker: 'native', english: "Welcome! What can I get for you?", portuguese: "Bem-vindo! O que posso te oferecer?" },
-          { speaker: 'student', english: "I'd like a chicken sandwich, but without the mayo, please.", portuguese: "Eu gostaria de um sanduíche de frango, mas sem maionese, por favor." },
-          { speaker: 'native', english: "Chicken sandwich, no mayo. Do you want to make it a meal with fries and a drink?", portuguese: "Sanduíche de frango, sem maionese. Você quer transformar em um combo com batatas fritas e uma bebida?" },
-          { speaker: 'student', english: "Yes, please. I'll have a Sprite for the drink.", portuguese: "Sim, por favor. Vou querer uma Sprite para a bebida." },
-          { speaker: 'native', english: "Sure. Would you like any extra toppings like cheese or bacon on your sandwich?", portuguese: "Claro. Gostaria de algum acompanhamento extra como queijo ou bacon no seu sanduíche?" },
-          { speaker: 'student', english: "Just some cheese, please. How much extra is that?", portuguese: "Apenas queijo, por favor. Quanto custa a mais?" },
-          { speaker: 'native', english: "Cheese is fifty cents extra. Your total will be eleven dollars and twenty cents.", portuguese: "O queijo custa cinquenta centavos a mais. Seu total será onze dólares e vinte centavos." },
-          { speaker: 'student', english: "Okay. Here's a twenty-dollar bill.", portuguese: "Ok. Aqui está uma nota de vinte dólares." },
-          { speaker: 'native', english: "Thank you. Here is your change and your order number. We'll call you when it's ready.", portuguese: "Obrigado. Aqui está o seu troco e o seu número de pedido. Chamaremos quando estiver pronto." }
-],
-        dialoguesBeginner2: [
-          { speaker: 'native', english: "Hello! What do you want?", portuguese: "Olá! O que você quer?" },
-          { speaker: 'student', english: "A chicken sandwich, please.", portuguese: "Um sanduíche de frango, por favor." },
-          { speaker: 'native', english: "No mayo?", portuguese: "Sem maionese?" },
-          { speaker: 'student', english: "Yes, no mayo.", portuguese: "Sim, sem maionese." },
-          { speaker: 'native', english: "Do you want fries and a drink?", portuguese: "Você quer batatas fritas e uma bebida?" },
-          { speaker: 'student', english: "Yes. A Sprite, please.", portuguese: "Sim. Uma Sprite, por favor." },
-          { speaker: 'native', english: "That is eleven dollars.", portuguese: "São onze dólares." },
-          { speaker: 'student', english: "Here is twenty dollars.", portuguese: "Aqui estão vinte dólares." },
-          { speaker: 'native', english: "Thank you. Here is your change.", portuguese: "Obrigado. Aqui está o seu troco." }
-,
-
-      {
-            speaker: "native",
-            english: "Is this seat taken?",
-            portuguese: "Este lugar está ocupado?"
-      },
-      {
-            speaker: "student",
-            english: "No, it is free. You can sit.",
-            portuguese: "Não, está livre. Você pode sentar."
-      },
-      {
-            speaker: "native",
-            english: "Thank you. The cafe is very busy.",
-            portuguese: "Obrigado. O café está muito cheio."
-      },
-      {
-            speaker: "student",
-            english: "Yes, it is always busy in the morning.",
-            portuguese: "Sim, está sempre cheio de manhã."
-      },
-      {
-            speaker: "native",
-            english: "The coffee here is very good.",
-            portuguese: "O café daqui é muito bom."
-      },
-      {
-            speaker: "student",
-            english: "Yes, it is my favorite place.",
-            portuguese: "Sim, é o meu lugar favorito."
-      },
-      {
-            speaker: "native",
-            english: "Are you working today?",
-            portuguese: "Você está trabalhando hoje?"
-      },
-      {
-            speaker: "student",
-            english: "Yes, I am working on my computer.",
-            portuguese: "Sim, estou trabalhando no meu computador."
-      }
-]
-}
-],
-            importantPhrases: [
-      {
-            pt: "Tem wi-fi gratuito aqui?",
-            en: "Is there free wi-fi here?"
-      },
-      {
-            pt: "Um chá verde, por favor.",
-            en: "A green tea, please."
-      },
-      {
-            pt: "Pode aquecer meu sanduíche?",
-            en: "Can you heat up my sandwich?"
-      },
-      {
-            pt: "Tem bolo sem glúten?",
-            en: "Do you have gluten-free cake?"
-      },
-      {
-            pt: "Onde estão os guardanapos?",
-            en: "Where are the napkins?"
-      },
-      {
-            pt: "Eu prefiro café expresso.",
-            en: "I prefer espresso."
-      }
-],
-        problems: [
-      {
-            descriptionPt: "Você pediu sem leite, mas colocaram leite no seu café."
-      },
-      {
-            descriptionPt: "A internet Wi-Fi da cafeteria parou de funcionar e você precisa dela."
-      }
-],
-    vocabulary: [
-      { english: "Tall / Grande / Venti", portuguese: "Tamanhos de copo",
-        sentenceA1: "I want a tall coffee.",
-        sentenceA2: "Can I have a grande iced latte with extra espresso?",
-        sentenceA1Pt: "Quero um café pequeno.",
-        sentenceA2Pt: "Posso pedir um latte gelado médio com espresso extra?"
-      },
-      { english: "Whole milk", portuguese: "Leite integral",
-        sentenceA1: "With whole milk, please.",
-        sentenceA2: "I prefer whole milk because it makes my cappuccino creamier.",
-        sentenceA1Pt: "Com leite integral, por favor.",
-        sentenceA2Pt: "Prefiro leite integral porque fica mais cremoso."
-      },
-      { english: "Oat milk", portuguese: "Leite de aveia",
-        sentenceA1: "I want oat milk.",
-        sentenceA2: "Could you replace the regular milk with oat milk?",
-        sentenceA1Pt: "Quero leite de aveia.",
-        sentenceA2Pt: "Pode trocar o leite normal por leite de aveia?"
-      },
-      { english: "Decaf", portuguese: "Descafeinado",
-        sentenceA1: "I want decaf coffee.",
-        sentenceA2: "I switched to decaf because coffee was keeping me awake.",
-        sentenceA1Pt: "Quero café descafeinado.",
-        sentenceA2Pt: "Mudei para descafeinado porque o café me mantinha acordado."
-      },
-      { english: "Whipped cream", portuguese: "Chantilly",
-        sentenceA1: "With whipped cream, please.",
-        sentenceA2: "Can I add extra whipped cream on my hot chocolate?",
-        sentenceA1Pt: "Com chantilly, por favor.",
-        sentenceA2Pt: "Posso adicionar chantilly extra no meu chocolate quente?"
-      },
-      { english: "Drive-thru", portuguese: "Drive-thru",
-        sentenceA1: "Let us go to the drive-thru.",
-        sentenceA2: "The drive-thru line is always long in the morning.",
-        sentenceA1Pt: "Vamos ao drive-thru.",
-        sentenceA2Pt: "A fila do drive-thru é sempre longa de manhã."
-      },
-      { english: "For here / To go", portuguese: "Para consumir aqui / Para levar",
-        sentenceA1: "For here, please.",
-        sentenceA2: "Is this for here or to go? I will have it to go.",
-        sentenceA1Pt: "Para consumir aqui, por favor.",
-        sentenceA2Pt: "É para aqui ou para levar? Hoje vou levar."
-      },
-      { english: "Combo / Meal", portuguese: "Combo",
-        sentenceA1: "I want the combo.",
-        sentenceA2: "The breakfast combo includes coffee, a sandwich, and a cookie.",
-        sentenceA1Pt: "Quero o combo.",
-        sentenceA2Pt: "O combo inclui café, sanduíche e biscoito."
-      },
-      { english: "Napkin", portuguese: "Guardanapo",
-        sentenceA1: "I need a napkin.",
-        sentenceA2: "Could you give me extra napkins? My coffee spilled.",
-        sentenceA1Pt: "Preciso de um guardanapo.",
-        sentenceA2Pt: "Pode me dar guardanapos extras? Meu café derramou."
-      },
-      { english: "Straw", portuguese: "Canudo",
-        sentenceA1: "I need a straw.",
-        sentenceA2: "They only offer paper straws now for the environment.",
-        sentenceA1Pt: "Preciso de um canudo.",
-        sentenceA2Pt: "Eles só oferecem canudos de papel agora pelo meio ambiente."
-      },
-      { english: "Sugar packet", portuguese: "Pacote de açúcar",
-        sentenceA1: "I need a sugar packet.",
-        sentenceA2: "Could you pass me two sugar packets and a stirrer?",
-        sentenceA1Pt: "Preciso de açúcar.",
-        sentenceA2Pt: "Pode me passar dois açúcares e um mexedor?"
-      },
-      { english: "To go bag", portuguese: "Sacola para levar",
-        sentenceA1: "Can I have a bag?",
-        sentenceA2: "Put the pastries in a bag. I will eat them at the office.",
-        sentenceA1Pt: "Posso ter uma sacola?",
-        sentenceA2Pt: "Coloque os doces em uma sacola. Vou comer no escritório."
-      },
-      { english: "Extra hot", portuguese: "Muito quente",
-        sentenceA1: "Extra hot, please.",
-        sentenceA2: "I like my latte extra hot because it stays warm longer.",
-        sentenceA1Pt: "Bem quente, por favor.",
-        sentenceA2Pt: "Gosto do meu latte bem quente porque dura mais."
-      },
-      { english: "Pastry", portuguese: "Folhado / Doce / Salgado",
-        sentenceA1: "I want a sweet pastry.",
-        sentenceA2: "They serve fresh pastries like croissants and muffins every morning.",
-        sentenceA1Pt: "Quero um doce folhado.",
-        sentenceA2Pt: "Eles servem salgados e doces frescos como croissants e muffins todas as manhãs."
-      },
-      { english: "Espresso shot", portuguese: "Dose de espresso",
-        sentenceA1: "Add a shot of espresso.",
-        sentenceA2: "I need a double shot of espresso to wake up today.",
-        sentenceA1Pt: "Adicione uma dose de espresso.",
-        sentenceA2Pt: "Preciso de uma dose dupla de espresso para acordar hoje."
-      },
-      { english: "Sweetener", portuguese: "Adoçante",
-        sentenceA1: "Do you have sweetener?",
-        sentenceA2: "I prefer to use sweetener instead of sugar in my coffee.",
-        sentenceA1Pt: "Você tem adoçante?",
-        sentenceA2Pt: "Prefiro usar adoçante em vez de açúcar no meu café."
-      },
-      { english: "Iced coffee", portuguese: "Café gelado",
-        sentenceA1: "An iced coffee, please.",
-        sentenceA2: "I always order an iced coffee when the weather gets warm.",
-        sentenceA1Pt: "Um café gelado, por favor.",
-        sentenceA2Pt: "Eu sempre peço um café gelado quando o tempo esquenta."
-      }
-],
-    culturalTips: [
-      {
-        title: "Starbucks Sizes",
-        titlePt: "Tamanhos Starbucks",
-        content: "Starbucks uses unique names: Tall (12oz), Grande (16oz), and Venti (24oz). If you just say 'small' or 'medium', they will understand, but knowing the names is helpful!",
-        contentPt: "O Starbucks usa nomes únicos: Tall (pequeno), Grande (médio) e Venti (grande). Se você disser 'small' ou 'medium', eles vão entender, mas saber os nomes ajuda!"
-},
-      {
-        title: "Customization is King",
-        titlePt: "Personalização é Tudo",
-        content: "In the US, you can customize EVERYTHING. Milk types, temperature, amount of ice, and extra shots of espresso. Don't be afraid to ask exactly how you want it!",
-        contentPt: "Nos EUA, você pode personalizar TUDO. Tipos de leite, temperatura, quantidade de gelo e doses extras de café. Não tenha medo de pedir exatamente como você quer!"
-},
-      {
-        title: "Names on Cups",
-        titlePt: "Nomes nos Copos",
-        content: "Baristas will ask for your name. If your name is hard to spell, it's common to use a 'coffee name' (a simpler nickname) to avoid confusion and misspelling.",
-        contentPt: "Os baristas vão pedir seu nome. Se seu nome for difícil de soletrar, é comum usar um 'coffee name' (um apelido simples) para evitar confusão e erros de grafia."
-}
-    ],
-  reading: {
-      textA1: 'Emily goes to a coffee shop every morning. She loves coffee. She stands in line. It is her turn. She orders a large hot coffee and a chocolate muffin. The cashier asks for her name. She says, \'Emily\'. The cashier writes it on the cup. Emily pays 7 dollars. She waits near the counter. After two minutes, the barista calls her name. She takes her coffee and muffin. She sits at a small table near the window. She drinks her coffee and reads a book. It is a good morning.',
-      textA1Pt: 'Emily vai a uma cafeteria toda manhã. Ela adora café. Ela fica na fila. É a vez dela. Ela pede um café quente grande e um muffin de chocolate. O caixa pergunta o nome dela. Ela diz: \'Emily\'. O caixa escreve no copo. Emily paga 7 dólares. Ela espera perto do balcão. Após dois minutos, o barista chama seu nome. Ela pega seu café e muffin. Ela se senta em uma pequena mesa perto da janela. Ela bebe seu café e lê um livro. É uma boa manhã.',
-      textA2: 'Every weekday morning before heading to the office, Emily stopped by her favorite artisanal café on Elm Street. The place was always buzzing with commuters and the rich aroma of freshly roasted beans. When it was finally her turn to order, she asked for an iced caramel macchiato with oat milk and an extra shot of espresso. She also grabbed a freshly baked almond croissant from the pastry display. The cashier took her order, punched it into the system, and asked for a name for the cup. Emily paid contactless using her smartphone and stepped aside to the waiting area. The baristas were working at lightning speed, pulling shots and steaming milk. Within minutes, a barista called out \'Iced macchiato for Emily!\'. She picked up her customized drink, popped in a reusable straw, and hurried out the door to catch her train, completely energized for the day.',
-      textA2Pt: 'Toda manhã de dia de semana, antes de ir para o escritório, Emily parava em seu café artesanal favorito na Elm Street. O lugar estava sempre zumbindo de passageiros e do rico aroma de grãos recém-torrados. Quando finalmente chegou sua vez de pedir, ela pediu um macchiato de caramelo gelado com leite de aveia e uma dose extra de café expresso. Ela também pegou um croissant de amêndoas recém-assado do balcão de confeitaria. O caixa anotou seu pedido, digitou no sistema e perguntou um nome para o copo. Emily pagou por aproximação usando seu smartphone e foi para a área de espera. Os baristas estavam trabalhando na velocidade da luz, tirando cafés e vaporizando leite. Em poucos minutos, um barista chamou \'Macchiato gelado para Emily!\'. Ela pegou sua bebida personalizada, colocou um canudo reutilizável e correu para a porta para pegar seu trem, completamente energizada para o dia.',
-      questionsA1: [
-        { question: 'What is the main topic of the text?', questionPt: 'Qual é o tópico principal do texto?', options: ['Emily\'s morning routine at the coffee shop', 'Emily cooking breakfast at home', 'Emily working as a barista', 'Emily buying a book'], correctIndex: 0 },
-        { question: 'What does "it is her turn" mean?', questionPt: 'O que significa "it is her turn"?', options: ['She is spinning around', 'She is leaving the shop', 'She is the next person in line to order', 'She is sleeping'], correctIndex: 2 },
-        { question: 'Why does the cashier ask for her name?', questionPt: 'Por que o caixa pergunta o nome dela?', options: ['To be her friend', 'To write it on the cup so they know it\'s her order', 'To call the police', 'Because it is a test'], correctIndex: 1 },
-        { question: 'What can we infer about Emily\'s feelings?', questionPt: 'O que podemos inferir sobre os sentimentos de Emily?', options: ['She is enjoying a peaceful morning', 'She is angry about the price', 'She is in a rush and stressed', 'She hates coffee'], correctIndex: 0 }
-      ],
-      questionsA2: [
-        { question: 'What specific modifications did Emily make to her drink?', questionPt: 'Que modificações específicas Emily fez em sua bebida?', options: ['Decaf with soy milk', 'Oat milk and an extra shot', 'Extra caramel and no ice', 'Sugar-free syrup'], correctIndex: 1 },
-        { question: 'What pastry did she select from the display?', questionPt: 'Qual confeitaria ela selecionou do balcão?', options: ['Chocolate muffin', 'Blueberry scone', 'Almond croissant', 'Cinnamon roll'], correctIndex: 2 },
-        { question: 'How did Emily pay for her order?', questionPt: 'Como Emily pagou pelo seu pedido?', options: ['With cash', 'With a physical credit card', 'Contactless with her smartphone', 'With a gift card'], correctIndex: 2 },
-        { question: 'Why did she hurry out the door after getting her drink?', questionPt: 'Por que ela saiu correndo pela porta depois de pegar sua bebida?', options: ['She was late for a meeting', 'To catch her train', 'It was raining', 'She didn\'t like the café'], correctIndex: 1 }
-]
-},
-        simulationTasks: [
-      {
-            promptPt: "[Atendente] \"Olá, qual vai ser o seu pedido?\"",
-            expectedEn: "Hi, what can I get for you?"
-      },
-      {
-            promptPt: "[Você] Você quer pedir um café grande",
-            expectedEn: "I would like a large coffee, please."
-      },
-      {
-            promptPt: "[Atendente] \"Para tomar aqui ou para levar?\"",
-            expectedEn: "For here or to go?"
-      },
-      {
-            promptPt: "[Você] Você quer pedir para ser para levar",
-            expectedEn: "To go, please."
-      },
-      {
-            promptPt: "[Você] Você quer perguntar se eles têm leite sem lactose",
-            expectedEn: "Do you have lactose-free milk?"
-      },
-      {
-            promptPt: "[Você] Você quer perguntar onde fica o açúcar",
-            expectedEn: "Where is the sugar?"
-      }
-],
-    wouldYouRather: [
-      {
-            optionAEn: "Drink cold coffee",
-            optionAPt: "Beber café frio",
-            optionBEn: "Drink hot juice",
-            optionBPt: "Beber suco quente"
-      },
-      {
-            optionAEn: "Spill coffee on your laptop",
-            optionAPt: "Derrubar café no seu notebook",
-            optionBEn: "Spill coffee on someone else",
-            optionBPt: "Derrubar café em outra pessoa"
-      },
-      {
-            optionAEn: "Have a barista mispronounce your name terribly",
-            optionAPt: "Ter o barista pronunciando seu nome de forma terrível",
-            optionBEn: "Have a barista give you the completely wrong drink",
-            optionBPt: "Ter o barista te dando a bebida completamente errada"
-      },
-      {
-            optionAEn: "Work in a noisy cafe",
-            optionAPt: "Trabalhar em um café barulhento",
-            optionBEn: "Work in a quiet cafe with no Wi-Fi",
-            optionBPt: "Trabalhar em um café silencioso mas sem Wi-Fi"
-      },
-      {
-            optionAEn: "Drink black coffee with no sugar for a year",
-            optionAPt: "Beber café preto sem açúcar por um ano",
-            optionBEn: "Never drink coffee again",
-            optionBPt: "Nunca mais beber café"
-      },
-      {
-            optionAEn: "Order a drink that takes 15 minutes to make",
-            optionAPt: "Pedir uma bebida que demora 15 minutos para ser feita",
-            optionBEn: "Order a basic drip coffee every single day",
-            optionBPt: "Pedir um café coado básico todos os dias"
-      },
-      {
-            optionAEn: "Share a small table with a stranger",
-            optionAPt: "Dividir uma mesa pequena com um estranho",
-            optionBEn: "Sit on a high stool with no back support",
-            optionBPt: "Sentar em um banco alto sem encosto"
-      }
-]
-},
+  
   {
     id: 'tech',
     speakingQuestions: [
@@ -6106,718 +6107,8 @@ export const scenarios: Scenario[] = [
       }
 ]
 },
-  {
-    id: 'smalltalk',
-    speakingQuestions: [
-    {
-        "question": "Do you enjoy making small talk with strangers?",
-        "questionPt": "Você gosta de jogar conversa fora com estranhos?",
-        "hintA1": "No, I am shy.",
-        "hintA2": "Not really, I feel a bit awkward talking to people I don't know well."
-    },
-    {
-        "question": "What topics do you usually talk about with your coworkers or classmates?",
-        "questionPt": "Sobre quais assuntos você costuma conversar com seus colegas de trabalho ou de classe?",
-        "hintA1": "We talk about TV shows and sports.",
-        "hintA2": "We usually talk about our weekend plans, new movies, or the weather."
-    },
-    {
-        "question": "How is the weather in your city today?",
-        "questionPt": "Como está o clima na sua cidade hoje?",
-        "hintA1": "It is sunny and hot.",
-        "hintA2": "It's quite cloudy today and it looks like it might rain later."
-    }
-,
-    {
-        "question": "Did you have a good weekend?",
-        "questionPt": "Você teve um bom fim de semana?",
-        "hintA1": "Yes, it was very relaxing.",
-        "hintA2": "It was great! I went to the beach on Saturday and cooked a nice dinner on Sunday."
-    },
-    {
-        "question": "Do you follow any sports teams?",
-        "questionPt": "Você torce para algum time?",
-        "hintA1": "Yes, I like soccer.",
-        "hintA2": "Yes, I am a big fan of Flamengo and I try to watch every game on TV."
-    },
-    {
-        "question": "What time did you arrive at work today?",
-        "questionPt": "A que horas você chegou ao trabalho hoje?",
-        "hintA1": "I arrived at nine.",
-        "hintA2": "I got here around 8:45 because the traffic was surprisingly light today."
-    },
-    {
-        "question": "Do you know anyone in this neighborhood?",
-        "questionPt": "Você conhece alguém neste bairro?",
-        "hintA1": "Yes, my cousin lives here.",
-        "hintA2": "Not many people. I just moved here last month so I am still meeting my neighbors."
-    },
-    {
-        "question": "Did you watch the news this morning?",
-        "questionPt": "Você assistiu as notícias hoje de manhã?",
-        "hintA1": "No, I did not have time.",
-        "hintA2": "Yes, I quickly read the headlines on my phone while having breakfast."
-    }
-    ],
-    title: 'Small Talk',
-    titlePt: 'Conversa Casual',
-    description: 'Master casual American conversations about weather, sports, and work.',
-    descriptionPt: 'Domine conversas casuais americanas sobre clima, esportes e trabalho.',
-    icon: '💬',
-    color: 'lavender',
-    imagePath: '/images/smalltalk_scene.png',
-    dialogues: [],
-    dialogueSets: [
-      {
-        title: 'Talking About Weather',
-        titlePt: 'Falando sobre o Clima',
-        icon: '🌤️',
-        dialogues: [
-          { speaker: 'native', english: "Beautiful day today, isn't it? Much better than yesterday.", portuguese: "Dia lindo hoje, não é? Muito melhor que ontem." },
-          { speaker: 'student', english: "It really is! I love this kind of weather. The sun feels amazing.", portuguese: "Com certeza! Adoro esse tipo de clima. O sol está maravilhoso." },
-          { speaker: 'native', english: "We've been so lucky this week. Last week it was just pouring rain non-stop.", portuguese: "Tivemos muita sorte essa semana. Semana passada estava chovendo sem parar." },
-          { speaker: 'student', english: "I know! I didn't even want to leave my hotel room. Is it usually this unpredictable?", portuguese: "Eu sei! Eu nem queria sair do meu quarto de hotel. É sempre tão imprevisível?" },
-          { speaker: 'native', english: "Oh yeah, spring in New York is crazy. You can experience four seasons in one day.", portuguese: "Ah sim, a primavera em Nova York é louca. Você pode ter as quatro estações num único dia." },
-          { speaker: 'student', english: "That's exactly what my friends told me. I brought layers just in case.", portuguese: "Foi exatamente o que meus amigos me disseram. Eu trouxe roupas em camadas por precaução." },
-          { speaker: 'native', english: "Smart move! I heard it might rain again this coming weekend though.", portuguese: "Boa jogada! Ouvi dizer que pode chover de novo no próximo fim de semana, no entanto." },
-          { speaker: 'student', english: "Really? I hope not. I'm planning to rent a bike in Central Park.", portuguese: "Sério? Espero que não. Estou planejando alugar uma bicicleta no Central Park." },
-          { speaker: 'native', english: "Fingers crossed it stays clear for you! The forecast changes every hour anyway.", portuguese: "Dedos cruzados para que fique limpo para você! A previsão muda a cada hora de qualquer jeito." },
-          { speaker: 'student', english: "Thanks! Enjoy the sunshine while it lasts.", portuguese: "Obrigado! Aproveite o sol enquanto dura." }
-]
-},
-      {
-        title: 'Talking About Sports',
-        titlePt: 'Falando sobre Esportes',
-        icon: '🏈',
-        dialogues: [
-          { speaker: 'native', english: "Hey man, did you catch the basketball game last night?", portuguese: "E aí cara, você assistiu ao jogo de basquete ontem à noite?" },
-          { speaker: 'student', english: "No, unfortunately I missed it. I was out exploring the city. Who won?", portuguese: "Não, infelizmente eu perdi. Eu estava fora explorando a cidade. Quem ganhou?" },
-          { speaker: 'native', english: "The Lakers won in double overtime! It was absolutely insane. LeBron was on fire.", portuguese: "Os Lakers ganharam na segunda prorrogação! Foi absolutamente insano. O LeBron estava com tudo." },
-          { speaker: 'student', english: "No way! I can't believe I missed that. Was it a close game the whole time?", portuguese: "Não acredito! Não posso acreditar que perdi isso. Foi um jogo acirrado o tempo todo?" },
-          { speaker: 'native', english: "Yeah, neck and neck. They tied it up right at the buzzer in the fourth quarter.", portuguese: "Sim, cabeça a cabeça. Eles empataram bem no estouro do cronômetro no quarto quarto." },
-          { speaker: 'student', english: "That sounds incredible. I need to watch the highlights later. Are you a big Lakers fan?", portuguese: "Isso soa incrível. Preciso ver os melhores momentos depois. Você é um grande fã dos Lakers?" },
-          { speaker: 'native', english: "Die-hard fan since I was a kid. What about you? Are you a basketball fan?", portuguese: "Fã fanático desde criança. E você? É fã de basquete?" },
-          { speaker: 'student', english: "I am. I'm more of a soccer person back home in Brazil, but I follow the NBA.", portuguese: "Sou sim. Sou mais de futebol no Brasil, mas eu acompanho a NBA." },
-          { speaker: 'native', english: "Oh, soccer is huge there! Do you follow the Premier League too?", portuguese: "Ah, futebol é gigante lá! Você acompanha a Premier League também?" },
-          { speaker: 'student', english: "A little bit, but mostly the local leagues. Sports are a universal language, right?", portuguese: "Um pouco, mas principalmente as ligas locais. Esportes são uma linguagem universal, certo?" }
-]
-},
-      {
-        title: 'Talking About Work',
-        titlePt: 'Falando sobre Trabalho',
-        icon: '💼',
-        dialogues: [
-          { speaker: 'native', english: "So, what do you do for a living?", portuguese: "Então, o que você faz da vida?" },
-          { speaker: 'student', english: "I'm a teacher. I teach English back in Brazil to high school students.", portuguese: "Sou professora. Ensino inglês no Brasil para alunos do ensino médio." },
-          { speaker: 'native', english: "Oh wow, that's awesome! High school can be tough. Do you enjoy it?", portuguese: "Uau, que incrível! O ensino médio pode ser difícil. Você gosta?" },
-          { speaker: 'student', english: "I really love it. Teenagers can be challenging, but they have so much energy.", portuguese: "Eu realmente adoro. Adolescentes podem ser desafiadores, mas eles têm tanta energia." },
-          { speaker: 'native', english: "I bet! Every day must be completely different.", portuguese: "Aposto que sim! Cada dia deve ser completamente diferente." },
-          { speaker: 'student', english: "Exactly, every class is different, which keeps things exciting. What about you?", portuguese: "Exatamente, cada aula é diferente, o que mantém as coisas animadas. E você?" },
-          { speaker: 'native', english: "I work in marketing for a software company here in the city. It's mostly sitting at a desk.", portuguese: "Eu trabalho com marketing em uma empresa de software aqui na cidade. É principalmente ficar sentado numa mesa." },
-          { speaker: 'student', english: "That sounds interesting though. Do you get to work from home?", portuguese: "Mas parece interessante. Você tem a chance de trabalhar de casa?" },
-          { speaker: 'native', english: "Yeah, we have a hybrid schedule. Two days in the office, three at home. Are you here for a conference?", portuguese: "Sim, temos um horário híbrido. Dois dias no escritório, três em casa. Você está aqui para uma conferência?" },
-          { speaker: 'student', english: "Kind of — I'm doing research and visiting some local schools to improve my teaching methods.", portuguese: "Mais ou menos — estou pesquisando e visitando algumas escolas locais para melhorar meus métodos de ensino." },
-          { speaker: 'native', english: "That's so cool. I hope you get some great ideas to take back with you!", portuguese: "Isso é muito legal. Espero que você consiga ótimas ideias para levar com você!" },
-          { speaker: 'student', english: "Thanks! I'm learning a lot just by talking to people like you.", portuguese: "Obrigada! Estou aprendendo muito só conversando com pessoas como você." }
-]
-}
-],
-            importantPhrases: [
-      {
-            pt: "Você gosta de esportes?",
-            en: "Do you like sports?"
-      },
-      {
-            pt: "Assisti a um filme ótimo.",
-            en: "I watched a great movie."
-      },
-      {
-            pt: "A comida estava deliciosa.",
-            en: "The food was delicious."
-      },
-      {
-            pt: "Eu amo cachorros.",
-            en: "I love dogs."
-      },
-      {
-            pt: "Qual é sua música favorita?",
-            en: "What is your favorite song?"
-      },
-      {
-            pt: "Tem planos para o feriado?",
-            en: "Do you have plans for the holiday?"
-      }
-],
-        problems: [
-      {
-            descriptionPt: "A pessoa fez uma piada que você não entendeu, e você precisa dizer isso de forma educada."
-      },
-      {
-            descriptionPt: "Você não quer falar sobre o assunto que a pessoa puxou e quer mudar de assunto educadamente."
-      }
-],
-    vocabulary: [
-      { english: "Small talk", portuguese: "Conversa informal",
-        sentenceA1: "I like small talk.",
-        sentenceA2: "Making small talk is a great way to practice English.",
-        sentenceA1Pt: "Gosto de conversa informal.",
-        sentenceA2Pt: "Conversa informal é ótima para praticar inglês."
-      },
-      { english: "Fingers crossed", portuguese: "Dedos cruzados / Torcendo",
-        sentenceA1: "Fingers crossed!",
-        sentenceA2: "I have a job interview tomorrow. Fingers crossed!",
-        sentenceA1Pt: "Estou torcendo!",
-        sentenceA2Pt: "Tenho uma entrevista amanhã. Estou torcendo!"
-      },
-      { english: "Catch the game", portuguese: "Assistir o jogo",
-        sentenceA1: "Did you catch the game?",
-        sentenceA2: "Did you catch the game last night? The final was incredible.",
-        sentenceA1Pt: "Você assistiu o jogo?",
-        sentenceA2Pt: "Assistiu o jogo ontem? O final foi incrível."
-      },
-      { english: "Overtime", portuguese: "Hora extra / Prorrogação",
-        sentenceA1: "I worked overtime today.",
-        sentenceA2: "I had to work overtime to finish the project.",
-        sentenceA1Pt: "Fiz hora extra hoje.",
-        sentenceA2Pt: "Tive que fazer hora extra para terminar o projeto."
-      },
-      { english: "For a living", portuguese: "Como profissão / Ganhar a vida",
-        sentenceA1: "What do you do for a living?",
-        sentenceA2: "She designs websites for a living and loves it.",
-        sentenceA1Pt: "O que você faz da vida?",
-        sentenceA2Pt: "Ela cria sites profissionalmente e adora."
-      },
-      { english: "Keep things exciting", portuguese: "Manter as coisas animadas",
-        sentenceA1: "I like to keep things exciting.",
-        sentenceA2: "We try new restaurants every weekend to keep things exciting.",
-        sentenceA1Pt: "Gosto de manter as coisas animadas.",
-        sentenceA2Pt: "Experimentamos restaurantes novos todo fim de semana."
-      },
-      { english: "Attitude", portuguese: "Atitude",
-        sentenceA1: "She has a great attitude.",
-        sentenceA2: "Having a positive attitude makes a big difference at work.",
-        sentenceA1Pt: "Ela tem uma ótima atitude.",
-        sentenceA2Pt: "Ter atitude positiva faz grande diferença no trabalho."
-      },
-      { english: "Conference", portuguese: "Conferência / Congresso",
-        sentenceA1: "I went to a conference.",
-        sentenceA2: "The technology conference had amazing speakers.",
-        sentenceA1Pt: "Fui a uma conferência.",
-        sentenceA2Pt: "A conferência de tecnologia teve palestrantes incríveis."
-      },
-      { english: "How", portuguese: "Como",
-        sentenceA1: "How are you today?",
-        sentenceA2: "How was your vacation? I heard you went to Europe.",
-        sentenceA1Pt: "Como você está hoje?",
-        sentenceA2Pt: "Como foram suas férias? Soube que foi para a Europa."
-      },
-      { english: "What", portuguese: "O que / Qual",
-        sentenceA1: "What is your name?",
-        sentenceA2: "What do you think about the new project?",
-        sentenceA1Pt: "Qual é o seu nome?",
-        sentenceA2Pt: "O que acha do novo projeto?"
-      },
-      { english: "Have a good one!", portuguese: "Tenha um bom dia / Tenha um bom!",
-        sentenceA1: "Have a good one!",
-        sentenceA2: "It was nice chatting. Have a good one!",
-        sentenceA1Pt: "Tenha um bom dia!",
-        sentenceA2Pt: "Foi bom conversar. Tenha um bom dia!"
-      },
-      { english: "Awesome", portuguese: "Incrível / Sensacional",
-        sentenceA1: "That is awesome!",
-        sentenceA2: "Your presentation was awesome! Everyone loved it.",
-        sentenceA1Pt: "Isso é incrível!",
-        sentenceA2Pt: "Sua apresentação foi incrível! Todos adoraram."
-      },
-      { english: "Make sense", portuguese: "Fazer sentido",
-        sentenceA1: "Does that make sense?",
-        sentenceA2: "I explained the directions twice. Does that make sense?",
-        sentenceA1Pt: "Faz sentido?",
-        sentenceA2Pt: "Expliquei as direções duas vezes. Faz sentido agora?"
-      },
-      { english: "How's it going?", portuguese: "Como vão as coisas?",
-        sentenceA1: "Hey, how's it going?",
-        sentenceA2: "How's it going? I haven't seen you since last week.",
-        sentenceA1Pt: "E aí, como vai?",
-        sentenceA2Pt: "Como vai? Não te vejo desde a semana passada."
-      },
-      { english: "What's up?", portuguese: "E aí? / O que está rolando?",
-        sentenceA1: "What's up? All good?",
-        sentenceA2: "What's up? I heard you started a new job.",
-        sentenceA1Pt: "E aí, tudo bem?",
-        sentenceA2Pt: "E aí? Soube que você começou um emprego novo."
-      },
-      { english: "Weather", portuguese: "Clima / Tempo",
-        sentenceA1: "The weather is hot.",
-        sentenceA2: "I love cold weather because I can wear my favorite coats.",
-        sentenceA1Pt: "O tempo está quente.",
-        sentenceA2Pt: "Adoro clima frio porque posso usar meus casacos favoritos."
-      },
-      { english: "Busy", portuguese: "Ocupado(a)",
-        sentenceA1: "I am very busy.",
-        sentenceA2: "She has a very busy schedule today with meetings back-to-back.",
-        sentenceA1Pt: "Estou muito ocupado.",
-        sentenceA2Pt: "Ela está com uma agenda muito ocupada hoje com reuniões seguidas."
-      },
-      { english: "Colleague", portuguese: "Colega de trabalho",
-        sentenceA1: "He is my colleague.",
-        sentenceA2: "My colleague helped me finish the report on Friday.",
-        sentenceA1Pt: "Ele é meu colega.",
-        sentenceA2Pt: "Meu colega me ajudou a finalizar o relatório na sexta-feira."
-      }
-],
-    culturalTips: [
-      {
-        title: "Weather is Always Safe",
-        titlePt: "Clima é Sempre Seguro",
-        content: "In American culture, commenting on the weather is the safest conversation starter. It breaks the ice with anyone — strangers, coworkers, or neighbors.",
-        contentPt: "Na cultura americana, comentar sobre o clima é a forma mais segura de iniciar uma conversa. Quebra o gelo com qualquer pessoa — desconhecidos, colegas ou vizinhos."
-},
-      {
-        title: "Sports as Social Currency",
-        titlePt: "Esportes como Moeda Social",
-        content: "American football (NFL) and basketball (NBA) are hugely popular. Knowing basic teams and recent scores can open many social doors, especially with men.",
-        contentPt: "Futebol americano (NFL) e basquete (NBA) são imensamente populares. Conhecer times básicos e resultados recentes pode abrir muitas portas sociais, especialmente com homens."
-},
-      {
-        title: "'What do you do?' is Normal",
-        titlePt: "'O que você faz?' é Normal",
-        content: "Americans often ask 'What do you do for a living?' soon after meeting. Unlike some cultures, this is not considered rude — it's a standard way to get to know someone.",
-        contentPt: "Americanos frequentemente perguntam 'What do you do for a living?' logo após se conhecerem. Ao contrário de algumas culturas, isso não é considerado grosseiro — é uma forma padrão de conhecer alguém."
-}
-],
-  reading: {
-      textA1: 'Mark meets his neighbor in the elevator. His neighbor says good morning. Mark says good morning too. The neighbor asks how Mark is doing. Mark says he is fine, thank you. The neighbor asks about the weather. Mark says it is cold today. The neighbor agrees and says they need a jacket. Mark asks if the neighbor is going to work. The neighbor says yes, he works at a bank. Mark says he is a student. They both smile. The elevator arrives at the first floor. The neighbor says have a nice day. Mark says you too. They walk outside together. Mark likes his friendly neighbor.',
-      textA1Pt: 'Mark encontra seu vizinho no elevador. O vizinho diz bom dia. Mark diz bom dia também. O vizinho pergunta como Mark está. Mark diz que está bem, obrigado. O vizinho pergunta sobre o clima. Mark diz que está frio hoje. O vizinho concorda e diz que eles precisam de um casaco. Mark pergunta se o vizinho vai trabalhar. O vizinho diz que sim, ele trabalha em um banco. Mark diz que é estudante. Ambos sorriem. O elevador chega ao primeiro andar. O vizinho diz tenha um bom dia. Mark diz igualmente. Eles caminham para fora juntos. Mark gosta do seu vizinho simpático.',
-      textA2: 'Small talk is often considered one of the most challenging aspects of learning a new language, not because of its vocabulary or grammar, but because of its cultural nuances. Mark, a Brazilian exchange student living in Brooklyn, quickly learned that Americans use small talk as a social lubricant in almost every interaction. At the coffee shop, the barista would ask \'How\'s your day going?\' while preparing his order. At the grocery store, the cashier might comment on the weather or compliment his jacket. Initially, Mark found these interactions confusing — he was not sure if people genuinely wanted to know how he was doing or if it was just a polite formality. Over time, he realized that the expected response to \'How are you?\' is simply \'Good, thanks! How about you?\' rather than a detailed account of his day. He also noticed that safe topics for small talk include the weather, sports, weekend plans, and local restaurants, while politics, religion, salary, and personal problems are generally avoided with strangers. One of his most memorable small talk experiences happened at a laundromat, where he struck up a conversation with an elderly man named Frank about the best pizza places in the neighborhood. That casual exchange led to a genuine friendship, and Frank eventually invited Mark to his family\'s Thanksgiving dinner.',
-      textA2Pt: 'Conversa fiada é frequentemente considerada um dos aspectos mais desafiadores de aprender um novo idioma, não por causa do vocabulário ou gramática, mas por causa de suas nuances culturais. Mark, um estudante de intercâmbio brasileiro morando no Brooklyn, rapidamente aprendeu que americanos usam conversa fiada como um lubrificante social em quase toda interação. Na cafeteria, o barista perguntava \'Como está seu dia?\' enquanto preparava seu pedido. No supermercado, o caixa poderia comentar sobre o clima ou elogiar sua jaqueta. Inicialmente, Mark achava essas interações confusas — ele não tinha certeza se as pessoas genuinamente queriam saber como ele estava ou se era apenas uma formalidade educada. Com o tempo, ele percebeu que a resposta esperada para \'How are you?\' é simplesmente \'Good, thanks! How about you?\' em vez de um relato detalhado do seu dia. Ele também notou que tópicos seguros para conversa fiada incluem clima, esportes, planos de fim de semana e restaurantes locais, enquanto política, religião, salário e problemas pessoais são geralmente evitados com estranhos. Uma de suas experiências mais memoráveis de conversa fiada aconteceu em uma lavanderia, onde ele puxou conversa com um senhor chamado Frank sobre as melhores pizzarias do bairro. Essa troca casual levou a uma amizade genuína, e Frank eventualmente convidou Mark para o jantar de Ação de Graças de sua família.',
-      questionsA1: [
-        { question: 'What is the main idea of this text?', questionPt: 'Qual é a ideia principal deste texto?', options: ['Mark has a friendly morning chat with his neighbor', 'Mark hates his neighbor', 'Mark is stuck in the elevator', 'Mark goes to a bank'], correctIndex: 0 },
-        { question: 'What does "friendly" mean in the text?', questionPt: 'O que significa "friendly" no texto?', options: ['Mean and angry', 'Kind and pleasant', 'Cold and silent', 'Fast and loud'], correctIndex: 1 },
-        { question: 'Why do they talk about the weather?', questionPt: 'Por que eles falam sobre o tempo?', options: ['Because they are meteorologists', 'It is a common and polite topic for a quick chat', 'Because it is raining inside', 'To argue'], correctIndex: 1 },
-        { question: 'What can we infer about their relationship?', questionPt: 'O que podemos inferir sobre o relacionamento deles?', options: ['They are polite and have a good relationship', 'They are best friends', 'They never talk', 'They are angry at each other'], correctIndex: 0 }
-      ],
-      questionsA2: [
-        { question: 'What is the expected response to \'How are you?\'?', questionPt: 'Qual é a resposta esperada para \'How are you?\'?', options: ['A detailed story', '\'Good, thanks! How about you?\'', 'Ignore the question', '\'I am feeling terrible\''], correctIndex: 1 },
-        { question: 'Which topics should be avoided in small talk with strangers?', questionPt: 'Quais tópicos devem ser evitados em conversa fiada com estranhos?', options: ['Weather and sports', 'Politics, religion, and salary', 'Restaurants and movies', 'Weekend plans'], correctIndex: 1 },
-        { question: 'Where did Mark meet Frank?', questionPt: 'Onde Mark conheceu Frank?', options: ['At a party', 'At school', 'At a laundromat', 'At a restaurant'], correctIndex: 2 },
-        { question: 'What did Frank invite Mark to?', questionPt: 'Para o que Frank convidou Mark?', options: ['A pizza night', 'A baseball game', 'His Thanksgiving dinner', 'A weekend trip'], correctIndex: 2 }
-]
-},
-        simulationTasks: [
-      {
-            promptPt: "[Colega] \"Como você está hoje?\"",
-            expectedEn: "How are you doing today?"
-      },
-      {
-            promptPt: "[Você] Você responde que está bem e pergunta como está o tempo lá fora",
-            expectedEn: "I am fine. How is the weather today?"
-      },
-      {
-            promptPt: "[Colega] \"O que você gosta de fazer no tempo livre?\"",
-            expectedEn: "What do you like to do in your free time?"
-      },
-      {
-            promptPt: "[Você] Você responde que gosta de ler e assistir filmes",
-            expectedEn: "I like to read and watch movies."
-      },
-      {
-            promptPt: "[Você] Você quer perguntar se a pessoa mora aqui há muito tempo",
-            expectedEn: "Have you lived here long?"
-      },
-      {
-            promptPt: "[Você] Você quer se despedir dizendo que precisa ir agora",
-            expectedEn: "I have to go now."
-      }
-],
-    wouldYouRather: [
-      {
-            optionAEn: "Be stuck in an elevator with your boss",
-            optionAPt: "Ficar preso no elevador com o seu chefe",
-            optionBEn: "Be stuck in an elevator with your ex",
-            optionBPt: "Ficar preso no elevador com o seu ex"
-      },
-      {
-            optionAEn: "Talk about the weather for 10 minutes",
-            optionAPt: "Falar sobre o tempo por 10 minutos",
-            optionBEn: "Stand in complete awkward silence",
-            optionBPt: "Ficar em completo silêncio constrangedor"
-      },
-      {
-            optionAEn: "Wave back at someone who was waving to the person behind you",
-            optionAPt: "Acenar de volta para alguém que estava acenando para a pessoa atrás de você",
-            optionBEn: "Call someone by the wrong name confidently",
-            optionBPt: "Chamar alguém pelo nome errado com confiança"
-      },
-      {
-            optionAEn: "Always overshare personal information",
-            optionAPt: "Sempre compartilhar informações pessoais demais",
-            optionBEn: "Never say anything about yourself",
-            optionBPt: "Nunca dizer nada sobre você mesmo"
-      },
-      {
-            optionAEn: "Laugh at a joke you didn't hear",
-            optionAPt: "Rir de uma piada que você não ouviu",
-            optionBEn: "Ask them to repeat the joke three times",
-            optionBPt: "Pedir para repetirem a piada três vezes"
-      },
-      {
-            optionAEn: "Have a very loud sneeze in a quiet room",
-            optionAPt: "Dar um espirro muito alto em uma sala silenciosa",
-            optionBEn: "Have a stomach growl loudly during a meeting",
-            optionBPt: "Ter a barriga roncando alto durante uma reunião"
-      },
-      {
-            optionAEn: "Accidentally say 'I love you' at the end of a work call",
-            optionAPt: "Dizer sem querer 'eu te amo' no fim de uma ligação de trabalho",
-            optionBEn: "Accidentally hang up on someone important",
-            optionBPt: "Desligar sem querer na cara de alguém importante"
-      }
-]
-},
-  {
-    id: 'slangs',
-    speakingQuestions: [
-    {
-        "question": "Do you use a lot of slang when speaking Portuguese?",
-        "questionPt": "Você usa muitas gírias quando fala português?",
-        "hintA1": "Yes, I use many slangs with friends.",
-        "hintA2": "Yes, I use a lot of slang, especially when I'm texting or hanging out with my friends."
-    },
-    {
-        "question": "What is your favorite English slang word?",
-        "questionPt": "Qual é a sua gíria favorita em inglês?",
-        "hintA1": "My favorite slang is 'cool'.",
-        "hintA2": "I really like the word 'awesome' because it sounds very positive."
-    },
-    {
-        "question": "Do you think it's important to learn slang to speak fluently?",
-        "questionPt": "Você acha importante aprender gírias para falar fluentemente?",
-        "hintA1": "Yes, people use slangs every day.",
-        "hintA2": "Yes, because native speakers use slang all the time in real life conversations."
-    }
-,
-    {
-        "question": "Did you learn any new slang words this week?",
-        "questionPt": "Você aprendeu alguma gíria nova esta semana?",
-        "hintA1": "Yes, I learned the word chill.",
-        "hintA2": "Yes, my friend taught me what 'no cap' means and now I use it all the time."
-    },
-    {
-        "question": "Do you think slang changes too quickly?",
-        "questionPt": "Você acha que as gírias mudam rápido demais?",
-        "hintA1": "Yes, very quickly.",
-        "hintA2": "Definitely. Young people on TikTok create new expressions every single week."
-    },
-    {
-        "question": "What slang did you use when you were a teenager?",
-        "questionPt": "Que gíria você usava quando era adolescente?",
-        "hintA1": "I used to say 'cool' a lot.",
-        "hintA2": "We used to say 'rad' and 'awesome' all the time back in high school."
-    },
-    {
-        "question": "Do you use emojis when you send messages?",
-        "questionPt": "Você usa emojis quando manda mensagens?",
-        "hintA1": "Yes, I love using emojis.",
-        "hintA2": "I use them in almost every message because they help show my feelings."
-    },
-    {
-        "question": "Did anyone ever misunderstand your slang?",
-        "questionPt": "Alguém já não entendeu a sua gíria?",
-        "hintA1": "Yes, my grandmother did not understand.",
-        "hintA2": "Yes, my boss was really confused when I accidentally used a very informal expression."
-    }
-    ],
-    title: 'American Slangs',
-    titlePt: 'Gírias Americanas',
-    description: 'Learn popular everyday slang and expressions used by Americans.',
-    descriptionPt: 'Aprenda gírias e expressões populares do dia a dia americano.',
-    icon: '🤙',
-    color: 'rose',
-    imagePath: '/images/slangs_scene.png',
-    dialogues: [],
-    dialogueSets: [
-      {
-        title: 'Everyday Expressions',
-        titlePt: 'Expressões do Dia a Dia',
-        icon: '🗣️',
-        dialogues: [
-          { speaker: 'native', english: "Dude, that concert last night was totally lit! Did you have fun?", portuguese: "Cara, aquele show ontem à noite foi totalmente incrível! Você se divertiu?" },
-          { speaker: 'student', english: "No cap! The energy in the crowd was unreal. I'm still hyped about it.", portuguese: "Verdade! A energia na multidão estava surreal. Ainda estou animada com isso." },
-          { speaker: 'native', english: "Same here. But honestly, my feet are killing me. We were jumping the whole time.", portuguese: "Eu também. Mas honestamente, meus pés estão me matando. Ficamos pulando o tempo todo." },
-          { speaker: 'student', english: "Totally worth it though. The lead singer was lowkey amazing live.", portuguese: "Mas valeu totalmente a pena. O vocalista foi incrivelmente ('lowkey') maravilhoso ao vivo." },
-          { speaker: 'native', english: "Lowkey? Nah, he was highkey the best part of the show! He really went off.", portuguese: "Lowkey? Não, ele foi totalmente ('highkey') a melhor parte do show! Ele realmente arrasou ('went off')." },
-          { speaker: 'student', english: "For real. I thought the tickets were pricey, but it was a vibe.", portuguese: "Com certeza. Achei que os ingressos estavam caros, mas foi uma vibe." },
-          { speaker: 'native', english: "Absolutely. Hey, speaking of vibes, are you down to grab brunch tomorrow?", portuguese: "Absolutamente. Ei, falando em vibes, você topa tomar um brunch amanhã?" },
-          { speaker: 'student', english: "I'm so down. I need some good pancakes after sleeping in.", portuguese: "Topo demais. Preciso de umas boas panquecas depois de dormir até tarde." },
-          { speaker: 'native', english: "Say less. I know a place that's bussin'. I'll text you the deets later.", portuguese: "Não diga mais nada. Conheço um lugar que é muito bom ('bussin'). Te mando os detalhes depois." },
-          { speaker: 'student', english: "Bet! Catch you tomorrow.", portuguese: "Fechado ('Bet')! Te vejo amanhã." }
-]
-},
-      {
-        title: 'At the Office / School',
-        titlePt: 'No Escritório / Escola',
-        icon: '🏢',
-        dialogues: [
-          { speaker: 'native', english: "Hey, heads up — the boss wants us to circle back on the marketing project.", portuguese: "Ei, atenção — o chefe quer que a gente retome ('circle back') o projeto de marketing." },
-          { speaker: 'student', english: "Oh shoot. I totally spaced on that. Is he bent out of shape about the delay?", portuguese: "Nossa. Esqueci completamente. Ele está bravo ('bent out of shape') com o atraso?" },
-          { speaker: 'native', english: "Nah, he's pretty chill. He just wants us to touch base by Friday morning.", portuguese: "Não, ele é bem tranquilo. Ele só quer que a gente dê um retorno ('touch base') até sexta de manhã." },
-          { speaker: 'student', english: "Got it. I've been super swamped with emails today. Can we put a pin in the other tasks?", portuguese: "Entendi. Estive super atarefada ('swamped') com e-mails hoje. Podemos adiar ('put a pin') as outras tarefas?" },
-          { speaker: 'native', english: "Definitely. Let's prioritize this. Do you think you can get the draft done today?", portuguese: "Definitivamente. Vamos priorizar isso. Você acha que consegue terminar o rascunho hoje?" },
-          { speaker: 'student', english: "I'll knock it out tonight after hours and shoot you an email.", portuguese: "Vou terminar de uma vez ('knock it out') hoje após o expediente e te mandar um e-mail." },
-          { speaker: 'native', english: "Awesome, you're a lifesaver. Let me know if you hit a roadblock and need backup.", portuguese: "Ótimo, você me salvou a vida. Me avisa se encontrar um obstáculo ('hit a roadblock') e precisar de ajuda." },
-          { speaker: 'student', english: "Will do! Let's touch base tomorrow to review it together.", portuguese: "Farei isso! Vamos nos falar amanhã para revisarmos juntos." },
-          { speaker: 'native', english: "Sounds like a plan. See you at the water cooler later.", portuguese: "Parece um bom plano. Te vejo no bebedouro mais tarde." }
-]
-}
-],
-            importantPhrases: [
-      {
-            pt: "Estou exausto (beat).",
-            en: "I am beat."
-      },
-      {
-            pt: "Isso é loucura (nuts).",
-            en: "That is nuts."
-      },
-      {
-            pt: "Me dá um tempo (give me a break).",
-            en: "Give me a break."
-      },
-      {
-            pt: "Bora (let's go).",
-            en: "Let's go."
-      },
-      {
-            pt: "Tô de boa (I am chilling).",
-            en: "I am chilling."
-      },
-      {
-            pt: "Isso é incrível (dope).",
-            en: "That is dope."
-      }
-],
-        problems: [
-      {
-            descriptionPt: "Alguém usou uma gíria que você nunca ouviu antes."
-      },
-      {
-            descriptionPt: "Você usou uma gíria errada e todos riram, como você se desculpa brincando?"
-      }
-],
-    vocabulary: [
-      { english: "Lit / Fire", portuguese: "Massa / Muito legal / Demais",
-        sentenceA1: "That party was lit!",
-        sentenceA2: "The concert last night was absolutely lit.",
-        sentenceA1Pt: "Aquela festa foi demais!",
-        sentenceA2Pt: "O show ontem à noite foi absolutamente demais."
-      },
-      { english: "No cap", portuguese: "Sem mentira / Verdade",
-        sentenceA1: "No cap, it was amazing.",
-        sentenceA2: "No cap, that was the best pizza I ever tasted.",
-        sentenceA1Pt: "Sem mentira, foi incrível.",
-        sentenceA2Pt: "Sem mentira, foi a melhor pizza que já comi."
-      },
-      { english: "Hyped", portuguese: "Empolgado",
-        sentenceA1: "I am so hyped!",
-        sentenceA2: "Everyone is hyped about the new Marvel movie.",
-        sentenceA1Pt: "Estou muito empolgado!",
-        sentenceA2Pt: "Todo mundo está empolgado com o novo filme da Marvel."
-      },
-      { english: "Down (to do something)", portuguese: "Topar / Estar a fim",
-        sentenceA1: "I am down to go.",
-        sentenceA2: "Are you down to try the new sushi restaurant?",
-        sentenceA1Pt: "Estou a fim de ir.",
-        sentenceA2Pt: "Está a fim de experimentar o novo restaurante de sushi?"
-      },
-      { english: "Deets", portuguese: "Detalhes",
-        sentenceA1: "Give me the deets.",
-        sentenceA2: "Send me the deets about the party.",
-        sentenceA1Pt: "Me dá os detalhes.",
-        sentenceA2Pt: "Manda os detalhes sobre a festa."
-      },
-      { english: "Heads up", portuguese: "Aviso / Alerta",
-        sentenceA1: "Heads up, it is raining.",
-        sentenceA2: "Heads up, the boss is in a bad mood today.",
-        sentenceA1Pt: "Só avisando, está chovendo.",
-        sentenceA2Pt: "Só avisando, o chefe está de mau humor hoje."
-      },
-      { english: "Spaced out", portuguese: "Distraído(a) / No mundo da lua",
-        sentenceA1: "Sorry, I spaced out.",
-        sentenceA2: "I completely spaced out during the meeting.",
-        sentenceA1Pt: "Desculpa, me distraí.",
-        sentenceA2Pt: "Me distraí completamente durante a reunião."
-      },
-      { english: "Swamped", portuguese: "Atolado(a) de trabalho",
-        sentenceA1: "I am swamped with work.",
-        sentenceA2: "I cannot go out tonight, I am totally swamped.",
-        sentenceA1Pt: "Estou atolado de trabalho.",
-        sentenceA2Pt: "Não posso sair hoje, estou totalmente atolado."
-      },
-      { english: "Chill", portuguese: "Relaxar / Tranquilo",
-        sentenceA1: "Let us chill at home.",
-        sentenceA2: "We stayed home and chilled all weekend watching movies.",
-        sentenceA1Pt: "Vamos relaxar em casa.",
-        sentenceA2Pt: "Ficamos em casa e relaxamos o fim de semana assistindo filmes."
-      },
-      { english: "Ghost", portuguese: "Ignorar / Sumir",
-        sentenceA1: "He ghosted me.",
-        sentenceA2: "She ghosted me after our second date.",
-        sentenceA1Pt: "Ele me deixou no vácuo.",
-        sentenceA2Pt: "Ela me deixou no vácuo depois do segundo encontro."
-      },
-      { english: "Flex", portuguese: "Exibir-se / Ostentar",
-        sentenceA1: "Stop flexing!",
-        sentenceA2: "He always flexes his new sneakers on social media.",
-        sentenceA1Pt: "Para de se exibir!",
-        sentenceA2Pt: "Ele sempre se exibe com seus tênis novos nas redes sociais."
-      },
-      { english: "Salty", portuguese: "Irritado(a) / Ressentido(a)",
-        sentenceA1: "Why are you so salty?",
-        sentenceA2: "She got salty because nobody liked her photo.",
-        sentenceA1Pt: "Por que está tão irritado?",
-        sentenceA2Pt: "Ela ficou irritada porque ninguém curtiu a foto dela."
-      },
-      { english: "Tea", portuguese: "Fofoca",
-        sentenceA1: "Spill the tea!",
-        sentenceA2: "I heard some tea about our neighbors.",
-        sentenceA1Pt: "Conta a fofoca!",
-        sentenceA2Pt: "Soube de uma fofoca sobre nossos vizinhos."
-      },
-      { english: "Bet", portuguese: "Pode apostar / Com certeza",
-        sentenceA1: "Are we going? Bet!",
-        sentenceA2: "You think we can finish on time? Bet, let's start.",
-        sentenceA1Pt: "Nós vamos? Com certeza!",
-        sentenceA2Pt: "Você acha que podemos terminar no prazo? Com certeza, vamos começar."
-      },
-      { english: "Bummer", portuguese: "Que pena / Chateação",
-        sentenceA1: "That is a bummer.",
-        sentenceA2: "The concert was canceled. What a bummer!",
-        sentenceA1Pt: "Que pena.",
-        sentenceA2Pt: "O show foi cancelado. Que chateação!"
-      },
-      { english: "Slay", portuguese: "Arrasar",
-        sentenceA1: "You slay in that outfit!",
-        sentenceA2: "She did an amazing job on the presentation, she really slayed.",
-        sentenceA1Pt: "Você arrasou com essa roupa!",
-        sentenceA2Pt: "Ela fez um trabalho incrível na apresentação, ela realmente arrasou."
-      },
-      { english: "For real", portuguese: "Sério / De verdade",
-        sentenceA1: "Are you for real?",
-        sentenceA2: "I got a promotion, for real! I'm so excited.",
-        sentenceA1Pt: "É sério?",
-        sentenceA2Pt: "Fui promovido, de verdade! Estou muito animado."
-      }
-],
-    culturalTips: [
-      {
-        title: "Slang Evolves Fast",
-        titlePt: "Gírias Evoluem Rápido",
-        content: "American slang changes constantly, especially online. What was cool in 2020 may already be 'cringe' today. When in doubt, observe and listen before using new slang.",
-        contentPt: "As gírias americanas mudam constantemente, especialmente online. O que era legal em 2020 pode já ser 'brega' hoje. Na dúvida, observe e ouça antes de usar novas gírias."
-},
-      {
-        title: "'No Cap' & Gen-Z Speak",
-        titlePt: "'No Cap' e o Idioma Gen-Z",
-        content: "'No cap' means 'for real / no lie'. Other Gen-Z essentials: 'bussin' (delicious), 'slay' (to do something great), 'vibe check' (testing someone's energy). These are now mainstream!",
-        contentPt: "'No cap' significa 'de verdade / sem mentira'. Outros essenciais Gen-Z: 'bussin' (delicioso), 'slay' (arrasar), 'vibe check' (testar a energia de alguém). Já são mainstream!"
-},
-      {
-        title: "Office Jargon is Real",
-        titlePt: "Jargão de Escritório é Real",
-        content: "'Circle back', 'touch base', 'take this offline' — American workplaces have their own dialect! Understanding office slang will help you feel confident in professional settings.",
-        contentPt: "'Circle back', 'touch base', 'take this offline' — os ambientes de trabalho americanos têm seu próprio dialeto! Entender o jargão de escritório ajudará a se sentir confiante em ambientes profissionais."
-}
-],
-  reading: {
-      textA1: 'Lucas is in New York. His American friend says many new words. His friend says \'What\'s up?\' Lucas does not understand. His friend explains it means \'How are you?\' His friend also says \'That\'s cool!\' Lucas learns it means \'That is nice.\' They go to a restaurant. The food is very good. His friend says \'This is awesome!\' Lucas learns another new word. After lunch, his friend says \'Let\'s hang out later.\' Lucas asks what it means. His friend says it means spending time together. Lucas writes all the new words in his notebook. He wants to remember them. He thinks American English is fun but sometimes confusing.',
-      textA1Pt: 'Lucas está em Nova York. Seu amigo americano diz muitas palavras novas. Seu amigo diz \'What\'s up?\' Lucas não entende. Seu amigo explica que significa \'Como você está?\' Seu amigo também diz \'That\'s cool!\' Lucas aprende que significa \'Isso é legal.\' Eles vão a um restaurante. A comida é muito boa. Seu amigo diz \'This is awesome!\' Lucas aprende outra palavra nova. Depois do almoço, seu amigo diz \'Let\'s hang out later.\' Lucas pergunta o que significa. Seu amigo diz que significa passar tempo juntos. Lucas escreve todas as palavras novas no caderno. Ele quer lembrar delas. Ele acha que o inglês americano é divertido mas às vezes confuso.',
-      textA2: 'American English is full of slang expressions that can leave non-native speakers completely lost in a conversation. Lucas, a university student from Belo Horizonte, experienced this culture shock when he started hanging out with his American roommate, Jake, in their shared apartment in the East Village. On his very first evening, Jake came home and said \'Dude, I\'m totally beat. Work was insane today.\' Lucas had to process three pieces of slang in one sentence: \'dude\' (a casual way to address someone), \'beat\' (extremely tired), and \'insane\' (used positively to mean crazy or intense). Over the following weeks, Lucas compiled an entire vocabulary list of informal expressions. He learned that \'gonna\' means \'going to,\' \'wanna\' means \'want to,\' and \'gotta\' means \'got to\' or \'have to.\' He discovered that \'No worries\' is a very common way to say \'You are welcome,\' and that \'My bad\' is a casual apology meaning \'It was my mistake.\' Some expressions were trickier to understand, like \'It\'s not rocket science\' (it\'s not that difficult), \'Break a leg\' (good luck, typically said before a performance), and \'Hit the sack\' (go to sleep). Perhaps the most confusing moment came when Jake said \'I\'m down\' to mean \'I agree\' or \'I want to join,\' because Lucas initially thought it meant Jake was feeling sad. Understanding slang became Lucas\'s secret weapon for fitting in and making genuine connections with native speakers.',
-      textA2Pt: 'O inglês americano é cheio de expressões de gíria que podem deixar falantes não nativos completamente perdidos em uma conversa. Lucas, um estudante universitário de Belo Horizonte, experimentou esse choque cultural quando começou a andar com seu colega de quarto americano, Jake, no apartamento compartilhado deles no East Village. Na sua primeira noite, Jake chegou em casa e disse \'Dude, I\'m totally beat. Work was insane today.\' Lucas teve que processar três gírias em uma frase: \'dude\' (uma forma casual de se dirigir a alguém), \'beat\' (extremamente cansado), e \'insane\' (usado positivamente para significar louco ou intenso). Nas semanas seguintes, Lucas compilou uma lista inteira de vocabulário de expressões informais. Ele aprendeu que \'gonna\' significa \'going to,\' \'wanna\' significa \'want to,\' e \'gotta\' significa \'got to\' ou \'have to.\' Ele descobriu que \'No worries\' é uma forma muito comum de dizer \'De nada,\' e que \'My bad\' é um pedido de desculpas casual significando \'Foi meu erro.\' Algumas expressões eram mais difíceis de entender, como \'It\'s not rocket science\' (não é tão difícil), \'Break a leg\' (boa sorte, normalmente dito antes de uma performance), e \'Hit the sack\' (ir dormir). Talvez o momento mais confuso foi quando Jake disse \'I\'m down\' para significar \'Eu concordo\' ou \'Eu quero participar,\' porque Lucas inicialmente pensou que significava que Jake estava triste. Entender gírias se tornou a arma secreta de Lucas para se encaixar e fazer conexões genuínas com falantes nativos.',
-      questionsA1: [
-        { question: 'What is the main message of the text?', questionPt: 'Qual é a mensagem principal do texto?', options: ['Lucas is learning informal American expressions', 'Lucas is eating at a good restaurant', 'Lucas is angry at his friend', 'Lucas is buying a notebook'], correctIndex: 0 },
-        { question: 'What does "hang out" mean?', questionPt: 'O que significa "hang out"?', options: ['To hang clothes on a line', 'To spend time relaxing with friends', 'To go to sleep', 'To run away'], correctIndex: 1 },
-        { question: 'Why does Lucas write the new words in his notebook?', questionPt: 'Por que Lucas escreve as novas palavras em seu caderno?', options: ['Because he wants to forget them', 'Because his friend forces him to', 'To help him remember them later', 'To sell the notebook'], correctIndex: 2 },
-        { question: 'What can we infer about Lucas\'s attitude?', questionPt: 'O que podemos inferir sobre a atitude de Lucas?', options: ['He is curious and wants to learn', 'He hates English', 'He thinks everything is boring', 'He is very sad'], correctIndex: 0 }
-      ],
-      questionsA2: [
-        { question: 'What does \'I\'m beat\' mean?', questionPt: 'O que significa \'I\'m beat\'?', options: ['I lost a fight', 'I\'m extremely tired', 'I\'m hungry', 'I\'m excited'], correctIndex: 1 },
-        { question: 'What does \'My bad\' mean?', questionPt: 'O que significa \'My bad\'?', options: ['I\'m angry', 'That\'s bad news', 'It was my mistake', 'I don\'t care'], correctIndex: 2 },
-        { question: 'What does \'Hit the sack\' mean?', questionPt: 'O que significa \'Hit the sack\'?', options: ['Fight someone', 'Go to sleep', 'Leave quickly', 'Start working'], correctIndex: 1 },
-        { question: 'Why was \'I\'m down\' confusing for Lucas?', questionPt: 'Por que \'I\'m down\' foi confuso para Lucas?', options: ['It means \'I\'m sad\' in other contexts', 'He never heard it before', 'Jake was whispering', 'It was in a different language'], correctIndex: 0 }
-]
-},
-            simulationTasks: [
-      {
-            promptPt: "[Amigo] \"E aí, quais são os planos para hoje à noite?\"",
-            expectedEn: "Hey, what are the plans for tonight?"
-      },
-      {
-            promptPt: "[Você] Você responde que está muito animado (hyped) para ir ao show.",
-            expectedEn: "I am really hyped to go to the concert."
-      },
-      {
-            promptPt: "[Amigo] \"Sem mentira (No cap), vai ser incrível (lit)!\"",
-            expectedEn: "No cap, it is going to be lit!"
-      },
-      {
-            promptPt: "[Você] Você quer dizer que a banda manda muito bem (went off) ao vivo.",
-            expectedEn: "The band really goes off live."
-      },
-      {
-            promptPt: "[Amigo] \"Com certeza (For real). Você topa (down to) comer algo depois?\"",
-            expectedEn: "For real. Are you down to grab food after?"
-      },
-      {
-            promptPt: "[Você] Você concorda, dizendo para ele te mandar os detalhes depois (deets).",
-            expectedEn: "Bet! Just text me the deets later."
-      }
-],
-    wouldYouRather: [
-      {
-            optionAEn: "Use outdated slang from the 90s all the time",
-            optionAPt: "Usar gírias antigas dos anos 90 o tempo todo",
-            optionBEn: "Use modern Gen Z slang but totally wrong",
-            optionBPt: "Usar gírias modernas da Geração Z mas totalmente errado"
-      },
-      {
-            optionAEn: "Call everyone 'bro' or 'dude'",
-            optionAPt: "Chamar todo mundo de 'bro' ou 'dude'",
-            optionBEn: "Call everyone 'boss' or 'chief'",
-            optionBPt: "Chamar todo mundo de 'boss' ou 'chief'"
-      },
-      {
-            optionAEn: "Misunderstand a slang word and get offended",
-            optionAPt: "Entender mal uma gíria e ficar ofendido",
-            optionBEn: "Use a slang word that accidentally offends someone",
-            optionBPt: "Usar uma gíria que ofende alguém sem querer"
-      },
-      {
-            optionAEn: "Say 'lit' in a serious business meeting",
-            optionAPt: "Dizer 'lit' em uma reunião de negócios séria",
-            optionBEn: "Say 'no cap' during a job interview",
-            optionBPt: "Dizer 'no cap' durante uma entrevista de emprego"
-      },
-      {
-            optionAEn: "Only speak using idioms",
-            optionAPt: "Falar usando apenas expressões idiomáticas",
-            optionBEn: "Never use any slang at all and sound like a robot",
-            optionBPt: "Nunca usar gírias e soar como um robô"
-      },
-      {
-            optionAEn: "Sound like a local but have bad grammar",
-            optionAPt: "Soar como um nativo mas ter gramática ruim",
-            optionBEn: "Have perfect grammar but a strong foreign accent",
-            optionBPt: "Ter gramática perfeita mas um sotaque estrangeiro forte"
-      },
-      {
-            optionAEn: "Have to explain American slang to your grandparents",
-            optionAPt: "Ter que explicar gírias americanas para seus avós",
-            optionBEn: "Have your grandparents use American slang on you",
-            optionBPt: "Ter seus avós usando gírias americanas com você"
-      }
-]
-},
+  
+  
   {
     id: 'shopping',
     speakingQuestions: [
@@ -8278,6 +7569,718 @@ export const scenarios: Scenario[] = [
             optionAPt: "Empurrar um carrinho de compras com uma roda barulhenta e quebrada",
             optionBEn: "Carry a heavy basket that hurts your hand",
             optionBPt: "Carregar uma cesta pesada que machuca sua mão"
+      }
+]
+},
+  {
+    id: 'smalltalk',
+    speakingQuestions: [
+    {
+        "question": "Do you enjoy making small talk with strangers?",
+        "questionPt": "Você gosta de jogar conversa fora com estranhos?",
+        "hintA1": "No, I am shy.",
+        "hintA2": "Not really, I feel a bit awkward talking to people I don't know well."
+    },
+    {
+        "question": "What topics do you usually talk about with your coworkers or classmates?",
+        "questionPt": "Sobre quais assuntos você costuma conversar com seus colegas de trabalho ou de classe?",
+        "hintA1": "We talk about TV shows and sports.",
+        "hintA2": "We usually talk about our weekend plans, new movies, or the weather."
+    },
+    {
+        "question": "How is the weather in your city today?",
+        "questionPt": "Como está o clima na sua cidade hoje?",
+        "hintA1": "It is sunny and hot.",
+        "hintA2": "It's quite cloudy today and it looks like it might rain later."
+    }
+,
+    {
+        "question": "Did you have a good weekend?",
+        "questionPt": "Você teve um bom fim de semana?",
+        "hintA1": "Yes, it was very relaxing.",
+        "hintA2": "It was great! I went to the beach on Saturday and cooked a nice dinner on Sunday."
+    },
+    {
+        "question": "Do you follow any sports teams?",
+        "questionPt": "Você torce para algum time?",
+        "hintA1": "Yes, I like soccer.",
+        "hintA2": "Yes, I am a big fan of Flamengo and I try to watch every game on TV."
+    },
+    {
+        "question": "What time did you arrive at work today?",
+        "questionPt": "A que horas você chegou ao trabalho hoje?",
+        "hintA1": "I arrived at nine.",
+        "hintA2": "I got here around 8:45 because the traffic was surprisingly light today."
+    },
+    {
+        "question": "Do you know anyone in this neighborhood?",
+        "questionPt": "Você conhece alguém neste bairro?",
+        "hintA1": "Yes, my cousin lives here.",
+        "hintA2": "Not many people. I just moved here last month so I am still meeting my neighbors."
+    },
+    {
+        "question": "Did you watch the news this morning?",
+        "questionPt": "Você assistiu as notícias hoje de manhã?",
+        "hintA1": "No, I did not have time.",
+        "hintA2": "Yes, I quickly read the headlines on my phone while having breakfast."
+    }
+    ],
+    title: 'Small Talk',
+    titlePt: 'Conversa Casual',
+    description: 'Master casual American conversations about weather, sports, and work.',
+    descriptionPt: 'Domine conversas casuais americanas sobre clima, esportes e trabalho.',
+    icon: '💬',
+    color: 'lavender',
+    imagePath: '/images/smalltalk_scene.png',
+    dialogues: [],
+    dialogueSets: [
+      {
+        title: 'Talking About Weather',
+        titlePt: 'Falando sobre o Clima',
+        icon: '🌤️',
+        dialogues: [
+          { speaker: 'native', english: "Beautiful day today, isn't it? Much better than yesterday.", portuguese: "Dia lindo hoje, não é? Muito melhor que ontem." },
+          { speaker: 'student', english: "It really is! I love this kind of weather. The sun feels amazing.", portuguese: "Com certeza! Adoro esse tipo de clima. O sol está maravilhoso." },
+          { speaker: 'native', english: "We've been so lucky this week. Last week it was just pouring rain non-stop.", portuguese: "Tivemos muita sorte essa semana. Semana passada estava chovendo sem parar." },
+          { speaker: 'student', english: "I know! I didn't even want to leave my hotel room. Is it usually this unpredictable?", portuguese: "Eu sei! Eu nem queria sair do meu quarto de hotel. É sempre tão imprevisível?" },
+          { speaker: 'native', english: "Oh yeah, spring in New York is crazy. You can experience four seasons in one day.", portuguese: "Ah sim, a primavera em Nova York é louca. Você pode ter as quatro estações num único dia." },
+          { speaker: 'student', english: "That's exactly what my friends told me. I brought layers just in case.", portuguese: "Foi exatamente o que meus amigos me disseram. Eu trouxe roupas em camadas por precaução." },
+          { speaker: 'native', english: "Smart move! I heard it might rain again this coming weekend though.", portuguese: "Boa jogada! Ouvi dizer que pode chover de novo no próximo fim de semana, no entanto." },
+          { speaker: 'student', english: "Really? I hope not. I'm planning to rent a bike in Central Park.", portuguese: "Sério? Espero que não. Estou planejando alugar uma bicicleta no Central Park." },
+          { speaker: 'native', english: "Fingers crossed it stays clear for you! The forecast changes every hour anyway.", portuguese: "Dedos cruzados para que fique limpo para você! A previsão muda a cada hora de qualquer jeito." },
+          { speaker: 'student', english: "Thanks! Enjoy the sunshine while it lasts.", portuguese: "Obrigado! Aproveite o sol enquanto dura." }
+]
+},
+      {
+        title: 'Talking About Sports',
+        titlePt: 'Falando sobre Esportes',
+        icon: '🏈',
+        dialogues: [
+          { speaker: 'native', english: "Hey man, did you catch the basketball game last night?", portuguese: "E aí cara, você assistiu ao jogo de basquete ontem à noite?" },
+          { speaker: 'student', english: "No, unfortunately I missed it. I was out exploring the city. Who won?", portuguese: "Não, infelizmente eu perdi. Eu estava fora explorando a cidade. Quem ganhou?" },
+          { speaker: 'native', english: "The Lakers won in double overtime! It was absolutely insane. LeBron was on fire.", portuguese: "Os Lakers ganharam na segunda prorrogação! Foi absolutamente insano. O LeBron estava com tudo." },
+          { speaker: 'student', english: "No way! I can't believe I missed that. Was it a close game the whole time?", portuguese: "Não acredito! Não posso acreditar que perdi isso. Foi um jogo acirrado o tempo todo?" },
+          { speaker: 'native', english: "Yeah, neck and neck. They tied it up right at the buzzer in the fourth quarter.", portuguese: "Sim, cabeça a cabeça. Eles empataram bem no estouro do cronômetro no quarto quarto." },
+          { speaker: 'student', english: "That sounds incredible. I need to watch the highlights later. Are you a big Lakers fan?", portuguese: "Isso soa incrível. Preciso ver os melhores momentos depois. Você é um grande fã dos Lakers?" },
+          { speaker: 'native', english: "Die-hard fan since I was a kid. What about you? Are you a basketball fan?", portuguese: "Fã fanático desde criança. E você? É fã de basquete?" },
+          { speaker: 'student', english: "I am. I'm more of a soccer person back home in Brazil, but I follow the NBA.", portuguese: "Sou sim. Sou mais de futebol no Brasil, mas eu acompanho a NBA." },
+          { speaker: 'native', english: "Oh, soccer is huge there! Do you follow the Premier League too?", portuguese: "Ah, futebol é gigante lá! Você acompanha a Premier League também?" },
+          { speaker: 'student', english: "A little bit, but mostly the local leagues. Sports are a universal language, right?", portuguese: "Um pouco, mas principalmente as ligas locais. Esportes são uma linguagem universal, certo?" }
+]
+},
+      {
+        title: 'Talking About Work',
+        titlePt: 'Falando sobre Trabalho',
+        icon: '💼',
+        dialogues: [
+          { speaker: 'native', english: "So, what do you do for a living?", portuguese: "Então, o que você faz da vida?" },
+          { speaker: 'student', english: "I'm a teacher. I teach English back in Brazil to high school students.", portuguese: "Sou professora. Ensino inglês no Brasil para alunos do ensino médio." },
+          { speaker: 'native', english: "Oh wow, that's awesome! High school can be tough. Do you enjoy it?", portuguese: "Uau, que incrível! O ensino médio pode ser difícil. Você gosta?" },
+          { speaker: 'student', english: "I really love it. Teenagers can be challenging, but they have so much energy.", portuguese: "Eu realmente adoro. Adolescentes podem ser desafiadores, mas eles têm tanta energia." },
+          { speaker: 'native', english: "I bet! Every day must be completely different.", portuguese: "Aposto que sim! Cada dia deve ser completamente diferente." },
+          { speaker: 'student', english: "Exactly, every class is different, which keeps things exciting. What about you?", portuguese: "Exatamente, cada aula é diferente, o que mantém as coisas animadas. E você?" },
+          { speaker: 'native', english: "I work in marketing for a software company here in the city. It's mostly sitting at a desk.", portuguese: "Eu trabalho com marketing em uma empresa de software aqui na cidade. É principalmente ficar sentado numa mesa." },
+          { speaker: 'student', english: "That sounds interesting though. Do you get to work from home?", portuguese: "Mas parece interessante. Você tem a chance de trabalhar de casa?" },
+          { speaker: 'native', english: "Yeah, we have a hybrid schedule. Two days in the office, three at home. Are you here for a conference?", portuguese: "Sim, temos um horário híbrido. Dois dias no escritório, três em casa. Você está aqui para uma conferência?" },
+          { speaker: 'student', english: "Kind of — I'm doing research and visiting some local schools to improve my teaching methods.", portuguese: "Mais ou menos — estou pesquisando e visitando algumas escolas locais para melhorar meus métodos de ensino." },
+          { speaker: 'native', english: "That's so cool. I hope you get some great ideas to take back with you!", portuguese: "Isso é muito legal. Espero que você consiga ótimas ideias para levar com você!" },
+          { speaker: 'student', english: "Thanks! I'm learning a lot just by talking to people like you.", portuguese: "Obrigada! Estou aprendendo muito só conversando com pessoas como você." }
+]
+}
+],
+            importantPhrases: [
+      {
+            pt: "Você gosta de esportes?",
+            en: "Do you like sports?"
+      },
+      {
+            pt: "Assisti a um filme ótimo.",
+            en: "I watched a great movie."
+      },
+      {
+            pt: "A comida estava deliciosa.",
+            en: "The food was delicious."
+      },
+      {
+            pt: "Eu amo cachorros.",
+            en: "I love dogs."
+      },
+      {
+            pt: "Qual é sua música favorita?",
+            en: "What is your favorite song?"
+      },
+      {
+            pt: "Tem planos para o feriado?",
+            en: "Do you have plans for the holiday?"
+      }
+],
+        problems: [
+      {
+            descriptionPt: "A pessoa fez uma piada que você não entendeu, e você precisa dizer isso de forma educada."
+      },
+      {
+            descriptionPt: "Você não quer falar sobre o assunto que a pessoa puxou e quer mudar de assunto educadamente."
+      }
+],
+    vocabulary: [
+      { english: "Small talk", portuguese: "Conversa informal",
+        sentenceA1: "I like small talk.",
+        sentenceA2: "Making small talk is a great way to practice English.",
+        sentenceA1Pt: "Gosto de conversa informal.",
+        sentenceA2Pt: "Conversa informal é ótima para praticar inglês."
+      },
+      { english: "Fingers crossed", portuguese: "Dedos cruzados / Torcendo",
+        sentenceA1: "Fingers crossed!",
+        sentenceA2: "I have a job interview tomorrow. Fingers crossed!",
+        sentenceA1Pt: "Estou torcendo!",
+        sentenceA2Pt: "Tenho uma entrevista amanhã. Estou torcendo!"
+      },
+      { english: "Catch the game", portuguese: "Assistir o jogo",
+        sentenceA1: "Did you catch the game?",
+        sentenceA2: "Did you catch the game last night? The final was incredible.",
+        sentenceA1Pt: "Você assistiu o jogo?",
+        sentenceA2Pt: "Assistiu o jogo ontem? O final foi incrível."
+      },
+      { english: "Overtime", portuguese: "Hora extra / Prorrogação",
+        sentenceA1: "I worked overtime today.",
+        sentenceA2: "I had to work overtime to finish the project.",
+        sentenceA1Pt: "Fiz hora extra hoje.",
+        sentenceA2Pt: "Tive que fazer hora extra para terminar o projeto."
+      },
+      { english: "For a living", portuguese: "Como profissão / Ganhar a vida",
+        sentenceA1: "What do you do for a living?",
+        sentenceA2: "She designs websites for a living and loves it.",
+        sentenceA1Pt: "O que você faz da vida?",
+        sentenceA2Pt: "Ela cria sites profissionalmente e adora."
+      },
+      { english: "Keep things exciting", portuguese: "Manter as coisas animadas",
+        sentenceA1: "I like to keep things exciting.",
+        sentenceA2: "We try new restaurants every weekend to keep things exciting.",
+        sentenceA1Pt: "Gosto de manter as coisas animadas.",
+        sentenceA2Pt: "Experimentamos restaurantes novos todo fim de semana."
+      },
+      { english: "Attitude", portuguese: "Atitude",
+        sentenceA1: "She has a great attitude.",
+        sentenceA2: "Having a positive attitude makes a big difference at work.",
+        sentenceA1Pt: "Ela tem uma ótima atitude.",
+        sentenceA2Pt: "Ter atitude positiva faz grande diferença no trabalho."
+      },
+      { english: "Conference", portuguese: "Conferência / Congresso",
+        sentenceA1: "I went to a conference.",
+        sentenceA2: "The technology conference had amazing speakers.",
+        sentenceA1Pt: "Fui a uma conferência.",
+        sentenceA2Pt: "A conferência de tecnologia teve palestrantes incríveis."
+      },
+      { english: "How", portuguese: "Como",
+        sentenceA1: "How are you today?",
+        sentenceA2: "How was your vacation? I heard you went to Europe.",
+        sentenceA1Pt: "Como você está hoje?",
+        sentenceA2Pt: "Como foram suas férias? Soube que foi para a Europa."
+      },
+      { english: "What", portuguese: "O que / Qual",
+        sentenceA1: "What is your name?",
+        sentenceA2: "What do you think about the new project?",
+        sentenceA1Pt: "Qual é o seu nome?",
+        sentenceA2Pt: "O que acha do novo projeto?"
+      },
+      { english: "Have a good one!", portuguese: "Tenha um bom dia / Tenha um bom!",
+        sentenceA1: "Have a good one!",
+        sentenceA2: "It was nice chatting. Have a good one!",
+        sentenceA1Pt: "Tenha um bom dia!",
+        sentenceA2Pt: "Foi bom conversar. Tenha um bom dia!"
+      },
+      { english: "Awesome", portuguese: "Incrível / Sensacional",
+        sentenceA1: "That is awesome!",
+        sentenceA2: "Your presentation was awesome! Everyone loved it.",
+        sentenceA1Pt: "Isso é incrível!",
+        sentenceA2Pt: "Sua apresentação foi incrível! Todos adoraram."
+      },
+      { english: "Make sense", portuguese: "Fazer sentido",
+        sentenceA1: "Does that make sense?",
+        sentenceA2: "I explained the directions twice. Does that make sense?",
+        sentenceA1Pt: "Faz sentido?",
+        sentenceA2Pt: "Expliquei as direções duas vezes. Faz sentido agora?"
+      },
+      { english: "How's it going?", portuguese: "Como vão as coisas?",
+        sentenceA1: "Hey, how's it going?",
+        sentenceA2: "How's it going? I haven't seen you since last week.",
+        sentenceA1Pt: "E aí, como vai?",
+        sentenceA2Pt: "Como vai? Não te vejo desde a semana passada."
+      },
+      { english: "What's up?", portuguese: "E aí? / O que está rolando?",
+        sentenceA1: "What's up? All good?",
+        sentenceA2: "What's up? I heard you started a new job.",
+        sentenceA1Pt: "E aí, tudo bem?",
+        sentenceA2Pt: "E aí? Soube que você começou um emprego novo."
+      },
+      { english: "Weather", portuguese: "Clima / Tempo",
+        sentenceA1: "The weather is hot.",
+        sentenceA2: "I love cold weather because I can wear my favorite coats.",
+        sentenceA1Pt: "O tempo está quente.",
+        sentenceA2Pt: "Adoro clima frio porque posso usar meus casacos favoritos."
+      },
+      { english: "Busy", portuguese: "Ocupado(a)",
+        sentenceA1: "I am very busy.",
+        sentenceA2: "She has a very busy schedule today with meetings back-to-back.",
+        sentenceA1Pt: "Estou muito ocupado.",
+        sentenceA2Pt: "Ela está com uma agenda muito ocupada hoje com reuniões seguidas."
+      },
+      { english: "Colleague", portuguese: "Colega de trabalho",
+        sentenceA1: "He is my colleague.",
+        sentenceA2: "My colleague helped me finish the report on Friday.",
+        sentenceA1Pt: "Ele é meu colega.",
+        sentenceA2Pt: "Meu colega me ajudou a finalizar o relatório na sexta-feira."
+      }
+],
+    culturalTips: [
+      {
+        title: "Weather is Always Safe",
+        titlePt: "Clima é Sempre Seguro",
+        content: "In American culture, commenting on the weather is the safest conversation starter. It breaks the ice with anyone — strangers, coworkers, or neighbors.",
+        contentPt: "Na cultura americana, comentar sobre o clima é a forma mais segura de iniciar uma conversa. Quebra o gelo com qualquer pessoa — desconhecidos, colegas ou vizinhos."
+},
+      {
+        title: "Sports as Social Currency",
+        titlePt: "Esportes como Moeda Social",
+        content: "American football (NFL) and basketball (NBA) are hugely popular. Knowing basic teams and recent scores can open many social doors, especially with men.",
+        contentPt: "Futebol americano (NFL) e basquete (NBA) são imensamente populares. Conhecer times básicos e resultados recentes pode abrir muitas portas sociais, especialmente com homens."
+},
+      {
+        title: "'What do you do?' is Normal",
+        titlePt: "'O que você faz?' é Normal",
+        content: "Americans often ask 'What do you do for a living?' soon after meeting. Unlike some cultures, this is not considered rude — it's a standard way to get to know someone.",
+        contentPt: "Americanos frequentemente perguntam 'What do you do for a living?' logo após se conhecerem. Ao contrário de algumas culturas, isso não é considerado grosseiro — é uma forma padrão de conhecer alguém."
+}
+],
+  reading: {
+      textA1: 'Mark meets his neighbor in the elevator. His neighbor says good morning. Mark says good morning too. The neighbor asks how Mark is doing. Mark says he is fine, thank you. The neighbor asks about the weather. Mark says it is cold today. The neighbor agrees and says they need a jacket. Mark asks if the neighbor is going to work. The neighbor says yes, he works at a bank. Mark says he is a student. They both smile. The elevator arrives at the first floor. The neighbor says have a nice day. Mark says you too. They walk outside together. Mark likes his friendly neighbor.',
+      textA1Pt: 'Mark encontra seu vizinho no elevador. O vizinho diz bom dia. Mark diz bom dia também. O vizinho pergunta como Mark está. Mark diz que está bem, obrigado. O vizinho pergunta sobre o clima. Mark diz que está frio hoje. O vizinho concorda e diz que eles precisam de um casaco. Mark pergunta se o vizinho vai trabalhar. O vizinho diz que sim, ele trabalha em um banco. Mark diz que é estudante. Ambos sorriem. O elevador chega ao primeiro andar. O vizinho diz tenha um bom dia. Mark diz igualmente. Eles caminham para fora juntos. Mark gosta do seu vizinho simpático.',
+      textA2: 'Small talk is often considered one of the most challenging aspects of learning a new language, not because of its vocabulary or grammar, but because of its cultural nuances. Mark, a Brazilian exchange student living in Brooklyn, quickly learned that Americans use small talk as a social lubricant in almost every interaction. At the coffee shop, the barista would ask \'How\'s your day going?\' while preparing his order. At the grocery store, the cashier might comment on the weather or compliment his jacket. Initially, Mark found these interactions confusing — he was not sure if people genuinely wanted to know how he was doing or if it was just a polite formality. Over time, he realized that the expected response to \'How are you?\' is simply \'Good, thanks! How about you?\' rather than a detailed account of his day. He also noticed that safe topics for small talk include the weather, sports, weekend plans, and local restaurants, while politics, religion, salary, and personal problems are generally avoided with strangers. One of his most memorable small talk experiences happened at a laundromat, where he struck up a conversation with an elderly man named Frank about the best pizza places in the neighborhood. That casual exchange led to a genuine friendship, and Frank eventually invited Mark to his family\'s Thanksgiving dinner.',
+      textA2Pt: 'Conversa fiada é frequentemente considerada um dos aspectos mais desafiadores de aprender um novo idioma, não por causa do vocabulário ou gramática, mas por causa de suas nuances culturais. Mark, um estudante de intercâmbio brasileiro morando no Brooklyn, rapidamente aprendeu que americanos usam conversa fiada como um lubrificante social em quase toda interação. Na cafeteria, o barista perguntava \'Como está seu dia?\' enquanto preparava seu pedido. No supermercado, o caixa poderia comentar sobre o clima ou elogiar sua jaqueta. Inicialmente, Mark achava essas interações confusas — ele não tinha certeza se as pessoas genuinamente queriam saber como ele estava ou se era apenas uma formalidade educada. Com o tempo, ele percebeu que a resposta esperada para \'How are you?\' é simplesmente \'Good, thanks! How about you?\' em vez de um relato detalhado do seu dia. Ele também notou que tópicos seguros para conversa fiada incluem clima, esportes, planos de fim de semana e restaurantes locais, enquanto política, religião, salário e problemas pessoais são geralmente evitados com estranhos. Uma de suas experiências mais memoráveis de conversa fiada aconteceu em uma lavanderia, onde ele puxou conversa com um senhor chamado Frank sobre as melhores pizzarias do bairro. Essa troca casual levou a uma amizade genuína, e Frank eventualmente convidou Mark para o jantar de Ação de Graças de sua família.',
+      questionsA1: [
+        { question: 'What is the main idea of this text?', questionPt: 'Qual é a ideia principal deste texto?', options: ['Mark has a friendly morning chat with his neighbor', 'Mark hates his neighbor', 'Mark is stuck in the elevator', 'Mark goes to a bank'], correctIndex: 0 },
+        { question: 'What does "friendly" mean in the text?', questionPt: 'O que significa "friendly" no texto?', options: ['Mean and angry', 'Kind and pleasant', 'Cold and silent', 'Fast and loud'], correctIndex: 1 },
+        { question: 'Why do they talk about the weather?', questionPt: 'Por que eles falam sobre o tempo?', options: ['Because they are meteorologists', 'It is a common and polite topic for a quick chat', 'Because it is raining inside', 'To argue'], correctIndex: 1 },
+        { question: 'What can we infer about their relationship?', questionPt: 'O que podemos inferir sobre o relacionamento deles?', options: ['They are polite and have a good relationship', 'They are best friends', 'They never talk', 'They are angry at each other'], correctIndex: 0 }
+      ],
+      questionsA2: [
+        { question: 'What is the expected response to \'How are you?\'?', questionPt: 'Qual é a resposta esperada para \'How are you?\'?', options: ['A detailed story', '\'Good, thanks! How about you?\'', 'Ignore the question', '\'I am feeling terrible\''], correctIndex: 1 },
+        { question: 'Which topics should be avoided in small talk with strangers?', questionPt: 'Quais tópicos devem ser evitados em conversa fiada com estranhos?', options: ['Weather and sports', 'Politics, religion, and salary', 'Restaurants and movies', 'Weekend plans'], correctIndex: 1 },
+        { question: 'Where did Mark meet Frank?', questionPt: 'Onde Mark conheceu Frank?', options: ['At a party', 'At school', 'At a laundromat', 'At a restaurant'], correctIndex: 2 },
+        { question: 'What did Frank invite Mark to?', questionPt: 'Para o que Frank convidou Mark?', options: ['A pizza night', 'A baseball game', 'His Thanksgiving dinner', 'A weekend trip'], correctIndex: 2 }
+]
+},
+        simulationTasks: [
+      {
+            promptPt: "[Colega] \"Como você está hoje?\"",
+            expectedEn: "How are you doing today?"
+      },
+      {
+            promptPt: "[Você] Você responde que está bem e pergunta como está o tempo lá fora",
+            expectedEn: "I am fine. How is the weather today?"
+      },
+      {
+            promptPt: "[Colega] \"O que você gosta de fazer no tempo livre?\"",
+            expectedEn: "What do you like to do in your free time?"
+      },
+      {
+            promptPt: "[Você] Você responde que gosta de ler e assistir filmes",
+            expectedEn: "I like to read and watch movies."
+      },
+      {
+            promptPt: "[Você] Você quer perguntar se a pessoa mora aqui há muito tempo",
+            expectedEn: "Have you lived here long?"
+      },
+      {
+            promptPt: "[Você] Você quer se despedir dizendo que precisa ir agora",
+            expectedEn: "I have to go now."
+      }
+],
+    wouldYouRather: [
+      {
+            optionAEn: "Be stuck in an elevator with your boss",
+            optionAPt: "Ficar preso no elevador com o seu chefe",
+            optionBEn: "Be stuck in an elevator with your ex",
+            optionBPt: "Ficar preso no elevador com o seu ex"
+      },
+      {
+            optionAEn: "Talk about the weather for 10 minutes",
+            optionAPt: "Falar sobre o tempo por 10 minutos",
+            optionBEn: "Stand in complete awkward silence",
+            optionBPt: "Ficar em completo silêncio constrangedor"
+      },
+      {
+            optionAEn: "Wave back at someone who was waving to the person behind you",
+            optionAPt: "Acenar de volta para alguém que estava acenando para a pessoa atrás de você",
+            optionBEn: "Call someone by the wrong name confidently",
+            optionBPt: "Chamar alguém pelo nome errado com confiança"
+      },
+      {
+            optionAEn: "Always overshare personal information",
+            optionAPt: "Sempre compartilhar informações pessoais demais",
+            optionBEn: "Never say anything about yourself",
+            optionBPt: "Nunca dizer nada sobre você mesmo"
+      },
+      {
+            optionAEn: "Laugh at a joke you didn't hear",
+            optionAPt: "Rir de uma piada que você não ouviu",
+            optionBEn: "Ask them to repeat the joke three times",
+            optionBPt: "Pedir para repetirem a piada três vezes"
+      },
+      {
+            optionAEn: "Have a very loud sneeze in a quiet room",
+            optionAPt: "Dar um espirro muito alto em uma sala silenciosa",
+            optionBEn: "Have a stomach growl loudly during a meeting",
+            optionBPt: "Ter a barriga roncando alto durante uma reunião"
+      },
+      {
+            optionAEn: "Accidentally say 'I love you' at the end of a work call",
+            optionAPt: "Dizer sem querer 'eu te amo' no fim de uma ligação de trabalho",
+            optionBEn: "Accidentally hang up on someone important",
+            optionBPt: "Desligar sem querer na cara de alguém importante"
+      }
+]
+},
+  {
+    id: 'slangs',
+    speakingQuestions: [
+    {
+        "question": "Do you use a lot of slang when speaking Portuguese?",
+        "questionPt": "Você usa muitas gírias quando fala português?",
+        "hintA1": "Yes, I use many slangs with friends.",
+        "hintA2": "Yes, I use a lot of slang, especially when I'm texting or hanging out with my friends."
+    },
+    {
+        "question": "What is your favorite English slang word?",
+        "questionPt": "Qual é a sua gíria favorita em inglês?",
+        "hintA1": "My favorite slang is 'cool'.",
+        "hintA2": "I really like the word 'awesome' because it sounds very positive."
+    },
+    {
+        "question": "Do you think it's important to learn slang to speak fluently?",
+        "questionPt": "Você acha importante aprender gírias para falar fluentemente?",
+        "hintA1": "Yes, people use slangs every day.",
+        "hintA2": "Yes, because native speakers use slang all the time in real life conversations."
+    }
+,
+    {
+        "question": "Did you learn any new slang words this week?",
+        "questionPt": "Você aprendeu alguma gíria nova esta semana?",
+        "hintA1": "Yes, I learned the word chill.",
+        "hintA2": "Yes, my friend taught me what 'no cap' means and now I use it all the time."
+    },
+    {
+        "question": "Do you think slang changes too quickly?",
+        "questionPt": "Você acha que as gírias mudam rápido demais?",
+        "hintA1": "Yes, very quickly.",
+        "hintA2": "Definitely. Young people on TikTok create new expressions every single week."
+    },
+    {
+        "question": "What slang did you use when you were a teenager?",
+        "questionPt": "Que gíria você usava quando era adolescente?",
+        "hintA1": "I used to say 'cool' a lot.",
+        "hintA2": "We used to say 'rad' and 'awesome' all the time back in high school."
+    },
+    {
+        "question": "Do you use emojis when you send messages?",
+        "questionPt": "Você usa emojis quando manda mensagens?",
+        "hintA1": "Yes, I love using emojis.",
+        "hintA2": "I use them in almost every message because they help show my feelings."
+    },
+    {
+        "question": "Did anyone ever misunderstand your slang?",
+        "questionPt": "Alguém já não entendeu a sua gíria?",
+        "hintA1": "Yes, my grandmother did not understand.",
+        "hintA2": "Yes, my boss was really confused when I accidentally used a very informal expression."
+    }
+    ],
+    title: 'American Slangs',
+    titlePt: 'Gírias Americanas',
+    description: 'Learn popular everyday slang and expressions used by Americans.',
+    descriptionPt: 'Aprenda gírias e expressões populares do dia a dia americano.',
+    icon: '🤙',
+    color: 'rose',
+    imagePath: '/images/slangs_scene.png',
+    dialogues: [],
+    dialogueSets: [
+      {
+        title: 'Everyday Expressions',
+        titlePt: 'Expressões do Dia a Dia',
+        icon: '🗣️',
+        dialogues: [
+          { speaker: 'native', english: "Dude, that concert last night was totally lit! Did you have fun?", portuguese: "Cara, aquele show ontem à noite foi totalmente incrível! Você se divertiu?" },
+          { speaker: 'student', english: "No cap! The energy in the crowd was unreal. I'm still hyped about it.", portuguese: "Verdade! A energia na multidão estava surreal. Ainda estou animada com isso." },
+          { speaker: 'native', english: "Same here. But honestly, my feet are killing me. We were jumping the whole time.", portuguese: "Eu também. Mas honestamente, meus pés estão me matando. Ficamos pulando o tempo todo." },
+          { speaker: 'student', english: "Totally worth it though. The lead singer was lowkey amazing live.", portuguese: "Mas valeu totalmente a pena. O vocalista foi incrivelmente ('lowkey') maravilhoso ao vivo." },
+          { speaker: 'native', english: "Lowkey? Nah, he was highkey the best part of the show! He really went off.", portuguese: "Lowkey? Não, ele foi totalmente ('highkey') a melhor parte do show! Ele realmente arrasou ('went off')." },
+          { speaker: 'student', english: "For real. I thought the tickets were pricey, but it was a vibe.", portuguese: "Com certeza. Achei que os ingressos estavam caros, mas foi uma vibe." },
+          { speaker: 'native', english: "Absolutely. Hey, speaking of vibes, are you down to grab brunch tomorrow?", portuguese: "Absolutamente. Ei, falando em vibes, você topa tomar um brunch amanhã?" },
+          { speaker: 'student', english: "I'm so down. I need some good pancakes after sleeping in.", portuguese: "Topo demais. Preciso de umas boas panquecas depois de dormir até tarde." },
+          { speaker: 'native', english: "Say less. I know a place that's bussin'. I'll text you the deets later.", portuguese: "Não diga mais nada. Conheço um lugar que é muito bom ('bussin'). Te mando os detalhes depois." },
+          { speaker: 'student', english: "Bet! Catch you tomorrow.", portuguese: "Fechado ('Bet')! Te vejo amanhã." }
+]
+},
+      {
+        title: 'At the Office / School',
+        titlePt: 'No Escritório / Escola',
+        icon: '🏢',
+        dialogues: [
+          { speaker: 'native', english: "Hey, heads up — the boss wants us to circle back on the marketing project.", portuguese: "Ei, atenção — o chefe quer que a gente retome ('circle back') o projeto de marketing." },
+          { speaker: 'student', english: "Oh shoot. I totally spaced on that. Is he bent out of shape about the delay?", portuguese: "Nossa. Esqueci completamente. Ele está bravo ('bent out of shape') com o atraso?" },
+          { speaker: 'native', english: "Nah, he's pretty chill. He just wants us to touch base by Friday morning.", portuguese: "Não, ele é bem tranquilo. Ele só quer que a gente dê um retorno ('touch base') até sexta de manhã." },
+          { speaker: 'student', english: "Got it. I've been super swamped with emails today. Can we put a pin in the other tasks?", portuguese: "Entendi. Estive super atarefada ('swamped') com e-mails hoje. Podemos adiar ('put a pin') as outras tarefas?" },
+          { speaker: 'native', english: "Definitely. Let's prioritize this. Do you think you can get the draft done today?", portuguese: "Definitivamente. Vamos priorizar isso. Você acha que consegue terminar o rascunho hoje?" },
+          { speaker: 'student', english: "I'll knock it out tonight after hours and shoot you an email.", portuguese: "Vou terminar de uma vez ('knock it out') hoje após o expediente e te mandar um e-mail." },
+          { speaker: 'native', english: "Awesome, you're a lifesaver. Let me know if you hit a roadblock and need backup.", portuguese: "Ótimo, você me salvou a vida. Me avisa se encontrar um obstáculo ('hit a roadblock') e precisar de ajuda." },
+          { speaker: 'student', english: "Will do! Let's touch base tomorrow to review it together.", portuguese: "Farei isso! Vamos nos falar amanhã para revisarmos juntos." },
+          { speaker: 'native', english: "Sounds like a plan. See you at the water cooler later.", portuguese: "Parece um bom plano. Te vejo no bebedouro mais tarde." }
+]
+}
+],
+            importantPhrases: [
+      {
+            pt: "Estou exausto (beat).",
+            en: "I am beat."
+      },
+      {
+            pt: "Isso é loucura (nuts).",
+            en: "That is nuts."
+      },
+      {
+            pt: "Me dá um tempo (give me a break).",
+            en: "Give me a break."
+      },
+      {
+            pt: "Bora (let's go).",
+            en: "Let's go."
+      },
+      {
+            pt: "Tô de boa (I am chilling).",
+            en: "I am chilling."
+      },
+      {
+            pt: "Isso é incrível (dope).",
+            en: "That is dope."
+      }
+],
+        problems: [
+      {
+            descriptionPt: "Alguém usou uma gíria que você nunca ouviu antes."
+      },
+      {
+            descriptionPt: "Você usou uma gíria errada e todos riram, como você se desculpa brincando?"
+      }
+],
+    vocabulary: [
+      { english: "Lit / Fire", portuguese: "Massa / Muito legal / Demais",
+        sentenceA1: "That party was lit!",
+        sentenceA2: "The concert last night was absolutely lit.",
+        sentenceA1Pt: "Aquela festa foi demais!",
+        sentenceA2Pt: "O show ontem à noite foi absolutamente demais."
+      },
+      { english: "No cap", portuguese: "Sem mentira / Verdade",
+        sentenceA1: "No cap, it was amazing.",
+        sentenceA2: "No cap, that was the best pizza I ever tasted.",
+        sentenceA1Pt: "Sem mentira, foi incrível.",
+        sentenceA2Pt: "Sem mentira, foi a melhor pizza que já comi."
+      },
+      { english: "Hyped", portuguese: "Empolgado",
+        sentenceA1: "I am so hyped!",
+        sentenceA2: "Everyone is hyped about the new Marvel movie.",
+        sentenceA1Pt: "Estou muito empolgado!",
+        sentenceA2Pt: "Todo mundo está empolgado com o novo filme da Marvel."
+      },
+      { english: "Down (to do something)", portuguese: "Topar / Estar a fim",
+        sentenceA1: "I am down to go.",
+        sentenceA2: "Are you down to try the new sushi restaurant?",
+        sentenceA1Pt: "Estou a fim de ir.",
+        sentenceA2Pt: "Está a fim de experimentar o novo restaurante de sushi?"
+      },
+      { english: "Deets", portuguese: "Detalhes",
+        sentenceA1: "Give me the deets.",
+        sentenceA2: "Send me the deets about the party.",
+        sentenceA1Pt: "Me dá os detalhes.",
+        sentenceA2Pt: "Manda os detalhes sobre a festa."
+      },
+      { english: "Heads up", portuguese: "Aviso / Alerta",
+        sentenceA1: "Heads up, it is raining.",
+        sentenceA2: "Heads up, the boss is in a bad mood today.",
+        sentenceA1Pt: "Só avisando, está chovendo.",
+        sentenceA2Pt: "Só avisando, o chefe está de mau humor hoje."
+      },
+      { english: "Spaced out", portuguese: "Distraído(a) / No mundo da lua",
+        sentenceA1: "Sorry, I spaced out.",
+        sentenceA2: "I completely spaced out during the meeting.",
+        sentenceA1Pt: "Desculpa, me distraí.",
+        sentenceA2Pt: "Me distraí completamente durante a reunião."
+      },
+      { english: "Swamped", portuguese: "Atolado(a) de trabalho",
+        sentenceA1: "I am swamped with work.",
+        sentenceA2: "I cannot go out tonight, I am totally swamped.",
+        sentenceA1Pt: "Estou atolado de trabalho.",
+        sentenceA2Pt: "Não posso sair hoje, estou totalmente atolado."
+      },
+      { english: "Chill", portuguese: "Relaxar / Tranquilo",
+        sentenceA1: "Let us chill at home.",
+        sentenceA2: "We stayed home and chilled all weekend watching movies.",
+        sentenceA1Pt: "Vamos relaxar em casa.",
+        sentenceA2Pt: "Ficamos em casa e relaxamos o fim de semana assistindo filmes."
+      },
+      { english: "Ghost", portuguese: "Ignorar / Sumir",
+        sentenceA1: "He ghosted me.",
+        sentenceA2: "She ghosted me after our second date.",
+        sentenceA1Pt: "Ele me deixou no vácuo.",
+        sentenceA2Pt: "Ela me deixou no vácuo depois do segundo encontro."
+      },
+      { english: "Flex", portuguese: "Exibir-se / Ostentar",
+        sentenceA1: "Stop flexing!",
+        sentenceA2: "He always flexes his new sneakers on social media.",
+        sentenceA1Pt: "Para de se exibir!",
+        sentenceA2Pt: "Ele sempre se exibe com seus tênis novos nas redes sociais."
+      },
+      { english: "Salty", portuguese: "Irritado(a) / Ressentido(a)",
+        sentenceA1: "Why are you so salty?",
+        sentenceA2: "She got salty because nobody liked her photo.",
+        sentenceA1Pt: "Por que está tão irritado?",
+        sentenceA2Pt: "Ela ficou irritada porque ninguém curtiu a foto dela."
+      },
+      { english: "Tea", portuguese: "Fofoca",
+        sentenceA1: "Spill the tea!",
+        sentenceA2: "I heard some tea about our neighbors.",
+        sentenceA1Pt: "Conta a fofoca!",
+        sentenceA2Pt: "Soube de uma fofoca sobre nossos vizinhos."
+      },
+      { english: "Bet", portuguese: "Pode apostar / Com certeza",
+        sentenceA1: "Are we going? Bet!",
+        sentenceA2: "You think we can finish on time? Bet, let's start.",
+        sentenceA1Pt: "Nós vamos? Com certeza!",
+        sentenceA2Pt: "Você acha que podemos terminar no prazo? Com certeza, vamos começar."
+      },
+      { english: "Bummer", portuguese: "Que pena / Chateação",
+        sentenceA1: "That is a bummer.",
+        sentenceA2: "The concert was canceled. What a bummer!",
+        sentenceA1Pt: "Que pena.",
+        sentenceA2Pt: "O show foi cancelado. Que chateação!"
+      },
+      { english: "Slay", portuguese: "Arrasar",
+        sentenceA1: "You slay in that outfit!",
+        sentenceA2: "She did an amazing job on the presentation, she really slayed.",
+        sentenceA1Pt: "Você arrasou com essa roupa!",
+        sentenceA2Pt: "Ela fez um trabalho incrível na apresentação, ela realmente arrasou."
+      },
+      { english: "For real", portuguese: "Sério / De verdade",
+        sentenceA1: "Are you for real?",
+        sentenceA2: "I got a promotion, for real! I'm so excited.",
+        sentenceA1Pt: "É sério?",
+        sentenceA2Pt: "Fui promovido, de verdade! Estou muito animado."
+      }
+],
+    culturalTips: [
+      {
+        title: "Slang Evolves Fast",
+        titlePt: "Gírias Evoluem Rápido",
+        content: "American slang changes constantly, especially online. What was cool in 2020 may already be 'cringe' today. When in doubt, observe and listen before using new slang.",
+        contentPt: "As gírias americanas mudam constantemente, especialmente online. O que era legal em 2020 pode já ser 'brega' hoje. Na dúvida, observe e ouça antes de usar novas gírias."
+},
+      {
+        title: "'No Cap' & Gen-Z Speak",
+        titlePt: "'No Cap' e o Idioma Gen-Z",
+        content: "'No cap' means 'for real / no lie'. Other Gen-Z essentials: 'bussin' (delicious), 'slay' (to do something great), 'vibe check' (testing someone's energy). These are now mainstream!",
+        contentPt: "'No cap' significa 'de verdade / sem mentira'. Outros essenciais Gen-Z: 'bussin' (delicioso), 'slay' (arrasar), 'vibe check' (testar a energia de alguém). Já são mainstream!"
+},
+      {
+        title: "Office Jargon is Real",
+        titlePt: "Jargão de Escritório é Real",
+        content: "'Circle back', 'touch base', 'take this offline' — American workplaces have their own dialect! Understanding office slang will help you feel confident in professional settings.",
+        contentPt: "'Circle back', 'touch base', 'take this offline' — os ambientes de trabalho americanos têm seu próprio dialeto! Entender o jargão de escritório ajudará a se sentir confiante em ambientes profissionais."
+}
+],
+  reading: {
+      textA1: 'Lucas is in New York. His American friend says many new words. His friend says \'What\'s up?\' Lucas does not understand. His friend explains it means \'How are you?\' His friend also says \'That\'s cool!\' Lucas learns it means \'That is nice.\' They go to a restaurant. The food is very good. His friend says \'This is awesome!\' Lucas learns another new word. After lunch, his friend says \'Let\'s hang out later.\' Lucas asks what it means. His friend says it means spending time together. Lucas writes all the new words in his notebook. He wants to remember them. He thinks American English is fun but sometimes confusing.',
+      textA1Pt: 'Lucas está em Nova York. Seu amigo americano diz muitas palavras novas. Seu amigo diz \'What\'s up?\' Lucas não entende. Seu amigo explica que significa \'Como você está?\' Seu amigo também diz \'That\'s cool!\' Lucas aprende que significa \'Isso é legal.\' Eles vão a um restaurante. A comida é muito boa. Seu amigo diz \'This is awesome!\' Lucas aprende outra palavra nova. Depois do almoço, seu amigo diz \'Let\'s hang out later.\' Lucas pergunta o que significa. Seu amigo diz que significa passar tempo juntos. Lucas escreve todas as palavras novas no caderno. Ele quer lembrar delas. Ele acha que o inglês americano é divertido mas às vezes confuso.',
+      textA2: 'American English is full of slang expressions that can leave non-native speakers completely lost in a conversation. Lucas, a university student from Belo Horizonte, experienced this culture shock when he started hanging out with his American roommate, Jake, in their shared apartment in the East Village. On his very first evening, Jake came home and said \'Dude, I\'m totally beat. Work was insane today.\' Lucas had to process three pieces of slang in one sentence: \'dude\' (a casual way to address someone), \'beat\' (extremely tired), and \'insane\' (used positively to mean crazy or intense). Over the following weeks, Lucas compiled an entire vocabulary list of informal expressions. He learned that \'gonna\' means \'going to,\' \'wanna\' means \'want to,\' and \'gotta\' means \'got to\' or \'have to.\' He discovered that \'No worries\' is a very common way to say \'You are welcome,\' and that \'My bad\' is a casual apology meaning \'It was my mistake.\' Some expressions were trickier to understand, like \'It\'s not rocket science\' (it\'s not that difficult), \'Break a leg\' (good luck, typically said before a performance), and \'Hit the sack\' (go to sleep). Perhaps the most confusing moment came when Jake said \'I\'m down\' to mean \'I agree\' or \'I want to join,\' because Lucas initially thought it meant Jake was feeling sad. Understanding slang became Lucas\'s secret weapon for fitting in and making genuine connections with native speakers.',
+      textA2Pt: 'O inglês americano é cheio de expressões de gíria que podem deixar falantes não nativos completamente perdidos em uma conversa. Lucas, um estudante universitário de Belo Horizonte, experimentou esse choque cultural quando começou a andar com seu colega de quarto americano, Jake, no apartamento compartilhado deles no East Village. Na sua primeira noite, Jake chegou em casa e disse \'Dude, I\'m totally beat. Work was insane today.\' Lucas teve que processar três gírias em uma frase: \'dude\' (uma forma casual de se dirigir a alguém), \'beat\' (extremamente cansado), e \'insane\' (usado positivamente para significar louco ou intenso). Nas semanas seguintes, Lucas compilou uma lista inteira de vocabulário de expressões informais. Ele aprendeu que \'gonna\' significa \'going to,\' \'wanna\' significa \'want to,\' e \'gotta\' significa \'got to\' ou \'have to.\' Ele descobriu que \'No worries\' é uma forma muito comum de dizer \'De nada,\' e que \'My bad\' é um pedido de desculpas casual significando \'Foi meu erro.\' Algumas expressões eram mais difíceis de entender, como \'It\'s not rocket science\' (não é tão difícil), \'Break a leg\' (boa sorte, normalmente dito antes de uma performance), e \'Hit the sack\' (ir dormir). Talvez o momento mais confuso foi quando Jake disse \'I\'m down\' para significar \'Eu concordo\' ou \'Eu quero participar,\' porque Lucas inicialmente pensou que significava que Jake estava triste. Entender gírias se tornou a arma secreta de Lucas para se encaixar e fazer conexões genuínas com falantes nativos.',
+      questionsA1: [
+        { question: 'What is the main message of the text?', questionPt: 'Qual é a mensagem principal do texto?', options: ['Lucas is learning informal American expressions', 'Lucas is eating at a good restaurant', 'Lucas is angry at his friend', 'Lucas is buying a notebook'], correctIndex: 0 },
+        { question: 'What does "hang out" mean?', questionPt: 'O que significa "hang out"?', options: ['To hang clothes on a line', 'To spend time relaxing with friends', 'To go to sleep', 'To run away'], correctIndex: 1 },
+        { question: 'Why does Lucas write the new words in his notebook?', questionPt: 'Por que Lucas escreve as novas palavras em seu caderno?', options: ['Because he wants to forget them', 'Because his friend forces him to', 'To help him remember them later', 'To sell the notebook'], correctIndex: 2 },
+        { question: 'What can we infer about Lucas\'s attitude?', questionPt: 'O que podemos inferir sobre a atitude de Lucas?', options: ['He is curious and wants to learn', 'He hates English', 'He thinks everything is boring', 'He is very sad'], correctIndex: 0 }
+      ],
+      questionsA2: [
+        { question: 'What does \'I\'m beat\' mean?', questionPt: 'O que significa \'I\'m beat\'?', options: ['I lost a fight', 'I\'m extremely tired', 'I\'m hungry', 'I\'m excited'], correctIndex: 1 },
+        { question: 'What does \'My bad\' mean?', questionPt: 'O que significa \'My bad\'?', options: ['I\'m angry', 'That\'s bad news', 'It was my mistake', 'I don\'t care'], correctIndex: 2 },
+        { question: 'What does \'Hit the sack\' mean?', questionPt: 'O que significa \'Hit the sack\'?', options: ['Fight someone', 'Go to sleep', 'Leave quickly', 'Start working'], correctIndex: 1 },
+        { question: 'Why was \'I\'m down\' confusing for Lucas?', questionPt: 'Por que \'I\'m down\' foi confuso para Lucas?', options: ['It means \'I\'m sad\' in other contexts', 'He never heard it before', 'Jake was whispering', 'It was in a different language'], correctIndex: 0 }
+]
+},
+            simulationTasks: [
+      {
+            promptPt: "[Amigo] \"E aí, quais são os planos para hoje à noite?\"",
+            expectedEn: "Hey, what are the plans for tonight?"
+      },
+      {
+            promptPt: "[Você] Você responde que está muito animado (hyped) para ir ao show.",
+            expectedEn: "I am really hyped to go to the concert."
+      },
+      {
+            promptPt: "[Amigo] \"Sem mentira (No cap), vai ser incrível (lit)!\"",
+            expectedEn: "No cap, it is going to be lit!"
+      },
+      {
+            promptPt: "[Você] Você quer dizer que a banda manda muito bem (went off) ao vivo.",
+            expectedEn: "The band really goes off live."
+      },
+      {
+            promptPt: "[Amigo] \"Com certeza (For real). Você topa (down to) comer algo depois?\"",
+            expectedEn: "For real. Are you down to grab food after?"
+      },
+      {
+            promptPt: "[Você] Você concorda, dizendo para ele te mandar os detalhes depois (deets).",
+            expectedEn: "Bet! Just text me the deets later."
+      }
+],
+    wouldYouRather: [
+      {
+            optionAEn: "Use outdated slang from the 90s all the time",
+            optionAPt: "Usar gírias antigas dos anos 90 o tempo todo",
+            optionBEn: "Use modern Gen Z slang but totally wrong",
+            optionBPt: "Usar gírias modernas da Geração Z mas totalmente errado"
+      },
+      {
+            optionAEn: "Call everyone 'bro' or 'dude'",
+            optionAPt: "Chamar todo mundo de 'bro' ou 'dude'",
+            optionBEn: "Call everyone 'boss' or 'chief'",
+            optionBPt: "Chamar todo mundo de 'boss' ou 'chief'"
+      },
+      {
+            optionAEn: "Misunderstand a slang word and get offended",
+            optionAPt: "Entender mal uma gíria e ficar ofendido",
+            optionBEn: "Use a slang word that accidentally offends someone",
+            optionBPt: "Usar uma gíria que ofende alguém sem querer"
+      },
+      {
+            optionAEn: "Say 'lit' in a serious business meeting",
+            optionAPt: "Dizer 'lit' em uma reunião de negócios séria",
+            optionBEn: "Say 'no cap' during a job interview",
+            optionBPt: "Dizer 'no cap' durante uma entrevista de emprego"
+      },
+      {
+            optionAEn: "Only speak using idioms",
+            optionAPt: "Falar usando apenas expressões idiomáticas",
+            optionBEn: "Never use any slang at all and sound like a robot",
+            optionBPt: "Nunca usar gírias e soar como um robô"
+      },
+      {
+            optionAEn: "Sound like a local but have bad grammar",
+            optionAPt: "Soar como um nativo mas ter gramática ruim",
+            optionBEn: "Have perfect grammar but a strong foreign accent",
+            optionBPt: "Ter gramática perfeita mas um sotaque estrangeiro forte"
+      },
+      {
+            optionAEn: "Have to explain American slang to your grandparents",
+            optionAPt: "Ter que explicar gírias americanas para seus avós",
+            optionBEn: "Have your grandparents use American slang on you",
+            optionBPt: "Ter seus avós usando gírias americanas com você"
       }
 ]
 }
