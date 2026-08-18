@@ -59,8 +59,7 @@ export default function TranslationPractice({ phrases }: TranslationPracticeProp
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>✍️ Tradução Rápida</h2>
-      <p className={styles.subtitle}>Traduza as frases e perguntas mais cruciais para o inglês.</p>
+      <h2 className={styles.title}>Tradução</h2>
 
       <div className={styles.progressText}>
         Frase {currentIndex + 1} de {phrases.length}

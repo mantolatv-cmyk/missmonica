@@ -54,17 +54,13 @@ export default function SimulationPractice({ tasks }: SimulationPracticeProps) {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.mainTitle}>🎬 Simulação Real</h2>
-      <p className={styles.introText}>
-        Viva uma experiência real. Leia as instruções e escreva como você falaria em inglês.
-        Depois, veja a sugestão de resposta para comparar!
-      </p>
+      <h2 className={styles.mainTitle}>Simulation</h2>
 
       <div className={styles.taskList}>
         {tasks.map((task, index) => (
           <div key={index} className={styles.taskCard}>
             <div className={styles.taskHeader}>
-              <span className={styles.taskNumber}>Passo {index + 1}</span>
+              <span className={styles.taskNumber}>{index + 1}</span>
               <p className={styles.promptPt}>{task.promptPt}</p>
             </div>
             

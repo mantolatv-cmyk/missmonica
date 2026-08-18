@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styles from './ListeningChallenge.module.css';
 
 interface DialogueLine {
@@ -21,6 +21,13 @@ export default function ListeningChallenge({ dialogues }: ListeningChallengeProp
   
   const shuffledOrder = useRef<number[]>([]);
   const currentIndex = useRef<number>(0);
+
+  // Pre-load voices to avoid empty array on first click
+  useEffect(() => {
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      window.speechSynthesis.getVoices();
+    }
+  }, []);
 
   const generateQuestion = () => {
     if (shuffledOrder.current.length === 0 || currentIndex.current >= shuffledOrder.current.length) {
@@ -72,6 +79,11 @@ export default function ListeningChallenge({ dialogues }: ListeningChallengeProp
       if (!voice) {
         voice = voices.find(v => v.lang.startsWith('en') && ['Samantha', 'Aria', 'Jenny'].some(n => v.name.includes(n)));
       }
+      // Fallback to ANY English voice if preferred ones aren't found
+      if (!voice) {
+        voice = voices.find(v => v.lang.startsWith('en'));
+      }
+      
       if (voice) utterance.voice = voice;
       
       window.speechSynthesis.speak(utterance);
