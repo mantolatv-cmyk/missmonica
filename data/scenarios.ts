@@ -86,6 +86,15 @@ export interface WouldYouRatherQuestion {
   optionBPt: string;
 }
 
+export interface ImportantPhrase {
+  pt: string;
+  en: string;
+}
+
+export interface ProblemSituation {
+  descriptionPt: string;
+}
+
 export interface Scenario {
   id: string;
   title: string;
@@ -108,6 +117,8 @@ export interface Scenario {
   dialogueSets?: DialogueSet[];
   simulationTasks?: SimulationTask[];
   wouldYouRather?: WouldYouRatherQuestion[];
+  importantPhrases?: ImportantPhrase[];
+  problems?: ProblemSituation[];
 }
 
 export const scenarios: Scenario[] = [
@@ -308,6 +319,40 @@ export const scenarios: Scenario[] = [
             speaker: "student",
             english: "Thank you! See you later.",
             portuguese: "Obrigado! Até logo."
+      }
+],
+            importantPhrases: [
+      {
+            pt: "Qual é a sua profissão?",
+            en: "What is your profession?"
+      },
+      {
+            pt: "Eu moro com minha família.",
+            en: "I live with my family."
+      },
+      {
+            pt: "Gosto de ler livros.",
+            en: "I like to read books."
+      },
+      {
+            pt: "Onde você cresceu?",
+            en: "Where did you grow up?"
+      },
+      {
+            pt: "Você tem irmãos?",
+            en: "Do you have siblings?"
+      },
+      {
+            pt: "Eu estudo inglês todos os dias.",
+            en: "I study English every day."
+      }
+],
+        problems: [
+      {
+            descriptionPt: "Alguém pergunta de onde você é, mas você não entende a pergunta de primeira."
+      },
+      {
+            descriptionPt: "Você esqueceu o nome da pessoa com quem acabou de ser apresentado e precisa perguntar de novo."
       }
 ],
     vocabulary: [
@@ -748,6 +793,40 @@ export const scenarios: Scenario[] = [
             portuguese: "Muito obrigado."
       }
 ],
+            importantPhrases: [
+      {
+            pt: "Pode me dar um desconto?",
+            en: "Can you give me a discount?"
+      },
+      {
+            pt: "Aceita dinheiro?",
+            en: "Do you accept cash?"
+      },
+      {
+            pt: "São cinco e meia.",
+            en: "It is half past five."
+      },
+      {
+            pt: "Qual é o preço total?",
+            en: "What is the total price?"
+      },
+      {
+            pt: "Você tem troco para cem?",
+            en: "Do you have change for a hundred?"
+      },
+      {
+            pt: "Eu preciso do meu recibo.",
+            en: "I need my receipt."
+      }
+],
+        problems: [
+      {
+            descriptionPt: "O vendedor fala o preço muito rápido e você precisa que ele repita mais devagar."
+      },
+      {
+            descriptionPt: "Você acha que recebeu o troco errado."
+      }
+],
     vocabulary: [
       { english: "How much?", portuguese: "Quanto?",
         sentenceA1: "How much is this?",
@@ -1114,6 +1193,40 @@ export const scenarios: Scenario[] = [
             portuguese: "Embarca em vinte minutos."
       }
 ],
+            importantPhrases: [
+      {
+            pt: "Onde fica a loja duty-free?",
+            en: "Where is the duty-free shop?"
+      },
+      {
+            pt: "O voo foi cancelado.",
+            en: "The flight was canceled."
+      },
+      {
+            pt: "Preciso de uma cadeira de rodas.",
+            en: "I need a wheelchair."
+      },
+      {
+            pt: "Onde posso encontrar um carrinho?",
+            en: "Where can I find a trolley?"
+      },
+      {
+            pt: "Você tem bagagem de mão?",
+            en: "Do you have a carry-on bag?"
+      },
+      {
+            pt: "Onde é o banheiro mais próximo?",
+            en: "Where is the nearest restroom?"
+      }
+],
+        problems: [
+      {
+            descriptionPt: "Sua mala não apareceu na esteira de bagagens."
+      },
+      {
+            descriptionPt: "Seu voo foi cancelado e você precisa saber o que fazer agora."
+      }
+],
     vocabulary: [
       { english: "Boarding pass", portuguese: "Cartão de embarque",
         sentenceA1: "Here is my boarding pass.",
@@ -1280,7 +1393,7 @@ export const scenarios: Scenario[] = [
         { question: 'What did she do after reaching the waiting area?', questionPt: 'O que ela fez depois de chegar à área de espera?', options: ['She grabbed a coffee', 'She went shopping', 'She called her mom', 'She fell asleep'], correctIndex: 0 }
 ]
 },
-        simulationTasks: [
+            simulationTasks: [
       {
             promptPt: "[Atendente] \"Seu passaporte, por favor.\"",
             expectedEn: "Your passport, please."
@@ -1304,6 +1417,14 @@ export const scenarios: Scenario[] = [
       {
             promptPt: "[Você] Você quer perguntar onde é o portão de embarque",
             expectedEn: "Where is the boarding gate?"
+      },
+      {
+            promptPt: "[Você] Você quer perguntar onde é a esteira de retirada de bagagem",
+            expectedEn: "Where is the baggage claim?"
+      },
+      {
+            promptPt: "[Você] Você quer dizer que tem um voo de conexão",
+            expectedEn: "I have a connecting flight."
       }
 ],
     wouldYouRather: [
@@ -1487,6 +1608,40 @@ export const scenarios: Scenario[] = [
             speaker: "student",
             english: "Thank you. Have a nice day.",
             portuguese: "Obrigado. Tenha um bom dia."
+      }
+],
+            importantPhrases: [
+      {
+            pt: "Viajo sozinho.",
+            en: "I travel alone."
+      },
+      {
+            pt: "Tenho passagem de volta.",
+            en: "I have a return ticket."
+      },
+      {
+            pt: "Não tenho nada a declarar.",
+            en: "I have nothing to declare."
+      },
+      {
+            pt: "Este é meu primeiro visto.",
+            en: "This is my first visa."
+      },
+      {
+            pt: "Visito amigos e família.",
+            en: "I visit friends and family."
+      },
+      {
+            pt: "Minha ocupação é estudante.",
+            en: "My occupation is student."
+      }
+],
+        problems: [
+      {
+            descriptionPt: "O oficial de imigração diz que não encontra sua reserva de hotel."
+      },
+      {
+            descriptionPt: "Eles pedem para ver sua passagem de volta, mas você não tem ela impressa."
       }
 ],
     vocabulary: [
@@ -1903,6 +2058,40 @@ export const scenarios: Scenario[] = [
             portuguese: "De nada. Tenha uma boa noite."
       }
 ],
+            importantPhrases: [
+      {
+            pt: "Posso ter um travesseiro extra?",
+            en: "Can I have an extra pillow?"
+      },
+      {
+            pt: "O ar condicionado não funciona.",
+            en: "The air conditioning does not work."
+      },
+      {
+            pt: "Você pode chamar um táxi?",
+            en: "Can you call a taxi?"
+      },
+      {
+            pt: "Há uma academia no hotel?",
+            en: "Is there a gym in the hotel?"
+      },
+      {
+            pt: "Onde fica a piscina?",
+            en: "Where is the pool?"
+      },
+      {
+            pt: "Eu perdi a chave do quarto.",
+            en: "I lost my room key."
+      }
+],
+        problems: [
+      {
+            descriptionPt: "O ar condicionado do seu quarto está quebrado."
+      },
+      {
+            descriptionPt: "Eles não encontram sua reserva no sistema."
+      }
+],
     vocabulary: [
       { english: "Parking", portuguese: "Estacionamento",
         sentenceA1: "Where is the parking?",
@@ -2087,7 +2276,7 @@ export const scenarios: Scenario[] = [
         { question: 'What time is breakfast served?', questionPt: 'A que horas o café da manhã é servido?', options: ['6 to 9 AM', '7 to 10 AM', '8 to 11 AM', 'It is not served'], correctIndex: 1 }
 ]
 },
-        simulationTasks: [
+            simulationTasks: [
       {
             promptPt: "[Recepcionista] \"Bom dia, como posso ajudar?\"",
             expectedEn: "Good morning, how can I help you?"
@@ -2123,6 +2312,18 @@ export const scenarios: Scenario[] = [
       {
             promptPt: "[Você] Você quer pedir mais toalhas depois",
             expectedEn: "Could I get some extra towels, please?"
+      },
+      {
+            promptPt: "[Você] Você quer perguntar a que horas é o check-out",
+            expectedEn: "What time is check-out?"
+      },
+      {
+            promptPt: "[Você] Você quer perguntar se pode deixar as malas no hotel após o check-out",
+            expectedEn: "Can I leave my bags here?"
+      },
+      {
+            promptPt: "[Você] Você quer confirmar se o café da manhã está incluso",
+            expectedEn: "Is breakfast included?"
       }
 ],
     wouldYouRather: [
@@ -2367,6 +2568,40 @@ export const scenarios: Scenario[] = [
             speaker: "student",
             english: "Okay. I am very hungry.",
             portuguese: "Ok. Eu estou com muita fome."
+      }
+],
+            importantPhrases: [
+      {
+            pt: "Onde é o banheiro?",
+            en: "Where is the bathroom?"
+      },
+      {
+            pt: "A comida está fria.",
+            en: "The food is cold."
+      },
+      {
+            pt: "Tem opções vegetarianas?",
+            en: "Are there vegetarian options?"
+      },
+      {
+            pt: "Posso ter um copo de água?",
+            en: "Can I have a glass of water?"
+      },
+      {
+            pt: "Eu não pedi isso.",
+            en: "I did not order this."
+      },
+      {
+            pt: "O serviço foi excelente.",
+            en: "The service was excellent."
+      }
+],
+        problems: [
+      {
+            descriptionPt: "Sua comida veio fria."
+      },
+      {
+            descriptionPt: "O seu pedido veio errado, não foi o prato que você pediu."
       }
 ],
     vocabulary: [
@@ -2614,7 +2849,7 @@ export const scenarios: Scenario[] = [
         { question: 'What does "dine out" mean?', questionPt: 'O que significa "dine out"?', options: ['Eat outside in the park', 'Eat a meal at a restaurant', 'Cook a meal at home', 'Skip a meal'], correctIndex: 1 }
       ]
     },
-        simulationTasks: [
+            simulationTasks: [
       {
             promptPt: "[Recepcionista] \"Você tem uma reserva?\"",
             expectedEn: "Do you have a reservation?"
@@ -2650,6 +2885,18 @@ export const scenarios: Scenario[] = [
       {
             promptPt: "[Você] Você quer pedir a conta",
             expectedEn: "Could we get the check, please?"
+      },
+      {
+            promptPt: "[Você] Você quer perguntar se podem dividir a conta",
+            expectedEn: "Can we have separate checks?"
+      },
+      {
+            promptPt: "[Você] Você quer pedir para embrulhar a sobra para viagem",
+            expectedEn: "Can I get this to go?"
+      },
+      {
+            promptPt: "[Você] Você quer avisar que tem alergia a amendoim",
+            expectedEn: "I am allergic to peanuts."
       }
 ],
     wouldYouRather: [
@@ -2889,6 +3136,40 @@ export const scenarios: Scenario[] = [
             speaker: "student",
             english: "You are welcome.",
             portuguese: "De nada."
+      }
+],
+            importantPhrases: [
+      {
+            pt: "Pode mostrar no mapa?",
+            en: "Can you show me on the map?"
+      },
+      {
+            pt: "Fica do lado esquerdo.",
+            en: "It is on the left side."
+      },
+      {
+            pt: "Fica perto do banco?",
+            en: "Is it near the bank?"
+      },
+      {
+            pt: "Atravesse a rua.",
+            en: "Cross the street."
+      },
+      {
+            pt: "É seguro caminhar aqui?",
+            en: "Is it safe to walk here?"
+      },
+      {
+            pt: "Estou procurando o museu.",
+            en: "I am looking for the museum."
+      }
+],
+        problems: [
+      {
+            descriptionPt: "Você seguiu as instruções, mas se perdeu completamente."
+      },
+      {
+            descriptionPt: "Seu celular ficou sem bateria e você precisa perguntar como chegar ao hotel."
       }
 ],
     vocabulary: [
@@ -3456,6 +3737,40 @@ export const scenarios: Scenario[] = [
 ]
 }
 ],
+            importantPhrases: [
+      {
+            pt: "Quanto tempo dura a viagem?",
+            en: "How long is the trip?"
+      },
+      {
+            pt: "Qual é a próxima parada?",
+            en: "What is the next stop?"
+      },
+      {
+            pt: "Preciso trocar de linha?",
+            en: "Do I need to change lines?"
+      },
+      {
+            pt: "Onde alugo uma bicicleta?",
+            en: "Where do I rent a bike?"
+      },
+      {
+            pt: "Tem ar condicionado no trem?",
+            en: "Is there air conditioning on the train?"
+      },
+      {
+            pt: "Esqueci minha mala no ônibus.",
+            en: "I forgot my bag on the bus."
+      }
+],
+        problems: [
+      {
+            descriptionPt: "Você pegou o trem na direção errada."
+      },
+      {
+            descriptionPt: "Você perdeu o último ônibus da noite."
+      }
+],
     vocabulary: [
       { english: "Ride", portuguese: "Carona / Corrida",
         sentenceA1: "I need a ride.",
@@ -3604,7 +3919,7 @@ export const scenarios: Scenario[] = [
         { question: 'How much tip did the driver get?', questionPt: 'Quanta gorjeta o motorista recebeu?', options: ['No tip', '5 dollars', '10 dollars', '15 dollars'], correctIndex: 3 }
 ]
 },
-        simulationTasks: [
+            simulationTasks: [
       {
             promptPt: "[Atendente] \"Para onde você vai hoje?\"",
             expectedEn: "Where are you going today?"
@@ -3628,6 +3943,14 @@ export const scenarios: Scenario[] = [
       {
             promptPt: "[Você] Você quer perguntar se este ônibus vai para o aeroporto",
             expectedEn: "Does this bus go to the airport?"
+      },
+      {
+            promptPt: "[Você] Você quer perguntar quanto vai custar a corrida",
+            expectedEn: "How much will the ride cost?"
+      },
+      {
+            promptPt: "[Você] Você quer pedir para o motorista parar na próxima esquina",
+            expectedEn: "Could you drop me off at the next corner?"
       }
 ],
     wouldYouRather: [
@@ -4008,6 +4331,40 @@ export const scenarios: Scenario[] = [
       }
 ]
 }
+],
+            importantPhrases: [
+      {
+            pt: "Preciso de um dentista.",
+            en: "I need a dentist."
+      },
+      {
+            pt: "Eu torci meu tornozelo.",
+            en: "I sprained my ankle."
+      },
+      {
+            pt: "Tem seguro saúde?",
+            en: "Do you have health insurance?"
+      },
+      {
+            pt: "Minha garganta dói.",
+            en: "My throat hurts."
+      },
+      {
+            pt: "Preciso de uma receita médica.",
+            en: "I need a prescription."
+      },
+      {
+            pt: "Você pode medir minha pressão?",
+            en: "Can you check my blood pressure?"
+      }
+],
+        problems: [
+      {
+            descriptionPt: "Você precisa comprar um remédio, mas esqueceu o nome dele em inglês."
+      },
+      {
+            descriptionPt: "Você começou a sentir uma dor muito forte no estômago durante a noite."
+      }
 ],
     vocabulary: [
       { english: "Headache", portuguese: "Dor de cabeça",
@@ -4567,6 +4924,40 @@ export const scenarios: Scenario[] = [
 ]
 }
 ],
+            importantPhrases: [
+      {
+            pt: "Onde compro as bebidas?",
+            en: "Where do I buy drinks?"
+      },
+      {
+            pt: "Posso tirar fotos?",
+            en: "Can I take photos?"
+      },
+      {
+            pt: "O museu está fechado hoje?",
+            en: "Is the museum closed today?"
+      },
+      {
+            pt: "A peça foi muito engraçada.",
+            en: "The play was very funny."
+      },
+      {
+            pt: "O som está muito alto.",
+            en: "The sound is too loud."
+      },
+      {
+            pt: "Tem legenda em português?",
+            en: "Are there Portuguese subtitles?"
+      }
+],
+        problems: [
+      {
+            descriptionPt: "Você comprou ingressos online, mas o scanner não está lendo o QR Code."
+      },
+      {
+            descriptionPt: "Alguém está sentado no seu lugar numerado no cinema."
+      }
+],
     vocabulary: [
       { english: "Tickets", portuguese: "Ingressos",
         sentenceA1: "I bought two tickets.",
@@ -5117,6 +5508,40 @@ export const scenarios: Scenario[] = [
 ]
 }
 ],
+            importantPhrases: [
+      {
+            pt: "Tem wi-fi gratuito aqui?",
+            en: "Is there free wi-fi here?"
+      },
+      {
+            pt: "Um chá verde, por favor.",
+            en: "A green tea, please."
+      },
+      {
+            pt: "Pode aquecer meu sanduíche?",
+            en: "Can you heat up my sandwich?"
+      },
+      {
+            pt: "Tem bolo sem glúten?",
+            en: "Do you have gluten-free cake?"
+      },
+      {
+            pt: "Onde estão os guardanapos?",
+            en: "Where are the napkins?"
+      },
+      {
+            pt: "Eu prefiro café expresso.",
+            en: "I prefer espresso."
+      }
+],
+        problems: [
+      {
+            descriptionPt: "Você pediu sem leite, mas colocaram leite no seu café."
+      },
+      {
+            descriptionPt: "A internet Wi-Fi da cafeteria parou de funcionar e você precisa dela."
+      }
+],
     vocabulary: [
       { english: "Tall / Grande / Venti", portuguese: "Tamanhos de copo",
         sentenceA1: "I want a tall coffee.",
@@ -5433,6 +5858,40 @@ export const scenarios: Scenario[] = [
           { speaker: 'native', english: "Awesome. Here is your new phone number printed on the receipt. Have a great trip!", portuguese: "Incrível. Aqui está o seu novo número de telefone impresso no recibo. Tenha uma ótima viagem!" }
 ]
 }
+],
+            importantPhrases: [
+      {
+            pt: "A tela está quebrada.",
+            en: "The screen is broken."
+      },
+      {
+            pt: "Esqueci minha senha.",
+            en: "I forgot my password."
+      },
+      {
+            pt: "Tem tomada aqui?",
+            en: "Is there an outlet here?"
+      },
+      {
+            pt: "O arquivo não quer abrir.",
+            en: "The file will not open."
+      },
+      {
+            pt: "A ligação caiu.",
+            en: "The call dropped."
+      },
+      {
+            pt: "Como eu conecto no bluetooth?",
+            en: "How do I connect to bluetooth?"
+      }
+],
+        problems: [
+      {
+            descriptionPt: "Você quebrou a tela do celular e precisa de um conserto urgente."
+      },
+      {
+            descriptionPt: "O adaptador de tomada que você comprou não encaixa."
+      }
 ],
     vocabulary: [
       { english: "Network", portuguese: "Rede",
@@ -5763,6 +6222,40 @@ export const scenarios: Scenario[] = [
 ]
 }
 ],
+            importantPhrases: [
+      {
+            pt: "Você gosta de esportes?",
+            en: "Do you like sports?"
+      },
+      {
+            pt: "Assisti a um filme ótimo.",
+            en: "I watched a great movie."
+      },
+      {
+            pt: "A comida estava deliciosa.",
+            en: "The food was delicious."
+      },
+      {
+            pt: "Eu amo cachorros.",
+            en: "I love dogs."
+      },
+      {
+            pt: "Qual é sua música favorita?",
+            en: "What is your favorite song?"
+      },
+      {
+            pt: "Tem planos para o feriado?",
+            en: "Do you have plans for the holiday?"
+      }
+],
+        problems: [
+      {
+            descriptionPt: "A pessoa fez uma piada que você não entendeu, e você precisa dizer isso de forma educada."
+      },
+      {
+            descriptionPt: "Você não quer falar sobre o assunto que a pessoa puxou e quer mudar de assunto educadamente."
+      }
+],
     vocabulary: [
       { english: "Small talk", portuguese: "Conversa informal",
         sentenceA1: "I like small talk.",
@@ -6078,6 +6571,40 @@ export const scenarios: Scenario[] = [
 ]
 }
 ],
+            importantPhrases: [
+      {
+            pt: "Estou exausto (beat).",
+            en: "I am beat."
+      },
+      {
+            pt: "Isso é loucura (nuts).",
+            en: "That is nuts."
+      },
+      {
+            pt: "Me dá um tempo (give me a break).",
+            en: "Give me a break."
+      },
+      {
+            pt: "Bora (let's go).",
+            en: "Let's go."
+      },
+      {
+            pt: "Tô de boa (I am chilling).",
+            en: "I am chilling."
+      },
+      {
+            pt: "Isso é incrível (dope).",
+            en: "That is dope."
+      }
+],
+        problems: [
+      {
+            descriptionPt: "Alguém usou uma gíria que você nunca ouviu antes."
+      },
+      {
+            descriptionPt: "Você usou uma gíria errada e todos riram, como você se desculpa brincando?"
+      }
+],
     vocabulary: [
       { english: "Lit / Fire", portuguese: "Massa / Muito legal / Demais",
         sentenceA1: "That party was lit!",
@@ -6368,6 +6895,40 @@ export const scenarios: Scenario[] = [
       { speaker: 'native', english: "Just bring the receipt, and make sure the tags are still attached.", portuguese: "Apenas traga o recibo, e certifique-se de que as etiquetas ainda estejam afixadas." },
       { speaker: 'student', english: "Sounds good. Let's add the shirt then.", portuguese: "Parece bom. Vamos adicionar a blusa então." }
 ],
+            importantPhrases: [
+      {
+            pt: "Qual é o horário de funcionamento?",
+            en: "What are the opening hours?"
+      },
+      {
+            pt: "Onde é o caixa eletrônico?",
+            en: "Where is the ATM?"
+      },
+      {
+            pt: "Posso experimentar isso?",
+            en: "Can I try this on?"
+      },
+      {
+            pt: "Não serviu bem.",
+            en: "It did not fit well."
+      },
+      {
+            pt: "Tem desconto para estudante?",
+            en: "Is there a student discount?"
+      },
+      {
+            pt: "Eu procuro um presente.",
+            en: "I am looking for a gift."
+      }
+],
+        problems: [
+      {
+            descriptionPt: "O seu cartão de crédito foi recusado na maquininha."
+      },
+      {
+            descriptionPt: "Você comprou uma roupa ontem, mas ela descosturou na primeira vez que usou."
+      }
+],
     vocabulary: [
       { english: "Fitting room", portuguese: "Provador",
         sentenceA1: "Where is the fitting room?",
@@ -6528,7 +7089,7 @@ export const scenarios: Scenario[] = [
         { question: 'How did she pay for her items?', questionPt: 'Como ela pagou pelos seus itens?', options: ['Debit card', 'Credit card', 'Cash', 'Gift card'], correctIndex: 0 }
 ]
 },
-        simulationTasks: [
+            simulationTasks: [
       {
             promptPt: "[Vendedor] \"Posso te ajudar a encontrar algo?\"",
             expectedEn: "Can I help you find something?"
@@ -6556,6 +7117,14 @@ export const scenarios: Scenario[] = [
       {
             promptPt: "[Você] Você quer dizer que vai levar e perguntar se aceitam cartão",
             expectedEn: "I will take it. Do you accept credit cards?"
+      },
+      {
+            promptPt: "[Você] Você quer perguntar se tem essa peça em outra cor",
+            expectedEn: "Do you have this in a different color?"
+      },
+      {
+            promptPt: "[Você] Você quer perguntar qual é a política de devolução",
+            expectedEn: "What is the return policy?"
       }
 ],
     wouldYouRather: [
@@ -6690,6 +7259,40 @@ export const scenarios: Scenario[] = [
       { speaker: 'student', english: "Perfect, I'll take a bottle. Do you have travel sizes? I can't take full liquids on the plane.", portuguese: "Perfeito, vou levar um frasco. Vocês têm tamanhos de viagem? Não posso levar líquidos grandes no avião." },
       { speaker: 'native', english: "Yes, the travel-sized bins are right by the registers. You'll find mini versions of almost everything there.", portuguese: "Sim, os cestos com tamanhos de viagem ficam logo nos caixas. Você achará versões mini de quase tudo lá." },
       { speaker: 'student', english: "You've been so helpful. Thank you!", portuguese: "Você foi tão prestativa. Obrigada!" }
+],
+            importantPhrases: [
+      {
+            pt: "Quero pintar o cabelo.",
+            en: "I want to dye my hair."
+      },
+      {
+            pt: "Minha pele é muito seca.",
+            en: "My skin is very dry."
+      },
+      {
+            pt: "Posso ver o catálogo de cores?",
+            en: "Can I see the color catalog?"
+      },
+      {
+            pt: "O esmalte está descascando.",
+            en: "The nail polish is peeling."
+      },
+      {
+            pt: "Você faz sobrancelhas?",
+            en: "Do you do eyebrows?"
+      },
+      {
+            pt: "Eu uso protetor solar.",
+            en: "I wear sunscreen."
+      }
+],
+        problems: [
+      {
+            descriptionPt: "O cabeleireiro cortou seu cabelo muito mais curto do que você pediu."
+      },
+      {
+            descriptionPt: "Você teve uma reação alérgica a um creme que aplicaram na sua pele."
+      }
 ],
     vocabulary: [
       { english: "Foundation", portuguese: "Base de maquiagem",
@@ -7012,6 +7615,40 @@ export const scenarios: Scenario[] = [
       { speaker: 'student', english: "That would be excellent. By the way, I noticed the rear bumper was already scratched and dented.", portuguese: "Isso seria excelente. Por falar nisso, notei que o para-choque traseiro já estava riscado e amassado." },
       { speaker: 'native', english: "Don't worry, the pre-inspection report documents those scratches. You won't be held responsible.", portuguese: "Não se preocupe, o relatório de pré-inspeção documenta esses riscos. Você não será responsabilizado." },
       { speaker: 'student', english: "Thank you for the quick support. I will wait for the technician inside the convenience store.", portuguese: "Obrigado pelo suporte rápido. Vou esperar pelo técnico dentro da loja de conveniência." }
+],
+            importantPhrases: [
+      {
+            pt: "Preciso de uma cadeirinha de bebê.",
+            en: "I need a baby seat."
+      },
+      {
+            pt: "O carro é automático ou manual?",
+            en: "Is the car automatic or manual?"
+      },
+      {
+            pt: "Tem limite de quilometragem?",
+            en: "Is there a mileage limit?"
+      },
+      {
+            pt: "O que acontece se eu bater?",
+            en: "What happens if I crash?"
+      },
+      {
+            pt: "Aonde fica o posto de gasolina?",
+            en: "Where is the gas station?"
+      },
+      {
+            pt: "Tem arranhões na porta.",
+            en: "There are scratches on the door."
+      }
+],
+        problems: [
+      {
+            descriptionPt: "O pneu do carro alugado furou no meio da estrada."
+      },
+      {
+            descriptionPt: "Quando você foi pegar o carro, ele já tinha um grande arranhão na porta."
+      }
 ],
     vocabulary: [
       { english: "Insurance", portuguese: "Seguro",
@@ -7371,6 +8008,40 @@ export const scenarios: Scenario[] = [
             speaker: "student",
             english: "Okay, you can weigh them there.",
             portuguese: "Ok, você pode pesá-las lá."
+      }
+],
+            importantPhrases: [
+      {
+            pt: "Onde ficam os laticínios?",
+            en: "Where is the dairy section?"
+      },
+      {
+            pt: "Esta carne está fresca?",
+            en: "Is this meat fresh?"
+      },
+      {
+            pt: "Pode me ajudar a alcançar isso?",
+            en: "Can you help me reach this?"
+      },
+      {
+            pt: "A validade expirou.",
+            en: "The expiration date passed."
+      },
+      {
+            pt: "Vocês entregam em casa?",
+            en: "Do you deliver at home?"
+      },
+      {
+            pt: "Eu trouxe minha sacola.",
+            en: "I brought my bag."
+      }
+],
+        problems: [
+      {
+            descriptionPt: "Você derrubou um vidro de molho no chão do mercado e quebrou."
+      },
+      {
+            descriptionPt: "O caixa cobrou o valor de um item duas vezes por engano."
       }
 ],
     vocabulary: [

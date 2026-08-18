@@ -20,6 +20,8 @@ import MakeupInteractive from '@/components/MakeupInteractive';
 import ReadingPractice from '@/components/ReadingPractice';
 import SimulationPractice from '@/components/SimulationPractice';
 import WouldYouRatherPractice from '@/components/WouldYouRatherPractice';
+import TranslationPractice from '@/components/TranslationPractice';
+import ProblemSolvingPractice from '@/components/ProblemSolvingPractice';
 import { scenarios } from '@/data/scenarios';
 import styles from './page.module.css';
 
@@ -84,7 +86,7 @@ export default function ScenarioPage({ params }: ScenarioPageProps) {
 
 // Universal layout for all scenarios
 function UniversalLayout({ scenario }: { scenario: typeof scenarios[0] }) {
-  const [activeSection, setActiveSection] = useState<'wordlesson' | 'simulator' | 'simulation' | 'wouldyourather' | 'flashcards' | 'cultural' | 'vocabulary' | 'listening' | 'speed' | 'reading' | 'speaking' | 'sentences' | 'scramble' | 'makeup'>('wordlesson');
+  const [activeSection, setActiveSection] = useState<'wordlesson' | 'simulator' | 'simulation' | 'problems' | 'translation' | 'wouldyourather' | 'flashcards' | 'cultural' | 'vocabulary' | 'listening' | 'speed' | 'reading' | 'speaking' | 'sentences' | 'scramble' | 'makeup'>('wordlesson');
   const [level, setLevel] = useState<'A1' | 'A2'>('A1');
   const [showLevelSelector, setShowLevelSelector] = useState(true);
   const [variation, setVariation] = useState<1 | 2>(1);
@@ -163,6 +165,8 @@ function UniversalLayout({ scenario }: { scenario: typeof scenarios[0] }) {
     { key: 'wordlesson' as const, label: '📖 Vocabulário', labelEn: 'Word Lesson' },
     { key: 'simulator' as const, label: '💬 Diálogos', labelEn: 'Dialogues' },
     { key: 'simulation' as const, label: '🎬 Simulação', labelEn: 'Roleplay Simulation' },
+    { key: 'problems' as const, label: '🚨 Problemas', labelEn: 'Problem Solving' },
+    { key: 'translation' as const, label: '✍️ Tradução', labelEn: 'Translation' },
     { key: 'wouldyourather' as const, label: '⚖️ Would You Rather', labelEn: 'Would You Rather' },
     ...(scenario.flashcards ? [{ key: 'flashcards' as const, label: '🃏 Flashcards', labelEn: 'Flashcards' }] : []),
     { key: 'sentences' as const, label: '🧩 Frases', labelEn: 'Sentence Builder' },
@@ -245,6 +249,18 @@ function UniversalLayout({ scenario }: { scenario: typeof scenarios[0] }) {
         {activeSection === 'simulation' && scenario.simulationTasks && (
           <div className={styles.section} id="section-simulation">
             <SimulationPractice tasks={scenario.simulationTasks} />
+          </div>
+        )}
+        
+        {activeSection === 'problems' && scenario.problems && (
+          <div className={styles.section} id="section-problems">
+            <ProblemSolvingPractice problems={scenario.problems} />
+          </div>
+        )}
+
+        {activeSection === 'translation' && scenario.importantPhrases && (
+          <div className={styles.section} id="section-translation">
+            <TranslationPractice phrases={scenario.importantPhrases} />
           </div>
         )}
         
