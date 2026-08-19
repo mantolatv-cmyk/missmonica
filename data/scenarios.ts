@@ -3529,6 +3529,326 @@ export const scenarios: Scenario[] = [
 ]
 },
   {
+  id: "review-1",
+  title: "Review 1",
+  titlePt: "Revisão 1",
+  description: "Review what you've learned in the last 5 scenarios.",
+  descriptionPt: "Revise o que você aprendeu nos últimos 5 cenários.",
+  icon: "🔄",
+  imagePath: "/images/review_1_scene.jpg",
+  color: 'indigo',
+  vocabulary: [
+    {
+      english: "Boarding pass",
+      portuguese: "Cartão de embarque",
+      sentenceA1: "Here is my boarding pass.",
+      sentenceA2: "You can download your boarding pass on the airline app.",
+      sentenceA1Pt: "Aqui está meu cartão de embarque.",
+      sentenceA2Pt: "Você pode baixar o cartão de embarque no app da companhia."
+    },
+    {
+      english: "Baggage claim",
+      portuguese: "Esteira de bagagem",
+      sentenceA1: "Where is baggage claim?",
+      sentenceA2: "My suitcase was not at the baggage claim when I arrived.",
+      sentenceA1Pt: "Onde é a esteira de bagagem?",
+      sentenceA2Pt: "Minha mala não estava na esteira quando cheguei."
+    },
+    {
+      english: "Gate",
+      portuguese: "Portão",
+      sentenceA1: "The gate is B5.",
+      sentenceA2: "They changed the gate from A3 to B12 at the last minute.",
+      sentenceA1Pt: "O portão é B5.",
+      sentenceA2Pt: "Mudaram o portão de A3 para B12 no último minuto."
+    },
+    {
+      english: "Flight",
+      portuguese: "Voo",
+      sentenceA1: "My flight is at 3 PM.",
+      sentenceA2: "My connecting flight leaves in two hours from terminal C.",
+      sentenceA1Pt: "Meu voo é às 15h.",
+      sentenceA2Pt: "Meu voo de conexão sai em duas horas do terminal C."
+    },
+    {
+      english: "Passport",
+      portuguese: "Passaporte",
+      sentenceA1: "Here is my passport.",
+      sentenceA2: "My passport is valid for another three years.",
+      sentenceA1Pt: "Aqui está meu passaporte.",
+      sentenceA2Pt: "Meu passaporte é válido por mais três anos."
+    },
+    {
+      english: "Customs",
+      portuguese: "Alfândega",
+      sentenceA1: "Where is customs?",
+      sentenceA2: "I declared two bottles of wine at customs.",
+      sentenceA1Pt: "Onde é a alfândega?",
+      sentenceA2Pt: "Declarei duas garrafas de vinho na alfândega."
+    },
+    {
+      english: "Arrival",
+      portuguese: "Chegada",
+      sentenceA1: "My arrival is today.",
+      sentenceA2: "The arrival terminal is on the first floor.",
+      sentenceA1Pt: "Minha chegada é hoje.",
+      sentenceA2Pt: "O terminal de chegada é no primeiro andar."
+    },
+    {
+      english: "Departure",
+      portuguese: "Partida",
+      sentenceA1: "My departure is Friday.",
+      sentenceA2: "The departure lounge has free Wi-Fi.",
+      sentenceA1Pt: "Minha partida é sexta.",
+      sentenceA2Pt: "A sala de embarque tem Wi-Fi gratuito."
+    },
+    {
+      english: "Parking",
+      portuguese: "Estacionamento",
+      sentenceA1: "Where is the parking?",
+      sentenceA2: "The hotel offers free underground parking for all guests.",
+      sentenceA1Pt: "Onde fica o estacionamento?",
+      sentenceA2Pt: "O hotel oferece estacionamento subterrâneo gratuito para todos os hóspedes."
+    },
+    {
+      english: "Bathroom",
+      portuguese: "Banheiro",
+      sentenceA1: "I need a bathroom.",
+      sentenceA2: "The bathroom in our suite has a large bathtub and a shower.",
+      sentenceA1Pt: "Preciso de um banheiro.",
+      sentenceA2Pt: "O banheiro da nossa suíte tem uma banheira grande e um chuveiro."
+    },
+    {
+      english: "Reservation",
+      portuguese: "Reserva",
+      sentenceA1: "I have a reservation.",
+      sentenceA2: "I made a reservation online for a double room with breakfast.",
+      sentenceA1Pt: "Tenho uma reserva.",
+      sentenceA2Pt: "Fiz uma reserva online para quarto duplo com café da manhã."
+    },
+    {
+      english: "Room key",
+      portuguese: "Chave do quarto",
+      sentenceA1: "I lost my room key.",
+      sentenceA2: "The room key stopped working so I went to the front desk.",
+      sentenceA1Pt: "Perdi a chave do quarto.",
+      sentenceA2Pt: "A chave do quarto parou de funcionar e voltei à recepção."
+    },
+    {
+      english: "Menu",
+      portuguese: "Cardápio",
+      sentenceA1: "Can I see the menu?",
+      sentenceA2: "The menu has a great variety of local and international dishes.",
+      sentenceA1Pt: "Posso ver o cardápio?",
+      sentenceA2Pt: "O cardápio tem grande variedade de pratos locais e internacionais."
+    },
+    {
+      english: "Appetizer",
+      portuguese: "Entrada",
+      sentenceA1: "I want an appetizer.",
+      sentenceA2: "We ordered a cheese appetizer to share while we wait.",
+      sentenceA1Pt: "Quero uma entrada.",
+      sentenceA2Pt: "Pedimos uma entrada de queijo para dividir enquanto esperamos."
+    },
+    {
+      english: "Main course",
+      portuguese: "Prato principal",
+      sentenceA1: "The main course is steak.",
+      sentenceA2: "For my main course, I would like the grilled salmon.",
+      sentenceA1Pt: "O prato principal é bife.",
+      sentenceA2Pt: "Para o prato principal, gostaria do salmão grelhado."
+    },
+    {
+      english: "Dessert",
+      portuguese: "Sobremesa",
+      sentenceA1: "I want a dessert.",
+      sentenceA2: "The chocolate lava cake is the best dessert on the menu.",
+      sentenceA1Pt: "Quero uma sobremesa.",
+      sentenceA2Pt: "O petit gâteau de chocolate é a melhor sobremesa do cardápio."
+    },
+    {
+      english: "Tall / Grande / Venti",
+      portuguese: "Tamanhos de copo",
+      sentenceA1: "I want a tall coffee.",
+      sentenceA2: "Can I have a grande iced latte with extra espresso?",
+      sentenceA1Pt: "Quero um café pequeno.",
+      sentenceA2Pt: "Posso pedir um latte gelado médio com espresso extra?"
+    },
+    {
+      english: "Whole milk",
+      portuguese: "Leite integral",
+      sentenceA1: "With whole milk, please.",
+      sentenceA2: "I prefer whole milk because it makes my cappuccino creamier.",
+      sentenceA1Pt: "Com leite integral, por favor.",
+      sentenceA2Pt: "Prefiro leite integral porque fica mais cremoso."
+    },
+    {
+      english: "Oat milk",
+      portuguese: "Leite de aveia",
+      sentenceA1: "I want oat milk.",
+      sentenceA2: "Could you replace the regular milk with oat milk?",
+      sentenceA1Pt: "Quero leite de aveia.",
+      sentenceA2Pt: "Pode trocar o leite normal por leite de aveia?"
+    },
+    {
+      english: "Decaf",
+      portuguese: "Descafeinado",
+      sentenceA1: "I want decaf coffee.",
+      sentenceA2: "I switched to decaf because coffee was keeping me awake.",
+      sentenceA1Pt: "Quero café descafeinado.",
+      sentenceA2Pt: "Mudei para descafeinado porque o café me mantinha acordado."
+    }
+  ],
+  dialogues: [
+    {
+      speaker: "student",
+      english: "Hello! I'd like to check in for my flight to New York. Is it on time?",
+      portuguese: "Olá! Eu gostaria de fazer o check-in para o meu voo para Nova York. Ele está no horário?"
+    },
+    {
+      speaker: "native",
+      english: "Good morning! Yes, flight AA123 is on time. May I have your passport and boarding pass, please?",
+      portuguese: "Bom dia! Sim, o voo AA123 está no horário. Posso ver seu passaporte e cartão de embarque, por favor?"
+    },
+    {
+      speaker: "native",
+      english: "Good morning. Please step forward. Passport and customs declaration, please.",
+      portuguese: "Bom dia. Dê um passo à frente. Passaporte e declaração da alfândega, por favor."
+    },
+    {
+      speaker: "student",
+      english: "Good morning. Here you go.",
+      portuguese: "Bom dia. Aqui estão."
+    },
+    {
+      speaker: "student",
+      english: "Hello! I'd like to check in, please. I have a reservation.",
+      portuguese: "Olá! Eu gostaria de fazer o check-in, por favor. Eu tenho uma reserva."
+    },
+    {
+      speaker: "native",
+      english: "Welcome to the Grand Hotel! What name is the reservation under?",
+      portuguese: "Bem-vindo ao Grand Hotel! Em nome de quem está a reserva?"
+    },
+    {
+      speaker: "native",
+      english: "Hi there! Welcome to The Grill. Table for how many?",
+      portuguese: "Olá! Bem-vindo ao The Grill. Mesa para quantos?"
+    },
+    {
+      speaker: "student",
+      english: "Table for two, please. Do you have a table by the window?",
+      portuguese: "Mesa para dois, por favor. Você tem uma mesa perto da janela?"
+    }
+  ],
+  dialogues2: [
+    {
+      speaker: "student",
+      english: "Good morning! I'd like to check out, please.",
+      portuguese: "Bom dia! Eu gostaria de fazer o check-out, por favor."
+    },
+    {
+      speaker: "native",
+      english: "Good morning! Welcome to Sunshine Cafe. For here or to go?",
+      portuguese: "Bom dia! Bem-vindo ao Sunshine Cafe. Para comer aqui ou para levar?"
+    }
+  ],
+  importantPhrases: [
+    {
+      pt: "Onde fica a loja duty-free?",
+      en: "Where is the duty-free shop?"
+    },
+    {
+      pt: "O voo foi cancelado.",
+      en: "The flight was canceled."
+    },
+    {
+      pt: "Preciso de uma cadeira de rodas.",
+      en: "I need a wheelchair."
+    },
+    {
+      pt: "Viajo sozinho.",
+      en: "I travel alone."
+    },
+    {
+      pt: "Tenho passagem de volta.",
+      en: "I have a return ticket."
+    },
+    {
+      pt: "Não tenho nada a declarar.",
+      en: "I have nothing to declare."
+    },
+    {
+      pt: "Posso ter um travesseiro extra?",
+      en: "Can I have an extra pillow?"
+    },
+    {
+      pt: "O ar condicionado não funciona.",
+      en: "The air conditioning does not work."
+    },
+    {
+      pt: "Você pode chamar um táxi?",
+      en: "Can you call a taxi?"
+    },
+    {
+      pt: "Onde é o banheiro?",
+      en: "Where is the bathroom?"
+    },
+    {
+      pt: "A comida está fria.",
+      en: "The food is cold."
+    },
+    {
+      pt: "Tem opções vegetarianas?",
+      en: "Are there vegetarian options?"
+    },
+    {
+      pt: "Tem wi-fi gratuito aqui?",
+      en: "Is there free wi-fi here?"
+    },
+    {
+      pt: "Um chá verde, por favor.",
+      en: "A green tea, please."
+    },
+    {
+      pt: "Pode aquecer meu sanduíche?",
+      en: "Can you heat up my sandwich?"
+    }
+  ],
+  problems: [
+    {
+      descriptionPt: "Sua mala não apareceu na esteira de bagagens."
+    },
+    {
+      descriptionPt: "Seu voo foi cancelado e você precisa saber o que fazer agora."
+    },
+    {
+      descriptionPt: "O oficial de imigração diz que não encontra sua reserva de hotel."
+    },
+    {
+      descriptionPt: "Eles pedem para ver sua passagem de volta, mas você não tem ela impressa."
+    },
+    {
+      descriptionPt: "O ar condicionado do seu quarto está quebrado."
+    },
+    {
+      descriptionPt: "Eles não encontram sua reserva no sistema."
+    },
+    {
+      descriptionPt: "Sua comida veio fria."
+    },
+    {
+      descriptionPt: "O seu pedido veio errado, não foi o prato que você pediu."
+    },
+    {
+      descriptionPt: "Você pediu sem leite, mas colocaram leite no seu café."
+    },
+    {
+      descriptionPt: "A internet Wi-Fi da cafeteria parou de funcionar e você precisa dela."
+    }
+  ]
+},
+  {
     id: 'directions',
     speakingQuestions: [
     {
@@ -6107,6 +6427,291 @@ export const scenarios: Scenario[] = [
       }
 ]
 },
+  {
+  id: "review-2",
+  title: "Review 2",
+  titlePt: "Revisão 2",
+  description: "Review what you've learned in the last 5 scenarios.",
+  descriptionPt: "Revise o que você aprendeu nos últimos 5 cenários.",
+  icon: "🔄",
+  imagePath: "/images/review_2_scene.jpg",
+  color: 'orange',
+  vocabulary: [
+    {
+      english: "Turn left",
+      portuguese: "Vire à esquerda",
+      sentenceA1: "Turn left at the corner.",
+      sentenceA2: "Turn left after the traffic light and walk two more blocks.",
+      sentenceA1Pt: "Vire à esquerda na esquina.",
+      sentenceA2Pt: "Vire à esquerda depois do semáforo e ande mais dois quarteirões."
+    },
+    {
+      english: "Turn right",
+      portuguese: "Vire à direita",
+      sentenceA1: "Turn right here.",
+      sentenceA2: "Turn right at the next intersection and you will see the bank.",
+      sentenceA1Pt: "Vire à direita aqui.",
+      sentenceA2Pt: "Vire à direita na próxima interseção e verá o banco."
+    },
+    {
+      english: "Go straight",
+      portuguese: "Siga em frente",
+      sentenceA1: "Go straight two blocks.",
+      sentenceA2: "Go straight for five minutes and the museum is on your left.",
+      sentenceA1Pt: "Siga em frente dois quarteirões.",
+      sentenceA2Pt: "Siga em frente por cinco minutos e o museu fica à sua esquerda."
+    },
+    {
+      english: "Block",
+      portuguese: "Quarteirão / Bloco",
+      sentenceA1: "It is two blocks away.",
+      sentenceA2: "The pharmacy is about three blocks from here.",
+      sentenceA1Pt: "Fica a dois quarteirões.",
+      sentenceA2Pt: "A farmácia fica a três quarteirões daqui."
+    },
+    {
+      english: "Ride",
+      portuguese: "Carona / Corrida",
+      sentenceA1: "I need a ride.",
+      sentenceA2: "Can you give me a ride to the airport tomorrow?",
+      sentenceA1Pt: "Preciso de uma carona.",
+      sentenceA2Pt: "Pode me dar uma carona ao aeroporto amanhã?"
+    },
+    {
+      english: "Fare",
+      portuguese: "Tarifa / Preço da passagem",
+      sentenceA1: "How much is the fare?",
+      sentenceA2: "The bus fare increased by ten percent last month.",
+      sentenceA1Pt: "Quanto é a tarifa?",
+      sentenceA2Pt: "A tarifa do ônibus aumentou dez por cento mês passado."
+    },
+    {
+      english: "Driver",
+      portuguese: "Motorista",
+      sentenceA1: "The driver is nice.",
+      sentenceA2: "The taxi driver took the fastest route to avoid traffic.",
+      sentenceA1Pt: "O motorista é gentil.",
+      sentenceA2Pt: "O taxista pegou a rota mais rápida para evitar trânsito."
+    },
+    {
+      english: "Subway / Metro",
+      portuguese: "Metrô",
+      sentenceA1: "I take the subway every day.",
+      sentenceA2: "The subway is the fastest way to get around during rush hour.",
+      sentenceA1Pt: "Pego o metrô todo dia.",
+      sentenceA2Pt: "O metrô é a forma mais rápida de se locomover na hora do rush."
+    },
+    {
+      english: "Headache",
+      portuguese: "Dor de cabeça",
+      sentenceA1: "I have a headache.",
+      sentenceA2: "I have had a terrible headache since yesterday.",
+      sentenceA1Pt: "Estou com dor de cabeça.",
+      sentenceA2Pt: "Estou com uma dor de cabeça terrível desde ontem."
+    },
+    {
+      english: "Sore throat",
+      portuguese: "Dor de garganta",
+      sentenceA1: "I have a sore throat.",
+      sentenceA2: "My sore throat makes it difficult to swallow food.",
+      sentenceA1Pt: "Estou com dor de garganta.",
+      sentenceA2Pt: "Minha dor de garganta dificulta engolir comida."
+    },
+    {
+      english: "Fever",
+      portuguese: "Febre",
+      sentenceA1: "I have a fever.",
+      sentenceA2: "The doctor said I have a mild fever and should rest.",
+      sentenceA1Pt: "Estou com febre.",
+      sentenceA2Pt: "O médico disse que estou com febre leve e devo descansar."
+    },
+    {
+      english: "Pain reliever",
+      portuguese: "Analgésico",
+      sentenceA1: "I need a pain reliever.",
+      sentenceA2: "Can you recommend a good pain reliever for muscle pain?",
+      sentenceA1Pt: "Preciso de um analgésico.",
+      sentenceA2Pt: "Pode recomendar um bom analgésico para dor muscular?"
+    },
+    {
+      english: "Tickets",
+      portuguese: "Ingressos",
+      sentenceA1: "I bought two tickets.",
+      sentenceA2: "I bought the tickets online because they were cheaper.",
+      sentenceA1Pt: "Comprei dois ingressos.",
+      sentenceA2Pt: "Comprei os ingressos online porque eram mais baratos."
+    },
+    {
+      english: "Show",
+      portuguese: "Apresentação / Show",
+      sentenceA1: "The show starts at 8 PM.",
+      sentenceA2: "The comedy show last night was amazing.",
+      sentenceA1Pt: "O show começa às 20h.",
+      sentenceA2Pt: "O show de comédia ontem à noite foi incrível."
+    },
+    {
+      english: "Box office",
+      portuguese: "Bilheteria",
+      sentenceA1: "The box office is closed.",
+      sentenceA2: "You can buy tickets at the box office or online.",
+      sentenceA1Pt: "A bilheteria está fechada.",
+      sentenceA2Pt: "Pode comprar ingressos na bilheteria ou online."
+    },
+    {
+      english: "Recommendation",
+      portuguese: "Recomendação",
+      sentenceA1: "Do you have a recommendation?",
+      sentenceA2: "The staff gave me a great recommendation for a jazz club.",
+      sentenceA1Pt: "Tem uma recomendação?",
+      sentenceA2Pt: "A equipe me deu uma ótima recomendação de um clube de jazz."
+    },
+    {
+      english: "Network",
+      portuguese: "Rede",
+      sentenceA1: "I have no network.",
+      sentenceA2: "The network coverage is very poor in this area.",
+      sentenceA1Pt: "Estou sem rede.",
+      sentenceA2Pt: "A cobertura de rede é muito fraca nesta área."
+    },
+    {
+      english: "Password",
+      portuguese: "Senha",
+      sentenceA1: "What is the password?",
+      sentenceA2: "I changed my password because someone tried to access my account.",
+      sentenceA1Pt: "Qual é a senha?",
+      sentenceA2Pt: "Mudei minha senha porque alguém tentou acessar minha conta."
+    },
+    {
+      english: "SIM card / Chip",
+      portuguese: "Chip de celular",
+      sentenceA1: "I need a SIM card.",
+      sentenceA2: "I bought a local SIM card at the airport to avoid roaming.",
+      sentenceA1Pt: "Preciso de um chip.",
+      sentenceA2Pt: "Comprei um chip local no aeroporto para evitar roaming."
+    },
+    {
+      english: "Prepaid",
+      portuguese: "Pré-pago",
+      sentenceA1: "I want a prepaid plan.",
+      sentenceA2: "The prepaid plan includes five gigabytes of data.",
+      sentenceA1Pt: "Quero um plano pré-pago.",
+      sentenceA2Pt: "O plano pré-pago inclui cinco gigabytes de dados."
+    }
+  ],
+  dialogues: [
+    {
+      speaker: "tourist",
+      english: "Excuse me, do you speak English? Could you help me?",
+      portuguese: "Com licença, você fala inglês? Você poderia me ajudar?"
+    },
+    {
+      speaker: "local",
+      english: "Yes, I do! Of course, what do you need?",
+      portuguese: "Sim, eu falo! Claro, do que você precisa?"
+    }
+  ],
+  dialogues2: [
+    {
+      speaker: "tourist",
+      english: "Excuse me, I'm looking for a pharmacy. Is there one nearby?",
+      portuguese: "Com licença, estou procurando uma farmácia. Existe alguma por perto?"
+    }
+  ],
+  importantPhrases: [
+    {
+      pt: "Pode mostrar no mapa?",
+      en: "Can you show me on the map?"
+    },
+    {
+      pt: "Fica do lado esquerdo.",
+      en: "It is on the left side."
+    },
+    {
+      pt: "Fica perto do banco?",
+      en: "Is it near the bank?"
+    },
+    {
+      pt: "Quanto tempo dura a viagem?",
+      en: "How long is the trip?"
+    },
+    {
+      pt: "Qual é a próxima parada?",
+      en: "What is the next stop?"
+    },
+    {
+      pt: "Preciso trocar de linha?",
+      en: "Do I need to change lines?"
+    },
+    {
+      pt: "Preciso de um dentista.",
+      en: "I need a dentist."
+    },
+    {
+      pt: "Eu torci meu tornozelo.",
+      en: "I sprained my ankle."
+    },
+    {
+      pt: "Tem seguro saúde?",
+      en: "Do you have health insurance?"
+    },
+    {
+      pt: "Onde compro as bebidas?",
+      en: "Where do I buy drinks?"
+    },
+    {
+      pt: "Posso tirar fotos?",
+      en: "Can I take photos?"
+    },
+    {
+      pt: "O museu está fechado hoje?",
+      en: "Is the museum closed today?"
+    },
+    {
+      pt: "A tela está quebrada.",
+      en: "The screen is broken."
+    },
+    {
+      pt: "Esqueci minha senha.",
+      en: "I forgot my password."
+    },
+    {
+      pt: "Tem tomada aqui?",
+      en: "Is there an outlet here?"
+    }
+  ],
+  problems: [
+    {
+      descriptionPt: "Você seguiu as instruções, mas se perdeu completamente."
+    },
+    {
+      descriptionPt: "Seu celular ficou sem bateria e você precisa perguntar como chegar ao hotel."
+    },
+    {
+      descriptionPt: "Você pegou o trem na direção errada."
+    },
+    {
+      descriptionPt: "Você perdeu o último ônibus da noite."
+    },
+    {
+      descriptionPt: "Você precisa comprar um remédio, mas esqueceu o nome dele em inglês."
+    },
+    {
+      descriptionPt: "Você começou a sentir uma dor muito forte no estômago durante a noite."
+    },
+    {
+      descriptionPt: "Você comprou ingressos online, mas o scanner não está lendo o QR Code."
+    },
+    {
+      descriptionPt: "Alguém está sentado no seu lugar numerado no cinema."
+    },
+    {
+      descriptionPt: "Você quebrou a tela do celular e precisa de um conserto urgente."
+    },
+    {
+      descriptionPt: "O adaptador de tomada que você comprou não encaixa."
+    }
+  ]
+},
   
   
   {
@@ -7940,6 +8545,326 @@ export const scenarios: Scenario[] = [
             optionBPt: "Desligar sem querer na cara de alguém importante"
       }
 ]
+},
+  {
+  id: "review-3",
+  title: "Review 3",
+  titlePt: "Revisão 3",
+  description: "Review what you've learned in the last 5 scenarios.",
+  descriptionPt: "Revise o que você aprendeu nos últimos 5 cenários.",
+  icon: "🔄",
+  imagePath: "/images/review_3_scene.jpg",
+  color: 'mint',
+  vocabulary: [
+    {
+      english: "Fitting room",
+      portuguese: "Provador",
+      sentenceA1: "Where is the fitting room?",
+      sentenceA2: "The fitting rooms are at the back of the store.",
+      sentenceA1Pt: "Onde é o provador?",
+      sentenceA2Pt: "Os provadores ficam no fundo da loja."
+    },
+    {
+      english: "Size (Small, Medium, Large)",
+      portuguese: "Tamanho (P, M, G)",
+      sentenceA1: "I need a medium.",
+      sentenceA2: "Do you have this in a size small? The medium is too loose.",
+      sentenceA1Pt: "Preciso de um médio.",
+      sentenceA2Pt: "Tem no tamanho P? O M está muito largo."
+    },
+    {
+      english: "Tight / Loose",
+      portuguese: "Apertado / Largo",
+      sentenceA1: "This is too tight.",
+      sentenceA2: "The pants are tight around the waist. Do you have a larger size?",
+      sentenceA1Pt: "Está muito apertado.",
+      sentenceA2Pt: "A calça está apertada na cintura. Tem tamanho maior?"
+    },
+    {
+      english: "Receipt",
+      portuguese: "Recibo / Nota fiscal",
+      sentenceA1: "I need the receipt.",
+      sentenceA2: "Keep your receipt in case you need to exchange the item.",
+      sentenceA1Pt: "Preciso do recibo.",
+      sentenceA2Pt: "Guarde o recibo caso precise trocar o item."
+    },
+    {
+      english: "Foundation",
+      portuguese: "Base de maquiagem",
+      sentenceA1: "I need foundation.",
+      sentenceA2: "I use a light foundation that matches my skin tone.",
+      sentenceA1Pt: "Preciso de base.",
+      sentenceA2Pt: "Uso uma base leve que combina com meu tom de pele."
+    },
+    {
+      english: "Concealer",
+      portuguese: "Corretivo",
+      sentenceA1: "I use concealer.",
+      sentenceA2: "This concealer covers dark circles very well.",
+      sentenceA1Pt: "Uso corretivo.",
+      sentenceA2Pt: "Este corretivo cobre olheiras muito bem."
+    },
+    {
+      english: "Moisturizer",
+      portuguese: "Hidratante",
+      sentenceA1: "I need a moisturizer.",
+      sentenceA2: "I apply moisturizer every morning after washing my face.",
+      sentenceA1Pt: "Preciso de hidratante.",
+      sentenceA2Pt: "Aplico hidratante toda manhã depois de lavar o rosto."
+    },
+    {
+      english: "Cleanser",
+      portuguese: "Gel de limpeza / Sabonete facial",
+      sentenceA1: "I use a gentle cleanser.",
+      sentenceA2: "A good cleanser removes all makeup without drying your skin.",
+      sentenceA1Pt: "Uso um limpador suave.",
+      sentenceA2Pt: "Um bom limpador remove toda a maquiagem sem ressecar a pele."
+    },
+    {
+      english: "Insurance",
+      portuguese: "Seguro",
+      sentenceA1: "I want insurance.",
+      sentenceA2: "The insurance covers any damage during the rental period.",
+      sentenceA1Pt: "Quero seguro.",
+      sentenceA2Pt: "O seguro cobre qualquer dano durante o período de aluguel."
+    },
+    {
+      english: "Toll pass",
+      portuguese: "Passe de pedágio",
+      sentenceA1: "Do I need a toll pass?",
+      sentenceA2: "The toll pass is convenient because you do not need to stop.",
+      sentenceA1Pt: "Preciso de passe de pedágio?",
+      sentenceA2Pt: "O passe de pedágio é prático porque não precisa parar."
+    },
+    {
+      english: "Deposit",
+      portuguese: "Depósito / Caução",
+      sentenceA1: "How much is the deposit?",
+      sentenceA2: "They charged a five hundred dollar deposit on my credit card.",
+      sentenceA1Pt: "Quanto é o depósito?",
+      sentenceA2Pt: "Cobraram um depósito de quinhentos dólares no meu cartão."
+    },
+    {
+      english: "Full tank",
+      portuguese: "Tanque cheio",
+      sentenceA1: "The tank is full.",
+      sentenceA2: "Please return the car with a full tank or you will be charged.",
+      sentenceA1Pt: "O tanque está cheio.",
+      sentenceA2Pt: "Devolva o carro com o tanque cheio senão será cobrado a mais."
+    },
+    {
+      english: "Grocery store / Supermarket",
+      portuguese: "Supermercado / Mercearia",
+      sentenceA1: "I go to the supermarket.",
+      sentenceA2: "The grocery store near my house has great organic products.",
+      sentenceA1Pt: "Vou ao supermercado.",
+      sentenceA2Pt: "O supermercado perto de casa tem ótimos produtos orgânicos."
+    },
+    {
+      english: "Produce section",
+      portuguese: "Hortifrúti / FLV",
+      sentenceA1: "Fruits are in produce.",
+      sentenceA2: "I always start shopping in the produce section.",
+      sentenceA1Pt: "Frutas ficam no hortifrúti.",
+      sentenceA2Pt: "Sempre começo as compras na seção de hortifrúti."
+    },
+    {
+      english: "Bakery",
+      portuguese: "Padaria",
+      sentenceA1: "The bakery smells great.",
+      sentenceA2: "The bakery makes fresh bread every morning.",
+      sentenceA1Pt: "A padaria cheira bem.",
+      sentenceA2Pt: "A padaria faz pão fresco toda manhã."
+    },
+    {
+      english: "Deli counter",
+      portuguese: "Fiambreria / Frios",
+      sentenceA1: "I want cheese from the deli.",
+      sentenceA2: "The deli counter has a wide variety of imported cheeses.",
+      sentenceA1Pt: "Quero queijo do balcão de frios.",
+      sentenceA2Pt: "O balcão de frios tem grande variedade de queijos importados."
+    },
+    {
+      english: "Small talk",
+      portuguese: "Conversa informal",
+      sentenceA1: "I like small talk.",
+      sentenceA2: "Making small talk is a great way to practice English.",
+      sentenceA1Pt: "Gosto de conversa informal.",
+      sentenceA2Pt: "Conversa informal é ótima para praticar inglês."
+    },
+    {
+      english: "Fingers crossed",
+      portuguese: "Dedos cruzados / Torcendo",
+      sentenceA1: "Fingers crossed!",
+      sentenceA2: "I have a job interview tomorrow. Fingers crossed!",
+      sentenceA1Pt: "Estou torcendo!",
+      sentenceA2Pt: "Tenho uma entrevista amanhã. Estou torcendo!"
+    },
+    {
+      english: "Catch the game",
+      portuguese: "Assistir o jogo",
+      sentenceA1: "Did you catch the game?",
+      sentenceA2: "Did you catch the game last night? The final was incredible.",
+      sentenceA1Pt: "Você assistiu o jogo?",
+      sentenceA2Pt: "Assistiu o jogo ontem? O final foi incrível."
+    },
+    {
+      english: "Overtime",
+      portuguese: "Hora extra / Prorrogação",
+      sentenceA1: "I worked overtime today.",
+      sentenceA2: "I had to work overtime to finish the project.",
+      sentenceA1Pt: "Fiz hora extra hoje.",
+      sentenceA2Pt: "Tive que fazer hora extra para terminar o projeto."
+    }
+  ],
+  dialogues: [
+    {
+      speaker: "student",
+      english: "Excuse me, do you happen to have this sweater in a smaller size?",
+      portuguese: "Com licença, por acaso você tem este suéter em um tamanho menor?"
+    },
+    {
+      speaker: "native",
+      english: "Let me check the back for you. What size are you currently holding?",
+      portuguese: "Deixe-me checar no estoque para você. Qual tamanho você está segurando agora?"
+    },
+    {
+      speaker: "student",
+      english: "Hi there, could you help me? I'm having trouble matching my foundation shade.",
+      portuguese: "Olá, você poderia me ajudar? Estou tendo dificuldade em encontrar o tom da minha base."
+    },
+    {
+      speaker: "native",
+      english: "Of course! Foundation matching can be tricky. Are you looking for full coverage or something light?",
+      portuguese: "Claro! Encontrar a base pode ser complicado. Você procura cobertura total ou algo leve?"
+    },
+    {
+      speaker: "native",
+      english: "Good afternoon! Welcome to FastDrive Rental. Do you have a reservation?",
+      portuguese: "Boa tarde! Bem-vindo à FastDrive Rental. Você tem uma reserva?"
+    },
+    {
+      speaker: "student",
+      english: "Good afternoon. Yes, I have a reservation under the name Tati. Here is my confirmation number.",
+      portuguese: "Boa tarde. Sim, tenho uma reserva em nome de Tati. Aqui está meu número de confirmação."
+    },
+    {
+      speaker: "student",
+      english: "Excuse me, I'm looking for the produce section. Where can I find fresh vegetables?",
+      portuguese: "Com licença, estou procurando o setor de hortifrúti. Onde posso encontrar verduras frescas?"
+    },
+    {
+      speaker: "native",
+      english: "It's right at the entrance, on your left. We have a great selection of organic lettuce, tomatoes, and apples today.",
+      portuguese: "Fica logo na entrada, à sua esquerda. Temos uma ótima seleção de alface, tomates e maçãs orgânicas hoje."
+    }
+  ],
+  dialogues2: [
+    {
+      speaker: "student",
+      english: "Excuse me, could you point me to the hair care section? I'm looking for a heat protectant spray.",
+      portuguese: "Com licença, você poderia me indicar a seção de cuidados com o cabelo? Estou procurando um spray protetor térmico."
+    },
+    {
+      speaker: "student",
+      english: "Hello, I need assistance. I picked up a rental car this morning, but it's making a strange noise.",
+      portuguese: "Olá, preciso de ajuda. Peguei um carro alugado hoje de manhã, mas ele está fazendo um barulho estranho."
+    }
+  ],
+  importantPhrases: [
+    {
+      pt: "Qual é o horário de funcionamento?",
+      en: "What are the opening hours?"
+    },
+    {
+      pt: "Onde é o caixa eletrônico?",
+      en: "Where is the ATM?"
+    },
+    {
+      pt: "Posso experimentar isso?",
+      en: "Can I try this on?"
+    },
+    {
+      pt: "Quero pintar o cabelo.",
+      en: "I want to dye my hair."
+    },
+    {
+      pt: "Minha pele é muito seca.",
+      en: "My skin is very dry."
+    },
+    {
+      pt: "Posso ver o catálogo de cores?",
+      en: "Can I see the color catalog?"
+    },
+    {
+      pt: "Preciso de uma cadeirinha de bebê.",
+      en: "I need a baby seat."
+    },
+    {
+      pt: "O carro é automático ou manual?",
+      en: "Is the car automatic or manual?"
+    },
+    {
+      pt: "Tem limite de quilometragem?",
+      en: "Is there a mileage limit?"
+    },
+    {
+      pt: "Onde ficam os laticínios?",
+      en: "Where is the dairy section?"
+    },
+    {
+      pt: "Esta carne está fresca?",
+      en: "Is this meat fresh?"
+    },
+    {
+      pt: "Pode me ajudar a alcançar isso?",
+      en: "Can you help me reach this?"
+    },
+    {
+      pt: "Você gosta de esportes?",
+      en: "Do you like sports?"
+    },
+    {
+      pt: "Assisti a um filme ótimo.",
+      en: "I watched a great movie."
+    },
+    {
+      pt: "A comida estava deliciosa.",
+      en: "The food was delicious."
+    }
+  ],
+  problems: [
+    {
+      descriptionPt: "O seu cartão de crédito foi recusado na maquininha."
+    },
+    {
+      descriptionPt: "Você comprou uma roupa ontem, mas ela descosturou na primeira vez que usou."
+    },
+    {
+      descriptionPt: "O cabeleireiro cortou seu cabelo muito mais curto do que você pediu."
+    },
+    {
+      descriptionPt: "Você teve uma reação alérgica a um creme que aplicaram na sua pele."
+    },
+    {
+      descriptionPt: "O pneu do carro alugado furou no meio da estrada."
+    },
+    {
+      descriptionPt: "Quando você foi pegar o carro, ele já tinha um grande arranhão na porta."
+    },
+    {
+      descriptionPt: "Você derrubou um vidro de molho no chão do mercado e quebrou."
+    },
+    {
+      descriptionPt: "O caixa cobrou o valor de um item duas vezes por engano."
+    },
+    {
+      descriptionPt: "A pessoa fez uma piada que você não entendeu, e você precisa dizer isso de forma educada."
+    },
+    {
+      descriptionPt: "Você não quer falar sobre o assunto que a pessoa puxou e quer mudar de assunto educadamente."
+    }
+  ]
 },
   {
     id: 'slangs',
